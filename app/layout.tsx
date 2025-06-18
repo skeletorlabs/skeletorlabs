@@ -23,31 +23,6 @@ export default function RootLayout({
         <title>Skeletor Dapps</title>
       </head>
       <body className={`bg-[#151515] ${inter.className}`}>
-        {/* <div className="flex flex-row w-full h-[140px] justify-center items-center gap-[700px]">
-          <div className="flex justify-center items-center gap-3 text-2xl">
-            <Image src="/logo2.svg" width={60} height={60} alt="logo" />
-            <span
-              className={`bg-gradient-to-r from-[#c77adb] via-white to-[#6eadff] text-transparent bg-clip-text ${jakarta.className}`}
-            >
-              SkEletor DApps
-            </span>
-          </div>
-
-          <div className="flex flex-row justify-center items-center gap-5 text-lg pt-[1px]">
-            <Link
-              href="/"
-              className="bg-gradient-to-r from-[#c4b6f9] to-[#987FFF] text-transparent bg-clip-text hover:border-b"
-            >
-              Page 1
-            </Link>
-            <Link
-              href="/feature1"
-              className="bg-gradient-to-r from-[#c4b6f9] to-[#987FFF] text-transparent bg-clip-text"
-            >
-              Page 2
-            </Link>
-          </div>
-        </div> */}
         <div className="flex flex-col justify-center items-center">
           {children}
         </div>

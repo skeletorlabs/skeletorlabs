@@ -176,11 +176,6 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              {/* <p className="bg-gradient-to-br from-white/30 via-white to-white/30 text-transparent bg-clip-text text-[18px] font-light pt-6 font-sans">
-              Leveraging the potential of blockchain technology to create smart
-              contracts and decentralized applications (dApps) that drive
-              innovation and transform industries.
-            </p> */}
             </div>
           </div>
         </div>
