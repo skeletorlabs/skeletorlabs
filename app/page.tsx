@@ -10,11 +10,11 @@ import { discord, github, linkedin, telegram, twitterX } from "./utils/svgs";
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 const socials = [
-  { icon: linkedin, href: "#" },
-  { icon: github, href: "#" },
-  { icon: telegram, href: "#" },
-  { icon: twitterX, href: "#" },
-  { icon: discord, href: "#" },
+  { icon: linkedin, href: "https://www.linkedin.com/in/lfsilveira" },
+  { icon: github, href: "https://github.com/skeletordapps" },
+  { icon: telegram, href: "https://telegram.me/skeletor_keldor" },
+  { icon: twitterX, href: "https://x.com/0x_theL" },
+  { icon: discord, href: "skeletor8555" },
 ];
 
 const stack = [
@@ -34,7 +34,7 @@ const companies = [
   {
     title: "SamuraiStarter",
     description:
-      "Leverage Inu, social passive trading. Yield and Trade profit sharing powered by $LEVI token",
+      "Leading early-stage crowdfunding platform that incentivizes community members to invest and participate in the most innovative projects in the crypto space.",
     src: "/samurai.svg",
     chains: ["Base"],
     link: "http://samuraistarter.com",
@@ -53,27 +53,25 @@ const contributions = [
   {
     title: "L2VE",
     description:
-      "Leverage Inu, social passive trading. Yield and Trade profit sharing powered by $LEVI token",
+      "The only L2VE you need in your life. 100% degen approved Meme farming.",
     src: "/l2ve.png",
     chains: ["Base"],
     link: "http://l2ve.com",
   },
   {
-    title: "Leverage-Inu",
-    description:
-      "Leverage Inu, social passive trading. Yield and Trade profit sharing powered by $LEVI token",
-    src: "/levi.svg",
+    title: "Anonymous",
+    description: "Meme token contracts + dapp",
+    src: "/logo2.svg",
     chains: ["Arbitrum One"],
-    link: "http://samuraistarter.com",
+    link: "#",
   },
 
   {
-    title: "OptimismPrime",
-    description:
-      "One Ring is a Multi-Chain Cross-Stable Yield Optimizer Platform.",
-    src: "/onering.svg",
+    title: "Anonymous",
+    description: "Meme token contracts + dapp",
+    src: "/logo2.svg",
     chains: ["Optimism"],
-    link: "http://onering.tools",
+    link: "#",
   },
 ];
 
@@ -208,7 +206,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm w-[300px] text-center mt-2 text-white/70 min-h-[50px]">
+                  <p className="text-sm w-[300px] h-[80px] text-center mt-2 text-white/70 min-h-[50px]">
                     {item.description}
                   </p>
                 </Link>
