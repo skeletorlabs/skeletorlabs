@@ -5,7 +5,14 @@ import Typed from "typed.js";
 import { useRef, useEffect } from "react";
 import Link from "next/link";
 import Subtitle from "./components/subtitle";
-import { discord, github, linkedin, telegram, twitterX } from "./utils/svgs";
+import {
+  discord,
+  etherscan,
+  github,
+  linkedin,
+  telegram,
+  twitterX,
+} from "./utils/svgs";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -109,6 +116,63 @@ const projects = [
   },
 ];
 
+const shipment = [
+  {
+    name: "Contract",
+    usecase: "NFT Mint with ERC721A + Presale",
+    summary:
+      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+    stacks: ["Solidity", "Foundry", "Subgraph"],
+    github: "#",
+    etherscan: "#",
+  },
+  {
+    name: "Contract",
+    usecase: "NFT Mint with ERC721A + Presale",
+    summary:
+      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+    stacks: ["Solidity", "Foundry", "Subgraph"],
+    github: "#",
+    etherscan: "#",
+  },
+  {
+    name: "Contract",
+    usecase: "NFT Mint with ERC721A + Presale",
+    summary:
+      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+    stacks: ["Solidity", "Foundry", "Subgraph"],
+    github: "#",
+    etherscan: "#",
+  },
+  {
+    name: "Contract",
+    usecase: "NFT Mint with ERC721A + Presale",
+    summary:
+      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+    stacks: ["Solidity", "Foundry", "Subgraph"],
+    github: "#",
+    etherscan: "#",
+  },
+  {
+    name: "Contract",
+    usecase: "NFT Mint with ERC721A + Presale",
+    summary:
+      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+    stacks: ["Solidity", "Foundry", "Subgraph"],
+    github: "#",
+    etherscan: "#",
+  },
+  {
+    name: "Contract",
+    usecase: "NFT Mint with ERC721A + Presale",
+    summary:
+      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+    stacks: ["Solidity", "Foundry", "Subgraph"],
+    github: "#",
+    etherscan: "#",
+  },
+];
+
 export default function Home() {
   // Create reference to store the DOM element containing the animation
   const el = useRef(null);
@@ -181,16 +245,58 @@ export default function Home() {
         <div className="flex flex-col w-full min-h-[1200px] z-20 py-[40px] bg-black bg-eth2 bg-bottom bg-no-repeat gap-10">
           <div className="flex flex-col bg-black/10 px-14 py-10 border-t border-b border-white/5 gap-10">
             <Subtitle
+              text="Shipped Code"
+              description="Some important codes & products shipped"
+            />
+            <div className="flex flex-row items-center gap-8 flex-wrap">
+              {shipment.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center text-center gap-1 w-[280px] bg-violet-300/10 border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+                >
+                  <p className="text-xl text-violet-300">{item.name}</p>
+                  <p className="text-sm text-white/70">{item.usecase}</p>
+                  <div className="flex items-center gap-2 text-xs text-violet-200">
+                    {item.stacks.map((stack, stackIndex) => (
+                      <span
+                        key={stackIndex}
+                        className="flex items-center justify-center text-center bg-indigo-600 rounded-lg px-2"
+                      >
+                        {stack}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm w-[260px] h-[80px] text-center mt-2 text-white/70 min-h-[50px]">
+                    {item.summary}
+                  </p>
+                  <div className="flex items-center justify-end w-full gap-2">
+                    <Link
+                      href={item.etherscan}
+                      className="bg-white rounded-full hover:opacity-75"
+                    >
+                      {etherscan}
+                    </Link>
+                    <Link href={item.github} className=" hover:opacity-75">
+                      {github}
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col bg-black/10 py-10 border-t border-b border-white/5 gap-10">
+            <Subtitle
               text="Companies"
               description="Current/Past full-time experiences in blockchain companies since 2021"
+              padding
             />
-            <div className="flex flex-row items-center gap-14">
+            <div className="flex flex-row items-center gap-14 px-14 py-10 bg-indigo-600/50 border-b border-t border-neutral-800">
               {companies.map((item, index) => (
                 <Link
                   key={index}
                   href={item.link}
                   target="blank"
-                  className="flex flex-col items-center justify-center gap-1 w-full bg-violet-300/10 border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+                  className="flex flex-col items-center justify-center gap-1 w-max pt-6 bg-black/30 hover:opacity-90"
                 >
                   <div className="flex items-center justify-center bg-black border border-neutral-900 w-[160px] h-[160px] rounded-full">
                     <Image src={item.src} width={110} height={110} alt={"#"} />
@@ -206,7 +312,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="text-sm w-[300px] h-[80px] text-center mt-2 text-white/70 min-h-[50px]">
+                  <p className="flex items-center justify-center text-sm w-[400px] h-[130px] text-center mt-8 text-white/70 min-h-[50px] bg-black/40 p-2">
                     {item.description}
                   </p>
                 </Link>

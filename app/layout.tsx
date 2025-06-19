@@ -1,9 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
 import "./globals.css";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
