@@ -296,7 +296,7 @@ export default function Home() {
                   key={index}
                   href={item.link}
                   target="blank"
-                  className="flex flex-col items-center justify-center gap-1 w-max pt-6 bg-black/30 hover:opacity-90"
+                  className="flex flex-col items-center justify-center gap-1 w-max pt-6 bg-black/30 rounded-xl hover:opacity-90"
                 >
                   <div className="flex items-center justify-center bg-black border border-neutral-900 w-[160px] h-[160px] rounded-full">
                     <Image src={item.src} width={110} height={110} alt={"#"} />
@@ -312,7 +312,7 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <p className="flex items-center justify-center text-sm w-[400px] h-[130px] text-center mt-8 text-white/70 min-h-[50px] bg-black/40 p-2">
+                  <p className="flex items-center justify-center text-sm w-[400px] h-[130px] text-center mt-8 text-white/70 min-h-[50px] bg-black/40 p-2 rounded-b-xl shadow-lg">
                     {item.description}
                   </p>
                 </Link>
