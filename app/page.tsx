@@ -31,16 +31,36 @@ const socials = [
 ];
 
 const stack = [
-  { href: "https://book.getfoundry.sh/", src: "/stack/FOUNDRY.svg" },
-  { href: "https://thegraph.com/", src: "/stack/GRAPH.svg" },
-  { href: "https://hardhat.org/", src: "/stack/HARDHAT.svg" },
-  { href: "https://nextjs.org/", src: "/stack/NEXT.svg" },
-  { href: "https://www.openzeppelin.com/", src: "/stack/OZ.svg" },
-  { href: "https://react.dev/", src: "/stack/REACT.svg" },
-  { href: "https://remix.ethereum.org/", src: "/stack/REMIX.svg" },
-  { href: "https://soliditylang.org/", src: "/stack/SOLIDITY.svg" },
-  { href: "https://tailwindcss.com/", src: "/stack/TAILWIND.svg" },
-  { href: "https://vercel.com/", src: "/stack/VERCEL.svg" },
+  {
+    name: "Foundry",
+    href: "https://book.getfoundry.sh/",
+    src: "/stack/FOUNDRY.svg",
+  },
+  { name: "The Graph", href: "https://thegraph.com/", src: "/stack/GRAPH.svg" },
+  { name: "Hardhat", href: "https://hardhat.org/", src: "/stack/HARDHAT.svg" },
+  { name: "NextJs", href: "https://nextjs.org/", src: "/stack/NEXT.svg" },
+  {
+    name: "Open Zeppelin",
+    href: "https://www.openzeppelin.com/",
+    src: "/stack/OZ.svg",
+  },
+  { name: "React", href: "https://react.dev/", src: "/stack/REACT.svg" },
+  {
+    name: "Remix",
+    href: "https://remix.ethereum.org/",
+    src: "/stack/REMIX.svg",
+  },
+  {
+    name: "Solidity",
+    href: "https://soliditylang.org/",
+    src: "/stack/SOLIDITY.svg",
+  },
+  {
+    name: "Tailwind CSS",
+    href: "https://tailwindcss.com/",
+    src: "/stack/TAILWIND.svg",
+  },
+  { name: "Vercel", href: "https://vercel.com/", src: "/stack/VERCEL.svg" },
 ];
 
 const companies = [
@@ -363,12 +383,15 @@ export default function Home() {
                   target="blank"
                   className="transition-transform hover:scale-[1.04] hover:opacity-90"
                 >
-                  <Image
-                    src={item.src}
-                    width={130}
-                    height={130}
-                    alt={item.href}
-                  />
+                  <div className="flex flex-col items-center justify-center gap-1 text-violet-200/70 hover:text-violet-200">
+                    <Image
+                      src={item.src}
+                      width={130}
+                      height={130}
+                      alt={item.href}
+                    />
+                    <span>{item.name}</span>
+                  </div>
                 </Link>
               ))}
             </div>

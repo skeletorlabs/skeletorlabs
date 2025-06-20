@@ -5,8 +5,10 @@ export default function Terminal() {
   const terminalRef = useRef<any>(null);
   const [welcomeLines, setWelcomeLines] = useState<JSX.Element[]>([]);
   const [prompt, setPrompt] = useState("");
+  const [barColor, setBarColor] = useState("");
   const [commands] = useState<any>({
-    whoami: () => "skeletor",
+    whoami: () => "stranger",
+    whoismaster: () => "skeletor",
     sudo: () => "permission denied",
     cd: (directory: string) => `changed path to ${directory}`,
     forge: (args: string) => {
@@ -25,6 +27,18 @@ export default function Terminal() {
             ; <span style={{ color: "#F44336" }}>0 failed</span>;{" "}
             <span style={{ color: "#FFEB3B" }}>0 skipped</span>; finished in
             3.83s (19.84ms CPU time)
+          </div>,
+
+          <div
+            key="line5"
+            className="flex flex-col text-xs text-white/80 py-4  leading-normal my-5"
+          >
+            <code className="my-2 text-white">--help:</code>
+            <code>- whoami</code>
+            <code>- whoismaster</code>
+            <code>- sudo</code>
+            <code>- cd </code>
+            <code>- clear</code>
           </div>,
         ];
       }
@@ -49,7 +63,8 @@ export default function Terminal() {
     setWelcomeLines([<div key="cmd">{cmd}</div>, ...resultLines]);
 
     setPrompt("@Skeletor:~/Developer/Foo|main⚡ =>");
-  }, [commands, setWelcomeLines, setPrompt]);
+    setBarColor("white");
+  }, [commands, setBarColor, setWelcomeLines, setPrompt]);
 
   const renderTerminal = useCallback(() => {
     return (
@@ -89,12 +104,11 @@ export default function Terminal() {
           "skeletor-theme": {
             themeBGColor: "#111",
             themeToolbarColor: "#222",
-            themeColor: "white",
+            themeColor: barColor,
             themePromptColor: "#BFAFFF",
           },
         }}
         theme="skeletor-theme"
-        // forwardRef={terminalRef}
       />
     </div>
   );
