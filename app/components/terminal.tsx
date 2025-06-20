@@ -66,49 +66,28 @@ export default function Terminal() {
     setBarColor("white");
   }, [commands, setBarColor, setWelcomeLines, setPrompt]);
 
-  const renderTerminal = useCallback(() => {
-    return (
-      <ReactTerminal
-        commands={commands}
-        welcomeMessage={welcomeLines}
-        prompt={prompt}
-        themes={{
-          "skeletor-theme": {
-            themeBGColor: "#111",
-            themeToolbarColor: "#222",
-            themeColor: "white",
-            themePromptColor: "#BFAFFF",
-          },
-        }}
-        theme="skeletor-theme"
-        forwardRef={terminalRef}
-      />
-    );
-  }, []);
-
   useEffect(() => {
-    renderTerminal();
-
     setTimeout(() => {
       simulate();
     }, 1000);
   }, []);
 
   return (
-    <div className="my-terminal-wrapper px-14">
+    <div className="flex my-terminal-wrapper px-14">
       <ReactTerminal
         commands={commands}
         welcomeMessage={welcomeLines}
         prompt={prompt}
         themes={{
           "skeletor-theme": {
-            themeBGColor: "#111",
-            themeToolbarColor: "#222",
+            themeBGColor: "#000",
+            themeToolbarColor: "#000",
             themeColor: barColor,
             themePromptColor: "#BFAFFF",
           },
         }}
         theme="skeletor-theme"
+        forwardRef={terminalRef}
       />
     </div>
   );

@@ -270,7 +270,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full min-h-[1200px] z-20 py-[40px] bg-black bg-eth2 bg-bottom bg-cover bg-no-repeat gap-10">
+        <div className="flex flex-col w-full min-h-[1200px] z-20  bg-black bg-eth2 bg-bottom bg-cover bg-no-repeat gap-10">
           <Terminal />
           <div className="flex flex-col bg-black/10 px-14 py-10 border-t border-white/5 gap-10">
             <Subtitle
@@ -395,7 +395,8 @@ export default function Home() {
                 </Link>
               ))}
             </div>
-          </div>{" "}
+          </div>
+          <p className="text-[180px] px-10">LET'S TALK!</p>
         </div>
       </main>
       <footer
