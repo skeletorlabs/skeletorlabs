@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Typed from "typed.js";
@@ -13,6 +14,11 @@ import {
   telegram,
   twitterX,
 } from "./utils/svgs";
+import Badge from "./components/badge";
+
+const Terminal = dynamic(() => import("./components/terminal"), {
+  ssr: false,
+});
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -39,20 +45,22 @@ const stack = [
 
 const companies = [
   {
-    title: "SamuraiStarter",
+    title: "Samurai Starter",
     description:
       "Leading early-stage crowdfunding platform that incentivizes community members to invest and participate in the most innovative projects in the crypto space.",
     src: "/samurai.svg",
     chains: ["Base"],
     link: "http://samuraistarter.com",
+    timeframe: "2023-Present",
   },
   {
     title: "One Ring",
     description:
-      "One Ring is a Multi-Chain Cross-Stable Yield Optimizer Platform.",
+      "One Ring is a Multi-Chain Cross-Stable Yield Optimizer Platform. Forget about spending hours looking for the best farms out there.",
     src: "/onering.svg",
     chains: ["Fantom", "Optimism", "Solana"],
     link: "http://onering.tools",
+    timeframe: "2021-2023",
   },
 ];
 
@@ -67,7 +75,7 @@ const contributions = [
   },
   {
     title: "Anonymous",
-    description: "Meme token contracts + dapp",
+    description: "Meme token, Lottery contracts + Custom TheGraph + dapp",
     src: "/logo2.svg",
     chains: ["Arbitrum One"],
     link: "#",
@@ -118,7 +126,7 @@ const projects = [
 
 const shipment = [
   {
-    name: "Contract",
+    name: "Contract 1",
     usecase: "NFT Mint with ERC721A + Presale",
     summary:
       "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
@@ -127,7 +135,7 @@ const shipment = [
     etherscan: "#",
   },
   {
-    name: "Contract",
+    name: "Contract 2",
     usecase: "NFT Mint with ERC721A + Presale",
     summary:
       "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
@@ -136,7 +144,7 @@ const shipment = [
     etherscan: "#",
   },
   {
-    name: "Contract",
+    name: "Contract 3",
     usecase: "NFT Mint with ERC721A + Presale",
     summary:
       "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
@@ -145,7 +153,7 @@ const shipment = [
     etherscan: "#",
   },
   {
-    name: "Contract",
+    name: "Contract 4",
     usecase: "NFT Mint with ERC721A + Presale",
     summary:
       "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
@@ -154,7 +162,7 @@ const shipment = [
     etherscan: "#",
   },
   {
-    name: "Contract",
+    name: "Contract 5",
     usecase: "NFT Mint with ERC721A + Presale",
     summary:
       "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
@@ -163,7 +171,7 @@ const shipment = [
     etherscan: "#",
   },
   {
-    name: "Contract",
+    name: "Contract 6",
     usecase: "NFT Mint with ERC721A + Presale",
     summary:
       "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
@@ -194,7 +202,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <main className="flex flex-col justify-center items-center w-[1024px] text-white">
+      <main className="flex flex-col justify-center items-center w-[1180px] text-white">
         <div className="bg-space bg-no-repeat bg-cover bg-left-top ">
           <div className="flex flex-col z-20 bg-gradient-to-b from-transparent via-black/30 to-black rounded-t-[40px] mt-40">
             <div className="flex flex-col z-20 py-12 px-14  rounded-t-[40px]">
@@ -242,8 +250,9 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full min-h-[1200px] z-20 py-[40px] bg-black bg-eth2 bg-bottom bg-no-repeat gap-10">
-          <div className="flex flex-col bg-black/10 px-14 py-10 border-t border-b border-white/5 gap-10">
+        <div className="flex flex-col w-full min-h-[1200px] z-20 py-[40px] bg-black bg-eth2 bg-bottom bg-cover bg-no-repeat gap-10">
+          <Terminal />
+          <div className="flex flex-col bg-black/10 px-14 py-10 border-t border-white/5 gap-10">
             <Subtitle
               text="Shipped Code"
               description="Some important codes & products shipped"
@@ -252,18 +261,13 @@ export default function Home() {
               {shipment.map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col items-center justify-center text-center gap-1 w-[280px] bg-violet-300/10 border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+                  className="flex flex-col items-center justify-center text-center gap-1 w-[330px] bg-black/60 backdrop-blur-sm border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
                 >
                   <p className="text-xl text-violet-300">{item.name}</p>
                   <p className="text-sm text-white/70">{item.usecase}</p>
                   <div className="flex items-center gap-2 text-xs text-violet-200">
                     {item.stacks.map((stack, stackIndex) => (
-                      <span
-                        key={stackIndex}
-                        className="flex items-center justify-center text-center bg-indigo-600 rounded-lg px-2"
-                      >
-                        {stack}
-                      </span>
+                      <Badge key={stackIndex} text={stack} />
                     ))}
                   </div>
                   <p className="text-sm w-[260px] h-[80px] text-center mt-2 text-white/70 min-h-[50px]">
@@ -284,42 +288,40 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col bg-black/10 py-10 border-t border-b border-white/5 gap-10">
+          <div className="flex flex-col py-10 gap-10">
             <Subtitle
               text="Companies"
               description="Current/Past full-time experiences in blockchain companies since 2021"
               padding
             />
-            <div className="flex flex-row items-center gap-14 px-14 py-10 bg-indigo-600/50 border-b border-t border-neutral-800">
+            <div className="flex flex-row items-center gap-14 px-14 py-10 bg-indigo-600/50 backdrop-blur-sm border-b border-t border-white/10">
               {companies.map((item, index) => (
                 <Link
                   key={index}
                   href={item.link}
                   target="blank"
-                  className="flex flex-col items-center justify-center gap-1 w-max pt-6 bg-black/30 rounded-xl hover:opacity-90"
+                  className="flex flex-col items-center justify-center gap-1 w-max pt-6 bg-black/30 backdrop-blur-sm border border-white/10 rounded-xl hover:opacity-90 relative"
                 >
-                  <div className="flex items-center justify-center bg-black border border-neutral-900 w-[160px] h-[160px] rounded-full">
+                  <div className="flex items-center justify-center bg-black/60 border border-indigo-600/50 w-[160px] h-[160px] rounded-full">
                     <Image src={item.src} width={110} height={110} alt={"#"} />
                   </div>
-                  <p className="text-xl text-violet-300">{item.title}</p>
+                  <p className="text-2xl text-violet-300">{item.title}</p>
                   <div className="flex items-center gap-2 text-xs text-violet-200">
                     {item.chains.map((chain, chainIndex) => (
-                      <span
-                        key={chainIndex}
-                        className="flex items-center justify-center text-center bg-indigo-600 rounded-lg px-2"
-                      >
-                        {chain}
-                      </span>
+                      <Badge key={chainIndex} text={chain} />
                     ))}
                   </div>
-                  <p className="flex items-center justify-center text-sm w-[400px] h-[130px] text-center mt-8 text-white/70 min-h-[50px] bg-black/40 p-2 rounded-b-xl shadow-lg">
+                  <p className="flex items-center justify-center text-sm w-[400px] h-[130px] text-center mt-4 text-white/70 min-h-[50px] bg-black/40 p-2 rounded-b-xl shadow-lg">
                     {item.description}
                   </p>
+                  <span className="absolute top-0 right-0 ml-1 text-xs bg-black/80 text-white/70 px-2 py-1 rounded-tr-xl">
+                    {item.timeframe}
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
-          <div className="flex flex-col bg-black/30 px-14 py-10 border-t border-b border-white/5 gap-10">
+          <div className="flex flex-col bg-black/60 px-14 py-10 border-white/5 gap-10">
             <Subtitle
               text="Contributions"
               description="Latest tech development for projects"
@@ -330,20 +332,15 @@ export default function Home() {
                   key={index}
                   href={item.link}
                   target="blank"
-                  className="flex flex-col items-center justify-center gap-1 bg-black/60 border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+                  className="flex flex-col items-center justify-center gap-1 bg-black/60 backdrop-blur-sm border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
                 >
-                  <div className="flex items-center justify-center bg-black/60 border border-neutral-900 w-[160px] h-[160px] rounded-full">
+                  <div className="flex items-center justify-center bg-white/10 border border-neutral-900 w-[160px] h-[160px] rounded-full">
                     <Image src={item.src} width={110} height={110} alt={"#"} />
                   </div>
                   <p className="text-xl text-violet-300">{item.title}</p>
                   <div className="flex items-center gap-2 text-xs text-violet-200">
                     {item.chains.map((chain, chainIndex) => (
-                      <span
-                        key={chainIndex}
-                        className="flex items-center justify-center text-center bg-indigo-600 rounded-lg px-2"
-                      >
-                        {chain}
-                      </span>
+                      <Badge key={chainIndex} text={chain} />
                     ))}
                   </div>
                   <p className="text-sm w-[200px] text-center mt-2 text-white/70 min-h-[80px]">
@@ -353,7 +350,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="flex flex-col bg-black/30 px-14 py-10 border-t border-b border-white/5 gap-10">
+          <div className="flex flex-col bg-black/60 px-14 py-10 border-t border-b border-white/5 gap-10">
             <Subtitle
               text="Languages & Tools"
               description="The most used techs in development process"
@@ -379,7 +376,7 @@ export default function Home() {
         </div>
       </main>
       <footer
-        className={`bg-black w-[1024px] h-24 flex items-center justify-between px-14 ${jakarta.className}`}
+        className={`bg-black w-[1180px] h-24 flex items-center justify-between px-14 ${jakarta.className}`}
       >
         <div className="text-violet-200 font-thin tracking-wide">
           Ⓒ 2025 Skeletor Dapps
@@ -397,5 +394,6 @@ export default function Home() {
         </div>
       </footer>
     </>
+    // </TerminalContextProvider>
   );
 }
