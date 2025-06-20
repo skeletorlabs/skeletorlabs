@@ -21,7 +21,7 @@ export default function RootLayout({
             content="Dedicated to build the Future of the Web3 Techs Blockchain De-Fi Space, NFTs Collections"
           />
         </head>
-        <body className={`bg-[#151515] ${inter.className}`}>
+        <body className={`bg-[#222338] ${inter.className}`}>
           <div className="flex flex-col justify-center items-center">
             {children}
           </div>

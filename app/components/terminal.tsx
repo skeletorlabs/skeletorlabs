@@ -15,23 +15,66 @@ export default function Terminal() {
       if (args === "test Vesting") {
         return [
           <div key="line1">
-            Running 1 test for test/Vesting.t.sol:VestingTest
+            Ran 11 tests for
+            test/unit/Vesting/VestingLinear.t.sol:VestingLinearTest
           </div>,
           <div key="line2">
-            <span style={{ color: "#4CAF50" }}>[PASS]</span> testVesting() (gas:
-            50231)
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_CanAskForRefund() (gas: 559227)
           </div>,
-          <div key="line3" />,
+          <div key="line3">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_CanCheckTGEBalance() (gas: 25314)
+          </div>,
           <div key="line4">
-            Suite result: ok. <span style={{ color: "#4CAF50" }}>1 passed</span>
-            ; <span style={{ color: "#F44336" }}>0 failed</span>;{" "}
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_CanClaimAllVestedTokens() (gas: 2727953)
+          </div>,
+          <div key="line5">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_CanClaimTGE() (gas: 551645)
+          </div>,
+          <div key="line6">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_CanClaimTGEPlusLinearVestedInPeriod() (gas: 701433)
+          </div>,
+          <div key="line7">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_CanEmergencyWithdraw() (gas: 415762)
+          </div>,
+          <div key="line8">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_MustReturnZeroWhenWalletHasNoAllocation() (gas: 23761)
+          </div>,
+          <div key="line9">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_RevertAskRefundWhenClaimedTGE() (gas: 556945)
+          </div>,
+          <div key="line10">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_RevertEmergencyWithdrawByWalletWhenVesingIsOngoing()
+            (gas: 431196)
+          </div>,
+          <div key="line11">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_RevertFillIDOTokenTwice() (gas: 529429)
+          </div>,
+          <div key="line12">
+            <span style={{ color: "#4CAF50" }}>[PASS]</span>{" "}
+            testLinear_RevertRefundPeriod() (gas: 28040)
+          </div>,
+          <div key="line13" />,
+          <div key="line14">
+            Suite result: ok.{" "}
+            <span style={{ color: "#4CAF50" }}>11 passed</span>;{" "}
+            <span style={{ color: "#F44336" }}>0 failed</span>;{" "}
             <span style={{ color: "#FFEB3B" }}>0 skipped</span>; finished in
-            3.83s (19.84ms CPU time)
+            3.84s (34.03ms CPU time)
           </div>,
 
           <div
             key="line5"
-            className="flex flex-col text-xs text-white/80 py-4  leading-normal my-5"
+            className="flex flex-col text-white/80 py-4  leading-normal my-5"
           >
             <code className="my-2 text-white">--help:</code>
             <code>- whoami</code>
@@ -73,7 +116,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="flex my-terminal-wrapper px-14">
+    <div className="my-terminal-wrapper px-14 w-full">
       <ReactTerminal
         commands={commands}
         welcomeMessage={welcomeLines}

@@ -11,6 +11,8 @@ module.exports = {
         space: "url('/space.svg')",
         eth2: "url('/ETH2.svg')",
         eth6: "url('/ETH6.svg')",
+        samurai: "url(/cyborg-male.png)",
+        onering: "url(/onering-notebook.png)",
       },
     },
   },

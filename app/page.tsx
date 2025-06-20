@@ -69,18 +69,22 @@ const companies = [
     description:
       "Leading early-stage crowdfunding platform that incentivizes community members to invest and participate in the most innovative projects in the crypto space.",
     src: "/samurai.svg",
-    chains: ["Base"],
+    bg: "/onering-notebook.png",
+    chains: ["Base", "Sonic"],
     link: "http://samuraistarter.com",
     timeframe: "2023-Present",
+    position: "CTO - Blockchain Engineer",
   },
   {
     title: "One Ring",
     description:
       "One Ring is a Multi-Chain Cross-Stable Yield Optimizer Platform. Forget about spending hours looking for the best farms out there.",
     src: "/onering.svg",
+    bg: "/cyborg-male.png",
     chains: ["Fantom", "Optimism", "Solana"],
     link: "http://onering.tools",
     timeframe: "2021-2023",
+    position: "FE Lead - Blockchain Engineer",
   },
 ];
 
@@ -89,14 +93,14 @@ const contributions = [
     title: "L2VE",
     description:
       "The only L2VE you need in your life. 100% degen approved Meme farming.",
-    src: "/l2ve.png",
+    src: "/l2ve.svg",
     chains: ["Base"],
     link: "http://l2ve.com",
   },
   {
     title: "Anonymous",
     description: "Meme token, Lottery contracts + Custom TheGraph + dapp",
-    src: "/logo2.svg",
+    src: "/anonymous.svg",
     chains: ["Arbitrum One"],
     link: "#",
   },
@@ -104,7 +108,7 @@ const contributions = [
   {
     title: "Anonymous",
     description: "Meme token contracts + dapp",
-    src: "/logo2.svg",
+    src: "/anonymous.svg",
     chains: ["Optimism"],
     link: "#",
   },
@@ -247,7 +251,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center justify-between">
-                <div className="text-3xl bg-white/5 w-max py-2 px-6 font-sans">
+                <div className="text-3xl bg-white/5 w-max py-2 px-6 font-sans border border-white/5 rounded-lg">
                   <p>Hello stranger! 👋</p>
                   <p className="text-2xl text-white/80">
                     I'm Lucas! AKA -{" "}
@@ -270,7 +274,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex flex-col w-full min-h-[1200px] z-20  bg-black bg-eth2 bg-bottom bg-cover bg-no-repeat gap-10">
+        <div className="flex flex-col w-full min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain  bg-no-repeat gap-10">
           <Terminal />
           <div className="flex flex-col bg-black/10 px-14 py-10 border-t border-white/5 gap-10">
             <Subtitle
@@ -314,8 +318,42 @@ export default function Home() {
               description="Current/Past full-time experiences in blockchain companies since 2021"
               padding
             />
-            <div className="flex flex-row items-center gap-14 px-14 py-10 bg-indigo-600/50 backdrop-blur-sm border-b border-t border-white/10">
+            <div className="flex flex-row items-center  backdrop-blur-sm">
               {companies.map((item, index) => (
+                <Link
+                  key={index}
+                  href={item.link}
+                  target="blank"
+                  className={`flex flex-col items-center justify-center w-full h-[700px] ${
+                    index === 0 ? "bg-samurai" : "bg-onering"
+                  } bg-contain bg-no-repeat hover:opacity-90 relative`}
+                >
+                  <div className="flex flex-col justify-center items-center bg-black/90 w-full h-full opacity-0 hover:opacity-100 gap-2">
+                    <div className="flex items-center justify-center bg-black border border-neutral-900 w-[160px] h-[160px] rounded-xl">
+                      <Image
+                        src={item.src}
+                        width={110}
+                        height={110}
+                        alt={"#"}
+                      />
+                    </div>
+                    <p className="text-2xl text-violet-300">{item.title}</p>
+                    <p>{item.position}</p>
+                    <div className="flex items-center gap-2 text-xs text-violet-200">
+                      {item.chains.map((chain, chainIndex) => (
+                        <Badge key={chainIndex} text={chain} />
+                      ))}
+                    </div>
+                    <p className="flex items-center justify-center text-sm w-[400px] h-[130px] text-center text-white/70 min-h-[50px] p-2">
+                      {item.description}
+                    </p>
+                    <span className="absolute top-0 right-0 ml-1 text-xs bg-black/80 text-white/70 px-2 py-1 rounded-tr-xl">
+                      {item.timeframe}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+              {/* {companies.map((item, index) => (
                 <Link
                   key={index}
                   href={item.link}
@@ -338,10 +376,10 @@ export default function Home() {
                     {item.timeframe}
                   </span>
                 </Link>
-              ))}
+              ))} */}
             </div>
           </div>
-          <div className="flex flex-col bg-black/60 px-14 py-10 border-white/5 gap-10">
+          <div className="flex flex-col  px-14 py-10 gap-10">
             <Subtitle
               text="Contributions"
               description="Latest tech development for projects"
@@ -352,10 +390,10 @@ export default function Home() {
                   key={index}
                   href={item.link}
                   target="blank"
-                  className="flex flex-col items-center justify-center gap-1 bg-black/60 backdrop-blur-sm border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+                  className="flex flex-col items-center justify-center gap-1 bg-black/60 backdrop-blur-md border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
                 >
-                  <div className="flex items-center justify-center bg-white/10 border border-neutral-900 w-[160px] h-[160px] rounded-full">
-                    <Image src={item.src} width={110} height={110} alt={"#"} />
+                  <div className="flex items-center justify-center bg-violet-200/50 backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
+                    <Image src={item.src} width={130} height={130} alt={"#"} />
                   </div>
                   <p className="text-xl text-violet-300">{item.title}</p>
                   <div className="flex items-center gap-2 text-xs text-violet-200">
