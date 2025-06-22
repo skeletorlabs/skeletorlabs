@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { TerminalContextProvider } from "react-terminal";
+import { AppKit } from "@/app/context/web3modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
         </head>
         <body className={`bg-[#222338] ${inter.className}`}>
           <div className="flex flex-col justify-center items-center">
-            {children}
+            <AppKit>{children}</AppKit>
           </div>
         </body>
       </html>
