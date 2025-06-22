@@ -14,7 +14,7 @@ export default function Terminal() {
     forge: (args: string) => {
       if (args === "test Vesting") {
         return [
-          <div key="line1">
+          <div key="line1" className="mt-5">
             Ran 11 tests for
             test/unit/Vesting/VestingLinear.t.sol:VestingLinearTest
           </div>,
@@ -73,8 +73,8 @@ export default function Terminal() {
           </div>,
 
           <div
-            key="line5"
-            className="flex flex-col text-white/80 py-4  leading-normal my-5"
+            key="line15"
+            className="flex flex-col text-white/80 py-3 leading-normal my-5"
           >
             <code className="my-2 text-white">--help:</code>
             <code>- whoami</code>
@@ -90,7 +90,7 @@ export default function Terminal() {
   });
 
   const simulate = useCallback(async () => {
-    const cmd = "forge test Vesting";
+    const cmd = "@Skeletor:~/Developer/Foo|main⚡ => forge test Vesting";
     const lines: JSX.Element[] = [];
     let typed = "";
 
@@ -116,7 +116,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="my-terminal-wrapper px-14 w-full">
+    <div className="my-terminal-wrapper hidden xl:block px-2 xl:px-14 pt-16 w-full">
       <ReactTerminal
         commands={commands}
         welcomeMessage={welcomeLines}
@@ -131,6 +131,7 @@ export default function Terminal() {
         }}
         theme="skeletor-theme"
         forwardRef={terminalRef}
+        showControlBar={false}
       />
     </div>
   );

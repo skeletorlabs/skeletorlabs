@@ -9,17 +9,15 @@
 }
 
 #terminalEditor {
-  /* display: flex; */
-  /* align-items: start !important; */
   font-size: 16px;
   font-family: 'Fira Code', monospace;
   line-height: 1.6;
-  /* opacity: 0.7; */
-  /* border-radius: 30; */
-  /* width: 200px !important; */
-  
 }
 
-/* .index_terminal__teubZ {
-  width: 100% !important;
-} */
+@media (max-width: 768px) {
+  #terminalEditor {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+}
+
