@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         space: "url('/space.svg')",
+        "space-content": "url('/space.jpg')",
         eth2: "url('/ETH2.svg')",
+        eth3: "url('/ETH3.svg')",
         eth6: "url('/ETH6.svg')",
         samurai: "url(/cyborg-male.png)",
         onering: "url(/onering-notebook.png)",

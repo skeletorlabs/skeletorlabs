@@ -9,6 +9,8 @@ import {
 } from "../../utils/svgs";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { PencilSquareIcon } from "@heroicons/react/20/solid";
+import { useContext } from "react";
+import { StateContext } from "@/app/context/state";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -19,11 +21,9 @@ const socials = [
   { icon: twitterX, href: "https://x.com/0x_theL" },
   { icon: discord, href: "skeletor8555" },
 ];
-interface Footer {
-  setOpen: (open: boolean) => void;
-}
 
-export default function Footer({ setOpen }: Footer) {
+export default function Footer() {
+  const { setTestimonialBoxIsOpen } = useContext(StateContext);
   return (
     <>
       <footer
@@ -34,6 +34,7 @@ export default function Footer({ setOpen }: Footer) {
             <Link
               key={index}
               href={item.href}
+              target="blank"
               className="text-violet-200 hover:text-white hover:scale-105"
             >
               {item.icon}
@@ -42,7 +43,7 @@ export default function Footer({ setOpen }: Footer) {
         </div>
 
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => setTestimonialBoxIsOpen(true)}
           className="flex items-center justify-center p-2 px-4 rounded-xl bg-violet-300 text-black gap-2 transition-colors hover:bg-violet-200"
         >
           <PencilSquareIcon width={20} height={20} />
@@ -53,14 +54,14 @@ export default function Footer({ setOpen }: Footer) {
         </div>
       </footer>
       <footer
-        className={`hidden xl:flex bg-black w-[1180px] h-24 items-center justify-between px-14 ${jakarta.className}`}
+        className={`hidden xl:flex bg-black z-20 w-[1180px] h-24 items-center justify-between px-14 ${jakarta.className}`}
       >
         <div className="text-violet-200 font-thin tracking-wide">
           Ⓒ 2025 Skeletor Dapps
         </div>
 
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => setTestimonialBoxIsOpen(true)}
           className="flex items-center justify-center gap-2 transition-colors text-violet-200 hover:text-violet-100"
         >
           <PencilSquareIcon width={20} height={20} />
@@ -71,6 +72,7 @@ export default function Footer({ setOpen }: Footer) {
             <Link
               key={index}
               href={item.href}
+              target="blank"
               className="text-violet-200 hover:text-white hover:scale-105"
             >
               {item.icon}

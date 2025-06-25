@@ -71,7 +71,7 @@ export default function Code() {
         {shipment.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center text-center gap-1 w-full xl:w-[330px] even:bg-gray-900/30 odd:bg-violet-950/30 backdrop-blur-sm border even:border-neutral-800 odd:border-violet-900/30 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+            className="flex flex-col items-center justify-center text-center gap-1 w-full xl:w-[330px] even:bg-[#222338]/50 odd:bg-[#222338] backdrop-blur-sm border even:border-neutral-800 odd:border-violet-900/30 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
           >
             <p className="text-xl text-violet-300">{item.name}</p>
             <p className="text-sm text-white/70">{item.usecase}</p>

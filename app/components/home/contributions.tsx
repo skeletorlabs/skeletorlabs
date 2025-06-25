@@ -42,7 +42,7 @@ export default function Contributions() {
             key={index}
             href={item.link}
             target="blank"
-            className="flex flex-col items-center justify-center w-full xl:w-auto gap-1 odd:bg-neutral-900/60 even:bg-black/60 backdrop-blur-md border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90 shadow-lg"
+            className="flex flex-col items-center justify-center w-full xl:w-auto gap-1 odd:bg-[#2F2F55]/30 even:bg-[#222338]/60 backdrop-blur-md border border-neutral-800 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90 shadow-lg"
           >
             <div className="flex items-center justify-center bg-violet-200/50 backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
               <Image src={item.src} width={130} height={130} alt={"#"} />

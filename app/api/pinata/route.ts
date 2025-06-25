@@ -6,8 +6,10 @@ import { Readable } from "stream"; // Node.js stream API for creating a readable
 export async function POST(request: Request) {
   const data = await request.json();
 
+  console.log(data);
+
   // Basic validation
-  if (!data?.address || !data?.name || !data?.role || !data?.message) {
+  if (data?.id === undefined || !data?.name || !data?.role || !data?.message) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
@@ -20,13 +22,19 @@ export async function POST(request: Request) {
       process.env.PINATA_API_SECRET!
     );
 
-    const jsonString = JSON.stringify(data);
+    const contentWithTimestamp = {
+      ...data,
+      createdAt: new Date().toISOString(), // ensures content changes
+    };
+
+    const jsonString = JSON.stringify(contentWithTimestamp);
     const readableStream = Readable.from([jsonString]);
-    const fileName = `testimonial-${data.address.toLowerCase()}-testimonial-${Date.now()}.json`;
+
+    const fileName = `${data.id}-${Date.now()}.json`;
 
     const options = {
       pinataMetadata: {
-        name: fileName, // Use the full path here
+        name: fileName,
       },
     };
 
@@ -38,40 +46,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Upload failed" }, { status: 500 });
   }
 }
-
-// export async function GET() {
-//   try {
-//     const pinata = new pinataSDK(
-//       process.env.PINATA_API_KEY!,
-//       process.env.PINATA_API_SECRET!
-//     );
-
-//     const result = await pinata.pinList({
-//       status: "pinned",
-//       metadata: {
-//         keyvalues: {
-//           type: {
-//             value: "testimonial",
-//             op: "eq",
-//           },
-//         },
-//       },
-//     });
-
-//     console.log("result", result);
-
-//     // Return the list of CIDs
-//     const testimonials = result.rows.map((row) => ({
-//       name: row.metadata.name,
-//       cid: row.ipfs_pin_hash,
-//     }));
-
-//     return NextResponse.json({ testimonials }, { status: 200 });
-//   } catch (error) {
-//     console.error("Error listing testimonials:", error);
-//     return NextResponse.json(
-//       { error: "Failed to fetch testimonials" },
-//       { status: 500 }
-//     );
-//   }
-// }

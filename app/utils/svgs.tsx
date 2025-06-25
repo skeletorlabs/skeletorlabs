@@ -1,8 +1,8 @@
 export const twitterX = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
+    width="17"
+    height="17"
     fill="currentColor"
     className="bi bi-twitter-x w-[24px] h-[24px]"
     viewBox="0 0 16 16"
@@ -15,7 +15,7 @@ export const telegram = (
   <svg
     viewBox="0 0 32 32"
     xmlns="http://www.w3.org/2000/svg"
-    className="w-[30px] h-[30px]"
+    className="w-[32px] h-[32px]"
   >
     <path d="m0 0h32v32h-32z" fill="none" />
     <path

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  scroll-behavior: smooth !important;
+}
+
 .text-wrap {
   @apply float-left mr-4;
   shape-outside: image();
@@ -21,3 +25,23 @@
   }
 }
 
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+.starfield {
+  background: #222338;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+.starfield::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-image: radial-gradient(rgb(74, 68, 135) 1px, transparent 1px);
+  background-size: 3px 3px;
+  animation: twinkle 3s infinite ease-in-out;
+  opacity: 0.3;
+}

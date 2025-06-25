@@ -1,3 +1,4 @@
+"use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ReactTerminal } from "react-terminal";
 
@@ -10,7 +11,7 @@ export default function Terminal() {
     whoami: () => "stranger",
     whoismaster: () => "skeletor",
     sudo: () => "permission denied",
-    cd: (directory: string) => `changed path to ${directory}`,
+    help: () => "call me!",
     forge: (args: string) => {
       if (args === "test Vesting") {
         return [
@@ -74,13 +75,13 @@ export default function Terminal() {
 
           <div
             key="line15"
-            className="flex flex-col text-white/80 py-3 leading-normal my-5"
+            className="flex flex-col text-white/80 py-3 leading-normal"
           >
-            <code className="my-2 text-white">--help:</code>
+            <code className="my-2 text-white/60">{"=> tips to try:"}</code>
             <code>- whoami</code>
             <code>- whoismaster</code>
             <code>- sudo</code>
-            <code>- cd </code>
+            <code>- help</code>
             <code>- clear</code>
           </div>,
         ];
@@ -116,7 +117,7 @@ export default function Terminal() {
   }, []);
 
   return (
-    <div className="my-terminal-wrapper hidden xl:block px-2 xl:px-14 pt-16 w-full">
+    <div className="my-terminal-wrapper hidden xl:block px-2 xl:px-12 w-full">
       <ReactTerminal
         commands={commands}
         welcomeMessage={welcomeLines}

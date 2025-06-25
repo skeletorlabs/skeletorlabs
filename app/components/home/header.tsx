@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Typed from "typed.js";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useContext } from "react";
 import Link from "next/link";
 import {
   discord,
@@ -12,6 +12,7 @@ import {
   twitterX,
 } from "../../utils/svgs";
 import { PencilSquareIcon } from "@heroicons/react/20/solid";
+import { StateContext } from "@/app/context/state";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -23,11 +24,8 @@ const socials = [
   { icon: discord, href: "skeletor8555" },
 ];
 
-interface Header {
-  setOpen: (open: boolean) => void;
-}
-
-export default function Header({ setOpen }: Header) {
+export default function Header() {
+  const { setTestimonialBoxIsOpen } = useContext(StateContext);
   // Create reference to store the DOM element containing the animation
   const el = useRef(null);
 
@@ -55,6 +53,7 @@ export default function Header({ setOpen }: Header) {
             <Link
               key={index}
               href={item.href}
+              target="blank"
               className="text-violet-200 hover:text-white scale-[0.7] hover:scale-100"
             >
               {item.icon}
@@ -62,7 +61,7 @@ export default function Header({ setOpen }: Header) {
           ))}
         </div>
         <button
-          onClick={() => setOpen(true)}
+          onClick={() => setTestimonialBoxIsOpen(true)}
           className={`flex items-center justify-center gap-1 p-1 px-3 text-xs bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg ${jakarta.className}`}
         >
           <PencilSquareIcon width={20} height={20} className="mt-1" />
@@ -92,7 +91,7 @@ export default function Header({ setOpen }: Header) {
           </div>
 
           <div className="flex flex-col gap-10  xl:flex-row xl:gap-0 items-center justify-between">
-            <div className="text-3xl bg-white/5 w-max py-2 px-6 font-sans border border-white/5 rounded-lg">
+            <div className="text-3xl w-max py-2 px-1 font-sans rounded-lg">
               <p>Hello stranger! 👋</p>
               <p className="text-2xl text-white/80">
                 I'm Lucas! AKA -{" "}
@@ -105,6 +104,7 @@ export default function Header({ setOpen }: Header) {
                   <Link
                     key={index}
                     href={item.href}
+                    target="blank"
                     className="text-violet-200 hover:text-white hover:scale-105"
                   >
                     {item.icon}
@@ -112,7 +112,7 @@ export default function Header({ setOpen }: Header) {
                 ))}
               </div>
               <button
-                onClick={() => setOpen(true)}
+                onClick={() => setTestimonialBoxIsOpen(true)}
                 className={`flex items-center justify-center gap-1 p-2 bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg relative ${jakarta.className}`}
               >
                 <PencilSquareIcon width={20} height={20} className="mt-1" />

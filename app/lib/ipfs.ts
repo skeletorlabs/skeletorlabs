@@ -1,8 +1,14 @@
+import { StoredTestimonial } from "../contracts/testimonialRegistry";
+import { bytes32ToIpfsHash } from "../utils/bytes32Conversor";
+
 export type TestimonialData = {
-  address: string;
   name: string;
   role: string;
   message: string;
+  id?: number;
+  address?: string;
+  likes?: number;
+  active?: boolean;
 };
 
 export async function uploadTestimonialToIPFS(
@@ -33,16 +39,29 @@ export async function uploadTestimonialToIPFS(
 }
 
 export async function readTestimonialsFromIPFS(
-  cids: string[]
+  storedTestimonials: StoredTestimonial[]
 ): Promise<TestimonialData[]> {
+  const invalidHash =
+    "0x0000000000000000000000000000000000000000000000000000000000000000";
   try {
     const CLOUD_URL = process.env.NEXT_PUBLIC_PINATA_CLOUD;
     const testimonials: TestimonialData[] = await Promise.all(
-      cids.map(async (cid) => {
-        const res = await fetch(`${CLOUD_URL}/ipfs/${cid}`);
-        return res.json();
-      })
+      storedTestimonials
+        .filter((item) => item.hash !== invalidHash)
+        .map(async (testimonial) => {
+          const res = await fetch(
+            `${CLOUD_URL}/ipfs/${bytes32ToIpfsHash(testimonial.hash)}`
+          );
+          return res.json();
+        })
     );
+
+    for (let index = 0; index < testimonials.length; index++) {
+      testimonials[index].id = storedTestimonials[index].id;
+      testimonials[index].address = storedTestimonials[index].author;
+      testimonials[index].likes = storedTestimonials[index].likes;
+      testimonials[index].active = storedTestimonials[index].active;
+    }
 
     return testimonials;
   } catch (error) {
