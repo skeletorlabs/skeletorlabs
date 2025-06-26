@@ -67,26 +67,32 @@ export default function Code() {
         text="Shipped Code"
         description="Some important codes & products shipped"
       />
-      <div className="flex flex-col xl:flex-row items-center gap-2 xl:gap-8 flex-wrap">
+      <div className="flex flex-col xl:flex-row items-center gap-4 xl:gap-8 flex-wrap">
         {shipment.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center text-center gap-1 w-full xl:w-[330px] even:bg-skeletor-gray odd:bg-skeletor-gray/50 backdrop-blur-sm border even:border-white/10 odd:border-white/5 p-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90"
+            className="flex flex-col items-center justify-between text-center w-full xl:w-[330px] even:bg-skeletor-gray odd:bg-skeletor-gray/50 backdrop-blur-sm border even:border-white/10 odd:border-white/5 py-6 rounded-xl transition-transform hover:scale-[1.04] hover:opacity-90 min-h-[400px] gap-3"
           >
-            <p className="text-xl text-violet-300">{item.name}</p>
-            <p className="text-sm text-white/70">{item.usecase}</p>
-            <div className="flex items-center gap-2 text-xs text-violet-200">
+            <p className="text-xl text-violet-300 font-semibold">{item.name}</p>
+            <p className="flex items-center justify-center min-h-[70px] bg-white/5 w-full p-2 text-sm text-white/70">
+              {item.usecase}
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-2 px-6">
               {item.stacks.map((stack, stackIndex) => (
                 <Badge key={stackIndex} text={stack} />
               ))}
             </div>
-            <p className="text-sm mt-2 text-white/70 min-h-[80px]">
+
+            <p className="text-sm text-white/70 leading-relaxed px-6">
               {item.summary}
             </p>
-            <div className="flex items-center justify-end w-full gap-2">
+
+            <div className="flex items-center justify-end w-full pt-2  px-6">
               <Link
                 href={item.etherscan}
-                target="blank"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white rounded-full hover:opacity-75"
               >
                 {etherscan}
