@@ -93,7 +93,7 @@ export default function Code() {
                 href={item.etherscan}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-full hover:opacity-75"
+                className="bg-white p-[2px] rounded-full hover:opacity-75"
               >
                 {etherscan}
               </Link>
