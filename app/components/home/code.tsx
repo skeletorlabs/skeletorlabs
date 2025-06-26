@@ -78,7 +78,7 @@ export default function Code() {
               {item.usecase}
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 px-6">
+            <div className="flex flex-wrap items-center justify-center gap-2 px-6 mt-1 text-sm">
               {item.stacks.map((stack, stackIndex) => (
                 <Badge key={stackIndex} text={stack} />
               ))}
