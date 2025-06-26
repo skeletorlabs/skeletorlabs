@@ -11,6 +11,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { PencilSquareIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
 import { StateContext } from "@/app/context/state";
+import NewTestimonialButton from "./newTestimonialButton";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -26,8 +27,9 @@ export default function Footer() {
   const { setTestimonialBoxIsOpen } = useContext(StateContext);
   return (
     <>
+      {/* MOBILE */}
       <footer
-        className={`flex xl:hidden flex-col py-10 gap-4 bg-black w-full items-center justify-center px-8 ${jakarta.className}`}
+        className={`flex xl:hidden flex-col py-10 gap-4 bg-black z-20 w-full items-center justify-center px-8 ${jakarta.className}`}
       >
         <div className="flex items-center gap-8">
           {socials.map((item, index) => (
@@ -35,24 +37,20 @@ export default function Footer() {
               key={index}
               href={item.href}
               target="blank"
-              className="text-violet-200 hover:text-white hover:scale-105"
+              className="text-violet-200"
             >
               {item.icon}
             </Link>
           ))}
         </div>
 
-        <button
-          onClick={() => setTestimonialBoxIsOpen(true)}
-          className="flex items-center justify-center p-2 px-4 rounded-xl bg-violet-300 text-black gap-2 transition-colors hover:bg-violet-200"
-        >
-          <PencilSquareIcon width={20} height={20} />
-          <span>Write Testimonial</span>
-        </button>
+        <NewTestimonialButton />
         <div className="text-violet-200 font-thin tracking-wide mt-5 text-xs">
           Ⓒ 2025 Skeletor Dapps
         </div>
       </footer>
+
+      {/* DESKTOP */}
       <footer
         className={`hidden xl:flex bg-black z-20 w-[1180px] h-24 items-center justify-between px-14 ${jakarta.className}`}
       >
@@ -60,13 +58,7 @@ export default function Footer() {
           Ⓒ 2025 Skeletor Dapps
         </div>
 
-        <button
-          onClick={() => setTestimonialBoxIsOpen(true)}
-          className="flex items-center justify-center gap-2 transition-colors text-violet-200 hover:text-violet-100"
-        >
-          <PencilSquareIcon width={20} height={20} />
-          <span>Write Testimonial</span>
-        </button>
+        <NewTestimonialButton nobg />
         <div className="flex items-center gap-5">
           {socials.map((item, index) => (
             <Link

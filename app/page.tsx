@@ -20,10 +20,8 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center bg-slate-400/30 w-full xl:w-[1182px]">
       <main className="flex flex-col justify-center items-center w-full xl:w-[1180px] text-white">
         <Header />
-
         <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat gap-10">
           <Terminal />
-
           <Code />
           <Companies />
           <Chains />
@@ -31,7 +29,7 @@ export default function Home() {
           <Testimonials />
           <Stack />
 
-          <p className="text-[100px] text-center xl:text-[180px] px-8 xl:px-10 py-10 pb-16 font-bold leading-tight xl:leading-none">
+          <p className="text-[120px] text-center xl:text-[180px] px-4 xl:px-10 py-10 pb-16 font-bold leading-tight xl:leading-none">
             LET'S TALK!
           </p>
         </div>

@@ -13,6 +13,7 @@ import {
 } from "../../utils/svgs";
 import { PencilSquareIcon } from "@heroicons/react/20/solid";
 import { StateContext } from "@/app/context/state";
+import NewTestimonialButton from "./newTestimonialButton";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -53,30 +54,24 @@ export default function Header() {
   return (
     <div className="w-full bg-space bg-no-repeat bg-cover bg-left-top relative">
       {/* MOBILE HEADER INSERTION */}
-      <div className="flex xl:hidden items-center justify-between mt-8 px-8">
+      <div className="flex xl:hidden items-center justify-between mt-6 px-8">
         <div className="flex items-center gap-1">
           {socials.map((item, index) => (
             <Link
               key={index}
               href={item.href}
               target="blank"
-              className="text-violet-200 hover:text-white scale-[0.7] hover:scale-100"
+              className="text-violet-200 scale-[0.7]"
             >
               {item.icon}
             </Link>
           ))}
         </div>
-        <button
-          onClick={() => setTestimonialBoxIsOpen(true)}
-          className={`flex items-center justify-center gap-2 p-1 px-3 text-xs bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg ${jakarta.className}`}
-        >
-          <PencilSquareIcon width={20} height={20} />
-          <span>Write Testimonial</span>
-        </button>
+        <NewTestimonialButton />
       </div>
       <div className="flex flex-col z-20 bg-gradient-to-b from-transparent via-black/30 to-black rounded-t-[40px] mt-40">
         <div className="flex flex-col z-20 py-12 px-8 xl:px-14 rounded-t-[40px]">
-          <div className="flex flex-col xl:flex-row items-center mt-[-120px] pb-24">
+          <div className="flex flex-col xl:flex-row items-center mt-[-120px] pb-24 text-center xl:text-start">
             <div
               className={`font-extrabold text-white text-5xl xl:text-[66px] leading-tight ${jakarta.className}`}
             >
@@ -111,7 +106,7 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col gap-10  xl:flex-row xl:gap-0 items-center justify-between">
-            <div className="text-3xl w-max py-2 px-1 font-sans rounded-lg">
+            <div className="text-3xl w-max py-2 px-1 font-sans rounded-lg text-center xl:text-start">
               <p>Hello stranger! 👋</p>
               <p className="text-2xl text-white/80">
                 I'm Lucas! AKA -{" "}
@@ -131,13 +126,7 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
-              <button
-                onClick={() => setTestimonialBoxIsOpen(true)}
-                className={`flex items-center justify-center gap-1 p-2 bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg relative ${jakarta.className}`}
-              >
-                <PencilSquareIcon width={20} height={20} className="mt-1" />
-                <span>Write Testimonial</span>
-              </button>
+              <NewTestimonialButton />
             </div>
           </div>
         </div>

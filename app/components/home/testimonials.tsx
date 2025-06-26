@@ -16,6 +16,7 @@ import { BrowserProvider } from "ethers";
 import NewTestimonial from "../newTestimonial";
 import { StateContext } from "@/app/context/state";
 import Loading from "../loading";
+import NewTestimonialButton from "./newTestimonialButton";
 
 export default function Testimonials() {
   const [collection, setCollection] = useState<TestimonialData[]>([]);
@@ -118,6 +119,16 @@ export default function Testimonials() {
                 likeTestimonial={likeTestimonial}
               />
             ))}
+
+            {/* MOBILE */}
+            <div className="flex xl:hidden w-full justify-center">
+              <NewTestimonialButton />
+            </div>
+
+            {/* DESKTOP */}
+            <div className="hidden xl:flex w-full mt-[-20px]">
+              <NewTestimonialButton nobg />
+            </div>
           </div>
         )}
       </div>

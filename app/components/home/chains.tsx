@@ -49,13 +49,13 @@ export default function Chains() {
   return (
     <div className="flex flex-col bg-black/60 px-8 xl:px-14 py-14 border-t border-b border-white/5 gap-14">
       <Subtitle text="Chains" description="The latest EVM chains deployed" />
-      <div className="flex flex-row items-center flex-wrap gap-6">
+      <div className="flex flex-row items-center justify-center xl:justify-start flex-wrap gap-6">
         {chains.map((item, index) => (
           <Link
             key={index}
             href={item.href}
             target="blank"
-            className="transition-transform hover:scale-[1.04] hover:opacity-90"
+            className="transition-transform xl:hover:scale-[1.04] hover:opacity-90"
           >
             <div className="flex flex-col items-center justify-between gap-3 text-violet-200/70 hover:text-violet-200">
               <Image

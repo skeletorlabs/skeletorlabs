@@ -64,13 +64,13 @@ export default function Stack() {
         text="Languages & Tools"
         description="The most used techs in development process"
       />
-      <div className="flex flex-row items-center flex-wrap gap-6">
+      <div className="flex flex-row items-center justify-center xl:justify-start flex-wrap gap-6">
         {stack.map((item, index) => (
           <Link
             key={index}
             href={item.href}
             target="blank"
-            className="transition-transform hover:scale-[1.04] hover:opacity-90"
+            className="transition-transform xl:hover:scale-[1.04] hover:opacity-90"
           >
             <div className="flex flex-col items-center justify-center gap-1 text-violet-200/70 hover:text-violet-200">
               <Image
