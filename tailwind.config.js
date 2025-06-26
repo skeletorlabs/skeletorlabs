@@ -16,6 +16,9 @@ module.exports = {
         samurai: "url(/cyborg-male.png)",
         onering: "url(/onering-notebook.png)",
       },
+      colors: {
+        "skeletor-gray": "#222338",
+      },
     },
   },
   plugins: [],

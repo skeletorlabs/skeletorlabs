@@ -12,6 +12,7 @@ import {
   PencilSquareIcon,
   ArrowUpCircleIcon,
   PowerIcon,
+  CheckBadgeIcon,
 } from "@heroicons/react/20/solid";
 import { getAvatar } from "../lib/avatar";
 import Image from "next/image";
@@ -99,7 +100,7 @@ export default function NewTestimonial() {
   ]);
 
   useEffect(() => {
-    if (address) {
+    if (address != undefined && address !== "") {
       const src = getAvatar(address);
       setAvatar(src);
     }
@@ -135,7 +136,7 @@ export default function NewTestimonial() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-max transform overflow-hidden rounded-2xl bg-stone-950/80 p-6 text-left align-middle transition-all border border-white/10 text-white shadow-lg shadow-samurai-red/20">
+              <DialogPanel className="w-max transform overflow-hidden rounded-2xl bg-stone-950/80 p-6 pb-4 text-left align-middle transition-all border border-white/10 text-white shadow-lg shadow-samurai-red/20">
                 <DialogTitle className="text-xl flex items-center gap-2">
                   {isConnected ? (
                     <>
@@ -150,7 +151,7 @@ export default function NewTestimonial() {
                   )}
                 </DialogTitle>
                 <div className="flex gap-10">
-                  <div className="flex flex-col mt-8 w-[400px] h-[450px] gap-4">
+                  <div className="flex flex-col mt-8 w-[450px] h-[450px] gap-4">
                     {isConnected && address ? (
                       <>
                         <div className="flex items-center justify-between">
@@ -225,24 +226,27 @@ export default function NewTestimonial() {
                         </div>
 
                         <button
-                          className={`flex items-center justify-center gap-2 py-3 text-xs mt-5 bg-violet-300 transition-colors enabled:hover:bg-violet-100 disabled:opacity-60 text-black font-bold rounded-lg ${jakarta.className}`}
+                          className={`flex items-center justify-center gap-2 p-2 px-6 bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg relative ${jakarta.className}`}
                           onClick={onSubmit}
                           disabled={loading || !address}
                         >
-                          <span>{loading ? "LOADING..." : "CONFIRM"}</span>
                           {!loading && (
-                            <ArrowUpCircleIcon width={16} height={16} />
+                            <CheckBadgeIcon width={20} height={20} />
                           )}
+                          <span>
+                            {loading ? "LOADING..." : "Confirm Testimonial"}
+                          </span>
                         </button>
                       </>
                     ) : (
-                      <div className="flex flex-col items-center justify-center w-full h-full text-center gap-2">
-                        <p className="text-xl font-black">
-                          Testimonials are stored on blockchain
-                        </p>
-                        <p className="text-white/70 text-sm pb-10">
-                          Your message is saved on IPFS and finally it's hash is
-                          stored on Base blockchain through a Smart Contract.
+                      <div
+                        className={`flex flex-col items-center justify-center w-full h-full text-center gap-2 `}
+                      >
+                        <p className="text-3xl">Connect your wallet</p>
+                        <p className="text-white/70 text-lg pb-10 max-w-[400px] font-sans">
+                          Your testimonial is saved to IPFS, and its hash is
+                          permanently recorded on the Base blockchain through a
+                          smart contract.
                         </p>
                         <ConnectButton />
                       </div>

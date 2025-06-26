@@ -1,10 +1,14 @@
 import Image from "next/image";
 
-export default function Loading() {
+interface Loading {
+  css?: string;
+}
+
+export default function Loading({ css }: Loading) {
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className={`flex justify-center items-center w-full ${css}`}>
       <Image
-        src={"/loading.svg"}
+        src={"/loading-v3.svg"}
         width={44}
         height={44}
         alt="Loading"

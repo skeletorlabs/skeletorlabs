@@ -41,7 +41,7 @@ export default function TestimonialCard({
   }, [address, testimonial, setCanDeactivate]);
 
   return (
-    <div className="relative w-full max-w-md bg-[#222338]/80 backdrop-blur-sm text-white border border-white/10 rounded-xl shadow-md overflow-hidden transition-all hover:bg-[#222338]/90">
+    <div className="relative w-full max-w-md even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50">
       <div className="absolute top-0 left-0 w-0 h-0 border-t-[50px] border-t-violet-500 border-r-[50px] border-r-transparent" />
       <div
         className={classNames({
@@ -90,17 +90,21 @@ export default function TestimonialCard({
         />
       </button>
 
-      <div className="flex items-center gap-4 p-6 pl-10">
+      <div className="flex items-center gap-3 p-6 pl-10">
         <Image
           src={avatar}
           alt="avatar"
           width={48}
           height={48}
-          className="rounded-full border-2 border-violet-400"
+          className="rounded-full bg-white/10 p-1"
         />
-        <div>
-          <h3 className="text-lg font-bold">{testimonial.name}</h3>
-          <div className="text-sm text-violet-300">{testimonial.role}</div>
+        <div className="flex flex-col">
+          <span className="text-lg font-bold leading-tight">
+            {testimonial.name}
+          </span>
+          <span className="text-sm text-violet-300  leading-tight">
+            {testimonial.role}
+          </span>
         </div>
       </div>
       <div className="px-6  pl-10 pb-6 pt-2">

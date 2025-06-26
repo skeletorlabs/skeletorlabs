@@ -13,7 +13,7 @@ import Chains from "./components/home/chains";
 export default function Home() {
   const Terminal = dynamic(() => import("./components/terminal"), {
     ssr: false,
-    loading: () => <Loading />,
+    loading: () => <Loading css="min-h-[610px]" />,
   });
 
   return (

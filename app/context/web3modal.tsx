@@ -27,6 +27,9 @@ createAppKit({
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
   },
+  themeVariables: {
+    "--w3m-accent": "#C0B7F8",
+  },
 });
 
 export function AppKit({ children }: PropsWithChildren) {

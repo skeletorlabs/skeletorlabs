@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Typed from "typed.js";
-import { useRef, useEffect, useContext } from "react";
+import { useRef, useEffect, useContext, useState } from "react";
 import Link from "next/link";
 import {
   discord,
@@ -25,11 +25,16 @@ const socials = [
 ];
 
 export default function Header() {
+  const [showSecond, setShowSecond] = useState(false);
   const { setTestimonialBoxIsOpen } = useContext(StateContext);
   // Create reference to store the DOM element containing the animation
   const el = useRef(null);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      setShowSecond((prev) => !prev);
+    }, 3000);
+
     const typed = new Typed(el.current, {
       strings: ["Web3 Techs", "Blockchain", "De-Fi Space", "NFTs Collections"],
       typeSpeed: 100,
@@ -42,6 +47,7 @@ export default function Header() {
     return () => {
       // Destroy Typed instance during cleanup to stop animation
       typed.destroy();
+      clearInterval(interval);
     };
   }, []);
   return (
@@ -62,9 +68,9 @@ export default function Header() {
         </div>
         <button
           onClick={() => setTestimonialBoxIsOpen(true)}
-          className={`flex items-center justify-center gap-1 p-1 px-3 text-xs bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg ${jakarta.className}`}
+          className={`flex items-center justify-center gap-2 p-1 px-3 text-xs bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold rounded-lg ${jakarta.className}`}
         >
-          <PencilSquareIcon width={20} height={20} className="mt-1" />
+          <PencilSquareIcon width={20} height={20} />
           <span>Write Testimonial</span>
         </button>
       </div>
@@ -81,13 +87,27 @@ export default function Header() {
               />
             </div>
 
-            <Image
-              src="/logo2.svg"
-              width={230}
-              height={230}
-              alt="logo"
-              className="hidden xl:block mt-[-55px] opacity-30 xl:opacity-70 animate-pulse"
-            />
+            <div className="hidden xl:block relative min-w-[240px] min-h-[240px] mt-[-55px] opacity-90 transition-all animate-pulse duration-1000">
+              <Image
+                src="/logo-v3.svg"
+                width={230}
+                height={230}
+                alt="logo"
+                className={`flex absolute top-10 left-10 !w-[180px] !h-[180px] self-center transition-opacity duration-1000 delay-500 ease-in-out ${
+                  showSecond ? "opacity-0" : "opacity-100"
+                }`}
+              />
+
+              <Image
+                src="/logo2.svg"
+                width={230}
+                height={230}
+                alt="logo"
+                className={`absolute top-3 left-3 !w-[240px] !h-[240px] self-center transition-opacity duration-1000 delay-500 ease-in-out ${
+                  showSecond ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </div>
           </div>
 
           <div className="flex flex-col gap-10  xl:flex-row xl:gap-0 items-center justify-between">
@@ -98,7 +118,7 @@ export default function Header() {
                 <span className="text-violet-500">Skeletor</span>
               </p>
             </div>
-            <div className="hidden xl:flex flex-col gap-5">
+            <div className="hidden xl:flex flex-col gap-4">
               <div className="flex items-center gap-5">
                 {socials.map((item, index) => (
                   <Link

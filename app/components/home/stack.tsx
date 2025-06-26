@@ -4,13 +4,29 @@ import Image from "next/image";
 
 const stack = [
   {
+    name: "Chainlink",
+    href: "https://chain.link/",
+    src: "/stack/CHAINLINK.svg",
+  },
+  {
+    name: "Figma",
+    href: "https://figma.com/",
+    src: "/stack/FIGMA.svg",
+  },
+  {
     name: "Foundry",
     href: "https://book.getfoundry.sh/",
     src: "/stack/FOUNDRY.svg",
   },
-  { name: "The Graph", href: "https://thegraph.com/", src: "/stack/GRAPH.svg" },
+
   { name: "Hardhat", href: "https://hardhat.org/", src: "/stack/HARDHAT.svg" },
+  {
+    name: "JavaScript",
+    href: "https://javascript.com/",
+    src: "/stack/JAVASCRIPT.svg",
+  },
   { name: "NextJs", href: "https://nextjs.org/", src: "/stack/NEXT.svg" },
+
   {
     name: "Open Zeppelin",
     href: "https://www.openzeppelin.com/",
@@ -32,7 +48,13 @@ const stack = [
     href: "https://tailwindcss.com/",
     src: "/stack/TAILWIND.svg",
   },
+  { name: "The Graph", href: "https://thegraph.com/", src: "/stack/GRAPH.svg" },
   { name: "Vercel", href: "https://vercel.com/", src: "/stack/VERCEL.svg" },
+  {
+    name: "TypeScript",
+    href: "https://typescriptlang.org/",
+    src: "/stack/TYPESCRIPT.svg",
+  },
 ];
 
 export default function Stack() {

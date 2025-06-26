@@ -45,3 +45,7 @@ html, body {
   animation: twinkle 3s infinite ease-in-out;
   opacity: 0.3;
 }
+
+appkit-button appkit-connect-button wui-connect-button * {
+  color: red !important;
+}
