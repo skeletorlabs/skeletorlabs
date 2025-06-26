@@ -1,62 +1,62 @@
 import Link from "next/link";
 import Badge from "../badge";
 import Subtitle from "../subtitle";
-import { etherscan, github } from "@/app/utils/svgs";
+import { etherscan } from "@/app/utils/svgs";
 
 const shipment = [
   {
-    name: "Contract 1",
-    usecase: "NFT Mint with ERC721A + Presale",
+    name: "Samurai Lock v2",
+    usecase: "Stake $SAM to get Samurai Points",
     summary:
-      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+      "A token-locking smart contract that allows users to stake $SAM tokens in exchange for Samurai Points. These points are used across the ecosystem for loyalty rewards, ranking, and feature access. Includes an emergency withdrawal function and integrates tightly with the PointsBridge contract.",
     stacks: ["Solidity", "Foundry", "Subgraph"],
-    github: "#",
-    etherscan: "#",
+    etherscan:
+      "https://basescan.org/address/0xA5c6584d6115cC26C956834849B4051bd200973a",
   },
   {
-    name: "Contract 2",
-    usecase: "NFT Mint with ERC721A + Presale",
+    name: "Giveaways",
+    usecase: "Samurai Points holders access raffles and giveaways",
     summary:
-      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+      "A contract that manages periodic giveaways among users who have accumulated Samurai Points. Points act as raffle tickets, and winners are chosen via verifiable randomness. Helps increase engagement and rewards active users in the ecosystem.",
     stacks: ["Solidity", "Foundry", "Subgraph"],
-    github: "#",
-    etherscan: "#",
+    etherscan:
+      "https://basescan.org/address/0xd1E65dF048784200CD1A458615438945a4568b59",
   },
   {
-    name: "Contract 3",
-    usecase: "NFT Mint with ERC721A + Presale",
+    name: "IDO Participator",
+    usecase: "USDC payment gateway for IDO participation",
     summary:
-      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+      "A smart contract that allows users to participate in IDOs by sending USDC. Tracks participant allocations and funds raised. Used in conjunction with vesting contracts to enable claimable token distributions over time, post-IDO.",
     stacks: ["Solidity", "Foundry", "Subgraph"],
-    github: "#",
-    etherscan: "#",
+    etherscan:
+      "https://basescan.org/address/0x3A76C6e3e6a0B136eE92b66B9Ba25d099BBC5882",
   },
   {
-    name: "Contract 4",
-    usecase: "NFT Mint with ERC721A + Presale",
+    name: "IDO Vesting",
+    usecase: "TGE & Vesting logic for IDO participants",
     summary:
-      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+      "Smart contract that handles token vesting for IDO participants, supporting cliff, TGE, and [Cliff | Linear | Periodic] releases. Ensures tokens are claimable over time and prevents frontloading by investors. Also distribute Samurai Points based on purchased amount in IDO Tokens",
     stacks: ["Solidity", "Foundry", "Subgraph"],
-    github: "#",
-    etherscan: "#",
+    etherscan:
+      "https://basescan.org/address/0x8C8Fa0152eFF48700c9e10b64aCa1B81f259F54B",
   },
   {
-    name: "Contract 5",
-    usecase: "NFT Mint with ERC721A + Presale",
+    name: "Samurai Tiers",
+    usecase: "Defines user tiers based on locked assets",
     summary:
-      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+      "Smart contract that categorizes users into tiers based on their $SAM token locks, SAM NFT locks, or LP positions on Aerodrome. These tiers are used to determine benefits like IDO participation levels or community privileges.",
     stacks: ["Solidity", "Foundry", "Subgraph"],
-    github: "#",
-    etherscan: "#",
+    etherscan:
+      "https://basescan.org/address/0x0E7E40385E9b7e629c504996Bdd36a3b51Ed0525",
   },
   {
-    name: "Contract 6",
-    usecase: "NFT Mint with ERC721A + Presale",
+    name: "SamNFT Lock",
+    usecase: "Locks Samurai NFTs to earn loyalty rewards",
     summary:
-      "Loren sit amet dolor ipsum, sit amet dolor ipsum. Loren sit amet dolor ipsum, sit amet dolor ipsum.",
+      "Allows users to lock their Samurai NFTs for a defined period in exchange for rewards or boosted points. Locking prevents transfer during the period and increases commitment. Designed to increase NFT retention and long-term user engagement.",
     stacks: ["Solidity", "Foundry", "Subgraph"],
-    github: "#",
-    etherscan: "#",
+    etherscan:
+      "https://basescan.org/address/0x45c085699fe78873d5c28b02d153cfd90379e424",
   },
 ];
 
@@ -80,18 +80,16 @@ export default function Code() {
                 <Badge key={stackIndex} text={stack} />
               ))}
             </div>
-            <p className="text-sm w-[260px] h-[80px] text-center mt-2 text-white/70 min-h-[50px]">
+            <p className="text-sm mt-2 text-white/70 min-h-[80px]">
               {item.summary}
             </p>
             <div className="flex items-center justify-end w-full gap-2">
               <Link
                 href={item.etherscan}
+                target="blank"
                 className="bg-white rounded-full hover:opacity-75"
               >
                 {etherscan}
-              </Link>
-              <Link href={item.github} className=" hover:opacity-75">
-                {github}
               </Link>
             </div>
           </div>
