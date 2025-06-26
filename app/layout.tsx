@@ -6,6 +6,7 @@ import { AppKit } from "@/app/context/web3modal";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import StateProvider from "./context/state";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
