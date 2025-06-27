@@ -54,20 +54,32 @@ export default function Header() {
   return (
     <div className="w-full bg-space bg-no-repeat bg-cover bg-left-top relative">
       {/* MOBILE HEADER INSERTION */}
-      <div className="flex xl:hidden items-center justify-between mt-6 px-8">
-        <div className="flex items-center gap-1">
-          {socials.map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              target="blank"
-              className="text-violet-200 scale-[0.7]"
-            >
-              {item.icon}
-            </Link>
-          ))}
+      <div className="flex xl:hidden items-center justify-between mt-6 px-4">
+        <div className="flex items-center gap-2">
+          <Image
+            src="/logo2.svg"
+            width={58}
+            height={58}
+            alt="logo"
+            // className="bg-white/80 rounded-full p-2"
+          />
         </div>
-        <NewTestimonialButton />
+
+        <div className="flex flex-col items-center">
+          <div className="flex items-center">
+            {socials.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                target="blank"
+                className="text-violet-200 scale-[0.7]"
+              >
+                {item.icon}
+              </Link>
+            ))}
+          </div>
+          <NewTestimonialButton nobg />
+        </div>
       </div>
       <div className="flex flex-col z-20 bg-gradient-to-b from-transparent via-black/30 to-black rounded-t-[40px] mt-40">
         <div className="flex flex-col z-20 py-12 px-8 xl:px-14 rounded-t-[40px]">

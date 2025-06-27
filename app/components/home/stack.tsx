@@ -61,7 +61,7 @@ export default function Stack() {
   return (
     <div className="flex flex-col bg-black/60 px-8 xl:px-14 py-14 border-t border-b border-white/5 gap-14">
       <Subtitle
-        text="Languages & Tools"
+        text="Stack"
         description="The most used techs in development process"
       />
       <div className="flex flex-row items-center justify-center xl:justify-start flex-wrap gap-6">

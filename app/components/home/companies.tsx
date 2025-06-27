@@ -62,7 +62,7 @@ export default function Companies() {
               <Badge key={chainIndex} text={chain} />
             ))}
           </div>
-          <p className="flex items-center justify-center text-sm text-center text-white/70 min-h-[50px] p-2">
+          <p className="flex items-center justify-center text-center text-white/70 p-2 px-6 !leading-[28px]">
             {item.description}
           </p>
           <span className="absolute top-0 right-0 ml-1 text-sm bg-black/80 text-white/70 px-2 py-1">
