@@ -12,6 +12,7 @@ interface Subtitle {
 export default function Subtitle({ text, description, padding }: Subtitle) {
   return (
     <Fragment>
+      {/* MOBILE */}
       <div
         className={`flex xl:hidden flex-col items-center text-center gap-1 ${
           padding && "px-8"
@@ -19,12 +20,12 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
       >
         <div className="flex items-center gap-2">
           <ArrowRightCircleIcon
-            width={28}
-            height={28}
+            width={38}
+            height={38}
             className="text-violet-300"
           />
           <span
-            className={`text-2xl font-bold text-violet-200 ${jakarta.className}`}
+            className={`text-4xl font-bold text-violet-200 ${jakarta.className}`}
           >
             {text}
           </span>
@@ -35,6 +36,7 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
         </span>
       </div>
 
+      {/* DESKTOP */}
       <div
         className={`hidden xl:flex items-center gap-4 ${padding && "px-14"}`}
       >
