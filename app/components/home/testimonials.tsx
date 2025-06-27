@@ -97,7 +97,7 @@ export default function Testimonials() {
       >
         <Subtitle
           text="Testimonials"
-          description="What people have to say about past partnerships"
+          description="What people have to say about work & partnerships"
         />
 
         {loading ? (
