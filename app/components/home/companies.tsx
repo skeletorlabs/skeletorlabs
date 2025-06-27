@@ -60,7 +60,7 @@ export default function Companies() {
                 </div>
                 <p className="text-2xl text-violet-300">{item.title}</p>
                 <p>{item.position}</p>
-                <div className="flex items-center gap-2 text-xs text-violet-200">
+                <div className="flex items-center gap-2">
                   {item.chains.map((chain, chainIndex) => (
                     <Badge key={chainIndex} text={chain} />
                   ))}
@@ -95,7 +95,7 @@ export default function Companies() {
                 <p>{item.position}</p>
                 <div className="flex items-center gap-2 text-xs text-violet-200">
                   {item.chains.map((chain, chainIndex) => (
-                    <Badge key={chainIndex} text={chain} />
+                    <Badge key={chainIndex} text={chain} big />
                   ))}
                 </div>
                 <p className="flex items-center justify-center text-lg w-[400px] h-[130px] text-center text-white/70 min-h-[50px] p-2">

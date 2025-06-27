@@ -45,7 +45,7 @@ export default function Contributions() {
         text="Contributions"
         description="Latest tech development for projects"
       />
-      <div className="flex flex-row items-center flex-wrap gap-4">
+      <div className="flex flex-row justify-between items-center flex-wrap gap-4">
         {contributions.map((item, index) => (
           <Link
             key={index}

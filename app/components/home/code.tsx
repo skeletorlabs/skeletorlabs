@@ -12,7 +12,7 @@ const shipment = [
     usecase: "Stake $SAM to get Samurai Points",
     summary:
       "A token-locking smart contract that allows users to stake $SAM tokens in exchange for Samurai Points. These points are used across the ecosystem for loyalty rewards, ranking, and feature access. Includes an emergency withdrawal function and integrates tightly with the PointsBridge contract.",
-    stacks: ["Solidity", "Foundry", "Subgraph"],
+    stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0xA5c6584d6115cC26C956834849B4051bd200973a",
   },
@@ -21,7 +21,7 @@ const shipment = [
     usecase: "Samurai Points holders access raffles and giveaways",
     summary:
       "A contract that manages periodic giveaways among users who have accumulated Samurai Points. Points act as raffle tickets, and winners are chosen via verifiable randomness. Helps increase engagement and rewards active users in the ecosystem.",
-    stacks: ["Solidity", "Foundry", "Subgraph"],
+    stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0xd1E65dF048784200CD1A458615438945a4568b59",
   },
@@ -30,7 +30,7 @@ const shipment = [
     usecase: "USDC payment gateway for IDO participation",
     summary:
       "A smart contract that allows users to participate in IDOs by sending USDC. Tracks participant allocations and funds raised. Used in conjunction with vesting contracts to enable claimable token distributions over time, post-IDO.",
-    stacks: ["Solidity", "Foundry", "Subgraph"],
+    stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x3A76C6e3e6a0B136eE92b66B9Ba25d099BBC5882",
   },
@@ -39,7 +39,7 @@ const shipment = [
     usecase: "TGE & Vesting logic for IDO participants",
     summary:
       "Smart contract that handles token vesting for IDO participants, supporting cliff, TGE, and [Cliff | Linear | Periodic] releases. Ensures tokens are claimable over time and prevents frontloading by investors. Also distribute Samurai Points based on purchased amount in IDO Tokens",
-    stacks: ["Solidity", "Foundry", "Subgraph"],
+    stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x8C8Fa0152eFF48700c9e10b64aCa1B81f259F54B",
   },
@@ -48,7 +48,7 @@ const shipment = [
     usecase: "Defines user tiers based on locked assets",
     summary:
       "Smart contract that categorizes users into tiers based on their $SAM token locks, SAM NFT locks, or LP positions on Aerodrome. These tiers are used to determine benefits like IDO participation levels or community privileges.",
-    stacks: ["Solidity", "Foundry", "Subgraph"],
+    stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x0E7E40385E9b7e629c504996Bdd36a3b51Ed0525",
   },
@@ -57,14 +57,14 @@ const shipment = [
     usecase: "Locks Samurai NFTs to earn loyalty rewards",
     summary:
       "Allows users to lock their Samurai NFTs for a defined period in exchange for rewards or boosted points. Locking prevents transfer during the period and increases commitment. Designed to increase NFT retention and long-term user engagement.",
-    stacks: ["Solidity", "Foundry", "Subgraph"],
+    stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x45c085699fe78873d5c28b02d153cfd90379e424",
   },
 ];
 const responsive = {
-  0: { items: 1 }, // Display 1 item on very small screens
-  1024: { items: 3 }, // Display 3 items on larger screens (e.g., desktops)
+  0: { items: 1 },
+  1260: { items: 3 },
 };
 
 export default function Code() {
@@ -82,13 +82,13 @@ export default function Code() {
           {item.usecase}
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-2 px-6 mt-1 text-sm">
+        <div className="flex items-center gap-2 mt-2">
           {item.stacks.map((stack, stackIndex) => (
-            <Badge key={stackIndex} text={stack} />
+            <Badge key={stackIndex} text={stack} big />
           ))}
         </div>
 
-        <p className="text-sm text-white/70 leading-relaxed px-6">
+        <p className="text-sm text-white/70 !leading-[24px] px-6">
           {item.summary}
         </p>
 
@@ -121,7 +121,6 @@ export default function Code() {
           </div>
         ) : (
           <AliceCarousel
-            // mouseTracking
             responsive={responsive}
             disableButtonsControls
             autoPlay
