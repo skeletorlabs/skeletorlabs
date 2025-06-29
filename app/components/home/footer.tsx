@@ -12,6 +12,7 @@ import { PencilSquareIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
 import { StateContext } from "@/app/context/state";
 import NewTestimonialButton from "./newTestimonialButton";
+import Image from "next/image";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -44,18 +45,22 @@ export default function Footer() {
           ))}
         </div>
 
-        <NewTestimonialButton />
-        <div className="text-violet-200 font-thin tracking-wide mt-5 text-xs">
-          Ⓒ 2025 Skeletor Dapps
+        <div className="flex flex-col items-center gap-3 text-violet-200 font-thin tracking-wide mt-5 text-xs">
+          <div className="flex items-center gap-3">
+            <NewTestimonialButton nobg />
+            <span>Ⓒ 2025 Skeletor Labs</span>
+          </div>
+          <Image src="/logo-with-bg.svg" width={35} height={38} alt="logo" />
         </div>
       </footer>
 
       {/* DESKTOP */}
       <footer
-        className={`hidden xl:flex bg-black z-20 w-[1180px] h-24 items-center justify-between px-14 ${jakarta.className}`}
+        className={`hidden xl:flex bg-black z-20 w-[1180px] h-32 items-center justify-between px-14 ${jakarta.className}`}
       >
-        <div className="text-violet-200 font-thin tracking-wide">
-          Ⓒ 2025 Skeletor Dapps
+        <div className="flex items-center gap-3 text-violet-200 font-thin tracking-wide">
+          <Image src="/logo-with-bg.svg" width={35} height={38} alt="logo" />
+          <span>Ⓒ 2025 Skeletor Labs</span>
         </div>
 
         <NewTestimonialButton nobg />

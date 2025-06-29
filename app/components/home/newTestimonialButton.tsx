@@ -27,7 +27,7 @@ export default function NewTestimonialButton({ nobg }: NewTestimonialButton) {
       {/* DESKTOP */}
       <button
         onClick={() => setTestimonialBoxIsOpen(true)}
-        className={`hidden xl:flex items-center justify-center gap-1 p-2 ${
+        className={`hidden xl:flex items-center justify-center gap-1 p-2 px-6 ${
           nobg
             ? "bg-transparent text-violet-300 transition-colors hover:text-violet-200"
             : "font-semibold bg-violet-300 transition-colors hover:bg-violet-200 text-black/80"
