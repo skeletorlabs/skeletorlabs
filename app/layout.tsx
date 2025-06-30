@@ -19,7 +19,7 @@ export default function RootLayout({
     <TerminalContextProvider>
       <html lang="en">
         <head>
-          <title>Skeletor Dapps</title>
+          <title>Skeletor Labs</title>
           <meta
             name="description"
             key="desc"
