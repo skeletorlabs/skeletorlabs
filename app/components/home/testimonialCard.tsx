@@ -41,7 +41,7 @@ export default function TestimonialCard({
   }, [address, testimonial, setCanDeactivate]);
 
   return (
-    <div className="relative w-full max-w-md even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50">
+    <div className="flex flex-col justify-between relative w-full max-w-md xl:max-w-lg even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50">
       <div className="absolute top-0 left-0 w-0 h-0 border-t-[50px] border-t-violet-500 border-r-[50px] border-r-transparent" />
       <div
         className={classNames({
@@ -107,12 +107,12 @@ export default function TestimonialCard({
           </span>
         </div>
       </div>
-      <div className="px-6  pl-10 pb-6 pt-2">
+      <div className="px-6 pl-10 pb-6 pt-2">
         <p className="text-sm text-white/80 leading-relaxed italic">
           "{testimonial.message}"
         </p>
       </div>
-      <div className="px-6 pb-4 text-right text-xs text-white/30">
+      <div className="flex flex-col px-6 pb-4 text-right text-xs text-white/30">
         {shortener(testimonial?.address || "", 5)}
       </div>
     </div>

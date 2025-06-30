@@ -5,13 +5,13 @@ import { SOCIALS } from "../utils/conts";
 
 export default function Nav() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between mt-10 md:mt-6 px-4 xl:px-14">
+    <div className="flex flex-col md:flex-row items-center justify-between mt-10 px-4 xl:px-10">
       <Image
         src="/logo-text.svg"
         width={276}
         height={75}
         alt="logo"
-        className="w-[256px] h-[55px] md:w-[276px] md:h-[75px]"
+        className="transition-all scale-90 md:scale-100"
       />
 
       <div className="hidden md:block">

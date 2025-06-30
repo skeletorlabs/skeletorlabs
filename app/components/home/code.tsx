@@ -109,7 +109,7 @@ export default function Code() {
     setLoading(false);
   }, [shipment, setLoading]);
   return (
-    <div className="flex flex-col bg-black/10 px-8 xl:px-14 py-10 border-t border-white/5 gap-10">
+    <div className="flex flex-col bg-black/10 px-8 xl:px-14 py-10 border-t border-white/5 gap-10 mt-10">
       <Subtitle
         text="Shipped"
         description="Some important codes & products shipped"

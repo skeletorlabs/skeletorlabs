@@ -12,15 +12,10 @@ import Nav from "../nav";
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export default function Header() {
-  const [showSecond, setShowSecond] = useState(false);
   const { setTestimonialBoxIsOpen } = useContext(StateContext);
   const el = useRef(null); // Create reference to store the DOM element containing the animation
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setShowSecond((prev) => !prev);
-    }, 3000);
-
     const typed = new Typed(el.current, {
       strings: ["Web3 Tech", "Blockchain", "De-Fi Space", "NFT Collections"],
       typeSpeed: 100,
@@ -33,7 +28,6 @@ export default function Header() {
     return () => {
       // Destroy Typed instance during cleanup to stop animation
       typed.destroy();
-      clearInterval(interval);
     };
   }, []);
   return (
@@ -54,23 +48,11 @@ export default function Header() {
 
             <div className="hidden md:block relative min-w-[240px] min-h-[240px] mt-[-55px] opacity-90 transition-all animate-pulse duration-1000">
               <Image
-                src="/logo-v4.svg"
-                width={230}
-                height={230}
-                alt="logo"
-                className={`flex absolute top-10 left-10 !w-[180px] !h-[180px] self-center transition-opacity duration-1000 delay-500 ease-in-out ${
-                  showSecond ? "opacity-0" : "opacity-100"
-                }`}
-              />
-
-              <Image
                 src="/logo2.svg"
                 width={230}
                 height={230}
                 alt="logo"
-                className={`absolute top-3 left-3 !w-[240px] !h-[240px] self-center transition-opacity duration-1000 delay-500 ease-in-out ${
-                  showSecond ? "opacity-100" : "opacity-0"
-                }`}
+                className="absolute top-3 left-3 !w-[240px] !h-[240px] self-center transition-opacity duration-1000 delay-500 ease-in-out"
               />
             </div>
           </div>

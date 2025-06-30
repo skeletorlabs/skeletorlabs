@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import Loading from "../loading";
+import { GlobeAltIcon, PhotoIcon } from "@heroicons/react/24/solid";
 
 const companies = [
   {
@@ -15,6 +16,7 @@ const companies = [
     bg: "/onering-notebook.png",
     chains: ["Base", "Sonic"],
     link: "http://samuraistarter.com",
+    link2: "https://opensea.io/collection/samuraistarter",
     timeframe: "2023-Present",
     position: "CTO - Blockchain Engineer",
   },
@@ -37,10 +39,8 @@ export default function Companies() {
 
   useEffect(() => {
     const _items = companies.map((item, index) => (
-      <Link
+      <div
         key={index}
-        href={item.link}
-        target="blank"
         className={`flex xl:hidden flex-col items-center justify-center w-full h-[500px] ${
           index === 0 ? "bg-samurai" : "bg-onering "
         } bg-cover bg-no-repeat relative`}
@@ -65,18 +65,39 @@ export default function Companies() {
           <p className="flex items-center justify-center text-center text-white/70 p-2 px-6 !leading-[28px]">
             {item.description}
           </p>
+          <div className="flex items-center gap-5">
+            <Link
+              href={item.link}
+              target="blank"
+              className="flex items-center gap-2 transition-opacity hover:opacity-75"
+            >
+              <GlobeAltIcon width={24} height={24} />
+              <span>Dapp</span>
+            </Link>
+
+            {item.link2 && (
+              <Link
+                href={item.link2}
+                target="blank"
+                className="flex items-center gap-2 transition-opacity hover:opacity-75"
+              >
+                <PhotoIcon width={24} height={24} />
+                <span>NFT Collection</span>
+              </Link>
+            )}
+          </div>
           <span className="absolute top-0 right-0 ml-1 text-sm bg-black/80 text-white/70 px-2 py-1">
             {item.timeframe}
           </span>
         </div>
-      </Link>
+      </div>
     ));
 
     setItems(_items);
     setLoading(false);
   }, [companies, setLoading]);
   return (
-    <div className="flex flex-col py-10 gap-10">
+    <div className="flex flex-col  gap-10">
       <Subtitle
         text="Companies"
         description="Current/Past full-time experiences in blockchain companies since 2021"
@@ -104,16 +125,14 @@ export default function Companies() {
       {/* DESKTOP */}
       <div className="hidden xl:flex flex-col xl:flex-row items-center px-0 backdrop-blur-sm">
         {companies.map((item, index) => (
-          <Link
+          <div
             key={index}
-            href={item.link}
-            target="blank"
             className={`hidden xl:flex flex-col items-center justify-center w-full h-[700px] ${
               index === 0 ? "bg-samurai" : "bg-onering "
             } bg-contain bg-no-repeat hover:opacity-90 relative`}
           >
             <div className="flex flex-col justify-center items-center bg-black/90 w-full h-full transition-all opacity-0 hover:opacity-100 gap-2">
-              <div className="flex items-center justify-center bg-skeletor-gray border border-white/10 w-[160px] h-[160px] rounded-xl">
+              <div className="flex items-center justify-center bg-[#0D0919] border border-white/5 w-[160px] h-[160px] rounded-xl">
                 <Image
                   src={item.src}
                   width={110}
@@ -132,11 +151,32 @@ export default function Companies() {
               <p className="flex items-center justify-center text-lg w-[400px] h-[130px] text-center text-white/70 min-h-[50px] p-2">
                 {item.description}
               </p>
+              <div className="flex items-center gap-5">
+                <Link
+                  href={item.link}
+                  target="blank"
+                  className="flex items-center gap-2 transition-opacity hover:opacity-75"
+                >
+                  <GlobeAltIcon width={24} height={24} />
+                  <span>Dapp</span>
+                </Link>
+
+                {item.link2 && (
+                  <Link
+                    href={item.link2}
+                    target="blank"
+                    className="flex items-center gap-2 transition-opacity hover:opacity-75"
+                  >
+                    <PhotoIcon width={24} height={24} />
+                    <span>NFT Collection</span>
+                  </Link>
+                )}
+              </div>
               <span className="absolute top-0 right-0 ml-1 text-sm bg-black/80 text-white/70 px-2 py-1 rounded-tr-xl">
                 {item.timeframe}
               </span>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>

@@ -47,7 +47,7 @@ const chains = [
 
 export default function Chains() {
   return (
-    <div className="flex flex-col bg-black/60 px-8 xl:px-14 py-14 border-t border-b border-white/5 gap-14">
+    <div className="flex flex-col bg-violet-500/10 px-8 xl:px-14 py-20 border-t border-b border-white/5 gap-14 mt-10 md:mt-0">
       <Subtitle text="Chains" description="The latest EVM chains deployed" />
       <div className="flex flex-row items-center justify-center xl:justify-start flex-wrap gap-6">
         {chains.map((item, index) => (

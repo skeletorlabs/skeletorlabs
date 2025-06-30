@@ -103,7 +103,7 @@ export default function Testimonials() {
         {loading ? (
           <Loading />
         ) : (
-          <div className="flex flex-row flex-wrap gap-4 xl:gap-16">
+          <div className="flex flex-row justify-center xl:justify-between flex-wrap gap-4">
             {collection.map((item, index) => (
               <TestimonialCard
                 key={index}
@@ -126,8 +126,8 @@ export default function Testimonials() {
             </div>
 
             {/* DESKTOP */}
-            <div className="hidden xl:flex w-full mt-[-20px]">
-              <NewTestimonialButton nobg />
+            <div className="hidden xl:flex justify-end w-full mt-6 pb-4">
+              <NewTestimonialButton />
             </div>
           </div>
         )}
