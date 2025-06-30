@@ -25,7 +25,7 @@ const contributions = [
   },
   {
     title: "Juggernauts",
-    description: "Building badass SportFi dApps.",
+    description: "Bringing the Sports World into Web3 through kickass dApps.",
     src: "/labs/juggernauts.svg",
     chains: ["Base"],
     link: "https://www.juggernauts.io/",
@@ -72,7 +72,7 @@ export default function Labs() {
   }, [contributions, setLoading]);
 
   return (
-    <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-blue-950/50">
+    <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet">
       <Subtitle
         text="Labs"
         description="New ideas & products in the pipeline"

@@ -20,12 +20,12 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
       >
         <div className="flex items-center gap-2">
           <ArrowRightCircleIcon
-            width={38}
-            height={38}
+            width={34}
+            height={34}
             className="text-violet-300"
           />
           <span
-            className={`text-4xl font-bold text-violet-200 ${jakarta.className}`}
+            className={`text-3xl font-bold text-violet-200 ${jakarta.className}`}
           >
             {text}
           </span>

@@ -5,7 +5,7 @@ import { SOCIALS } from "../utils/conts";
 
 export default function Nav() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between mt-10 px-4 xl:px-10">
+    <div className="flex flex-col md:flex-row items-center justify-between mt-10 px-8 xl:px-14">
       <Image
         src="/logo-text.svg"
         width={277}

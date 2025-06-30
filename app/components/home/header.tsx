@@ -37,9 +37,11 @@ export default function Header() {
         <div className="flex flex-col z-20 py-12 px-8 xl:px-14 rounded-t-[40px]">
           <div className="flex flex-col md:flex-row items-center mt-[-120px] pb-24 text-center md:text-start">
             <div
-              className={`h-[220px] font-extrabold text-white text-5xl md:text-6xl lg:text-[66px] leading-tight ${jakarta.className}`}
+              className={`w-full h-[220px] font-extrabold text-white text-5xl md:text-6xl lg:text-[66px] leading-tight ${jakarta.className}`}
             >
-              <p className="md:pr-10">Dedicated to build the Future of the </p>
+              <p className="max-w-[700px]">
+                Dedicated to build the Future of the
+              </p>
               <span
                 ref={el}
                 className="bg-gradient-to-br from-[#9C74F1] via-[#987FFF] to-[#3600A8] text-transparent bg-clip-text"
@@ -52,7 +54,7 @@ export default function Header() {
                 width={230}
                 height={230}
                 alt="logo"
-                className="absolute top-3 left-3 !w-[240px] !h-[240px] self-center transition-opacity duration-1000 delay-500 ease-in-out"
+                className="absolute top-3 right-[-30px] !w-[240px] !h-[240px] self-center transition-opacity duration-1000 delay-500 ease-in-out"
               />
             </div>
           </div>
@@ -66,7 +68,7 @@ export default function Header() {
               </p>
             </div>
             <div className="hidden xl:flex flex-col gap-4">
-              <div className="flex items-center gap-5">
+              <div className="flex items-center gap-3">
                 {SOCIALS.map((item, index) => (
                   <Link
                     key={index}
@@ -78,7 +80,6 @@ export default function Header() {
                   </Link>
                 ))}
               </div>
-              {/* <NewTestimonialButton /> */}
             </div>
           </div>
         </div>

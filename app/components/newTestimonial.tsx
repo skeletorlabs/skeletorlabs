@@ -141,7 +141,7 @@ export default function NewTestimonial() {
                   {isConnected ? (
                     <>
                       <PencilSquareIcon width={20} height={20} />
-                      Testimonial
+                      Leave Feedback
                     </>
                   ) : (
                     <>
@@ -174,8 +174,6 @@ export default function NewTestimonial() {
                           </button>
                         </div>
 
-                        {/* <ConnectButton /> */}
-
                         <div className="flex flex-col gap-1">
                           <label className="text-white/70 text-sm">Name:</label>
                           <div className="flex items-center rounded-lg text-white relative w-full">
@@ -193,7 +191,9 @@ export default function NewTestimonial() {
                         </div>
 
                         <div className="flex flex-col gap-1">
-                          <label className="text-white/70 text-sm">Role:</label>
+                          <label className="text-white/70 text-sm">
+                            Company - Role:
+                          </label>
                           <div className="flex items-center rounded-lg text-white relative w-full">
                             <input
                               disabled={loading}
@@ -202,7 +202,7 @@ export default function NewTestimonial() {
                               }
                               value={role}
                               type="text"
-                              placeholder="Samurai CEO"
+                              placeholder="Samurai - CEO"
                               className="w-full bg-white/10 border-transparent py-2 focus:border-transparent focus:ring-transparent outline-none placeholder-white/30 text-md rounded-lg p-2 font-sans"
                             />
                           </div>
@@ -210,7 +210,7 @@ export default function NewTestimonial() {
 
                         <div className="flex flex-col gap-1">
                           <label className="text-white/70 text-sm">
-                            Testimonial Message:
+                            Feedback:
                           </label>
                           <div className="flex items-center rounded-lg text-white relative w-full">
                             <textarea
@@ -219,7 +219,7 @@ export default function NewTestimonial() {
                                 onInputChange(e.target.value, InputType.MESSAGE)
                               }
                               value={message}
-                              placeholder={`Loren Ipsum \nDolor sit\nAmet`}
+                              placeholder={`Working with Skeletor Labs was seamless — sharp execution, clean code, and deep Web3 knowledge. Would definitely collaborate again.`}
                               className="w-full bg-white/10 border-transparent py-2 focus:border-transparent focus:ring-transparent outline-none placeholder-white/30 text-md rounded-lg p-2 h-32 font-sans"
                             />
                           </div>
@@ -234,17 +234,19 @@ export default function NewTestimonial() {
                             <CheckBadgeIcon width={20} height={20} />
                           )}
                           <span>
-                            {loading ? "LOADING..." : "Confirm Testimonial"}
+                            {loading ? "LOADING..." : "Confirm Feedback"}
                           </span>
                         </button>
                       </>
                     ) : (
                       <div
-                        className={`flex flex-col items-center justify-center w-full h-full text-center gap-2 `}
+                        className={`flex flex-col items-center justify-center w-full h-full text-center gap-3 `}
                       >
-                        <p className="text-3xl">Connect your wallet</p>
+                        <p className="text-3xl text-violet-400">
+                          Connect your wallet
+                        </p>
                         <p className="text-white/70 text-lg pb-10 max-w-[400px] font-sans">
-                          Your testimonial is saved to IPFS, and its hash is
+                          Your feedback is saved to IPFS, and its hash is
                           permanently recorded on the Base blockchain through a
                           smart contract.
                         </p>
