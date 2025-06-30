@@ -9,6 +9,7 @@ import Stack from "./components/home/stack";
 import Testimonials from "./components/home/testimonials";
 import Loading from "./components/loading";
 import Chains from "./components/home/chains";
+import Labs from "./components/home/labs"
 
 export default function Home() {
   const Terminal = dynamic(() => import("./components/terminal"), {
@@ -26,6 +27,7 @@ export default function Home() {
           <Companies />
           <Chains />
           <Contributions />
+          <Labs />
           <Testimonials />
           <Stack />
 

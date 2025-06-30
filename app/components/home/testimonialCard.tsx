@@ -43,14 +43,7 @@ export default function TestimonialCard({
   return (
     <div className="flex flex-col justify-between relative w-full max-w-md xl:max-w-lg even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50">
       <div className="absolute top-0 left-0 w-0 h-0 border-t-[50px] border-t-violet-500 border-r-[50px] border-r-transparent" />
-      <div
-        className={classNames({
-          "absolute bottom-0 right-0 w-0 h-0 border-b-[50px] border-b-violet-500 border-l-[50px] border-l-transparent":
-            true,
-          hidden: !canDeactivate,
-          block: canDeactivate,
-        })}
-      />
+
       <ChatBubbleBottomCenterTextIcon
         width={20}
         height={20}
@@ -72,23 +65,6 @@ export default function TestimonialCard({
         </button>
         <span>{testimonial?.likes || 0}</span>
       </div>
-
-      <button
-        disabled={testimonial?.id === undefined}
-        onClick={() => deactivateTestimonial(testimonial?.id)}
-        className={classNames({
-          "absolute bottom-[6px] right-[6px] flex items-center gap-2 transition-all text-xs tracking-tighter hover:opacity-80":
-            true,
-          hidden: !canDeactivate,
-          block: canDeactivate,
-        })}
-      >
-        <XMarkIcon
-          width={18}
-          height={18}
-          className="transition-all text-white hover:scale-105"
-        />
-      </button>
 
       <div className="flex items-center gap-3 p-6 pl-10">
         <Image
@@ -112,8 +88,27 @@ export default function TestimonialCard({
           "{testimonial.message}"
         </p>
       </div>
-      <div className="flex flex-col px-6 py-2 text-right text-xs text-white/50 bg-[#0D0919]/80">
-        {shortener(testimonial?.address || "", 5)}
+      <div className="flex justify-end items-center gap-3 px-3 py-2 text-right text-xs text-white/50 bg-skeletor-dark-violet/80 min-h-[50px] border-t border-skeletor-dark-violet">
+        <button
+          disabled={testimonial?.id === undefined}
+          onClick={() => deactivateTestimonial(testimonial?.id)}
+          className={classNames({
+            "flex items-center gap-1 text-xs tracking-tighter hover:opacity-80 bg-black transition-colors hover:bg-black/70 rounded-full p-1 px-2":
+              true,
+            hidden: !canDeactivate,
+            block: canDeactivate,
+          })}
+        >
+          <TrashIcon
+            width={12}
+            height={12}
+            className="transition-all text-white hover:scale-105"
+          />
+          <span>Remove</span>
+        </button>
+        <span className="bg-white/5 rounded-full p-1 px-2">
+          {shortener(testimonial?.address || "", 5)}
+        </span>
       </div>
     </div>
   );

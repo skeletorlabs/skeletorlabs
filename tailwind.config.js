@@ -18,6 +18,7 @@ module.exports = {
       },
       colors: {
         "skeletor-gray": "#222338",
+        "skeletor-dark-violet": "#0D0919",
       },
     },
   },

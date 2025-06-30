@@ -132,7 +132,7 @@ export default function Companies() {
             } bg-contain bg-no-repeat hover:opacity-90 relative`}
           >
             <div className="flex flex-col justify-center items-center bg-black/90 w-full h-full transition-all opacity-0 hover:opacity-100 gap-2">
-              <div className="flex items-center justify-center bg-[#0D0919] border border-white/5 w-[160px] h-[160px] rounded-xl">
+              <div className="flex items-center justify-center bg-skeletor-dark-violet border border-white/5 w-[160px] h-[160px] rounded-xl">
                 <Image
                   src={item.src}
                   width={110}
