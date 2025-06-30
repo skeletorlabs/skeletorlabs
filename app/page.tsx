@@ -29,8 +29,8 @@ export default function Home() {
           <Testimonials />
           <Stack />
 
-          <p className="text-[120px] text-center xl:text-[180px] px-4 xl:px-10 py-10 pb-16 font-bold leading-tight xl:leading-none">
-            LET'S TALK!
+          <p className="text-[120px] text-center xl:text-[180px] px-4 xl:px-10 py-16 font-bold leading-tight xl:leading-none">
+            <span className="">LET'S TALK!</span>
           </p>
         </div>
       </main>

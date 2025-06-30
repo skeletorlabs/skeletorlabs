@@ -127,7 +127,7 @@ export default function Testimonials() {
 
             {/* DESKTOP */}
             <div className="hidden xl:flex justify-end w-full mt-6 pb-4">
-              <NewTestimonialButton />
+              <NewTestimonialButton invert />
             </div>
           </div>
         )}

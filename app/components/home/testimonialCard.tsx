@@ -112,7 +112,7 @@ export default function TestimonialCard({
           "{testimonial.message}"
         </p>
       </div>
-      <div className="flex flex-col px-6 pb-4 text-right text-xs text-white/30">
+      <div className="flex flex-col px-6 py-2 text-right text-xs text-white/50 bg-[#0D0919]/80">
         {shortener(testimonial?.address || "", 5)}
       </div>
     </div>

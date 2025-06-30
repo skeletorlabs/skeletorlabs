@@ -8,8 +8,8 @@ export default function Nav() {
     <div className="flex flex-col md:flex-row items-center justify-between mt-10 px-4 xl:px-10">
       <Image
         src="/logo-text.svg"
-        width={276}
-        height={75}
+        width={277}
+        height={77}
         alt="logo"
         className="transition-all scale-90 md:scale-100"
       />
