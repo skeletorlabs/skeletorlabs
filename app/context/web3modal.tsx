@@ -8,7 +8,7 @@ import { base } from "@reown/appkit/networks";
 import { PropsWithChildren } from "react";
 
 // 1. Get projectId at https://cloud.reown.com
-const projectId = "3d6f62cae7f9566611e42c57d19c7810";
+const projectId = "26ddcbf907926f7c164d140cb254b211";
 
 // 2. Create a metadata object
 const metadata = {
