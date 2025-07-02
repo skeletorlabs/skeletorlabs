@@ -39,14 +39,14 @@ export default function Footer() {
               key={index}
               href={item.href}
               target="blank"
-              className="text-violet-200"
+              className="text-violet-200 scale-75"
             >
               {item.icon}
             </Link>
           ))}
         </div>
 
-        <div className="flex flex-col items-center gap-3 text-violet-200 font-thin tracking-wide mt-2 py-8 ext-sm bg-skeletor-gray w-full">
+        <div className="flex flex-col items-center gap-3 text-violet-200 font-thin tracking-wide mt-2 py-8 text-sm bg-skeletor-dark-violet w-full">
           <Image src="/logo-footer.svg" width={36} height={36} alt="logo" />
           <span>Ⓒ 2025 Skeletor Labs</span>
         </div>
@@ -62,13 +62,13 @@ export default function Footer() {
         </div>
 
         <NewTestimonialButton nobg />
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3">
           {socials.map((item, index) => (
             <Link
               key={index}
               href={item.href}
               target="blank"
-              className="text-violet-200 hover:text-white hover:scale-105"
+              className="text-violet-200 transition-all hover:text-violet-300 scale-90 hover:scale-105"
             >
               {item.icon}
             </Link>

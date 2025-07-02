@@ -59,30 +59,8 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-10  xl:flex-row xl:gap-0 items-center justify-between">
-            <div className="text-3xl w-max py-2 px-1 font-sans rounded-lg text-center xl:text-start">
-              <p>
-                Hello! 👋
-                <br />
-                Welcome to
-                <br />
-                <span className="text-violet-500">Skeletor Labs</span>
-              </p>
-            </div>
-            <div className="hidden xl:flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                {SOCIALS.map((item, index) => (
-                  <Link
-                    key={index}
-                    href={item.href}
-                    target="blank"
-                    className="text-violet-200 hover:text-violet-300 hover:scale-105"
-                  >
-                    {item.icon}
-                  </Link>
-                ))}
-              </div>
-            </div>
+          <div className="flex flex-col w-auto md:w-max items-center justify-center md:justify-start gap-2">
+            <NewTestimonialButton />
           </div>
         </div>
       </div>

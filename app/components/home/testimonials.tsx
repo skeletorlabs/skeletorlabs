@@ -18,14 +18,21 @@ import NewTestimonialButton from "./newTestimonialButton";
 import ConnectButton from "../connectButton";
 import LoadingBox from "../loadingBox";
 import { PencilSquareIcon } from "@heroicons/react/20/solid";
+import AliceCarousel from "react-alice-carousel";
+
+const responsive = {
+  0: { items: 1 },
+  1260: { items: 2 },
+};
 
 export default function Testimonials() {
   const [collection, setCollection] = useState<TestimonialData[] | undefined>();
   const [owner, setOwner] = useState("");
   const [userLikes, setUserLikes] = useState<UserLike[] | undefined>();
   const [loading, setLoading] = useState(true);
-  const { refreshTestimonials } = useContext(StateContext);
+  const [items, setItems] = useState<JSX.Element[] | undefined>(undefined);
 
+  const { refreshTestimonials } = useContext(StateContext);
   const { address, isConnected } = useAppKitAccount();
   const { walletProvider } = useAppKitProvider("eip155");
 
@@ -83,10 +90,28 @@ export default function Testimonials() {
     if (refreshTestimonials) fetchTestimonials();
   }, [refreshTestimonials, fetchTestimonials]);
 
-  // Set Loading to false only when collection is loaded, even if is empty.
+  // Load carousel
   useEffect(() => {
+    const _items = collection?.map((item, index) => (
+      <TestimonialCard
+        key={index}
+        testimonial={item}
+        owner={owner.toLowerCase()}
+        userLiked={
+          (userLikes &&
+            userLikes.find((userLike) => userLike.id === item.id)?.liked) ||
+          false
+        }
+        deactivateTestimonial={deactivateTestimonial}
+        likeTestimonial={likeTestimonial}
+      />
+    ));
+
+    setItems(_items);
+
+    // Set Loading to false only when collection is loaded, even if is empty.
     if (collection) setLoading(false);
-  }, [collection, setLoading]);
+  }, [collection, setLoading, setItems]);
 
   useEffect(() => {
     fetchUserLikes();
@@ -94,7 +119,7 @@ export default function Testimonials() {
 
   return (
     <div className="relative">
-      <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 min-h-[440px]">
+      <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 min-h-[200] xl:min-h-[440px]">
         <div className="flex flex-col gap-5 xl:flex-row xl:gap-0 justify-between items-center">
           <Subtitle
             text="Feedbacks"
@@ -104,7 +129,7 @@ export default function Testimonials() {
         </div>
 
         {!loading && collection && collection.length === 0 && (
-          <div className="flex items-center justify-center xl:justify-start gap-3 min-h-[200px] text-violet-200 text-xl md:text-3xl font-extralight italic">
+          <div className="flex items-center justify-center xl:justify-start gap-3 min-h-[200px] text-violet-200 text-lg md:text-3xl font-extralight italic">
             — Be the first to leave feedback.
             <PencilSquareIcon
               width={30}
@@ -114,7 +139,19 @@ export default function Testimonials() {
           </div>
         )}
 
-        <div className="flex flex-row justify-center xl:justify-between flex-wrap gap-4 xl:gap-10">
+        {!loading && items && items?.length > 0 && (
+          <AliceCarousel
+            responsive={responsive}
+            disableButtonsControls
+            autoPlay
+            autoPlayInterval={3000}
+            infinite
+          >
+            {items}
+          </AliceCarousel>
+        )}
+
+        {/* <div className="flex flex-row justify-center xl:justify-between flex-wrap gap-4 xl:gap-10">
           {collection &&
             collection.map((item, index) => (
               <TestimonialCard
@@ -131,7 +168,7 @@ export default function Testimonials() {
                 likeTestimonial={likeTestimonial}
               />
             ))}
-        </div>
+        </div> */}
       </div>
       <NewTestimonial />
       {loading && <LoadingBox />}

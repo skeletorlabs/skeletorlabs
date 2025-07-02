@@ -77,33 +77,33 @@ export default function TestimonialCard({
       </div>
 
       {/* USER DETAILS */}
-      <div className="flex items-center gap-3 p-6 pl-10">
+      <div className="flex items-center gap-3 p-6 pb-4 xl:pb-6 pl-10">
         <Image
           src={avatar}
           alt="avatar"
           width={48}
           height={48}
-          className="rounded-full bg-white/10 p-1"
+          className="rounded-full bg-white/10 xl:p-1 w-[28px] h-[28px] xl:w-[48px] xl:h-[48px]"
         />
         <div className="flex flex-col">
-          <span className="text-lg font-bold leading-tight">
+          <span className="text-sm xl:text-lg font-bold leading-tight">
             {testimonial.name}
           </span>
-          <span className="text-sm text-violet-300  leading-tight">
+          <span className="text-xs xl:text-sm text-violet-300  leading-tight">
             {testimonial.role}
           </span>
         </div>
       </div>
 
       {/* MESSAGE */}
-      <div className="px-6 pl-10 pb-6 pt-2">
-        <p className="text-sm text-white/80 leading-relaxed italic">
+      <div className="px-6 pl-10 pb-6 xl:pt-2">
+        <p className="text-xs xl:text-sm text-white/80 leading-relaxed italic">
           "{testimonial.message}"
         </p>
       </div>
 
       {/* REMOVE & ADDRESS CONTAINER */}
-      <div className="flex justify-end items-center gap-3 px-3 py-2 text-right text-xs text-white/50 bg-skeletor-dark-violet/80 min-h-[50px] border-t border-skeletor-dark-violet">
+      <div className="flex justify-end items-center gap-3 px-3 py-2 text-right text-xs text-white/50 bg-skeletor-dark-violet/80 xl:min-h-[50px] border-t border-skeletor-dark-violet">
         {/* REMOVE BUTTON */}
         <button
           disabled={testimonial?.id === undefined}
