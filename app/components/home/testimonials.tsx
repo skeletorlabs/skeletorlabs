@@ -10,22 +10,23 @@ import {
   UserLike,
   likedByUser,
 } from "@/app/contracts/testimonialRegistry";
-import classNames from "classnames";
 import { useAppKitAccount, useAppKitProvider } from "@reown/appkit/react";
 import { BrowserProvider } from "ethers";
 import NewTestimonial from "../newTestimonial";
 import { StateContext } from "@/app/context/state";
-import Loading from "../loading";
 import NewTestimonialButton from "./newTestimonialButton";
+import ConnectButton from "../connectButton";
+import LoadingBox from "../loadingBox";
+import { PencilSquareIcon } from "@heroicons/react/20/solid";
 
 export default function Testimonials() {
-  const [collection, setCollection] = useState<TestimonialData[]>([]);
+  const [collection, setCollection] = useState<TestimonialData[] | undefined>();
   const [owner, setOwner] = useState("");
   const [userLikes, setUserLikes] = useState<UserLike[] | undefined>();
   const [loading, setLoading] = useState(true);
   const { refreshTestimonials } = useContext(StateContext);
 
-  const { address } = useAppKitAccount();
+  const { address, isConnected } = useAppKitAccount();
   const { walletProvider } = useAppKitProvider("eip155");
 
   const fetchTestimonials = useCallback(async () => {
@@ -34,20 +35,19 @@ export default function Testimonials() {
       const ipfsTestimonials = await readTestimonialsFromIPFS(
         storedTestimonials
       );
-      if (ipfsTestimonials) setCollection(ipfsTestimonials);
+      setCollection(ipfsTestimonials || []);
     }
     const _owner = await getOwner();
     if (_owner) setOwner(_owner);
   }, [setCollection, setOwner]);
 
   const fetchUserLikes = useCallback(async () => {
-    if (collection.length > 0 && address) {
+    if (collection && address) {
       const ids: number[] = collection.map((item) => item.id!);
       const _userLikes = await likedByUser(ids, address);
-      if (_userLikes) setUserLikes(_userLikes);
+      setUserLikes(_userLikes || []);
     }
-    setLoading(false);
-  }, [collection, address, setLoading, setUserLikes]);
+  }, [collection, address, setUserLikes]);
 
   const deactivateTestimonial = useCallback(
     async (id: number | undefined) => {
@@ -59,7 +59,7 @@ export default function Testimonials() {
       await fetchTestimonials();
       setLoading(false);
     },
-    [walletProvider, deactivate, fetchTestimonials, setLoading]
+    [walletProvider, fetchTestimonials, setLoading]
   );
 
   const likeTestimonial = useCallback(
@@ -72,39 +72,51 @@ export default function Testimonials() {
       await fetchTestimonials();
       setLoading(false);
     },
-    [walletProvider]
+    [walletProvider, fetchTestimonials]
   );
 
   useEffect(() => {
+    fetchTestimonials();
+  }, [fetchTestimonials]);
+
+  useEffect(() => {
     if (refreshTestimonials) fetchTestimonials();
-  }, [refreshTestimonials]);
+  }, [refreshTestimonials, fetchTestimonials]);
+
+  // Set Loading to false only when collection is loaded, even if is empty.
+  useEffect(() => {
+    if (collection) setLoading(false);
+  }, [collection, setLoading]);
 
   useEffect(() => {
     fetchUserLikes();
-  }, [address, collection]);
+  }, [address, collection, fetchUserLikes]);
 
-  useEffect(() => {
-    fetchTestimonials();
-  }, []);
   return (
-    <>
-      <div
-        className={classNames({
-          "flex-col px-8 xl:px-14 py-10 gap-10": true,
-          flex: collection.length > 0,
-          hidden: collection.length == 0,
-        })}
-      >
-        <Subtitle
-          text="Feedbacks"
-          description="What people have to say about work & partnerships"
-        />
+    <div className="relative">
+      <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 min-h-[440px]">
+        <div className="flex flex-col gap-5 xl:flex-row xl:gap-0 justify-between items-center">
+          <Subtitle
+            text="Feedbacks"
+            description="What people have to say about work & partnerships"
+          />
+          {isConnected ? <NewTestimonialButton /> : <ConnectButton />}
+        </div>
 
-        {loading ? (
-          <Loading />
-        ) : (
-          <div className="flex flex-row justify-center xl:justify-between flex-wrap gap-4">
-            {collection.map((item, index) => (
+        {!loading && collection && collection.length === 0 && (
+          <div className="flex items-center justify-center xl:justify-start gap-3 min-h-[200px] text-violet-200 text-xl md:text-3xl font-extralight italic">
+            — Be the first to leave feedback.
+            <PencilSquareIcon
+              width={30}
+              height={30}
+              className="w-[22px] h-[22px] md:w-[30px] md:h-[30px]"
+            />
+          </div>
+        )}
+
+        <div className="flex flex-row justify-center xl:justify-between flex-wrap gap-4 xl:gap-10">
+          {collection &&
+            collection.map((item, index) => (
               <TestimonialCard
                 key={index}
                 testimonial={item}
@@ -119,20 +131,10 @@ export default function Testimonials() {
                 likeTestimonial={likeTestimonial}
               />
             ))}
-
-            {/* MOBILE */}
-            <div className="flex xl:hidden w-full justify-center">
-              <NewTestimonialButton />
-            </div>
-
-            {/* DESKTOP */}
-            <div className="hidden xl:flex justify-end w-full mt-6 pb-4">
-              <NewTestimonialButton invert />
-            </div>
-          </div>
-        )}
+        </div>
       </div>
       <NewTestimonial />
-    </>
+      {loading && <LoadingBox />}
+    </div>
   );
 }

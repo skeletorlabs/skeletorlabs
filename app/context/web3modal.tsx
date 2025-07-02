@@ -4,7 +4,7 @@
 
 import { createAppKit } from "@reown/appkit/react";
 import { EthersAdapter } from "@reown/appkit-adapter-ethers";
-import { base, baseSepolia } from "@reown/appkit/networks";
+import { base } from "@reown/appkit/networks";
 import { PropsWithChildren } from "react";
 
 // 1. Get projectId at https://cloud.reown.com
@@ -22,7 +22,7 @@ const metadata = {
 createAppKit({
   adapters: [new EthersAdapter()],
   metadata,
-  networks: [base, baseSepolia],
+  networks: [base],
   projectId,
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration

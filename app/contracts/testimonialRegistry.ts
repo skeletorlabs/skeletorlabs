@@ -43,7 +43,11 @@ export async function getOwner(): Promise<string | undefined> {
   }
 }
 
-export async function store(data: TestimonialData, signer: Signer) {
+export async function store(
+  data: TestimonialData,
+  signer: Signer
+): Promise<boolean> {
+  let stored = false;
   try {
     const contract = await getContract(signer);
     const id = await contract?.nextId(); // get next testimonial ID
@@ -53,8 +57,11 @@ export async function store(data: TestimonialData, signer: Signer) {
     const hashBytes32 = ipfsHashToBytes32(hash); // convert hash to bytes32
     const tx = await contract?.store(hashBytes32); // store hash (bytes32) on contract
     await notificateTx(tx, network);
+    stored = true;
+    return stored;
   } catch (error) {
     await handleError({ e: error as Error, notificate: true });
+    return stored;
   }
 }
 
@@ -93,16 +100,25 @@ export async function testimonialById(
 }
 
 export async function deactivate(id: number, signer: Signer) {
+  console.log(id);
   try {
     const contract = await getContract(signer);
     const owner = await contract?.owner();
     const signerAddress = await signer.getAddress();
     const stored = await testimonialById(id);
+    console.log(stored?.author);
+    console.log(owner);
+    console.log(signerAddress);
+    console.log(
+      stored &&
+        stored?.active &&
+        (stored?.author === owner || stored?.author === signerAddress)
+    );
 
     if (
       stored &&
       stored?.active &&
-      (stored?.author === owner || stored?.author === signerAddress)
+      (signerAddress === owner || signerAddress === stored?.author)
     ) {
       console.log("on deactivate");
       const network = await signer.provider?.getNetwork();

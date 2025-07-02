@@ -6,7 +6,7 @@ import AliceCarousel from "react-alice-carousel";
 import Loading from "../loading";
 import { useEffect, useState } from "react";
 
-const contributions = [
+const list = [
   {
     title: "Card Preview",
     description:
@@ -45,7 +45,7 @@ export default function Labs() {
   const [items, setItems] = useState<JSX.Element[] | undefined>(undefined);
 
   useEffect(() => {
-    const _items = contributions.map((item, index) => (
+    const _items = list.map((item, index) => (
       <Link
         key={index}
         href={item.link}
@@ -69,7 +69,7 @@ export default function Labs() {
 
     setItems(_items);
     setLoading(false);
-  }, [contributions, setLoading]);
+  }, [setLoading]);
 
   return (
     <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet">
@@ -98,7 +98,7 @@ export default function Labs() {
 
       {/* DESKTOP */}
       <div className="hidden xl:flex flex-row justify-between items-center flex-wrap gap-4">
-        {contributions.map((item, index) => (
+        {list.map((item, index) => (
           <Link
             key={index}
             href={item.link}

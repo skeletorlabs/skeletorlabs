@@ -95,7 +95,7 @@ export default function Companies() {
 
     setItems(_items);
     setLoading(false);
-  }, [companies, setLoading]);
+  }, [setLoading]);
   return (
     <div className="flex flex-col  gap-10">
       <Subtitle

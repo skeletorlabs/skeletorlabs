@@ -26,6 +26,7 @@ import {
 import { store } from "../contracts/testimonialRegistry";
 import { BrowserProvider } from "ethers";
 import { StateContext } from "../context/state";
+import LoadingBox from "./loadingBox";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -82,11 +83,11 @@ export default function NewTestimonial() {
       const signer = await provider.getSigner();
 
       // Upload to Pinata & Store Hash in contract
-      await store(testimonial, signer);
+      const stored = await store(testimonial, signer);
 
       setRefreshTestimonials(true);
       setLoading(false);
-      setTestimonialBoxIsOpen(false);
+      setTestimonialBoxIsOpen(!stored); // close if stored / keep open if not fail
     }
   }, [
     address,
@@ -136,7 +137,7 @@ export default function NewTestimonial() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <DialogPanel className="w-max transform overflow-hidden rounded-2xl bg-stone-950/80 p-6 pb-4 text-left align-middle transition-all border border-white/10 text-white shadow-lg shadow-samurai-red/20">
+              <DialogPanel className="w-max transform overflow-hidden rounded-2xl bg-stone-950/80 p-6 pb-4 text-left align-middle transition-all border border-white/10 text-white shadow-lg shadow-samurai-red/20 relative">
                 <DialogTitle className="text-xl flex items-center gap-2">
                   {isConnected ? (
                     <>
@@ -233,9 +234,7 @@ export default function NewTestimonial() {
                           {!loading && (
                             <CheckBadgeIcon width={20} height={20} />
                           )}
-                          <span>
-                            {loading ? "LOADING..." : "Confirm Feedback"}
-                          </span>
+                          <span>Confirm Feedback</span>
                         </button>
                       </>
                     ) : (
@@ -255,6 +254,8 @@ export default function NewTestimonial() {
                     )}
                   </div>
                 </div>
+
+                {loading && <LoadingBox />}
               </DialogPanel>
             </TransitionChild>
           </div>

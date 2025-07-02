@@ -70,7 +70,7 @@ export default function Contributions() {
 
     setItems(_items);
     setLoading(false);
-  }, [contributions, setLoading]);
+  }, [setLoading]);
 
   return (
     <div className="flex flex-col px-8 xl:px-14 py-10 gap-10">

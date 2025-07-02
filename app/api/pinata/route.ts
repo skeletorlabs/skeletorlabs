@@ -6,8 +6,6 @@ import { Readable } from "stream"; // Node.js stream API for creating a readable
 export async function POST(request: Request) {
   const data = await request.json();
 
-  console.log(data);
-
   // Basic validation
   if (data?.id === undefined || !data?.name || !data?.role || !data?.message) {
     return NextResponse.json(

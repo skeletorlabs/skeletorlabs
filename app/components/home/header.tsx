@@ -61,10 +61,12 @@ export default function Header() {
 
           <div className="flex flex-col gap-10  xl:flex-row xl:gap-0 items-center justify-between">
             <div className="text-3xl w-max py-2 px-1 font-sans rounded-lg text-center xl:text-start">
-              <p>Hello stranger! 👋</p>
-              <p className="text-2xl text-white/80">
-                I'm Lucas! AKA -{" "}
-                <span className="text-violet-500">Skeletor</span>
+              <p>
+                Hello! 👋
+                <br />
+                Welcome to
+                <br />
+                <span className="text-violet-500">Skeletor Labs</span>
               </p>
             </div>
             <div className="hidden xl:flex flex-col gap-4">
@@ -74,7 +76,7 @@ export default function Header() {
                     key={index}
                     href={item.href}
                     target="blank"
-                    className="text-violet-200 hover:text-white hover:scale-105"
+                    className="text-violet-200 hover:text-violet-300 hover:scale-105"
                   >
                     {item.icon}
                   </Link>

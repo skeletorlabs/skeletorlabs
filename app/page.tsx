@@ -12,10 +12,13 @@ import Chains from "./components/home/chains";
 import Labs from "./components/home/labs";
 
 export default function Home() {
-  const Terminal = dynamic(() => import("./components/terminal"), {
-    ssr: false,
-    loading: () => <Loading css="min-h-[610px]" />,
-  });
+  const Terminal = dynamic(
+    () => import("./components/terminal").then((m) => m.default),
+    {
+      ssr: false,
+      loading: () => <Loading css="min-h-[610px]" />,
+    }
+  );
 
   return (
     <div className="flex flex-col items-center justify-center bg-slate-400/30 w-full xl:w-[1182px]">

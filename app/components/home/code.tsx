@@ -107,7 +107,7 @@ export default function Code() {
 
     setItems(_items);
     setLoading(false);
-  }, [shipment, setLoading]);
+  }, [setLoading]);
   return (
     <div className="flex flex-col bg-black/10 px-8 xl:px-14 py-10 border-t border-white/5 gap-10 mt-10">
       <Subtitle

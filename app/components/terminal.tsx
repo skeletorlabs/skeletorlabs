@@ -114,7 +114,7 @@ export default function Terminal() {
     setTimeout(() => {
       simulate();
     }, 1000);
-  }, []);
+  }, [simulate]);
 
   return (
     <div className="my-terminal-wrapper px-2 xl:px-12 w-full min-h-[540px] md:min-h-[610px]">
