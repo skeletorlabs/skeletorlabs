@@ -74,8 +74,8 @@ export default function Labs() {
   return (
     <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet">
       <Subtitle
-        text="Labs"
-        description="New ideas & products in the pipeline"
+        text="In the Lab"
+        description="Prototypes and alpha-stage tools in development"
       />
 
       {/* MOBILE */}

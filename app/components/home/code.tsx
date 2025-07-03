@@ -111,8 +111,8 @@ export default function Code() {
   return (
     <div className="flex flex-col bg-black/10 px-8 xl:px-14 py-10 border-t border-white/5 gap-10 mt-10">
       <Subtitle
-        text="Shipped Contracts"
-        description="Some important products / smart-contracts deployed"
+        text="What We've Deployed"
+        description="From design to deployment — key smart contracts shipped to mainnet"
       />
       <div className="flex flex-col xl:flex-row items-center gap-4 xl:gap-8 flex-wrap">
         {loading ? (

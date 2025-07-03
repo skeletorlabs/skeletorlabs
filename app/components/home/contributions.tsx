@@ -10,14 +10,15 @@ const contributions = [
   {
     title: "L2VE",
     description:
-      "The only L2VE you need in your life. 100% degen approved Meme farming.",
+      "100% degen-approved meme farming platform — built & launched on Base",
     src: "/l2ve.svg",
     chains: ["Base"],
     link: "http://l2ve.com",
   },
   {
     title: "Anonymous",
-    description: "Meme token & lottery contracts + Custom TheGraph + dapp",
+    description:
+      "Custom token and lottery mechanics, subgraph infra, and frontend integration on Arbitrum",
     // src: "/anonymous.svg",
     src: "anonymous-v3.svg",
     chains: ["Arbitrum One"],
@@ -33,7 +34,8 @@ const contributions = [
   },
   {
     title: "Anonymous",
-    description: "Meme token & airdrop contracts",
+    description:
+      "Token deployment and airdrop infrastructure delivered for Sonic ecosystem",
     // src: "/anonymous.svg",
     src: "anonymous-v3.svg",
     chains: ["Sonic"],
@@ -76,7 +78,7 @@ export default function Contributions() {
     <div className="flex flex-col px-8 xl:px-14 py-10 gap-10">
       <Subtitle
         text="Contributions"
-        description="Latest tech development for projects"
+        description="Hands-on development for tokens, contracts, and dApps across partner ecosystems"
       />
 
       {/* MOBILE */}

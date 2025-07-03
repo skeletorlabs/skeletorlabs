@@ -10,6 +10,7 @@ import Testimonials from "./components/home/testimonials";
 import Loading from "./components/loading";
 import Chains from "./components/home/chains";
 import Labs from "./components/home/labs";
+import Talk from "./components/home/talk";
 
 export default function Home() {
   const Terminal = dynamic(
@@ -33,10 +34,7 @@ export default function Home() {
           <Labs />
           <Testimonials />
           <Stack />
-
-          <p className="text-[120px] text-center xl:text-[180px] px-4 xl:px-10 py-16 font-bold leading-tight xl:leading-none">
-            <span className="">LET'S TALK!</span>
-          </p>
+          <Talk />
         </div>
       </main>
       <Footer />

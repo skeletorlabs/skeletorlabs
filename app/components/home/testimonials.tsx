@@ -39,9 +39,8 @@ export default function Testimonials() {
   const fetchTestimonials = useCallback(async () => {
     const storedTestimonials = await all();
     if (storedTestimonials) {
-      const ipfsTestimonials = await readTestimonialsFromIPFS(
-        storedTestimonials
-      );
+      const ipfsTestimonials =
+        await readTestimonialsFromIPFS(storedTestimonials);
       setCollection(ipfsTestimonials || []);
     }
     const _owner = await getOwner();
@@ -111,7 +110,15 @@ export default function Testimonials() {
 
     // Set Loading to false only when collection is loaded, even if is empty.
     if (collection) setLoading(false);
-  }, [collection, setLoading, setItems]);
+  }, [
+    collection,
+    owner,
+    deactivateTestimonial,
+    likeTestimonial,
+    setLoading,
+    setItems,
+    userLikes,
+  ]);
 
   useEffect(() => {
     fetchUserLikes();
@@ -122,8 +129,8 @@ export default function Testimonials() {
       <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 min-h-[200] xl:min-h-[440px]">
         <div className="flex flex-col gap-5 xl:flex-row xl:gap-0 justify-between items-center">
           <Subtitle
-            text="Feedbacks"
-            description="What people have to say about work & partnerships"
+            text="What Partners Say"
+            description="Feedback from teams we've worked with"
           />
           {isConnected ? <NewTestimonialButton /> : <ConnectButton />}
         </div>

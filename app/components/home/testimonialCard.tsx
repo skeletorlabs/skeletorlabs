@@ -109,8 +109,7 @@ export default function TestimonialCard({
           disabled={testimonial?.id === undefined}
           onClick={() => deactivateTestimonial(testimonial?.id)}
           className={classNames({
-            "flex items-center justify-center gap-1 text-xs text-white/70 tracking-tighter hover:opacity-80 bg-red-600 transition-colors hover:bg-red-500 hover:text-white rounded-full p-1 px-3":
-              true,
+            "flex items-center justify-center gap-1 text-xs text-white/70 tracking-tighter hover:opacity-80 bg-violet-500 transition-colors hover:bg-violet-400 hover:text-white rounded-full p-1 px-3": true,
             hidden: !canRemove,
             block: canRemove,
           })}

@@ -5,11 +5,12 @@ import { StateContext } from "@/app/context/state";
 import NewTestimonialButton from "./newTestimonialButton";
 import Image from "next/image";
 import { SOCIALS } from "@/app/utils/conts";
+import { mail } from "@/app/utils/svgs";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export default function Footer() {
-  const { setTestimonialBoxIsOpen } = useContext(StateContext);
+  const { setTalkIsOpen } = useContext(StateContext);
   return (
     <>
       {/* MOBILE */}
@@ -28,6 +29,12 @@ export default function Footer() {
               {item.icon}
             </Link>
           ))}
+          <button
+            onClick={() => setTalkIsOpen(true)}
+            className="text-violet-200 scale-75"
+          >
+            {mail}
+          </button>
         </div>
 
         <div className="flex flex-col items-center gap-3 text-violet-200 font-thin tracking-wide mt-2 py-8 text-sm bg-skeletor-dark-violet w-full">
@@ -57,6 +64,12 @@ export default function Footer() {
               {item.icon}
             </Link>
           ))}
+          <button
+            onClick={() => setTalkIsOpen(true)}
+            className="text-violet-200 transition-all hover:text-violet-300 scale-90 hover:scale-105"
+          >
+            {mail}
+          </button>
         </div>
       </footer>
     </>

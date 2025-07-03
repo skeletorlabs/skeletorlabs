@@ -6,7 +6,7 @@ export const SOCIALS = [
   { icon: telegram, href: "https://telegram.me/skeletor_keldor" },
   { icon: twitterX, href: "https://x.com/0x_theL" },
   { icon: discord, href: "skeletor8555" },
-  { icon: mail, href: "mailto:skeletorlabs@gmail.com" },
+  // { icon: mail, href: "mailto:skeletorlabs@gmail.com" },
 ];
 
 export const LINKS: { [key: number]: string } = {
