@@ -14,7 +14,7 @@ export default function Connected() {
     <button
       onClick={() => open()}
       className={classNames({
-        "flex items-center justify-center gap-2 p-2 px-6 rounded-full text-xs relative font-semibold bg-skeletor-gray/50 backdrop-blur-sm border border-violet-400/10 transition-colors hover:bg-white/20 text-white":
+        "flex items-center justify-center gap-2 p-2 px-6 rounded-full text-xs relative font-semibold bg-white/5 backdrop-blur-sm border border-violet-400/10 transition-colors hover:bg-white/10 text-white":
           true,
         [jakarta.className]: true,
         hidden: !address,

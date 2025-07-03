@@ -9,9 +9,23 @@ import { GlobeAltIcon, PhotoIcon } from "@heroicons/react/24/solid";
 
 const companies = [
   {
-    title: "Samurai Starter",
-    description:
-      "Leading early-stage crowdfunding platform that incentivizes community members to invest and participate in the most innovative projects in the crypto space.",
+    title: "SAMURAI STARTER",
+    description: "Leading early-stage crowdfunding platform.",
+    services: (
+      <>
+        <p className="text-lg text-center text-white/70 min-h-[50px] p-2 px-6 mt-6">
+          <span className="text-violet-200 italic">Skeletor Labs</span>{" "}
+          contributed to the development of Samurai Starter by delivering smart
+          contract systems supporting NFT-based vesting, funding logic, and
+          protocol governance.
+        </p>
+        <p className="flex flex-col text-center text-white/70 w-full py-6 mt-6 gap-2 bg-skeletor-gray/80">
+          <p>• Architected and implemented vesting and funding mechanisms</p>
+          <p>• Led deployment and network configuration on Base and Sonic</p>
+          <p>• Collaborated on token strategy and dApp-level flows</p>
+        </p>
+      </>
+    ),
     src: "/samurai.svg",
     bg: "/onering-notebook.png",
     chains: ["Base", "Sonic"],
@@ -21,9 +35,23 @@ const companies = [
     position: "CTO - Blockchain Engineer",
   },
   {
-    title: "One Ring",
-    description:
-      "One Ring is a Multi-Chain Cross-Stable Yield Optimizer Platform. Forget about spending hours looking for the best farms out there.",
+    title: "ONE RING",
+    description: "Multi-Chain Cross-Stable Yield Optimizer Platform.",
+    services: (
+      <>
+        <p className="text-lg text-center text-white/70 min-h-[50px] p-2 px-6 mt-6">
+          <span className="text-violet-200 italic">Skeletor Labs</span>{" "}
+          supported OneRing with protocol architecture and execution, focusing
+          on secure relayer logic, bridge contracts, and multi-chain integration
+          strategies.
+        </p>
+        <p className="flex flex-col text-center text-white/70 w-full py-6 mt-6 gap-2 bg-skeletor-gray/80">
+          <p>• Designed and implemented cross-chain messaging modules</p>
+          <p>• Integrated EVM & non-EVM networks via custom bridge logic</p>
+          <p>• Packaged SDKs and internal tooling for partner usage</p>
+        </p>
+      </>
+    ),
     src: "/onering.svg",
     bg: "/cyborg-male.png",
     chains: ["Fantom", "Optimism", "Solana"],
@@ -129,52 +157,56 @@ export default function Companies() {
             key={index}
             className={`hidden xl:flex flex-col items-center justify-center w-full h-[700px] ${
               index === 0 ? "bg-samurai" : "bg-onering "
-            } bg-contain bg-no-repeat hover:opacity-90 relative`}
+            } bg-cover bg-no-repeat hover:opacity-90 relative`}
           >
-            <div className="flex flex-col justify-center items-center bg-black/90 w-full h-full transition-all opacity-0 hover:opacity-100 gap-2">
-              <div className="flex items-center justify-center bg-skeletor-dark-violet border border-white/5 w-[160px] h-[160px] rounded-xl">
-                <Image
-                  src={item.src}
-                  width={110}
-                  height={110}
-                  alt={"#"}
-                  className="w-[110px] h-[110px]"
-                />
-              </div>
-              <p className="text-2xl text-violet-300">{item.title}</p>
-              <p>{item.position}</p>
-              <div className="flex items-center gap-2 text-xs text-violet-200">
+            <div className="flex flex-col justify-center items-center bg-skeletor-dark-violet/90 backdrop-blur-md w-full h-full transition-all opacity-0 hover:opacity-100 gap-2">
+              {/* <div className="flex items-center justify-center bg-skeletor-dark-violet border border-white/5 w-[160px] h-[160px] rounded-xl"> */}
+              <Image
+                src={item.src}
+                width={110}
+                height={110}
+                alt={"#"}
+                className="w-[180px] h-[180px]"
+              />
+              {/* </div> */}
+              <p className="mt-1 text-3xl font-bold bg-blue-300 text-skeletor-dark-violet px-1">
+                {item.title}
+              </p>
+              {/* <p className="text-2xl">{item.position}</p> */}
+              <p className="text-lg text-center text-white mt-1">
+                {item.description}
+              </p>
+              <div className="flex items-center gap-2 text-xs text-indigo-600">
                 {item.chains.map((chain, chainIndex) => (
                   <Badge key={chainIndex} text={chain} big />
                 ))}
-              </div>
-              <p className="flex items-center justify-center text-lg w-[400px] h-[130px] text-center text-white/70 min-h-[50px] p-2">
-                {item.description}
-              </p>
-              <div className="flex items-center gap-5">
+
                 <Link
                   href={item.link}
                   target="blank"
-                  className="flex items-center gap-2 transition-opacity hover:opacity-75"
+                  className="transition-opacity hover:opacity-75"
                 >
-                  <GlobeAltIcon width={24} height={24} />
-                  <span>Dapp</span>
+                  <GlobeAltIcon width={32} height={32} />
                 </Link>
 
                 {item.link2 && (
                   <Link
                     href={item.link2}
                     target="blank"
-                    className="flex items-center gap-2 transition-opacity hover:opacity-75"
+                    className="transition-opacity hover:opacity-75"
                   >
-                    <PhotoIcon width={24} height={24} />
-                    <span>NFT Collection</span>
+                    <PhotoIcon width={32} height={32} />
                   </Link>
                 )}
               </div>
-              <span className="absolute top-0 right-0 ml-1 text-sm bg-black/80 text-white/70 px-2 py-1 rounded-tr-xl">
+              {item.services}
+              {/* <p className="flex items-center justify-center text-lg h-[130px] text-center text-white/70 min-h-[50px] p-2 px-4 mt-6">
+                {item.services},
+              </p> */}
+
+              {/* <span className="absolute top-0 right-0 ml-1 text-sm bg-black/80 text-white/70 px-2 py-1 rounded-tr-xl">
                 {item.timeframe}
-              </span>
+              </span> */}
             </div>
           </div>
         ))}

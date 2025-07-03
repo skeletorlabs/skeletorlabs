@@ -3,6 +3,7 @@ import classNames from "classnames";
 interface Badge {
   text: string;
   big?: boolean;
+  color?: string;
 }
 export default function Badge({ text, big }: Badge) {
   return (

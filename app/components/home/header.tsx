@@ -2,11 +2,9 @@
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Typed from "typed.js";
-import { useRef, useEffect, useContext, useState } from "react";
-import Link from "next/link";
+import { useRef, useEffect, useContext } from "react";
 import { StateContext } from "@/app/context/state";
 import NewTestimonialButton from "./newTestimonialButton";
-import { SOCIALS } from "@/app/utils/conts";
 import Nav from "../nav";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });

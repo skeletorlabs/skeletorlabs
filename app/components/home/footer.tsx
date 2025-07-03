@@ -1,28 +1,12 @@
 import Link from "next/link";
-import {
-  discord,
-  etherscan,
-  github,
-  linkedin,
-  telegram,
-  twitterX,
-} from "../../utils/svgs";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { PencilSquareIcon } from "@heroicons/react/20/solid";
 import { useContext } from "react";
 import { StateContext } from "@/app/context/state";
 import NewTestimonialButton from "./newTestimonialButton";
 import Image from "next/image";
+import { SOCIALS } from "@/app/utils/conts";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
-
-const socials = [
-  { icon: linkedin, href: "https://www.linkedin.com/in/lfsilveira" },
-  { icon: github, href: "https://github.com/skeletordapps" },
-  { icon: telegram, href: "https://telegram.me/skeletor_keldor" },
-  { icon: twitterX, href: "https://x.com/0x_theL" },
-  { icon: discord, href: "skeletor8555" },
-];
 
 export default function Footer() {
   const { setTestimonialBoxIsOpen } = useContext(StateContext);
@@ -34,7 +18,7 @@ export default function Footer() {
       >
         <NewTestimonialButton />
         <div className="flex items-center gap-2">
-          {socials.map((item, index) => (
+          {SOCIALS.map((item, index) => (
             <Link
               key={index}
               href={item.href}
@@ -63,7 +47,7 @@ export default function Footer() {
 
         <NewTestimonialButton nobg />
         <div className="flex items-center gap-3">
-          {socials.map((item, index) => (
+          {SOCIALS.map((item, index) => (
             <Link
               key={index}
               href={item.href}
