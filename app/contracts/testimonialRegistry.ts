@@ -151,8 +151,7 @@ export async function all(): Promise<StoredTestimonial[] | undefined> {
 
     for (let id = 0; id < ids; id++) {
       const stored = await testimonialById(id);
-      // if (stored && stored.active) testimonials.push(stored);
-      if (stored) testimonials.push(stored);
+      if (stored && stored.active) testimonials.push(stored);
     }
 
     return testimonials;
