@@ -13,19 +13,15 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
   return (
     <Fragment>
       {/* MOBILE */}
-      <div
-        className={`flex xl:hidden flex-col items-center text-center gap-1 ${
-          padding && "px-8"
-        }`}
-      >
+      <div className="flex xl:hidden flex-col items-center text-center gap-1">
         <div className="flex items-center gap-2">
           <ArrowRightCircleIcon
-            width={34}
-            height={34}
+            width={32}
+            height={32}
             className="text-violet-300"
           />
           <span
-            className={`text-3xl font-bold text-violet-200 ${jakarta.className}`}
+            className={`text-2xl font-bold text-violet-200 ${jakarta.className}`}
           >
             {text}
           </span>
