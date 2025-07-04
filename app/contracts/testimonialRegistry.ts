@@ -15,12 +15,24 @@ export type StoredTestimonial = {
 };
 
 export type UserLike = { id: number; liked: boolean };
+async function getRpcUrl() {
+  const res = await fetch("/api/internal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await res.json();
+
+  return data.baseRPC;
+}
 
 async function getContract(signer?: Signer): Promise<Contract | undefined> {
   const ADDRESS = "0x1b4c7cC88e22C0518a3BF279FbC0ab37a6fa442B";
-  const RPC = process.env.NEXT_PUBLIC_BASE_RPC_HTTPS as string;
 
   try {
+    const RPC = await getRpcUrl();
     const provider = new JsonRpcProvider(RPC);
     const contract = new Contract(
       ADDRESS,

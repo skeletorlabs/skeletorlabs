@@ -38,13 +38,26 @@ export async function uploadTestimonialToIPFS(
   }
 }
 
+async function getCloudUrl() {
+  const res = await fetch("/api/internal", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const data = await res.json();
+
+  return data.pinataCloud;
+}
+
 export async function readTestimonialsFromIPFS(
   storedTestimonials: StoredTestimonial[]
 ): Promise<TestimonialData[]> {
   const invalidHash =
     "0x0000000000000000000000000000000000000000000000000000000000000000";
   try {
-    const CLOUD_URL = process.env.NEXT_PUBLIC_PINATA_CLOUD;
+    const CLOUD_URL = await getCloudUrl();
     const testimonials: TestimonialData[] = await Promise.all(
       storedTestimonials
         .filter((item) => item.hash !== invalidHash)
