@@ -20,6 +20,21 @@ module.exports = {
         "skeletor-gray": "#222338",
         "skeletor-dark-violet": "#0D0919",
       },
+      animation: {
+        "infinite-scroll": "infinite-scroll 30s linear infinite",
+        "infinite-scroll-reverse":
+          "infinite-scroll-reverse 30s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "infinite-scroll-reverse": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
+      },
     },
   },
   plugins: [],

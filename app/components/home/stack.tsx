@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Subtitle from "../subtitle";
 import Image from "next/image";
+import AutoScroll from "../autoScroll";
 
 const stack = [
   {
@@ -59,13 +60,14 @@ const stack = [
 
 export default function Stack() {
   return (
-    <div className="flex flex-col bg-black/60 px-8 xl:px-14 py-14 border-t border-b border-white/5 gap-14">
+    <div className="flex flex-col bg-black/60 py-14 border-t border-b border-white/5 gap-14">
       <Subtitle
         text="Core Stack"
         description="Daily tools used across smart contract and dApp development"
+        padding
       />
-      <div className="flex flex-row items-center justify-center xl:justify-start flex-wrap gap-6">
-        {stack.map((item, index) => (
+      <AutoScroll
+        items={stack.map((item, index) => (
           <Link
             key={index}
             href={item.href}
@@ -84,7 +86,8 @@ export default function Stack() {
             </div>
           </Link>
         ))}
-      </div>
+        rows={2}
+      />
     </div>
   );
 }

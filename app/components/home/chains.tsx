@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Subtitle from "../subtitle";
 import Image from "next/image";
+import AutoScroll from "../autoScroll";
 
 const chains = [
   {
@@ -47,13 +48,14 @@ const chains = [
 
 export default function Chains() {
   return (
-    <div className="flex flex-col bg-violet-500/10 px-8 xl:px-14 py-20 border-t border-b border-white/5 gap-14 mt-10 md:mt-0">
+    <div className="flex flex-col bg-violet-500/10  py-20 border-t border-b border-white/5 gap-14 mt-10 md:mt-0">
       <Subtitle
         text="Multi-Chain Reach"
         description="Active production deployments across major L1s and L2s"
+        padding
       />
-      <div className="flex flex-row items-center justify-center xl:justify-start flex-wrap gap-6">
-        {chains.map((item, index) => (
+      <AutoScroll
+        items={chains.map((item, index) => (
           <Link
             key={index}
             href={item.href}
@@ -72,7 +74,7 @@ export default function Chains() {
             </div>
           </Link>
         ))}
-      </div>
+      />
     </div>
   );
 }

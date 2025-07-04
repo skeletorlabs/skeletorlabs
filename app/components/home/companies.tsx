@@ -12,6 +12,12 @@ import {
   GlobeAltIcon,
   PhotoIcon,
 } from "@heroicons/react/24/solid";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
@@ -66,7 +72,12 @@ export default function Companies() {
 
   useEffect(() => {
     const _items = companies.map((item, index) => (
-      <div key={index} className="flex md:hidden flex-col w-full h-[700px]">
+      <div
+        key={index}
+        className={`flex md:hidden flex-col w-full h-[700px] ${
+          index === 0 ? "bg-samurai" : "bg-onering "
+        } bg-cover bg-no-repeat`}
+      >
         <div className="flex flex-col items-center w-full h-full">
           <div className="flex flex-col w-full h-max py-10 justify-center items-center gap-2 bg-[#10131B]/95 backdrop-blur-md">
             <Image src={item.src} width={140} height={140} alt={"#"} />
@@ -101,7 +112,7 @@ export default function Companies() {
               )}
             </div>
           </div>
-          <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-indigo-900">
+          <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-skeletor-dark-violet/80 backdrop-blur-md">
             <span
               className="text-white/80 text-sm px-8 text-center"
               dangerouslySetInnerHTML={{
@@ -200,7 +211,7 @@ export default function Companies() {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-indigo-900">
+              <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-skeletor-dark-violet/80 backdrop-blur-md">
                 <span
                   className="text-white text-lg px-8 text-center"
                   dangerouslySetInnerHTML={{
