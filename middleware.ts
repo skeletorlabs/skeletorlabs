@@ -10,13 +10,17 @@ export function middleware(request: NextRequest) {
     const referer = request.headers.get("referer") || "";
 
     const isDev = process.env.NODE_ENV === "development";
-    const allowedProdDomain = "https://skeletorlabs.xyz";
+    const allowedProdDomains = [
+      "https://skeletorlabs.xyz",
+      "https://www.skeletorlabs.xyz",
+    ];
 
     const isAllowed = isDev
       ? origin.startsWith("http://localhost") ||
         referer.startsWith("http://localhost")
-      : origin.startsWith(allowedProdDomain) ||
-        referer.startsWith(allowedProdDomain);
+      : allowedProdDomains.some(
+          (domain) => origin.startsWith(domain) || referer.startsWith(domain)
+        );
 
     if (!isAllowed) {
       return new NextResponse("Forbidden", { status: 403 });
