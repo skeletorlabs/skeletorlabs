@@ -4,7 +4,7 @@ export const SOCIALS = [
   { icon: linkedin, href: "https://www.linkedin.com/in/lfsilveira" },
   { icon: github, href: "https://github.com/skeletordapps" },
   { icon: telegram, href: "https://telegram.me/skeletor_keldor" },
-  { icon: twitterX, href: "https://x.com/0x_theL" },
+  { icon: twitterX, href: "https://x.com/skeletorlabs" },
   { icon: discord, href: "skeletor8555" },
   // { icon: mail, href: "mailto:skeletorlabs@gmail.com" },
 ];

@@ -8,10 +8,10 @@ export default function Terminal() {
   const [prompt, setPrompt] = useState("");
   const [barColor, setBarColor] = useState("");
   const [commands] = useState<any>({
-    whoami: () => "stranger",
-    whoismaster: () => "skeletor",
-    sudo: () => "permission denied",
-    help: () => "call me!",
+    whoami: () => "Stranger",
+    whoismaster: () => "Skeletor Labs",
+    sudo: () => "Permission Denied",
+    help: () => "Call Skeletor Labs!",
     forge: (args: string) => {
       if (args === "test Vesting") {
         return [
@@ -91,7 +91,7 @@ export default function Terminal() {
   });
 
   const simulate = useCallback(async () => {
-    const cmd = "@Skeletor:~/Developer/Foo|main⚡ => forge test Vesting";
+    const cmd = "@SkeletorLabs:~/Developer/Foo|main⚡ => forge test Vesting";
     const lines: JSX.Element[] = [];
     let typed = "";
 
@@ -106,7 +106,7 @@ export default function Terminal() {
     const resultLines = commands.forge("test Vesting") as JSX.Element[];
     setWelcomeLines([<div key="cmd">{cmd}</div>, ...resultLines]);
 
-    setPrompt("@Skeletor:~/Developer/Foo|main⚡ =>");
+    setPrompt("@SkeletorLabs:~/Developer/Foo|main⚡ =>");
     setBarColor("white");
   }, [commands, setBarColor, setWelcomeLines, setPrompt]);
 

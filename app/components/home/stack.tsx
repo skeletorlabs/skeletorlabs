@@ -80,7 +80,7 @@ export default function Stack() {
                 width={130}
                 height={130}
                 alt={item.href}
-                className="w-[80px] h-[80px] xl:w-[130px] xl:h-[130px]"
+                className="w-[90px] h-[90px] xl:w-[130px] xl:h-[130px]"
               />
               <span className="text-xs xl:text-[16px]">{item.name}</span>
             </div>

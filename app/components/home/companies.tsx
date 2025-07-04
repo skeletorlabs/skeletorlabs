@@ -119,11 +119,11 @@ export default function Companies() {
                 __html: item.services as string,
               }}
             />
-            <div className="flex flex-col justify-center items-center gap-2 w-full mt-6 px-2 text-white/70">
+            <div className="flex flex-col justify-center items-center gap-2 w-full mt-6 px-8 text-white/70">
               {item.bullets.map((bullet, index) => (
                 <p
                   key={index}
-                  className="flex items-center justify-center text-xs text-center gap-2 bg-skeletor-dark-violet/50 w-full h-12 p-3 px-6 rounded-full"
+                  className="flex items-center justify-center text-xs text-center gap-2 bg-skeletor-dark-violet/50 w-full h-12 p-3 px-6 rounded-lg border border-white/10"
                 >
                   {bullet}
                 </p>

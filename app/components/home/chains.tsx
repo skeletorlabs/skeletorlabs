@@ -68,7 +68,7 @@ export default function Chains() {
                 width={110}
                 height={110}
                 alt={item.name}
-                className="w-[80px] h-[80px] xl:w-[110px] xl:h-[110px]"
+                className="w-[90px] h-[90px] xl:w-[110px] xl:h-[110px]"
               />
               <span className="text-xs xl:text-[16px]">{item.name}</span>
             </div>
