@@ -88,12 +88,7 @@ export default function Companies() {
             </p>
             <div className="flex items-center gap-2 text-xs text-white">
               {item.chains.map((chain, chainIndex) => (
-                <Badge
-                  key={chainIndex}
-                  text={chain}
-                  bgColor="bg-white"
-                  textColor="text-black"
-                />
+                <Badge key={chainIndex} text={chain} invert />
               ))}
 
               <Link
@@ -189,13 +184,7 @@ export default function Companies() {
                 </p>
                 <div className="flex items-center gap-2 text-xs text-white">
                   {item.chains.map((chain, chainIndex) => (
-                    <Badge
-                      key={chainIndex}
-                      text={chain}
-                      big
-                      bgColor="bg-white"
-                      textColor="text-black"
-                    />
+                    <Badge key={chainIndex} text={chain} big invert />
                   ))}
 
                   <Link
