@@ -13,7 +13,7 @@ export default function Badge({ text, big, invert }: Badge) {
         "py-[1px] px-2": !big,
         "py-1 px-3 text-sm": big,
         "bg-indigo-600 text-violet-200": !invert,
-        "bg-white text-black": !invert,
+        "bg-white text-black": invert,
       })}
     >
       {text}
