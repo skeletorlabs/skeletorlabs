@@ -10,35 +10,27 @@ export default function AutoScroll({ items, rows = 1 }: AutoScrollProps) {
 
   const renderRow = (
     rowItems: JSX.Element[],
-    keyPrefix: string = "",
+    keyPrefix: string,
     reverse = false
-  ) => (
-    <div className="w-full inline-flex flex-nowrap overflow-hidden group [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-      <ul
-        className={`flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none ${
-          reverse
-            ? "animate-infinite-scroll-reverse"
-            : "animate-infinite-scroll"
-        } group-hover:[animation-play-state:paused]`}
-      >
-        {rowItems.map((item, index) => (
-          <li key={`${keyPrefix}-${index}`}>{item}</li>
-        ))}
-      </ul>
-      <ul
-        className={`flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none ${
-          reverse
-            ? "animate-infinite-scroll-reverse"
-            : "animate-infinite-scroll"
-        } group-hover:[animation-play-state:paused]`}
-        aria-hidden="true"
-      >
-        {rowItems.map((item, index) => (
-          <li key={`dup-${keyPrefix}-${index}`}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  ) => {
+    const duplicatedItems = [...rowItems, ...rowItems]; // avoid DOM duplication
+
+    return (
+      <div className="w-full overflow-hidden group [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+        <ul
+          className={`flex w-max items-center justify-start [&_li]:mx-8 [&_img]:max-w-none ${
+            reverse
+              ? "animate-infinite-scroll-reverse"
+              : "animate-infinite-scroll"
+          } group-hover:[animation-play-state:paused]`}
+        >
+          {duplicatedItems.map((item, index) => (
+            <li key={`${keyPrefix}-${index}`}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   return (
     <div className="flex flex-col gap-6">

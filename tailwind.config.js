@@ -21,9 +21,9 @@ module.exports = {
         "skeletor-dark-violet": "#0D0919",
       },
       animation: {
-        "infinite-scroll": "infinite-scroll 10s linear infinite",
+        "infinite-scroll": "infinite-scroll 15s linear infinite",
         "infinite-scroll-reverse":
-          "infinite-scroll-reverse 10s linear infinite",
+          "infinite-scroll-reverse 20s linear infinite",
       },
       keyframes: {
         "infinite-scroll": {

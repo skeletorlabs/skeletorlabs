@@ -74,23 +74,26 @@ export default function Companies() {
     const _items = companies.map((item, index) => (
       <div
         key={index}
-        className={`flex md:hidden flex-col w-full h-[700px] ${
+        className={`flex flex-col w-full ${
           index === 0 ? "bg-samurai" : "bg-onering "
-        } bg-cover bg-no-repeat`}
+        } bg-cover bg-no-repeat hover:opacity-90 relative`}
       >
-        <div className="flex flex-col items-center w-full h-full">
-          <div className="flex flex-col w-full h-max py-10 justify-center items-center gap-2 bg-[#10131B]/95 backdrop-blur-md">
-            <Image src={item.src} width={140} height={140} alt={"#"} />
-            <p className="text-2xl text-violet-300 font-semibold">
-              {item.title}
-            </p>
+        <div className="flex flex-col justify-center items-center w-full h-full py-8 gap-6 transition-all bg-[#10131B]/70 backdrop-blur-md">
+          <div className="flex flex-col w-full justify-center items-center gap-2">
+            <Image src={item.src} width={140} height={140} alt={item.title} />
+            <p className="text-3xl text-white font-semibold">{item.title}</p>
 
-            <p className="text-sm text-center text-white/70 mt-[-6px]">
+            <p className="text-sm text-center text-white/70 mt-[-6px] px-8">
               {item.description}
             </p>
-            <div className="flex items-center gap-2 text-xs text-indigo-600">
+            <div className="flex items-center gap-2 text-xs text-white">
               {item.chains.map((chain, chainIndex) => (
-                <Badge key={chainIndex} text={chain} big />
+                <Badge
+                  key={chainIndex}
+                  text={chain}
+                  bgColor="bg-white"
+                  textColor="text-black"
+                />
               ))}
 
               <Link
@@ -98,7 +101,7 @@ export default function Companies() {
                 target="blank"
                 className="transition-opacity hover:opacity-75"
               >
-                <GlobeAltIcon width={32} height={32} />
+                <GlobeAltIcon width={22} height={22} />
               </Link>
 
               {item.link2 && (
@@ -107,24 +110,21 @@ export default function Companies() {
                   target="blank"
                   className="transition-opacity hover:opacity-75"
                 >
-                  <PhotoIcon width={32} height={32} />
+                  <PhotoIcon width={22} height={22} />
                 </Link>
               )}
             </div>
           </div>
-          <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-skeletor-dark-violet/80 backdrop-blur-md">
+          <div className="flex flex-col w-full justify-center items-center gap-2">
             <span
-              className="text-white/80 text-sm px-8 text-center"
+              className="text-white text-sm px-8 text-center"
               dangerouslySetInnerHTML={{
                 __html: item.services as string,
               }}
             />
-            <div className="flex flex-col justify-center items-center gap-2 w-full mt-6 px-8 text-white/70">
+            <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-black text-center">
               {item.bullets.map((bullet, index) => (
-                <p
-                  key={index}
-                  className="flex items-center justify-center text-xs text-center gap-2 bg-skeletor-dark-violet/50 w-full h-12 p-3 px-6 rounded-lg border border-white/10"
-                >
+                <p key={index} className="bg-white/80 py-1 px-2">
                   {bullet}
                 </p>
               ))}
@@ -172,24 +172,30 @@ export default function Companies() {
               index === 0 ? "bg-samurai" : "bg-onering "
             } bg-cover bg-no-repeat hover:opacity-90 relative`}
           >
-            <div className="flex flex-col justify-between items-center w-full h-full transition-all opacity-0 hover:opacity-100">
-              <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-[#10131B]/95 backdrop-blur-md">
+            <div className="flex flex-col justify-center items-center w-full h-full gap-8 transition-all bg-[#10131B]/70 backdrop-blur-md opacity-0 hover:opacity-100">
+              <div className="flex flex-col w-full justify-center items-center gap-2">
                 <Image
                   src={item.src}
                   width={140}
                   height={140}
                   alt={item.title}
                 />
-                <p className="text-3xl text-violet-300 font-semibold">
+                <p className="text-3xl text-white font-semibold">
                   {item.title}
                 </p>
 
                 <p className="text-lg text-center text-white/70 mt-[-6px]">
                   {item.description}
                 </p>
-                <div className="flex items-center gap-2 text-xs text-indigo-600">
+                <div className="flex items-center gap-2 text-xs text-white">
                   {item.chains.map((chain, chainIndex) => (
-                    <Badge key={chainIndex} text={chain} big />
+                    <Badge
+                      key={chainIndex}
+                      text={chain}
+                      big
+                      bgColor="bg-white"
+                      textColor="text-black"
+                    />
                   ))}
 
                   <Link
@@ -211,32 +217,17 @@ export default function Companies() {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col w-full h-full justify-center items-center gap-2 bg-skeletor-dark-violet/80 backdrop-blur-md">
+              <div className="flex flex-col w-full justify-center items-center gap-2">
                 <span
                   className="text-white text-lg px-8 text-center"
                   dangerouslySetInnerHTML={{
                     __html: item.services as string,
                   }}
                 />
-                <div className="flex flex-col justify-center items-center gap-2 w-full mt-6 px-4 text-white/70">
+                <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-black">
                   {item.bullets.map((bullet, index) => (
-                    <p
-                      key={index}
-                      className="flex justify-between items-center text-sm gap-2 bg-skeletor-dark-violet/50 w-full p-3 rounded-full border border-skeletor-dark-violet/20"
-                    >
-                      <ArrowRightCircleIcon
-                        width={24}
-                        height={24}
-                        className="text-violet-300"
-                      />
-
+                    <p key={index} className="bg-white/80 py-1 px-2">
                       {bullet}
-
-                      <ArrowLeftCircleIcon
-                        width={24}
-                        height={24}
-                        className="text-violet-300"
-                      />
                     </p>
                   ))}
                 </div>

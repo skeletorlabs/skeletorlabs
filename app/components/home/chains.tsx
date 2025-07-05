@@ -39,6 +39,7 @@ const chains = [
     src: "/chains/polygon.svg",
     href: "https://polygon.technology/",
   },
+  { name: "Solana", src: "/chains/solana.svg", href: "https://solana.com/" },
   {
     name: "Sonic",
     src: "/chains/sonic.svg",
