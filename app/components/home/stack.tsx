@@ -10,6 +10,11 @@ const stack = [
     src: "/stack/CHAINLINK.svg",
   },
   {
+    name: "Ethers.Js",
+    href: "https://ethers.org/",
+    src: "/stack/ETHERS.svg",
+  },
+  {
     name: "Figma",
     href: "https://figma.com/",
     src: "/stack/FIGMA.svg",
@@ -26,6 +31,11 @@ const stack = [
     href: "https://javascript.com/",
     src: "/stack/JAVASCRIPT.svg",
   },
+  {
+    name: "Metamask",
+    href: "https://metamask.io/",
+    src: "/stack/METAMASK.svg",
+  },
   { name: "NextJs", href: "https://nextjs.org/", src: "/stack/NEXT.svg" },
 
   {
@@ -33,11 +43,17 @@ const stack = [
     href: "https://www.openzeppelin.com/",
     src: "/stack/OZ.svg",
   },
+  { name: "Rabby", href: "https://rabby.io/", src: "/stack/RABBY.svg" },
   { name: "React", href: "https://react.dev/", src: "/stack/REACT.svg" },
   {
     name: "Remix",
     href: "https://remix.ethereum.org/",
     src: "/stack/REMIX.svg",
+  },
+  {
+    name: "Rown Toolkits",
+    href: "https://reown.com/",
+    src: "/stack/REOWN.svg",
   },
   {
     name: "Solidity",
