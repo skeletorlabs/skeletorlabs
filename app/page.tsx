@@ -11,6 +11,7 @@ import Loading from "./components/loading";
 import Chains from "./components/home/chains";
 import Labs from "./components/home/labs";
 import Talk from "./components/home/talk";
+import Team from "./components/home/team";
 
 export default function Home() {
   const Terminal = dynamic(
@@ -34,6 +35,7 @@ export default function Home() {
           <Labs />
           <Testimonials />
           <Stack />
+          <Team />
           <Talk />
         </div>
       </main>

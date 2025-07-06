@@ -150,32 +150,14 @@ export default function Testimonials() {
           <AliceCarousel
             responsive={responsive}
             disableButtonsControls
-            autoPlay
+            disableDotsControls={items.length < 3}
+            autoPlay={items.length >= 3}
             autoPlayInterval={3000}
             infinite
           >
             {items}
           </AliceCarousel>
         )}
-
-        {/* <div className="flex flex-row justify-center xl:justify-between flex-wrap gap-4 xl:gap-10">
-          {collection &&
-            collection.map((item, index) => (
-              <TestimonialCard
-                key={index}
-                testimonial={item}
-                owner={owner.toLowerCase()}
-                userLiked={
-                  (userLikes &&
-                    userLikes.find((userLike) => userLike.id === item.id)
-                      ?.liked) ||
-                  false
-                }
-                deactivateTestimonial={deactivateTestimonial}
-                likeTestimonial={likeTestimonial}
-              />
-            ))}
-        </div> */}
       </div>
       <NewTestimonial />
       {loading && <LoadingBox />}

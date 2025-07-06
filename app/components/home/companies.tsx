@@ -215,7 +215,10 @@ export default function Companies() {
                 />
                 <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-black">
                   {item.bullets.map((bullet, index) => (
-                    <p key={index} className="bg-white/80 py-1 px-2">
+                    <p
+                      key={index}
+                      className="bg-white/70 py-1 px-2 text-center"
+                    >
                       {bullet}
                     </p>
                   ))}

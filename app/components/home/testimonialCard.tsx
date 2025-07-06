@@ -10,6 +10,10 @@ import { useAppKitAccount, useAppKitNetwork } from "@reown/appkit/react";
 import classNames from "classnames";
 import Image from "next/image";
 
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
+
 type Props = {
   testimonial: TestimonialData;
   owner: string;
@@ -96,8 +100,10 @@ export default function TestimonialCard({
       </div>
 
       {/* MESSAGE */}
-      <div className="px-6 pl-10 pb-6 xl:pt-2">
-        <p className="text-xs xl:text-sm text-white/80 leading-relaxed italic">
+      <div className="px-6 pl-10 pb-6">
+        <p
+          className={`text-xs xl:text-sm text-white/70 !leading-relaxed ${inter.className} !italic`}
+        >
           "{testimonial.message}"
         </p>
       </div>

@@ -19,11 +19,13 @@ module.exports = {
       colors: {
         "skeletor-gray": "#222338",
         "skeletor-dark-violet": "#0D0919",
+        "skeletor-green-merman": "#00405C",
       },
       animation: {
         "infinite-scroll": "infinite-scroll 15s linear infinite",
         "infinite-scroll-reverse":
           "infinite-scroll-reverse 20s linear infinite",
+        "infinite-scroll-slow": "infinite-scroll 50s linear infinite",
       },
       keyframes: {
         "infinite-scroll": {

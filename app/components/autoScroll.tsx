@@ -1,9 +1,14 @@
 interface AutoScrollProps {
   items: JSX.Element[];
   rows?: 1 | 2;
+  slow?: boolean;
 }
 
-export default function AutoScroll({ items, rows = 1 }: AutoScrollProps) {
+export default function AutoScroll({
+  items,
+  rows = 1,
+  slow = false,
+}: AutoScrollProps) {
   const half = Math.ceil(items.length / 2);
   const row1 = rows === 2 ? items.slice(0, half) : items;
   const row2 = rows === 2 ? items.slice(half) : [];
@@ -21,7 +26,9 @@ export default function AutoScroll({ items, rows = 1 }: AutoScrollProps) {
           className={`flex w-max items-center justify-start [&_li]:mx-8 [&_img]:max-w-none ${
             reverse
               ? "animate-infinite-scroll-reverse"
-              : "animate-infinite-scroll"
+              : slow
+                ? "animate-infinite-scroll-slow"
+                : "animate-infinite-scroll"
           } group-hover:[animation-play-state:paused]`}
         >
           {duplicatedItems.map((item, index) => (
