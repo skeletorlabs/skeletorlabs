@@ -150,8 +150,7 @@ export default function Testimonials() {
           <AliceCarousel
             responsive={responsive}
             disableButtonsControls
-            disableDotsControls={items.length < 3}
-            autoPlay={items.length >= 3}
+            autoPlay
             autoPlayInterval={3000}
             infinite
           >
