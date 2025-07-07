@@ -8,6 +8,7 @@ import {
   ShieldCheckIcon,
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
+import classNames from "classnames";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -62,12 +63,17 @@ export default function Services() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center w-full lg:w-auto"
+            className="flex flex-col items-center justify-center w-full lg:w-auto transition-all md:hover:scale-105 md:hover:opacity-80"
           >
             <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black border border-violet-300 text-lg shadow-md shadow-black z-20">
               {item.icon}
             </span>
-            <div className="flex flex-col items-center justify-center mt-[-28px] max-w-lg gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform hover:opacity-90 shadow-lg">
+            <div
+              className={classNames({
+                "flex flex-col items-center justify-center mt-[-28px] max-w-lg gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform hover:opacity-90 shadow-lg": true,
+                "bg-white/5": [1, 2, 5].includes(index),
+              })}
+            >
               <p
                 className={`text-2xl text-violet-300 p-6 ${jakarta.className}`}
               >
