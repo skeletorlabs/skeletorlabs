@@ -60,7 +60,7 @@ export default function Team() {
           <div
             key={index}
             className={classNames({
-              "flex flex-col items-center justify-center w-[350px] gap-1 backdrop-blur-md border border-white/10 pt-6 rounded-xl transition-transform hover:opacity-90 shadow-lg": true,
+              "flex flex-col items-center justify-center w-[350px] gap-1 backdrop-blur-md border border-white/10 pt-6 rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
               [item.color]: true,
             })}
           >

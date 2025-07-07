@@ -9,6 +9,8 @@ import {
   RocketLaunchIcon,
 } from "@heroicons/react/24/outline";
 import classNames from "classnames";
+import { useContext } from "react";
+import { StateContext } from "@/app/context/state";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -38,9 +40,9 @@ const items = [
     icon: <SparklesIcon className="h-6 w-6 text-violet-300" />,
   },
   {
-    title: "Audits & Security Reviews",
+    title: "Audit-Ready Development",
     description:
-      "Pre-launch sanity checks or post-launch diagnostics. We help you ship with confidence and avoid common exploits.",
+      "We design with audit-readiness in mind and collaborate with top audit firms to help you ship safe, reviewed code.",
     icon: <ShieldCheckIcon className="h-6 w-6 text-violet-300" />,
   },
   {
@@ -52,6 +54,7 @@ const items = [
 ];
 
 export default function Services() {
+  const { setTalkIsOpen } = useContext(StateContext);
   return (
     <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet/80 backdrop-blur-md">
       <Subtitle
@@ -63,15 +66,18 @@ export default function Services() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center w-full lg:w-auto transition-all md:hover:scale-105 md:hover:opacity-80"
+            className="flex flex-col items-center justify-center w-full lg:w-auto transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
           >
             <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black border border-violet-300 text-lg shadow-md shadow-black z-20">
               {item.icon}
             </span>
             <div
               className={classNames({
-                "flex flex-col items-center justify-center mt-[-28px] max-w-lg gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform hover:opacity-90 shadow-lg": true,
-                "bg-white/5": [1, 2, 5].includes(index),
+                "flex flex-col items-center justify-center mt-[-28px] max-w-lg gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
+                "bg-skeletor-gray/40": [0, 2, 4].includes(index),
+                "bg-skeletor-gray": [1, 3, 5].includes(index),
+                "lg:bg-skeletor-gray/40": [0, 3, 4].includes(index),
+                "lg:bg-skeletor-gray": [1, 2, 5].includes(index),
               })}
             >
               <p
@@ -87,6 +93,12 @@ export default function Services() {
           </div>
         ))}
       </div>
+      <button
+        onClick={() => setTalkIsOpen(true)}
+        className="text-center text-lg text-violet-300 max-w-2xl mx-auto transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
+      >
+        Let's talk — we bring the full toolkit
+      </button>
     </div>
   );
 }

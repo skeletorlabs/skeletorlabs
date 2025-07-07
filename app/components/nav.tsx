@@ -18,7 +18,7 @@ export default function Nav() {
         width={277}
         height={77}
         alt="logo"
-        className="transition-all scale-75 md:scale-100"
+        className="transition-all duration-200 scale-75 md:scale-100"
       />
 
       <div className="flex flex-col w-full justify-center md:items-end gap-2">
@@ -35,7 +35,7 @@ export default function Nav() {
                 href={item.href}
                 target="blank"
                 className={classNames({
-                  "transition-all text-violet-200 hover:text-violet-300 scale-75": true,
+                  "transition-all duration-200 text-violet-200 hover:text-violet-300 scale-75": true,
                   "hover:scale-90": address,
                   "md:scale-90 hover:scale-105": !address,
                 })}
@@ -46,7 +46,7 @@ export default function Nav() {
             <button
               onClick={() => setTalkIsOpen(true)}
               className={classNames({
-                "transition-all text-violet-200 hover:text-violet-300 scale-75": true,
+                "transition-all duration-200 text-violet-200 hover:text-violet-300 scale-75": true,
                 "hover:scale-90": address,
                 "md:scale-90 hover:scale-105": !address,
               })}

@@ -14,7 +14,7 @@ export default function ConnectButton() {
 
   return (
     <button
-      className={`flex items-center justify-center gap-2 p-2 px-6 bg-violet-300 transition-colors hover:bg-violet-200 text-black/80 font-semibold text-xs rounded-full relative ${jakarta.className}`}
+      className={`flex items-center justify-center gap-2 p-2 px-6 bg-violet-300 transition-colors duration-200 hover:bg-violet-200 text-black/80 font-semibold text-xs rounded-full relative ${jakarta.className}`}
       onClick={() => (address ? disconnect() : open())}
     >
       <WalletIcon width={20} height={20} />

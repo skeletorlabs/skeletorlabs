@@ -78,7 +78,7 @@ export default function Companies() {
           index === 0 ? "bg-samurai" : "bg-onering "
         } bg-cover bg-no-repeat hover:opacity-90 relative`}
       >
-        <div className="flex flex-col justify-center items-center w-full h-full py-8 gap-6 transition-all bg-[#10131B]/70 backdrop-blur-md">
+        <div className="flex flex-col justify-center items-center w-full h-full py-8 gap-6 transition-all duration-200 bg-[#10131B]/70 backdrop-blur-md">
           <div className="flex flex-col w-full justify-center items-center gap-2">
             <Image src={item.src} width={140} height={140} alt={item.title} />
             <p className="text-3xl text-white font-semibold">{item.title}</p>
@@ -94,7 +94,7 @@ export default function Companies() {
               <Link
                 href={item.link}
                 target="blank"
-                className="transition-opacity hover:opacity-75"
+                className="transition-opacity duration-200 hover:opacity-75"
               >
                 <GlobeAltIcon width={22} height={22} />
               </Link>
@@ -103,7 +103,7 @@ export default function Companies() {
                 <Link
                   href={item.link2}
                   target="blank"
-                  className="transition-opacity hover:opacity-75"
+                  className="transition-opacity duration-200 hover:opacity-75"
                 >
                   <PhotoIcon width={22} height={22} />
                 </Link>
@@ -167,7 +167,7 @@ export default function Companies() {
               index === 0 ? "bg-samurai" : "bg-onering "
             } bg-cover bg-no-repeat hover:opacity-90 relative`}
           >
-            <div className="flex flex-col justify-center items-center w-full h-full gap-8 transition-all bg-[#10131B]/70 backdrop-blur-md opacity-0 hover:opacity-100">
+            <div className="flex flex-col justify-center items-center w-full h-full gap-8 transition-all duration-200 bg-[#10131B]/70 backdrop-blur-md opacity-0 hover:opacity-100">
               <div className="flex flex-col w-full justify-center items-center gap-2">
                 <Image
                   src={item.src}
@@ -190,7 +190,7 @@ export default function Companies() {
                   <Link
                     href={item.link}
                     target="blank"
-                    className="transition-opacity hover:opacity-75"
+                    className="transition-opacity duration-200 hover:opacity-75"
                   >
                     <GlobeAltIcon width={32} height={32} />
                   </Link>
@@ -199,7 +199,7 @@ export default function Companies() {
                     <Link
                       href={item.link2}
                       target="blank"
-                      className="transition-opacity hover:opacity-75"
+                      className="transition-opacity duration-200 hover:opacity-75"
                     >
                       <PhotoIcon width={32} height={32} />
                     </Link>

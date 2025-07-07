@@ -50,7 +50,7 @@ export default function TestimonialCard({
     !userLiked;
 
   return (
-    <div className="flex flex-col justify-between w-full lg:max-w-md xl:max-w-lg even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50 relative">
+    <div className="flex flex-col justify-between w-full lg:max-w-md xl:max-w-lg even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all duration-200 even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50 relative">
       {/* TOP-LEFT ICON */}
       <div className="absolute top-0 left-0 w-0 h-0 border-t-[50px] border-t-violet-500 border-r-[50px] border-r-transparent" />
       <ChatBubbleBottomCenterTextIcon
@@ -66,7 +66,7 @@ export default function TestimonialCard({
           disabled={!canLike}
           onClick={() => likeTestimonial(testimonial?.id)}
           className={classNames({
-            "transition-all hover:scale-105 mt-[-2px]": true,
+            "transition-all duration-200 hover:scale-105 mt-[-2px]": true,
             "text-white/10": !isConnected || (!canLike && !userLiked),
             "text-white/50 hover:text-white":
               isConnected && canLike && !userLiked,
@@ -115,7 +115,7 @@ export default function TestimonialCard({
           disabled={testimonial?.id === undefined}
           onClick={() => deactivateTestimonial(testimonial?.id)}
           className={classNames({
-            "flex items-center justify-center gap-1 text-xs text-white/70 tracking-tighter hover:opacity-80 bg-violet-500 transition-colors hover:bg-violet-400 hover:text-white rounded-full p-1 px-3": true,
+            "flex items-center justify-center gap-1 text-xs text-white/70 tracking-tighter hover:opacity-80 bg-violet-500 transition-colors duration-200 hover:bg-violet-400 hover:text-white rounded-full p-1 px-3": true,
             hidden: !canRemove,
             block: canRemove,
           })}

@@ -24,7 +24,9 @@ export default function AutoScroll({
       <div
         className="
           w-full overflow-hidden group 
-          [mask-image:_linear-gradient(to_right,transparent_0,_black_32px,_black_calc(100%-200px),transparent_100%)]
+          [mask-image:_linear-gradient(to_right,transparent_0,_black_32px,_black_calc(100%-64px),transparent_100%)]
+          sm:[mask-image:_linear-gradient(to_right,transparent_0,_black_48px,_black_calc(100%-80px),transparent_100%)]
+          md:[mask-image:_linear-gradient(to_right,transparent_0,_black_64px,_black_calc(100%-96px),transparent_100%)]
           lg:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
       >
         <ul

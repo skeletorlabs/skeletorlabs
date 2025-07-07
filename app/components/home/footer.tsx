@@ -59,14 +59,14 @@ export default function Footer() {
               key={index}
               href={item.href}
               target="blank"
-              className="text-violet-200 transition-all hover:text-violet-300 scale-90 hover:scale-105"
+              className="text-violet-200 transition-all duration-200 hover:text-violet-300 scale-90 hover:scale-105"
             >
               {item.icon}
             </Link>
           ))}
           <button
             onClick={() => setTalkIsOpen(true)}
-            className="text-violet-200 transition-all hover:text-violet-300 scale-90 hover:scale-105"
+            className="text-violet-200 transition-all duration-200 hover:text-violet-300 scale-90 hover:scale-105"
           >
             {mail}
           </button>

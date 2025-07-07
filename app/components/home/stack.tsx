@@ -88,7 +88,7 @@ export default function Stack() {
             key={index}
             href={item.href}
             target="blank"
-            className="transition-transform xl:hover:scale-[1.04] hover:opacity-90"
+            className="transition-transform duration-200 xl:hover:scale-[1.04] hover:opacity-90"
           >
             <div className="flex flex-col items-center justify-center gap-1 text-violet-200/70 hover:text-violet-200">
               <Image

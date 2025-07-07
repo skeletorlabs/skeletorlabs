@@ -36,11 +36,11 @@ export default function NewTestimonialButton({
           "hidden xl:flex items-center justify-center gap-1 p-2 px-6 rounded-full text-xs relative":
             true,
           [jakarta.className]: true,
-          "bg-transparent text-violet-300 transition-colors hover:text-violet-200":
+          "bg-transparent text-violet-300 transition-colors duration-200 hover:text-violet-200":
             nobg,
-          "font-semibold bg-violet-300 border border-violet-400 transition-colors hover:bg-violet-200 text-black/80":
+          "font-semibold bg-violet-300 border border-violet-400 transition-colors duration-200 hover:bg-violet-200 text-black/80":
             !nobg && !invert,
-          "font-semibold bg-violet-500/60 backdrop-blur-md border border-white/10 transition-colors text-white/80 hover:opacity-90 hover:text-white":
+          "font-semibold bg-violet-500/60 backdrop-blur-md border border-white/10 transition-colors duration-200 text-white/80 hover:opacity-90 hover:text-white":
             !nobg && invert,
         })}
       >
