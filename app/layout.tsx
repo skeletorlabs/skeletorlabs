@@ -23,7 +23,7 @@ export default function RootLayout({
           <meta
             name="description"
             key="desc"
-            content="Dedicated to build the Future of the Web3 Techs Blockchain De-Fi Space, NFTs Collections"
+            content="Dedicated to building the Future of the Web3 Techs Blockchain De-Fi Space, NFTs Collections"
           />
         </head>
         <body

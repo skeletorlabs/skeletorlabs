@@ -38,7 +38,7 @@ export default function Header() {
               className={`w-full h-[220px] font-extrabold text-white text-5xl md:text-6xl lg:text-[66px] leading-tight ${jakarta.className}`}
             >
               <p className="max-w-[700px]">
-                Dedicated to build the Future of the
+                Dedicated to building the Future of the
               </p>
               <span
                 ref={el}
