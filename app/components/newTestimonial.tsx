@@ -152,7 +152,7 @@ export default function NewTestimonial() {
                   )}
                 </DialogTitle>
                 <div className="flex gap-10">
-                  <div className="flex flex-col mt-8 w-[450px] h-[450px] gap-4">
+                  <div className="flex flex-col mt-8 w-[450px] h-[650px] gap-4">
                     {isConnected && address ? (
                       <>
                         <div className="flex items-center justify-between">
@@ -221,7 +221,7 @@ export default function NewTestimonial() {
                               }
                               value={message}
                               placeholder={`Working with Skeletor Labs was seamless — sharp execution, clean code, and deep Web3 knowledge. Would definitely collaborate again.`}
-                              className="w-full bg-white/10 border-transparent py-2 focus:border-transparent focus:ring-transparent outline-none placeholder-white/30 text-md rounded-lg p-2 h-32 font-sans"
+                              className="w-full bg-white/10 border-transparent py-2 focus:border-transparent focus:ring-transparent outline-none placeholder-white/30 text-md rounded-lg p-2 h-[300px] font-sans"
                             />
                           </div>
                         </div>
