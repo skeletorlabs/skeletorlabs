@@ -52,6 +52,7 @@ export default function Team() {
       <Subtitle
         text="The Crew"
         description="Passionate minds crafting smart, secure, and scalable decentralized products"
+        padding
       />
 
       <AutoScroll
