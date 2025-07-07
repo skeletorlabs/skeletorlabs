@@ -10,8 +10,9 @@ import Testimonials from "./components/home/testimonials";
 import Loading from "./components/loading";
 import Chains from "./components/home/chains";
 import Labs from "./components/home/labs";
-import Talk from "./components/home/talk";
+import Us from "./components/home/us";
 import Team from "./components/home/team";
+import Services from "./components/home/services";
 
 export default function Home() {
   const Terminal = dynamic(
@@ -29,14 +30,15 @@ export default function Home() {
         <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat">
           <Terminal />
           <Code />
+          <Services />
           <Companies />
-          <Chains />
           <Contributions />
           <Labs />
           <Testimonials />
+          <Chains />
           <Stack />
           <Team />
-          <Talk />
+          <Us />
         </div>
       </main>
       <Footer />

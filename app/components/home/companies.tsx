@@ -133,7 +133,7 @@ export default function Companies() {
     setLoading(false);
   }, [setLoading]);
   return (
-    <div className="flex flex-col  gap-10">
+    <div className="flex flex-col pt-10 gap-10">
       <Subtitle
         text="Who We've Built With"
         description="Protocols we've helped build through contract architecture, protocol logic, and launch-ready infra"

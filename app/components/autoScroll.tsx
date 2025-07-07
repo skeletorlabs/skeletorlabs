@@ -21,7 +21,12 @@ export default function AutoScroll({
     const duplicatedItems = [...rowItems, ...rowItems]; // avoid DOM duplication
 
     return (
-      <div className="w-full overflow-hidden group [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
+      <div
+        className="
+          w-full overflow-hidden group 
+          [mask-image:_linear-gradient(to_right,transparent_0,_black_32px,_black_calc(100%-200px),transparent_100%)]
+          lg:[mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+      >
         <ul
           className={`flex w-max items-center justify-start [&_li]:mx-8 [&_img]:max-w-none ${
             reverse

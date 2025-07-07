@@ -114,6 +114,10 @@ export default function Code() {
         text="What We've Deployed"
         description="From design to deployment — key smart contracts shipped to mainnet"
       />
+      {/* <span className="text-indigo-400 text-xs">
+        Some of our contracts have gone through third-party audits and ImmuneFi
+        bounties
+      </span> */}
       <div className="flex flex-col xl:flex-row items-center gap-4 xl:gap-8 flex-wrap">
         {loading ? (
           <div className="flex w-full items-center justify-center min-h-[360px]">
