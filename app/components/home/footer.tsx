@@ -52,7 +52,18 @@ export default function Footer() {
           <span>Ⓒ 2025 Skeletor Labs</span>
         </div>
 
-        <NewTestimonialButton nobg />
+        <div className="flex items-center gap-2 text-violet-300">
+          <NewTestimonialButton nobg />
+          <span>|</span>
+          <Link
+            href="mailto:hello@skeletorlabs.xyz"
+            target="blank"
+            className="text-violet-300 text-xs"
+          >
+            hello@skeletorlabs.xyz
+          </Link>
+        </div>
+
         <div className="flex items-center gap-3">
           {SOCIALS.map((item, index) => (
             <Link

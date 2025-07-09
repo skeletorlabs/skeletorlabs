@@ -19,10 +19,10 @@ export default function NewTestimonialButton({
       {/* MOBILE */}
       <button
         onClick={() => setTestimonialBoxIsOpen(true)}
-        className={`flex xl:hidden items-center justify-center gap-2 p-1 px-3 text-xs ${
+        className={`flex xl:hidden items-center justify-center gap-2 text-xs ${
           nobg
             ? "bg-transparent text-violet-300"
-            : "bg-violet-300 text-black/80"
+            : "bg-violet-300 text-black/80 p-1 px-3 "
         } font-semibold rounded-full ${jakarta.className}`}
       >
         <PencilSquareIcon width={20} height={20} />
@@ -33,14 +33,13 @@ export default function NewTestimonialButton({
       <button
         onClick={() => setTestimonialBoxIsOpen(true)}
         className={classNames({
-          "hidden xl:flex items-center justify-center gap-1 p-2 px-6 rounded-full text-xs relative":
-            true,
+          "hidden xl:flex items-center justify-center gap-1 text-xs relative": true,
           [jakarta.className]: true,
           "bg-transparent text-violet-300 transition-colors duration-200 hover:text-violet-200":
             nobg,
-          "font-semibold bg-violet-300 border border-violet-400 transition-colors duration-200 hover:bg-violet-200 text-black/80":
+          "p-2 px-6 rounded-full font-semibold bg-violet-300 border border-violet-400 transition-colors duration-200 hover:bg-violet-200 text-black/80":
             !nobg && !invert,
-          "font-semibold bg-violet-500/60 backdrop-blur-md border border-white/10 transition-colors duration-200 text-white/80 hover:opacity-90 hover:text-white":
+          "p-2 px-6 rounded-full font-semibold bg-violet-500/60 backdrop-blur-md border border-white/10 transition-colors duration-200 text-white/80 hover:opacity-90 hover:text-white":
             !nobg && invert,
         })}
       >

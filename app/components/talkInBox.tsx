@@ -57,17 +57,21 @@ export default function TalkInBox() {
   }, [email, title, message, setLoading, setEmailSent]);
 
   const clean = useCallback(() => {
-    if (talkIsOpen) {
+    if (!talkIsOpen) {
       onInputChange("", InputType.EMAIL);
       onInputChange("", InputType.TITLE);
       onInputChange("", InputType.MESSAGE);
-      setEmailSent(false);
+
+      const interval = setInterval(() => {
+        setEmailSent(false);
+        clearInterval(interval);
+      }, 300);
     }
   }, [talkIsOpen, onInputChange, InputType]);
 
   useEffect(() => {
     clean();
-  }, [talkIsOpen, clean]);
+  }, [clean]);
 
   return (
     <Transition appear show={talkIsOpen} as={Fragment}>
