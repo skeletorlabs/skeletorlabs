@@ -1,9 +1,3 @@
-Understood\! This is a completely different context, and it's exciting that you're building Skeletor Labs. A README for a dev-studio needs to be professional, client-oriented, and clearly articulate your services and expertise in the blockchain space.
-
-Here's a README crafted in a company format, designed to present Skeletor Labs as a leading blockchain development studio, incorporating details from your provided images and resume, and adopting a tone a blockchain company would use.
-
----
-
 # Skeletor Labs
 
 ## Dedicated to building the Future of Web3.
