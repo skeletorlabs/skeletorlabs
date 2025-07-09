@@ -18,6 +18,13 @@ export default function Footer() {
         className={`flex xl:hidden flex-col justify-between py-10 gap-4 bg-black z-20 w-full items-center ${jakarta.className}`}
       >
         <NewTestimonialButton />
+        <Link
+          href="mailto:hello@skeletorlabs.xyz"
+          target="blank"
+          className="text-violet-300 text-xs mt-[-10px]"
+        >
+          hello@skeletorlabs.xyz
+        </Link>
         <div className="flex items-center gap-2">
           {SOCIALS.map((item, index) => (
             <Link
