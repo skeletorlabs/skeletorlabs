@@ -33,7 +33,7 @@ Skeletor Labs offers a comprehensive suite of development services tailored to t
 - **Smart Contract Development & Auditing:**
   - Design, development, and deployment of secure and gas-efficient smart contracts on EVM-compatible networks (Ethereum, Base, Arbitrum, Optimism, Fantom, BSC, Sonic).
   - Expertise in Solidity for DeFi primitives (token vesting, locking, LP staking), NFT integrations, token standards, and TGEs.
-  - Development of Rust-based smart programs for Solana (using Anchor framework) and exploration of Move language for Sui.
+  - Exploration of Solana and Move language for Sui.
   - Rigorous testing methodologies using frameworks like Foundry.
 - **Decentralized Application (dApp) Development:**
   - Full-stack development of intuitive and responsive dApps.
@@ -64,7 +64,7 @@ Our core strength lies in our proficiency across a diverse range of cutting-edge
 - **Data & APIs:** GraphQL, Subgraphs
 - **Styling:** Tailwind CSS
 - **Version Control:** Git
-- **Project Management Methodologies:** Scrum (Scrum Master Certified)
+- **Project Management Methodologies:** Scrum (Certified)
 
 ## Why Choose Skeletor Labs?
 
