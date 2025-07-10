@@ -13,6 +13,7 @@ export function middleware(request: NextRequest) {
     const allowedProdDomains = [
       "https://skeletorlabs.xyz",
       "https://www.skeletorlabs.xyz",
+      "https://test.skeletorlabs.xyz",
     ];
 
     const isAllowed = isDev
