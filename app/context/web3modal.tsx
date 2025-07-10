@@ -18,11 +18,32 @@ const metadata = {
   icons: ["https://assets.reown.com/reown-profile-pic.png"],
 };
 
+const hederaTestnet = {
+  id: 296, // Hedera Testnet Chain ID
+  name: "Hedera Testnet",
+  nativeCurrency: { name: "Hedera", symbol: "HBAR", decimals: 18 },
+  rpcUrls: {
+    default: { http: ["https://testnet.hashio.io/api"] },
+    public: { http: ["https://testnet.hashio.io/api"] }, // Often public and default are the same
+  },
+  blockExplorers: {
+    default: {
+      name: "HashScan",
+      url: "https://hashscan.io/testnet/evm/contract/",
+    },
+  },
+  testnet: true, // Mark as a testnet
+  // If AppKit requires a specific Multicall3 contract or other specific contracts for certain chain IDs,
+  // you might add a 'contracts' property here, similar to wagmi's chain definitions.
+  // For Hedera Testnet, the Multicall3 address is 0xca11bde05977b3970b55476cebef63ed53eead68
+  // e.g., contracts: { multicall3: { address: '0xca11bde05977b3970b55476cebef63ed53eead68' } },
+};
+
 // 3. Create the AppKit instance
 createAppKit({
   adapters: [new EthersAdapter()],
   metadata,
-  networks: [base],
+  networks: [base, hederaTestnet],
   projectId,
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration

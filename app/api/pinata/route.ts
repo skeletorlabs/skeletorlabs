@@ -6,8 +6,10 @@ import { Readable } from "stream"; // Node.js stream API for creating a readable
 export async function POST(request: Request) {
   const data = await request.json();
 
+  const { id, name, role, message, chainId } = data;
+
   // Basic validation
-  if (data?.id === undefined || !data?.name || !data?.role || !data?.message) {
+  if (id === undefined || !name || !role || !message || chainId === undefined) {
     return NextResponse.json(
       { error: "Missing required fields" },
       { status: 400 }
@@ -28,7 +30,7 @@ export async function POST(request: Request) {
     const jsonString = JSON.stringify(contentWithTimestamp);
     const readableStream = Readable.from([jsonString]);
 
-    const fileName = `${data.id}-${Date.now()}.json`;
+    const fileName = `${chainId}-${id}-${Date.now()}.json`;
 
     const options = {
       pinataMetadata: {

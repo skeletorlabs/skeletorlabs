@@ -19,6 +19,7 @@ import ConnectButton from "../connectButton";
 import LoadingBox from "../loadingBox";
 import { PencilSquareIcon } from "@heroicons/react/20/solid";
 import AliceCarousel from "react-alice-carousel";
+import { base, hederaTestnet } from "@reown/appkit/networks";
 
 const responsive = {
   0: { items: 1 },
@@ -28,6 +29,7 @@ const responsive = {
 export default function Testimonials() {
   const [collection, setCollection] = useState<TestimonialData[] | undefined>();
   const [owner, setOwner] = useState("");
+  const [ownerHedera, setOwnerHedera] = useState("");
   const [userLikes, setUserLikes] = useState<UserLike[] | undefined>();
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState<JSX.Element[] | undefined>(undefined);
@@ -37,23 +39,42 @@ export default function Testimonials() {
   const { walletProvider } = useAppKitProvider("eip155");
 
   const fetchTestimonials = useCallback(async () => {
-    const storedTestimonials = await all();
+    const baseTestimonials = await all(base.id);
+    const hederaTestimonials = await all(hederaTestnet.id);
+
+    const storedTestimonials = [
+      ...(baseTestimonials || []),
+      ...(hederaTestimonials || []),
+    ];
+
     if (storedTestimonials) {
       const ipfsTestimonials =
         await readTestimonialsFromIPFS(storedTestimonials);
       setCollection(ipfsTestimonials || []);
     }
-    const _owner = await getOwner();
+    const _owner = await getOwner(base.id);
+    const _ownerHedera = await getOwner(hederaTestnet.id);
     if (_owner) setOwner(_owner);
-  }, [setCollection, setOwner]);
+    if (_ownerHedera) setOwnerHedera(_ownerHedera);
+  }, [setCollection, setOwner, setOwnerHedera]);
 
-  const fetchUserLikes = useCallback(async () => {
-    if (collection && address) {
-      const ids: number[] = collection.map((item) => item.id!);
-      const _userLikes = await likedByUser(ids, address);
-      setUserLikes(_userLikes || []);
-    }
-  }, [collection, address, setUserLikes]);
+  // const fetchUserLikes = useCallback(async () => {
+  //   if (collection && address) {
+  //     const ids: number[] = collection.map((item) => item.id!);
+  //     const _userLikes = await likedByUser(base.id, ids, address);
+  //     const _userLikesHedera = await likedByUser(
+  //       hederaTestnet.id,
+  //       ids,
+  //       address
+  //     );
+  //     const allUserLikes = [
+  //       ...(Array.isArray(_userLikes) ? _userLikes : []),
+  //       ...(Array.isArray(_userLikesHedera) ? _userLikesHedera : []),
+  //     ];
+
+  //     setUserLikes(allUserLikes || []);
+  //   }
+  // }, [collection, address, setUserLikes]);
 
   const deactivateTestimonial = useCallback(
     async (id: number | undefined) => {
@@ -68,18 +89,18 @@ export default function Testimonials() {
     [walletProvider, fetchTestimonials, setLoading]
   );
 
-  const likeTestimonial = useCallback(
-    async (id: number | undefined) => {
-      if (id === undefined) return;
-      setLoading(true);
-      const provider = new BrowserProvider(walletProvider as any);
-      const signer = await provider.getSigner();
-      await like(id, signer);
-      await fetchTestimonials();
-      setLoading(false);
-    },
-    [walletProvider, fetchTestimonials]
-  );
+  // const likeTestimonial = useCallback(
+  //   async (id: number | undefined) => {
+  //     if (id === undefined) return;
+  //     setLoading(true);
+  //     const provider = new BrowserProvider(walletProvider as any);
+  //     const signer = await provider.getSigner();
+  //     await like(id, signer);
+  //     await fetchTestimonials();
+  //     setLoading(false);
+  //   },
+  //   [walletProvider, fetchTestimonials]
+  // );
 
   useEffect(() => {
     fetchTestimonials();
@@ -95,14 +116,14 @@ export default function Testimonials() {
       <TestimonialCard
         key={index}
         testimonial={item}
-        owner={owner.toLowerCase()}
-        userLiked={
-          (userLikes &&
-            userLikes.find((userLike) => userLike.id === item.id)?.liked) ||
-          false
-        }
+        owner={item.chainId === base.id ? owner : ownerHedera}
+        // userLiked={
+        //   (userLikes &&
+        //     userLikes.find((userLike) => userLike.id === item.id)?.liked) ||
+        //   false
+        // }
         deactivateTestimonial={deactivateTestimonial}
-        likeTestimonial={likeTestimonial}
+        // likeTestimonial={likeTestimonial}
       />
     ));
 
@@ -114,15 +135,15 @@ export default function Testimonials() {
     collection,
     owner,
     deactivateTestimonial,
-    likeTestimonial,
+    // likeTestimonial,
     setLoading,
     setItems,
-    userLikes,
+    // userLikes,
   ]);
 
-  useEffect(() => {
-    fetchUserLikes();
-  }, [address, collection, fetchUserLikes]);
+  // useEffect(() => {
+  //   fetchUserLikes();
+  // }, [address, collection, fetchUserLikes]);
 
   return (
     <div className="relative">

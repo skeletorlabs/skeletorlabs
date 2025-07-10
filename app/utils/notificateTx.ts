@@ -1,8 +1,11 @@
 import Notificate from "@/app/components/notificate";
 import { LINKS } from "./conts";
+import { hederaTestnet } from "@reown/appkit/networks";
 
 export async function notificateTx(tx: any, network: any) {
-  const txUrl = LINKS[Number(network?.chainId)] + "/tx/" + tx.hash.toString();
+  const chainId = Number(network?.chainId);
+  const complement = chainId === hederaTestnet.id ? "/transaction/" : "/tx/";
+  const txUrl = LINKS[chainId] + complement + tx.hash.toString();
 
   Notificate({
     type: "",

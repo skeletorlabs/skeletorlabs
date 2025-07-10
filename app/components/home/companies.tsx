@@ -75,7 +75,7 @@ export default function Companies() {
       <div
         key={index}
         className={`flex flex-col w-full ${
-          index === 0 ? "bg-samurai" : "bg-onering "
+          index === 0 ? "bg-samurai" : "bg-onering"
         } bg-cover bg-no-repeat hover:opacity-90 relative`}
       >
         <div className="flex flex-col justify-center items-center w-full h-full py-8 gap-6 transition-all duration-200 bg-[#10131B]/70 backdrop-blur-md">

@@ -10,17 +10,17 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import { shortener } from "../utils/shortener";
 import {
   PencilSquareIcon,
-  ArrowUpCircleIcon,
   PowerIcon,
   CheckBadgeIcon,
 } from "@heroicons/react/20/solid";
 import { getAvatar } from "../lib/avatar";
 import Image from "next/image";
-import { TestimonialData, uploadTestimonialToIPFS } from "../lib/ipfs";
+import { TestimonialData } from "../lib/ipfs";
 import ConnectButton from "./connectButton";
 import {
   useAppKit,
   useAppKitAccount,
+  useAppKitNetwork,
   useAppKitProvider,
 } from "@reown/appkit/react";
 import { store } from "../contracts/testimonialRegistry";
@@ -44,6 +44,8 @@ export default function NewTestimonial() {
     setTestimonialBoxIsOpen,
     setRefreshTestimonials,
   } = useContext(StateContext);
+
+  const { chainId } = useAppKitNetwork();
 
   enum InputType {
     NAME,
@@ -76,6 +78,7 @@ export default function NewTestimonial() {
         name: name,
         role: role,
         message: message,
+        chainId: Number(chainId),
       };
 
       // Get signer
@@ -94,6 +97,7 @@ export default function NewTestimonial() {
     name,
     role,
     message,
+    chainId,
     walletProvider,
     setLoading,
     setRefreshTestimonials,
