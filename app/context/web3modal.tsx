@@ -7,15 +7,16 @@ import { EthersAdapter } from "@reown/appkit-adapter-ethers";
 import { AppKitNetwork, base } from "@reown/appkit/networks";
 import { PropsWithChildren } from "react";
 
-// 1. Get projectId at https://cloud.reown.com
+// 1. Define reownproject ID
 const projectId = "26ddcbf907926f7c164d140cb254b211";
 
 // 2. Create a metadata object
 const metadata = {
-  name: "portfolio",
-  description: "AppKit Example",
-  url: "https://reown.com/appkit", // origin must match your domain & subdomain
-  icons: ["https://assets.reown.com/reown-profile-pic.png"],
+  name: "Skeletor Labs",
+  description:
+    "Skeletor Labs - A Blockchain Dev Studio Building the Future of Web3, De-Fi, and NFTs Collections",
+  url: "https://skeletorlabs.xyz",
+  icons: ["https://skeletorlabs.xyz/logo-v4.svg"],
 };
 
 const hederaTestnet = {
