@@ -4,7 +4,7 @@
 
 import { createAppKit } from "@reown/appkit/react";
 import { EthersAdapter } from "@reown/appkit-adapter-ethers";
-import { base } from "@reown/appkit/networks";
+import { AppKitNetwork, base } from "@reown/appkit/networks";
 import { PropsWithChildren } from "react";
 
 // 1. Get projectId at https://cloud.reown.com
@@ -19,7 +19,7 @@ const metadata = {
 };
 
 const hederaTestnet = {
-  id: 296, // Hedera Testnet Chain ID
+  id: 296,
   name: "Hedera Testnet",
   nativeCurrency: { name: "Hedera", symbol: "HBAR", decimals: 18 },
   rpcUrls: {
@@ -33,17 +33,16 @@ const hederaTestnet = {
     },
   },
   testnet: true, // Mark as a testnet
-  // If AppKit requires a specific Multicall3 contract or other specific contracts for certain chain IDs,
-  // you might add a 'contracts' property here, similar to wagmi's chain definitions.
-  // For Hedera Testnet, the Multicall3 address is 0xca11bde05977b3970b55476cebef63ed53eead68
-  // e.g., contracts: { multicall3: { address: '0xca11bde05977b3970b55476cebef63ed53eead68' } },
 };
 
-// 3. Create the AppKit instance
+// 3. Define allowed networks
+export const allowedNetworks: [AppKitNetwork, ...AppKitNetwork[]] = [base];
+
+// 4. Create the AppKit instance
 createAppKit({
   adapters: [new EthersAdapter()],
   metadata,
-  networks: [base, hederaTestnet],
+  networks: allowedNetworks,
   projectId,
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
@@ -53,6 +52,7 @@ createAppKit({
   },
 });
 
+// 5. Export the AppKit provider
 export function AppKit({ children }: PropsWithChildren) {
   return children;
 }

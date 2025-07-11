@@ -6,6 +6,7 @@ import { ipfsHashToBytes32 } from "../utils/bytes32Conversor";
 import { TestimonialData, uploadTestimonialToIPFS } from "../lib/ipfs";
 import { base, hederaTestnet } from "@reown/appkit/networks";
 import { TESTIMONIAL_REGISTRY_ADDRESSES } from "../utils/conts";
+import { allowedNetworks } from "../context/web3modal";
 
 export type StoredTestimonial = {
   id: number;
@@ -15,6 +16,12 @@ export type StoredTestimonial = {
   likes: number;
   active: boolean;
   chainId: number; // Added to store chain ID
+};
+
+export type TestimonialsByChain = {
+  chainId: number;
+  owner: string;
+  testimonialsList: StoredTestimonial[];
 };
 
 export type UserLike = { id: number; liked: boolean };
@@ -52,16 +59,6 @@ async function getContract(
       signer || provider
     );
     return contract;
-  } catch (error) {
-    await handleError({ e: error as Error });
-  }
-}
-
-export async function getOwner(chainId: number): Promise<string | undefined> {
-  try {
-    const contract = await getContract(chainId);
-    const owner = await contract?.owner();
-    return owner;
   } catch (error) {
     await handleError({ e: error as Error });
   }
@@ -149,12 +146,13 @@ export async function deactivate(id: number, signer: Signer) {
   }
 }
 
-export async function all(
+export async function allFromChain(
   chainId: number
-): Promise<StoredTestimonial[] | undefined> {
+): Promise<TestimonialsByChain | undefined> {
   try {
     const contract = await getContract(chainId);
     const ids = await contract?.nextId();
+    const owner = await contract?.owner();
 
     let testimonials: StoredTestimonial[] = [];
 
@@ -163,7 +161,24 @@ export async function all(
       if (stored && stored.active) testimonials.push(stored);
     }
 
-    return testimonials;
+    return { chainId, owner, testimonialsList: testimonials };
+  } catch (error) {
+    await handleError({ e: error as Error });
+  }
+}
+
+export async function all(): Promise<TestimonialsByChain[] | undefined> {
+  try {
+    const testimonialsByChain: TestimonialsByChain[] = [];
+    for (const chain of allowedNetworks) {
+      const chainId = Number(chain.id);
+      const testimonials = await allFromChain(chainId);
+      if (testimonials) {
+        const { chainId, owner, testimonialsList } = testimonials;
+        testimonialsByChain.push({ chainId, owner, testimonialsList });
+      }
+    }
+    return testimonialsByChain;
   } catch (error) {
     await handleError({ e: error as Error });
   }
