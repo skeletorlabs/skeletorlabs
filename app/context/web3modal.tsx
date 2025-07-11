@@ -15,7 +15,7 @@ const metadata = {
   name: "Skeletor Labs",
   description:
     "Skeletor Labs - A Blockchain Dev Studio Building the Future of Web3, De-Fi, and NFTs Collections",
-  url: "https://skeletorlabs.xyz",
+  url: "https://www.skeletorlabs.xyz",
   icons: ["https://skeletorlabs.xyz/logo-v4.svg"],
 };
 
