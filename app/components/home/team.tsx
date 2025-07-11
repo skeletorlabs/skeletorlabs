@@ -69,7 +69,7 @@ export default function Team() {
                 src={item.src}
                 width={130}
                 height={130}
-                alt={"#"}
+                alt={item.nickname}
                 className="rounded-full"
               />
             </div>

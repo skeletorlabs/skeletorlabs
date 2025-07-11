@@ -10,15 +10,16 @@ export function middleware(request: NextRequest) {
     const referer = request.headers.get("referer") || "";
 
     const isDev = process.env.NODE_ENV === "development";
-    const allowedProdDomains = [
+    const allowedDomains = [
       "https://skeletorlabs.xyz",
       "https://www.skeletorlabs.xyz",
+      "https://test.skeletorlabs.xyz",
     ];
 
     const isAllowed = isDev
       ? origin.startsWith("http://localhost") ||
         referer.startsWith("http://localhost")
-      : allowedProdDomains.some(
+      : allowedDomains.some(
           (domain) => origin.startsWith(domain) || referer.startsWith(domain)
         );
 

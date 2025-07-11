@@ -30,6 +30,11 @@ const chains = [
     href: "https://fantom.foundation/",
   },
   {
+    name: "Hedera",
+    src: "/chains/hedera.svg",
+    href: "https://fantom.foundation/",
+  },
+  {
     name: "Optimism",
     src: "/chains/optimism.svg",
     href: "https://www.optimism.io/",

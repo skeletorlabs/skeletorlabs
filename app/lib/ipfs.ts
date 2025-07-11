@@ -9,9 +9,11 @@ export type TestimonialData = {
   address?: string;
   likes?: number;
   active?: boolean;
+  chainId?: number;
 };
 
 export async function uploadTestimonialToIPFS(
+  chainId: number,
   data: TestimonialData
 ): Promise<string> {
   try {
@@ -20,7 +22,7 @@ export async function uploadTestimonialToIPFS(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, chainId: chainId }),
     });
 
     if (!response.ok) {
@@ -58,7 +60,7 @@ export async function readTestimonialsFromIPFS(
     "0x0000000000000000000000000000000000000000000000000000000000000000";
   try {
     const CLOUD_URL = await getCloudUrl();
-    const testimonials: TestimonialData[] = await Promise.all(
+    const ipfsTestimonials: TestimonialData[] = await Promise.all(
       storedTestimonials
         .filter((item) => item.hash !== invalidHash)
         .map(async (testimonial) => {
@@ -69,11 +71,16 @@ export async function readTestimonialsFromIPFS(
         })
     );
 
-    for (let index = 0; index < testimonials.length; index++) {
-      testimonials[index].id = storedTestimonials[index].id;
-      testimonials[index].address = storedTestimonials[index].author;
-      testimonials[index].likes = storedTestimonials[index].likes;
-      testimonials[index].active = storedTestimonials[index].active;
+    const testimonials: TestimonialData[] = [];
+    for (let index = 0; index < ipfsTestimonials.length; index++) {
+      testimonials.push({
+        ...ipfsTestimonials[index],
+        id: storedTestimonials[index].id,
+        address: storedTestimonials[index].author,
+        likes: storedTestimonials[index].likes,
+        active: storedTestimonials[index].active,
+        chainId: storedTestimonials[index].chainId,
+      });
     }
 
     return testimonials;
