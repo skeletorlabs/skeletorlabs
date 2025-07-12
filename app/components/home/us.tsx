@@ -39,7 +39,7 @@ export default function Us() {
   const { setTalkIsOpen } = useContext(StateContext);
   return (
     <div className="flex flex-col relative">
-      <div className="flex flex-col justify-center lg:justify-start items-center gap-10 py-10 bg-skeletor-dark-violet/70 backdrop-blur-md">
+      <div className="flex flex-col justify-center lg:justify-start items-center gap-10 py-10 my-10 bg-skeletor-dark-violet/70 backdrop-blur-md">
         <div className="flex flex-col justify-center items-center sm:flex-row lg:justify-evenly gap-8 lg:gap-0 flex-wrap w-full">
           <div className="flex items-center text-5xl sm:text-7xl lg:text-5xl relative">
             <span className="z-20">Why Us?</span>
