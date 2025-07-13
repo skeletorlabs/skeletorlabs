@@ -11,6 +11,7 @@ import {
 import classNames from "classnames";
 import { useContext } from "react";
 import { StateContext } from "@/app/context/state";
+import { WrenchScrewdriverIcon } from "@heroicons/react/20/solid";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -56,7 +57,10 @@ const items = [
 export default function Services() {
   const { setTalkIsOpen } = useContext(StateContext);
   return (
-    <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet/80 backdrop-blur-md">
+    <div
+      id="services"
+      className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet/80 backdrop-blur-md"
+    >
       <Subtitle
         text="What We Offer"
         description="Our Services — Modular support for Web3 product teams"
@@ -66,14 +70,14 @@ export default function Services() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center w-full lg:w-auto transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
+            className="flex flex-col items-center justify-center transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
           >
             <span className="flex items-center justify-center w-12 h-12 rounded-full bg-black border border-violet-300 text-lg shadow-md shadow-black z-20">
               {item.icon}
             </span>
             <div
               className={classNames({
-                "flex flex-col items-center justify-center mt-[-28px] max-w-lg gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
+                "flex flex-col items-center justify-center mt-[-28px] max-w-[35rem] gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
                 "bg-skeletor-gray/40": [0, 2, 4].includes(index),
                 "bg-skeletor-gray": [1, 3, 5].includes(index),
                 "lg:bg-skeletor-gray/40": [0, 3, 4].includes(index),
@@ -98,6 +102,11 @@ export default function Services() {
         className="text-center text-lg text-violet-300 max-w-2xl mx-auto transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
       >
         Let's talk — we bring the full toolkit
+        <WrenchScrewdriverIcon
+          width={24}
+          height={24}
+          className="display-inline ml-2 inline-block text-violet-300"
+        />
       </button>
     </div>
   );

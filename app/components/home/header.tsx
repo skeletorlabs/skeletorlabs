@@ -6,6 +6,7 @@ import { useRef, useEffect, useContext } from "react";
 import { StateContext } from "@/app/context/state";
 import NewTestimonialButton from "./newTestimonialButton";
 import Nav from "../nav";
+import Nav2 from "../nav2";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -29,9 +30,13 @@ export default function Header() {
     };
   }, []);
   return (
-    <div className="w-full bg-space bg-no-repeat bg-cover bg-left-top relative">
-      <Nav />
-      <div className="flex flex-col z-20 bg-gradient-to-b from-transparent via-black/30 to-black rounded-t-[40px] mt-24 md:mt-40">
+    <div
+      id="about"
+      className="w-full bg-space bg-no-repeat bg-cover bg-left-top relative"
+    >
+      {/* <Nav /> */}
+      <Nav2 />
+      <div className="flex flex-col z-20 bg-gradient-to-b from-transparent via-black/30 to-black rounded-t-[40px] mt-24 md:mt-40 pt-[140px]">
         <div className="flex flex-col z-20 py-12 px-8 xl:px-14 rounded-t-[40px]">
           <div className="flex flex-col md:flex-row items-center mt-[-120px] pb-24 text-center md:text-start">
             <div

@@ -112,14 +112,17 @@ export default function Companies() {
           </div>
           <div className="flex flex-col w-full justify-center items-center gap-2">
             <span
-              className="text-white text-sm px-8 text-center"
+              className="text-white text-lg px-6 text-center"
               dangerouslySetInnerHTML={{
                 __html: item.services as string,
               }}
             />
-            <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-black text-center">
+            <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-white text-center">
               {item.bullets.map((bullet, index) => (
-                <p key={index} className="bg-white/80 py-1 px-2">
+                <p
+                  key={index}
+                  className="bg-white/10 py-2 px-4 text-center rounded-lg shadow"
+                >
                   {bullet}
                 </p>
               ))}
@@ -133,7 +136,7 @@ export default function Companies() {
     setLoading(false);
   }, [setLoading]);
   return (
-    <div className="flex flex-col pt-10 gap-10">
+    <div id="companies" className="flex flex-col pt-10 gap-10">
       <Subtitle
         text="Who We've Built With"
         description="Protocols we've helped build through contract architecture, protocol logic, and launch-ready infra"
@@ -213,11 +216,11 @@ export default function Companies() {
                     __html: item.services as string,
                   }}
                 />
-                <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-black">
+                <div className="flex flex-col justify-center items-center gap-4 w-full mt-6 px-8 text-white/90">
                   {item.bullets.map((bullet, index) => (
                     <p
                       key={index}
-                      className="bg-white/70 py-1 px-2 text-center"
+                      className="bg-white/10 py-1 px-4 text-center rounded-full shadow"
                     >
                       {bullet}
                     </p>

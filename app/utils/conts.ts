@@ -1,11 +1,10 @@
-import { discord, github, linkedin, mail, telegram, twitterX } from "./svgs";
+import { github, linkedin, mail, telegram, twitterX } from "./svgs";
 
 export const SOCIALS = [
   { icon: linkedin, href: "https://www.linkedin.com/company/skeletorlabs/" },
   { icon: github, href: "https://github.com/skeletorlabs" },
   { icon: telegram, href: "https://telegram.me/skeletor_keldor" },
   { icon: twitterX, href: "https://x.com/skeletorlabs" },
-  // { icon: discord, href: "skeletor8555" },
 ];
 
 export const LINKS: { [key: number]: string } = {

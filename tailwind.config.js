@@ -22,9 +22,9 @@ module.exports = {
         "skeletor-green-merman": "#00405C",
       },
       animation: {
-        "infinite-scroll": "infinite-scroll 15s linear infinite",
+        "infinite-scroll": "infinite-scroll 30s linear infinite",
         "infinite-scroll-reverse":
-          "infinite-scroll-reverse 20s linear infinite",
+          "infinite-scroll-reverse 50s linear infinite",
         "infinite-scroll-slow": "infinite-scroll 50s linear infinite",
       },
       keyframes: {

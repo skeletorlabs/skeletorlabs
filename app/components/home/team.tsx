@@ -48,7 +48,7 @@ const members = [
 
 export default function Team() {
   return (
-    <div className="flex flex-col py-10 gap-10">
+    <div id="team" className="flex flex-col py-10 gap-10">
       <Subtitle
         text="The Crew"
         description="Passionate minds crafting smart, secure, and scalable decentralized products"

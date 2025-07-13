@@ -50,7 +50,7 @@ export default function Us() {
           {reasons.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col text-center gap-2 max-w-[240px]"
+              className="flex flex-col text-center gap-2 max-w-[360px] xl:max-w-[240px]"
             >
               <div className="flex justify-center items-center gap-2 text-violet-300 text-xl">
                 {item.icon}
@@ -64,7 +64,7 @@ export default function Us() {
       <p className="text-[120px] text-center xl:text-[180px] px-4 xl:px-10 pt-6 pb-16 font-bold leading-tight xl:leading-none">
         <button
           onClick={() => setTalkIsOpen(true)}
-          className="transition-all duration-200 hover:scale-[1.02] hover:text-violet-200"
+          className="transition-all duration-200 hover:scale-[1.02] hover:text-violet-200 tracking-wider"
         >
           LET'S TALK!
         </button>

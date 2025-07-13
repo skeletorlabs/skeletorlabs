@@ -72,7 +72,10 @@ export default function Labs() {
   }, [setLoading]);
 
   return (
-    <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet">
+    <div
+      id="labs"
+      className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet"
+    >
       <Subtitle
         text="In the Lab"
         description="Prototypes and alpha-stage tools in development"
@@ -103,7 +106,7 @@ export default function Labs() {
             key={index}
             href={item.link}
             target="blank"
-            className="flex flex-col items-center justify-center gap-1 odd:bg-[#2F2F55]/30 even:bg-skeletor-gray/60 backdrop-blur-md border border-neutral-800 p-6 rounded-xl transition-transform duration-200 hover:scale-[1.04] hover:opacity-90 shadow-lg"
+            className="flex flex-col items-center justify-center gap-1 odd:bg-[#2F2F55]/30 even:bg-skeletor-gray/60 backdrop-blur-md border border-neutral-800 p-6 px-8 rounded-xl transition-transform duration-200 hover:scale-[1.04] hover:opacity-90 shadow-lg"
           >
             <div className="flex items-center justify-center  backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
               <Image src={item.src} width={130} height={130} alt={"#"} />

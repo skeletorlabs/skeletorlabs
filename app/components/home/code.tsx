@@ -75,7 +75,7 @@ export default function Code() {
     const _items = shipment.map((item, index) => (
       <div
         key={index}
-        className="flex flex-col items-center justify-between text-center w-full xl:w-[330px] even:bg-skeletor-gray odd:bg-skeletor-gray/50 backdrop-blur-sm border even:border-white/10 odd:border-white/5 py-6 rounded-xl transition-transform duration-200 hover:opacity-90 min-h-[400px] gap-3"
+        className="flex flex-col items-center justify-between text-center w-full xl:w-[344px] even:bg-skeletor-gray odd:bg-skeletor-gray/50 backdrop-blur-sm border even:border-white/10 odd:border-white/5 py-6 rounded-xl transition-transform duration-200 hover:opacity-90 min-h-[400px] gap-3"
       >
         <p className="text-xl text-violet-300 font-semibold">{item.name}</p>
         <p className="flex items-center justify-center min-h-[70px] bg-white/5 w-full p-2 text-sm text-white/70">
@@ -114,11 +114,7 @@ export default function Code() {
         text="What We've Deployed"
         description="From design to deployment — key smart contracts shipped to mainnet"
       />
-      {/* <span className="text-indigo-400 text-xs">
-        Some of our contracts have gone through third-party audits and ImmuneFi
-        bounties
-      </span> */}
-      <div className="flex flex-col xl:flex-row items-center gap-4 xl:gap-8 flex-wrap">
+      <div className="flex flex-col xl:flex-row items-center flex-wrap">
         {loading ? (
           <div className="flex w-full items-center justify-center min-h-[360px]">
             <Loading />

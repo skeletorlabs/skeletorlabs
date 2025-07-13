@@ -24,8 +24,8 @@ export default function Home() {
   );
 
   return (
-    <div className="flex flex-col items-center justify-center bg-slate-400/30 w-full xl:w-[1182px]">
-      <main className="flex flex-col justify-center items-center w-full xl:w-[1180px] text-white">
+    <div className="flex flex-col items-center justify-center bg-slate-400/30 w-full xl:w-[1282px]">
+      <main className="flex flex-col justify-center items-center w-full xl:w-[1280px] text-white">
         <Header />
         <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat">
           <Terminal />
