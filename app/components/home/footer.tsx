@@ -79,9 +79,9 @@ export default function Footer() {
 
       {/* DESKTOP */}
       <footer
-        className={`hidden xl:flex flex-col bg-black z-20 w-[1280px] items-center justify-center py-10 px-14 gap-12 ${jakarta.className}`}
+        className={`hidden xl:flex flex-col bg-black z-20 w-[1280px] items-center justify-center py-10 gap-12 ${jakarta.className}`}
       >
-        <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between px-14">
           <NewTestimonialButton />
 
           <Image
@@ -101,7 +101,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="flex w-full justify-center items-center h-full">
+        <div className="flex w-full justify-center items-center h-full bg-skeletor-dark-violet py-12">
           {NAV_LINKS.map((link, index) => (
             <Link
               key={index}
@@ -117,7 +117,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-2 w-full pt-12 border-t border-white/10 text-violet-300 text-xs">
+        <div className="flex flex-col items-center justify-center gap-2 w-full text-violet-300 text-xs">
           <div className="flex items-center gap-3">
             {SOCIALS.map((item, index) => (
               <Link

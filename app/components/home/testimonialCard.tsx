@@ -51,7 +51,7 @@ export default function TestimonialCard({
   //   !userLiked;
 
   return (
-    <div className="flex flex-col justify-between w-full lg:max-w-md xl:max-w-[34rem] even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all duration-200 even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50 relative">
+    <div className="flex flex-col justify-between even:bg-skeletor-gray/60 odd:bg-skeletor-gray/90 backdrop-blur-lg text-white border even:border-white/10 odd:border-white/5 rounded-xl shadow-md overflow-hidden transition-all duration-200 even:hover:bg-skeletor-gray/90 odd:hover:bg-skeletor-gray/50 relative">
       {/* TOP-LEFT ICON */}
       <div className="absolute top-0 left-0 w-0 h-0 border-t-[50px] border-t-violet-500 border-r-[50px] border-r-transparent" />
       <ChatBubbleBottomCenterTextIcon

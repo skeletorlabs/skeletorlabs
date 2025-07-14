@@ -52,3 +52,10 @@ html, body {
 appkit-button appkit-connect-button wui-connect-button * {
   color: red !important;
 }
+
+.alice-carousel__stage-item{
+    padding: 0 0 0 30px !important;
+}
+.alice-carousel__stage-item:nth-child(1 of .__active) {
+    padding: 0 !important;
+}
