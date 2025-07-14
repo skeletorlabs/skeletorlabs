@@ -66,7 +66,7 @@ export default function Services() {
         description="Our Services — Modular support for Web3 product teams"
       />
 
-      <div className="flex justify-center xl:justify-between items-center gap-8 flex-wrap">
+      <div className="flex justify-center xl:justify-between items-center gap-6 flex-wrap">
         {items.map((item, index) => (
           <div
             key={index}
@@ -77,7 +77,7 @@ export default function Services() {
             </span>
             <div
               className={classNames({
-                "flex flex-col items-center justify-center mt-[-28px] max-w-[35rem] gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
+                "flex flex-col items-center justify-center mt-[-28px] max-w-[35.5rem] gap-1 pt-6 backdrop-blur-md border border-white/5 text-center rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
                 "bg-skeletor-gray/40": [0, 2, 4].includes(index),
                 "bg-skeletor-gray": [1, 3, 5].includes(index),
                 "lg:bg-skeletor-gray/40": [0, 3, 4].includes(index),
