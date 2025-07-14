@@ -37,6 +37,7 @@ const stack = [
     src: "/stack/METAMASK.svg",
   },
   { name: "NextJs", href: "https://nextjs.org/", src: "/stack/NEXT.svg" },
+  { name: "Node.Js", href: "https://nodejs.org/", src: "/stack/NODE.svg" },
 
   {
     name: "Open Zeppelin",
