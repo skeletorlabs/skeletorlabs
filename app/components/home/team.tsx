@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Subtitle from "../subtitle";
 import Image from "next/image";
 import classNames from "classnames";
@@ -85,7 +84,7 @@ export default function Team() {
               >
                 {item.role}
               </p>
-              <p className="text-sm text-center text-white/60 px-4 py-6 rounded-b-xl w-full h-full bg-black/70 font-sans">
+              <p className="text-sm text-center text-white/80 px-4 py-6 rounded-b-xl w-full h-full bg-black/70 font-sans">
                 {item.description}
               </p>
             </div>

@@ -47,7 +47,7 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
           >
             {text}
           </span>
-          <span className="text-lg leading-normal text-violet-100/70">
+          <span className="text-lg leading-normal text-violet-100/70 text-shadow-lg">
             {description}
           </span>
         </div>

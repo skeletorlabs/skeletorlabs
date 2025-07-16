@@ -6,12 +6,15 @@ import { useRef, useEffect, useContext } from "react";
 import { StateContext } from "@/app/context/state";
 import NewTestimonialButton from "./newTestimonialButton";
 import Nav from "../nav";
-import Nav2 from "../nav2";
+import { SOCIALS } from "@/app/utils/conts";
+import Link from "next/link";
+import { mail } from "@/app/utils/svgs";
+import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/20/solid";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export default function Header() {
-  const { setTestimonialBoxIsOpen } = useContext(StateContext);
+  const { setTalkIsOpen } = useContext(StateContext);
   const el = useRef(null); // Create reference to store the DOM element containing the animation
 
   useEffect(() => {
@@ -25,46 +28,92 @@ export default function Header() {
     });
 
     return () => {
-      // Destroy Typed instance during cleanup to stop animation
       typed.destroy();
     };
   }, []);
+
   return (
     <div
       id="about"
-      className="w-full bg-space bg-no-repeat bg-cover bg-left-top relative"
+      className="relative w-full h-[650px] md:h-[750px] overflow-hidden flex flex-col justify-start items-center"
     >
-      {/* <Nav /> */}
-      <Nav2 />
-      <div className="flex flex-col z-20 bg-gradient-to-b from-transparent via-black/30 to-black rounded-t-[40px] mt-24 md:mt-40 pt-[140px]">
-        <div className="flex flex-col z-20 py-12 px-8 xl:px-14 rounded-t-[40px]">
-          <div className="flex flex-col md:flex-row items-center mt-[-120px] pb-24 text-center md:text-start">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
+        poster="/space.svg"
+      >
+        <source src="/videos/space.mp4" type="video/mp4" />
+        {/* <source src="/videos/your-video.webm" type="video/webm" />{" "} */}
+        Your browser does not support the video tag.
+      </video>
+      <Nav />
+
+      <div className="relative z-20 flex flex-col justify-center items-center pt-[124px] bg-gradient-to-b from-transparent to-black w-full max-w-full min-h-full">
+        <div className="flex flex-col z-20 px-8 xl:px-14">
+          <div className="flex flex-col items-center pb-6 text-center gap-24 lg:gap-14">
             <div
-              className={`w-full h-[220px] font-extrabold text-white text-5xl md:text-6xl lg:text-[66px] leading-tight ${jakarta.className}`}
+              className={`max-w-xl lg:max-w-4xl h-[190px] sm:h-[240px] font-extrabold leading-tight sm:leading-snug text-white text-5xl md:text-6xl lg:text-[80px] ${jakarta.className}`}
             >
-              <p className="max-w-[700px]">
-                Dedicated to building the Future of the
-              </p>
+              <p>Dedicated to building the Future of the</p>
               <span
                 ref={el}
                 className="bg-gradient-to-br from-[#9C74F1] via-[#987FFF] to-[#3600A8] text-transparent bg-clip-text"
               />
             </div>
 
-            <div className="hidden md:block relative min-w-[240px] min-h-[240px] mt-[-55px] opacity-90 transition-all animate-pulse duration-1000">
-              <Image
-                src="/logo2.svg"
-                width={230}
-                height={230}
-                alt="logo"
-                className="absolute top-3 right-[-30px] !w-[240px] !h-[240px] self-center transition-opacity duration-1000 delay-500 ease-in-out"
-              />
+            <div className="flex items-center justify-center flex-col gap-4 text-lg sm:text-2xl leading-[1.7] sm:leading-[1.7] w-full">
+              <button
+                onClick={() => setTalkIsOpen(true)}
+                className="
+                  flex items-center justify-center gap-2 px-8 py-3 text-lg sm:text-xl font-semibold 
+                  rounded-full border border-violet-300/10 backdrop-blur-md 
+                  bg-white/5 text-white hover:bg-white/10
+                  transition-all duration-200 shadow-lg hover:shadow-2xl
+                "
+                aria-label="Get a quote"
+              >
+                <span>Get a Quote</span>
+                <ChatBubbleLeftEllipsisIcon
+                  width={28}
+                  height={28}
+                  aria-hidden="true"
+                  className="drop-shadow-md text-violet-200"
+                />
+              </button>
+
+              <div className="flex items-center gap-3">
+                {SOCIALS.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={item.href}
+                    target="blank"
+                    className="text-violet-200 transition-all duration-200 hover:text-violet-300 scale-90 hover:scale-100"
+                  >
+                    {item.icon}
+                  </Link>
+                ))}
+                <button
+                  onClick={() => setTalkIsOpen(true)}
+                  className="text-violet-200 transition-all duration-200 hover:text-violet-300 scale-90 hover:scale-100"
+                >
+                  {mail}
+                </button>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div className="flex flex-col w-auto md:w-max items-center justify-center md:justify-start gap-2">
-            <NewTestimonialButton />
-          </div>
+        <div
+          className="
+            absolute bottom-0 transition-all duration-200 right-[-100px] flex items-center justify-center w-[130px] 
+            bg-white/5 rounded-l-lg shadow-lg z-20 h-[40px] border border-white/10
+            hover:right-[-10px] hover:w-[150px] hover:bg-white/10"
+        >
+          <NewTestimonialButton nobg invert />
         </div>
       </div>
     </div>

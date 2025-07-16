@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Badge from "../badge";
 import Subtitle from "../subtitle";
-import { etherscan } from "@/app/utils/svgs";
 import AliceCarousel from "react-alice-carousel";
 import { useEffect, useState } from "react";
 import Loading from "../loading";
+import { CHAIN_ID_TO_ICON } from "@/app/utils/conts";
+import Image from "next/image";
 
 const shipment = [
   {
@@ -15,6 +16,7 @@ const shipment = [
     stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0xA5c6584d6115cC26C956834849B4051bd200973a",
+    chain: 8453,
   },
   {
     name: "Giveaways",
@@ -24,6 +26,7 @@ const shipment = [
     stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0xd1E65dF048784200CD1A458615438945a4568b59",
+    chain: 8453,
   },
   {
     name: "IDO Participator",
@@ -33,6 +36,7 @@ const shipment = [
     stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x3A76C6e3e6a0B136eE92b66B9Ba25d099BBC5882",
+    chain: 8453,
   },
   {
     name: "IDO Vesting",
@@ -42,6 +46,7 @@ const shipment = [
     stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x8C8Fa0152eFF48700c9e10b64aCa1B81f259F54B",
+    chain: 8453,
   },
   {
     name: "Samurai Tiers",
@@ -51,6 +56,7 @@ const shipment = [
     stacks: ["Foundry", "Solidity", "Tests"],
     etherscan:
       "https://basescan.org/address/0x0E7E40385E9b7e629c504996Bdd36a3b51Ed0525",
+    chain: 8453,
   },
   {
     name: "SamNFT Lock",
@@ -99,7 +105,13 @@ export default function Code() {
             rel="noopener noreferrer"
             className="bg-white p-[2px] rounded-full hover:opacity-75"
           >
-            {etherscan}
+            <Image
+              src={CHAIN_ID_TO_ICON[item.chain || 8453]}
+              width={24}
+              height={24}
+              alt="Etherscan"
+              className="text-violet-300"
+            />
           </Link>
         </div>
       </div>

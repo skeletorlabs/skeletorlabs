@@ -66,7 +66,7 @@ export default function Services() {
         description="Our Services — Modular support for Web3 product teams"
       />
 
-      <div className="flex justify-center xl:justify-between items-center gap-6 flex-wrap">
+      <div className="flex justify-center xl:justify-between items-center gap-8 flex-wrap">
         {items.map((item, index) => (
           <div
             key={index}

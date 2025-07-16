@@ -77,7 +77,7 @@ export default function TalkInBox() {
     <Transition appear show={talkIsOpen} as={Fragment}>
       <Dialog
         as="div"
-        className={`relative z-20 ${jakarta.className}`}
+        className={`relative z-50 ${jakarta.className}`}
         onClose={() => (loading ? () => {} : setTalkIsOpen(false))}
       >
         <TransitionChild

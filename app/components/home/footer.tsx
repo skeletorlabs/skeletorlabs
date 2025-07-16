@@ -6,7 +6,7 @@ import NewTestimonialButton from "./newTestimonialButton";
 import Image from "next/image";
 import { SOCIALS } from "@/app/utils/conts";
 import { mail } from "@/app/utils/svgs";
-import { NAV_LINKS } from "../nav2";
+import { NAV_LINKS } from "../nav";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -79,7 +79,7 @@ export default function Footer() {
 
       {/* DESKTOP */}
       <footer
-        className={`hidden xl:flex flex-col bg-black z-20 w-[1280px] items-center justify-center py-10 gap-12 ${jakarta.className}`}
+        className={`hidden xl:flex flex-col bg-black z-20 w-[1280px] items-center justify-center py-10 gap-8 ${jakarta.className}`}
       >
         <div className="flex w-full items-center justify-between px-14">
           <NewTestimonialButton />
@@ -101,7 +101,7 @@ export default function Footer() {
           </Link>
         </div>
 
-        <div className="flex w-full justify-center items-center h-full bg-skeletor-dark-violet py-12">
+        <div className="flex w-full justify-center items-center h-full bg-skeletor-dark-violet py-10">
           {NAV_LINKS.map((link, index) => (
             <Link
               key={index}
