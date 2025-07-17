@@ -14,22 +14,22 @@ import WhyUs from "./components/home/whyUs";
 import Team from "./components/home/team";
 import Services from "./components/home/services";
 import About from "./components/home/about";
+import FAB from "./components/fab";
 
 export default function Home() {
   const Terminal = dynamic(
     () => import("./components/terminal").then((m) => m.default),
     {
       ssr: false,
-      loading: () => <Loading css="min-h-[610px]" />,
+      loading: () => <Loading css="min-h-[1200px] md:min-h-[688px]" />,
     }
   );
 
   return (
-    <div className="flex flex-col items-center justify-center bg-slate-400/30 w-full xl:w-[1282px]">
+    <div className="flex flex-col items-center justify-center bg-slate-400/30 w-full xl:w-[1282px] relative">
       <main className="flex flex-col justify-center items-center w-full xl:w-[1280px] text-white">
-        <Header />
-        <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat">
-          <Terminal />
+        <Header Terminal={Terminal} />
+        <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat relative">
           {/* <About /> */}
           <Code />
           <Services />
@@ -41,6 +41,7 @@ export default function Home() {
           <Stack />
           <Team />
           <WhyUs />
+          <FAB />
         </div>
       </main>
       <Footer />

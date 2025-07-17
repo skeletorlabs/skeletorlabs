@@ -1,10 +1,18 @@
 import { github, linkedin, mail, telegram, twitterX } from "./svgs";
 
 export const SOCIALS = [
-  { icon: linkedin, href: "https://www.linkedin.com/company/skeletorlabs/" },
-  { icon: github, href: "https://github.com/skeletorlabs" },
-  { icon: telegram, href: "https://telegram.me/skeletor_keldor" },
-  { icon: twitterX, href: "https://x.com/skeletorlabs" },
+  {
+    icon: linkedin,
+    href: "https://www.linkedin.com/company/skeletorlabs/",
+    title: "LinkedIn",
+  },
+  { icon: github, href: "https://github.com/skeletorlabs", title: "Github" },
+  {
+    icon: telegram,
+    href: "https://telegram.me/skeletor_keldor",
+    title: "Telegram",
+  },
+  { icon: twitterX, href: "https://x.com/skeletorlabs", title: "X" },
 ];
 
 export const LINKS: { [key: number]: string } = {

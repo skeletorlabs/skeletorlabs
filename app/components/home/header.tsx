@@ -1,10 +1,8 @@
 "use client";
-import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import Typed from "typed.js";
 import { useRef, useEffect, useContext } from "react";
 import { StateContext } from "@/app/context/state";
-import NewTestimonialButton from "./newTestimonialButton";
 import Nav from "../nav";
 import { SOCIALS } from "@/app/utils/conts";
 import Link from "next/link";
@@ -13,7 +11,11 @@ import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/20/solid";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
-export default function Header() {
+interface HeaderProps {
+  Terminal: React.ComponentType;
+}
+
+export default function Header({ Terminal }: HeaderProps) {
   const { setTalkIsOpen } = useContext(StateContext);
   const el = useRef(null); // Create reference to store the DOM element containing the animation
 
@@ -35,7 +37,7 @@ export default function Header() {
   return (
     <div
       id="about"
-      className="relative w-full h-[650px] md:h-[750px] overflow-hidden flex flex-col justify-start items-center"
+      className="relative w-full  overflow-hidden flex flex-col justify-start items-center"
     >
       <video
         autoPlay
@@ -52,11 +54,11 @@ export default function Header() {
       </video>
       <Nav />
 
-      <div className="relative z-20 flex flex-col justify-center items-center pt-[124px] bg-gradient-to-b from-transparent to-black w-full max-w-full min-h-full">
-        <div className="flex flex-col z-20 px-8 xl:px-14">
-          <div className="flex flex-col items-center pb-6 text-center gap-24 lg:gap-14">
+      <div className="z-20 flex flex-col justify-center items-center pt-[124px] bg-gradient-to-b from-transparent to-black w-full max-w-full min-h-full">
+        <div className="flex flex-col z-20 px-8 xl:px-14 pt-24 pb-14">
+          <div className="flex flex-col items-center pb-6 text-center gap-8 md:gap-14">
             <div
-              className={`max-w-xl lg:max-w-4xl h-[190px] sm:h-[240px] font-extrabold leading-tight sm:leading-snug text-white text-5xl md:text-6xl lg:text-[80px] ${jakarta.className}`}
+              className={`max-w-xl lg:max-w-4xl h-[190px] sm:h-[240px] font-extrabold leading-[1.22] sm:leading-snug text-white text-[2.4rem] sm:text-5xl md:text-6xl lg:text-[80px] ${jakarta.className}`}
             >
               <p>Dedicated to building the Future of the</p>
               <span
@@ -107,14 +109,7 @@ export default function Header() {
           </div>
         </div>
 
-        <div
-          className="
-            absolute bottom-0 transition-all duration-200 right-[-100px] flex items-center justify-center w-[130px] 
-            bg-white/5 rounded-l-lg shadow-lg z-20 h-[40px] border border-white/10
-            hover:right-[-10px] hover:w-[150px] hover:bg-white/10"
-        >
-          <NewTestimonialButton nobg invert />
-        </div>
+        <Terminal />
       </div>
     </div>
   );
