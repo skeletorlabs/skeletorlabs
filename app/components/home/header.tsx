@@ -40,10 +40,12 @@ export default function Header({ Terminal }: HeaderProps) {
       className="relative w-full  overflow-hidden flex flex-col justify-start items-center"
     >
       <video
-        autoPlay={true}
-        loop={true}
-        muted={true}
-        playsInline={true}
+        autoPlay
+        loop
+        muted
+        width="100%"
+        height="auto"
+        playsInline
         preload="auto"
         className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto -translate-x-1/2 -translate-y-1/2 object-cover"
         poster="/space.svg"
