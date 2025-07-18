@@ -51,7 +51,6 @@ export default function Header({ Terminal }: HeaderProps) {
         poster="/space.svg"
       >
         <source src="/videos/space.mp4" type="video/mp4" />
-        {/* <source src="/videos/your-video.webm" type="video/webm" />{" "} */}
         Your browser does not support the video tag.
       </video>
       <Nav />
