@@ -13,7 +13,7 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
   return (
     <Fragment>
       {/* MOBILE */}
-      <div className="flex xl:hidden flex-col items-center text-center gap-1">
+      <div className="flex xl:hidden flex-col items-center text-center gap-1 z-30">
         <div className="flex items-center gap-2">
           <ArrowRightCircleIcon
             width={32}
@@ -34,7 +34,7 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
 
       {/* DESKTOP */}
       <div
-        className={`hidden xl:flex items-center gap-4 ${padding && "px-14"}`}
+        className={`hidden xl:flex items-center gap-4 z-30 ${padding && "px-14"}`}
       >
         <ArrowRightCircleIcon
           width={64}
