@@ -13,7 +13,7 @@ const list = [
       "A Metamask card transaction preview in different tokens and fiats",
     src: "/labs/card-preview.svg",
     chains: ["Linea"],
-    link: "https://mm-card-tx-previewer.vercel.app/",
+    link: "https://previewer.skeletorlabs.xyz",
   },
   {
     title: "StableZ",
