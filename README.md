@@ -1,6 +1,10 @@
 # Skeletor Labs
 
-## Dedicated to building the Future of Web3.
+**Dedicated to building the Future of Web3.**
+
+<p>
+  <img src="https://www.skeletorlabs.xyz/logo-v4.svg" alt="Purchase Preview Logo" width="120" style="border-radius: 50%;" />
+</p>
 
 [](https://www.google.com/search?q=%7Byour_website_link_here%7D)
 
@@ -15,8 +19,6 @@
 - [Get in Touch](https://www.google.com/search?q=%23get-in-touch)
 - [Follow Us](https://www.google.com/search?q=%23follow-us)
 - [License](https://www.google.com/search?q=%23license)
-
----
 
 ## About Skeletor Labs
 
@@ -94,5 +96,3 @@ Stay updated on our latest projects and insights:
 ## License
 
 All original code and content within this repository are licensed under the MIT License, unless otherwise specified within individual project directories.
-
----
