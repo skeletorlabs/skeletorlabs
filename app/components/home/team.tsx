@@ -63,7 +63,7 @@ export default function Team() {
               [item.color]: true,
             })}
           >
-            <div className="flex items-center justify-center bg-black/30  backdrop-blur-sm border border-white/10 w-[160px] h-[160px] rounded-full">
+            <div className="flex items-center justify-center bg-black/30  backdrop-blur-sm border border-white/10 w-[160px] h-[160px] rounded-full mix-blend-luminosity">
               <Image
                 src={item.src}
                 width={130}
