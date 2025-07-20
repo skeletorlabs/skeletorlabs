@@ -19,7 +19,7 @@ export default function About() {
         description="Meet the sorcery — we build the unbuildable."
       />
 
-      <div className="relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-14">
+      <div className="relative z-10 flex flex-col-reverse text-center lg:text-start lg:flex-row items-center justify-between gap-14">
         {/* Text block */}
         <div className="w-full max-w-3xl text-xl">
           <p className="mb-6 text-white/90 text-3xl font-semibold">
