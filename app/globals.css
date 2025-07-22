@@ -4,6 +4,7 @@
 
 html, body {
   scroll-behavior: smooth !important;
+  background-color: black;
 }
 
 .text-wrap {
@@ -31,10 +32,6 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  html, body {
-    background-color: black !important;
-  }
-
   #terminalEditor {
     font-size: 12px;
     line-height: 1.4;
@@ -55,14 +52,10 @@ html, body {
   content: '';
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
-  background-image: radial-gradient(rgb(74, 68, 135) 1px, transparent 1px);
+  background-image: radial-gradient(rgb(136, 0, 255) 1px, transparent 1px);
   background-size: 3px 3px;
-  animation: twinkle 3s infinite ease-in-out;
+  animation: twinkle 5s infinite ease-in-out;
   opacity: 0.3;
-}
-
-appkit-button appkit-connect-button wui-connect-button * {
-  color: red !important;
 }
 
 .alice-carousel__stage-item{

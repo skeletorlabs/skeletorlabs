@@ -26,9 +26,7 @@ export default function RootLayout({
             content="Dedicated to building the Future of the Web3 Techs Blockchain De-Fi Space, NFTs Collections"
           />
         </head>
-        <body
-          className={`bg-black xl:bg-skeletor-gray starfield ${inter.className}`}
-        >
+        <body className={`starfield ${inter.className}`}>
           <StateProvider>
             <ToastContainer
               position="top-right"
