@@ -25,7 +25,7 @@ const items = [
   {
     title: "dApp Engineering",
     description:
-      "Full-stack Web3 applications using React, Next.js, and Ethers — responsive, wallet-connected, and gas-aware.",
+      "Full-stack Web3 applications using React, React Native, Next.js, and Ethers — responsive, wallet-connected, and gas-aware.",
     icon: <WindowIcon className="h-6 w-6 text-violet-300" />,
   },
   {

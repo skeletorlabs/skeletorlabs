@@ -45,7 +45,12 @@ const stack = [
     src: "/stack/OZ.svg",
   },
   { name: "Rabby", href: "https://rabby.io/", src: "/stack/RABBY.svg" },
-  { name: "React", href: "https://react.dev/", src: "/stack/REACT.svg" },
+  { name: "ReactJs", href: "https://react.dev/", src: "/stack/REACT.svg" },
+  {
+    name: "React Native",
+    href: "https://reactnative.dev/",
+    src: "/stack/REACT-NATIVE.svg",
+  },
   {
     name: "Remix",
     href: "https://remix.ethereum.org/",
