@@ -15,6 +15,7 @@ import Team from "./components/home/team";
 import Services from "./components/home/services";
 import About from "./components/home/about";
 import FAB from "./components/fab";
+import SelectedEngineeringWork from "./components/home/selected";
 
 export default function Home() {
   const Terminal = dynamic(
@@ -31,6 +32,7 @@ export default function Home() {
         <Header Terminal={Terminal} />
         <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat relative">
           <About />
+          <SelectedEngineeringWork />
           <Code />
           <Services />
           <Companies />
