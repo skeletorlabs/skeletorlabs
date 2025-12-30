@@ -137,7 +137,7 @@ export default function SelectedEngineeringWork() {
                 {/* LEDGER VISUAL MARK */}
                 <div className="py-10 text-violet-300/70">
                   <svg
-                    enable-background="new 0 0 2000.58 669.35"
+                    enableBackground="new 0 0 2000.58 669.35"
                     viewBox="0 0 2000.58 669.35"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
