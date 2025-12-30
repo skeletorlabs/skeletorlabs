@@ -99,7 +99,7 @@ export default function Services() {
       </div>
       <button
         onClick={() => setTalkIsOpen(true)}
-        className="text-center text-lg text-violet-300 max-w-2xl mx-auto transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
+        className="text-center md:text-lg text-violet-300 max-w-2xl mx-auto transition-all duration-200 md:hover:scale-105 hover:brightness-110 hover:shadow"
       >
         Let's talk — we bring the full toolkit
         <WrenchScrewdriverIcon

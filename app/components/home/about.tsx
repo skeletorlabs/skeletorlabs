@@ -21,8 +21,8 @@ export default function About() {
 
       <div className="relative z-10 flex flex-col-reverse text-center lg:text-start lg:flex-row items-center justify-between gap-14">
         {/* Text block */}
-        <div className="w-full max-w-3xl text-xl">
-          <p className="mb-6 text-white/90 text-3xl font-semibold">
+        <div className="w-full md:max-w-3xl md:text-xl">
+          <p className="mb-6 text-white/90 text-xl md:text-3xl font-semibold">
             <span className="text-violet-400 font-bold leading-normal">
               Skeletor Labs
             </span>{" "}
@@ -36,7 +36,7 @@ export default function About() {
           </p>
           <p className="text-white/70">
             Whether it's launching token economies or orchestrating complex
-            staking flows, we don’t just build apps — we conjure infrastructure
+            staking flows, we don't just build apps — we conjure infrastructure
             that lasts.
           </p>
         </div>

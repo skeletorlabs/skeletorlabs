@@ -49,7 +49,7 @@ export default function Nav() {
   const { address } = useAppKitAccount();
   const { setTalkIsOpen } = useContext(StateContext);
   return (
-    <div className="flex fixed w-full xl:w-[1280px] h-[100px] items-center justify-center lg:justify-between mt-10 px-8 xl:px-14 bg-violet-500/10 backdrop-blur-md z-30">
+    <div className="flex lg:fixed w-full xl:w-[1280px] h-[100px] items-center justify-center lg:justify-between md:mt-10 px-8 xl:px-14 bg-violet-500/10 backdrop-blur-md z-30">
       <Image
         src="/logo-text.svg"
         width={277}

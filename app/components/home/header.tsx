@@ -37,7 +37,7 @@ export default function Header({ Terminal }: HeaderProps) {
   return (
     <div
       id="about"
-      className="relative w-full  overflow-hidden flex flex-col justify-start items-center"
+      className="relative w-full overflow-hidden flex flex-col justify-start items-center"
     >
       <video
         autoPlay
@@ -55,7 +55,7 @@ export default function Header({ Terminal }: HeaderProps) {
       </video>
       <Nav />
 
-      <div className="z-20 flex flex-col justify-center items-center pt-[124px] bg-gradient-to-b from-transparent to-black w-full max-w-full min-h-full">
+      <div className="z-20 flex flex-col justify-center items-center md:pt-[124px] bg-gradient-to-b from-transparent to-black w-full max-w-full min-h-full">
         <div className="flex flex-col z-20 px-8 xl:px-14 pt-24 pb-14">
           <div className="flex flex-col items-center pb-6 text-center gap-8 md:gap-14">
             <div
