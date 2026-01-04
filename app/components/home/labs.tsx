@@ -30,14 +30,14 @@ const list = [
     chains: ["Base"],
     link: "https://www.juggernauts.io/",
   },
-  {
-    title: "Fullset Sports",
-    description:
-      "A SportFi decentralized application that introduces player rarity into fantasy sports for the first time",
-    src: "/labs/fss.svg",
-    chains: ["Base"],
-    link: "https://www.fullsetsports.com/",
-  },
+  // {
+  //   title: "Fullset Sports",
+  //   description:
+  //     "A SportFi decentralized application that introduces player rarity into fantasy sports for the first time",
+  //   src: "/labs/fss.svg",
+  //   chains: ["Base"],
+  //   link: "https://www.fullsetsports.com/",
+  // },
 ];
 
 export default function Labs() {
@@ -100,15 +100,15 @@ export default function Labs() {
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden xl:flex flex-row justify-between items-center flex-wrap gap-4">
+      <div className="hidden xl:flex flex-row items-center flex-wrap gap-10">
         {list.map((item, index) => (
           <Link
             key={index}
             href={item.link}
             target="blank"
-            className="flex flex-col items-center justify-center gap-1 odd:bg-[#2F2F55]/30 even:bg-skeletor-gray/60 backdrop-blur-md border border-neutral-800 p-6 px-8 rounded-xl transition-transform duration-200 hover:scale-[1.04] hover:opacity-90 shadow-lg"
+            className="flex flex-col items-center justify-center gap-1 odd:bg-[#2F2F55]/30 even:bg-skeletor-gray/60 backdrop-blur-md border border-neutral-800 p-6 px-20 rounded-xl transition-transform duration-200 hover:scale-[1.04] hover:opacity-90 shadow-lg"
           >
-            <div className="flex items-center justify-center  backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
+            <div className="flex items-center justify-center backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
               <Image src={item.src} width={130} height={130} alt={"#"} />
             </div>
             <p className="text-xl text-violet-300">{item.title}</p>
