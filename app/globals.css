@@ -64,3 +64,25 @@ html, body {
 .alice-carousel__stage-item:nth-child(1 of .__active) {
     padding: 0 !important;
 }
+
+@media print {
+  html,
+  body {
+    background: white !important;
+  }
+
+  /* Mata QUALQUER imagem, gradiente ou efeito visual */
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  /* Garante que o CV continue branco */
+  article {
+    background: white !important;
+  }
+}
