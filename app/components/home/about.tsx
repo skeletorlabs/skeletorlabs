@@ -21,8 +21,8 @@ export default function About() {
 
       <div className="relative z-10 flex flex-col-reverse text-center lg:text-start lg:flex-row items-center justify-between gap-14">
         {/* Text block */}
-        <div className="w-full md:max-w-3xl md:text-xl">
-          <p className="mb-6 text-white/90 text-xl md:text-3xl font-semibold">
+        <div className="w-full md:max-w-3xl md:text-xl tracking-wide">
+          <p className="mb-6 text-white/90 text-xl md:text-2xl font-semibold">
             <span className="text-violet-400 font-bold leading-normal">
               Skeletor Labs
             </span>{" "}
@@ -49,7 +49,7 @@ export default function About() {
             width={320}
             height={320}
             alt="Skeletor Labs Logo"
-            className="rounded-full z-10 relative drop-shadow-2xl transition-all duration-500"
+            className="rounded-full z-10 relative drop-shadow-2xl transition-all duration-500 mt-[-40px]"
           />
         </div>
       </div>
