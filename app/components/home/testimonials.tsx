@@ -43,7 +43,7 @@ export default function Testimonials() {
 
     for (const chainTestimonials of allTestimonials) {
       const ipfsTestimonials = await readTestimonialsFromIPFS(
-        chainTestimonials.testimonialsList
+        chainTestimonials.testimonialsList,
       );
       chainsToTestimonials.push({
         chainId: chainTestimonials.chainId,
@@ -65,7 +65,7 @@ export default function Testimonials() {
       await fetchTestimonials();
       setLoading(false);
     },
-    [walletProvider, fetchTestimonials, setLoading]
+    [walletProvider, fetchTestimonials, setLoading],
   );
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export default function Testimonials() {
             owner={collectionItem.owner}
             deactivateTestimonial={deactivateTestimonial}
           />
-        )
+        ),
       );
 
       allItems.push(..._items);
@@ -101,7 +101,7 @@ export default function Testimonials() {
 
   return (
     <div className="relative">
-      <div className="flex flex-col px-8 xl:px-14 py-10 gap-10 min-h-[200] xl:min-h-[440px]">
+      <div className="flex flex-col px-4 xl:px-14 py-10 gap-10 min-h-[200] xl:min-h-[440px]">
         <div className="flex flex-col gap-5 xl:flex-row xl:gap-0 justify-between items-center">
           <Subtitle
             text="What Partners Say"

@@ -63,7 +63,7 @@ export default function Header({ Terminal }: HeaderProps) {
       <Nav />
 
       <div className="z-20 flex flex-col justify-center items-center md:pt-[124px] bg-gradient-to-b from-transparent to-black w-full max-w-full min-h-full">
-        <div className="flex flex-col z-20 px-8 xl:px-14 pt-24 md:pt-0 lg:pt-24 pb-14">
+        <div className="flex flex-col z-20 px-4 xl:px-14 pt-24 md:pt-0 lg:pt-24 pb-14">
           <div className="flex flex-col items-center pb-6 text-center gap-8 md:gap-14">
             <div
               className={`max-w-full sm:max-w-xl lg:max-w-4xl min-h-[220px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[240px] font-extrabold !leading-[1.22] text-white text-[2.1rem] sm:text-5xl md:text-6xl lg:text-[60px] ${jakarta.className}`}

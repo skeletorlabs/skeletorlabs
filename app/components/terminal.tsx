@@ -117,7 +117,7 @@ export default function Terminal() {
   }, [simulate]);
 
   return (
-    <div className="my-terminal-wrapper px-6 xl:px-12 pt-10 sm:py-10 w-full min-h-[655px] md:min-h-[688px]">
+    <div className="my-terminal-wrapper px-4 xl:px-12 pt-10 sm:py-10 w-full min-h-[655px] md:min-h-[688px]">
       <ReactTerminal
         commands={commands}
         welcomeMessage={welcomeLines}

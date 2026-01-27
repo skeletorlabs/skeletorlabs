@@ -5,7 +5,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="relative flex flex-col px-8 xl:px-14 py-24 gap-10 overflow-hidden"
+      className="relative flex flex-col px-4 xl:px-14 py-24 gap-10 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-space opacity-20" />
       {/* Decorative floating particles */}

@@ -68,7 +68,7 @@ export default function Contributions() {
   return (
     <div
       id="contributions"
-      className="flex flex-col px-8 xl:px-14 py-10 gap-10"
+      className="flex flex-col px-4 xl:px-14 py-10 gap-10"
     >
       <Subtitle
         text="Contributions"

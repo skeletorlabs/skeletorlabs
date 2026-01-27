@@ -36,7 +36,7 @@ export default function Footer() {
           <NewTestimonialButton />
         </div>
 
-        <div className="flex w-full justify-center items-center h-full flex-wrap px-8 gap-5 py-7 my-5 bg-skeletor-dark-violet">
+        <div className="flex w-full justify-center items-center h-full flex-wrap px-6 gap-5 py-7 my-5 bg-skeletor-dark-violet">
           {NAV_LINKS.map((link, index) => (
             <Link
               key={index}

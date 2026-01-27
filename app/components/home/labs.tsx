@@ -74,7 +74,7 @@ export default function Labs() {
   return (
     <div
       id="labs"
-      className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet"
+      className="flex flex-col px-4 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet"
     >
       <Subtitle
         text="In the Lab"

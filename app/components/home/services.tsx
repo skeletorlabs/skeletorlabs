@@ -59,7 +59,7 @@ export default function Services() {
   return (
     <div
       id="services"
-      className="flex flex-col px-8 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet/80 backdrop-blur-md"
+      className="flex flex-col px-4 xl:px-14 py-10 gap-10 bg-skeletor-dark-violet/80 backdrop-blur-md"
     >
       <Subtitle
         text="What We Offer"

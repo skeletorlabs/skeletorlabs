@@ -98,7 +98,7 @@ export default function SelectedEngineeringWork() {
   }, []);
 
   return (
-    <section className="flex flex-col bg-black/10 px-8 xl:px-14 py-4 border-t border-white/5 gap-10 mt-10 text-center sm:text-left">
+    <section className="flex flex-col bg-black/10 px-4 xl:px-14 py-4 border-t border-white/5 gap-10 mt-10 text-center sm:text-left">
       <Subtitle
         text="Selected Engineering"
         description="Complex infrastructure and wallet integrations delivered under NDA"
@@ -113,7 +113,7 @@ export default function SelectedEngineeringWork() {
           {selectedEngineeringWork.map((item, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 xl:grid-cols-2 gap-10 bg-skeletor-gray/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 transition-opacity duration-200 hover:opacity-95"
+              className="grid grid-cols-1 xl:grid-cols-2 gap-10 bg-skeletor-gray/40 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-6 transition-opacity duration-200 hover:opacity-95"
             >
               {/* LEFT COLUMN */}
               <div className="flex flex-col gap-6">
@@ -128,14 +128,14 @@ export default function SelectedEngineeringWork() {
                 </div>
 
                 {/* STACK TAGS */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
                   {item.stacks.map((stack, i) => (
                     <Badge key={i} text={stack} big />
                   ))}
                 </div>
 
                 {/* LEDGER VISUAL MARK */}
-                <div className="pt-6 sm:pt-10 text-violet-300/70">
+                <div className="pt-6 sm:pt-10 text-violet-300/70 flex justify-center sm:justify-start">
                   <svg
                     viewBox="0 0 66 29"
                     fill="none"

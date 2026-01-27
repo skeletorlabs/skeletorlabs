@@ -231,7 +231,7 @@ export default function NewTestimonial() {
                         </div>
 
                         <button
-                          className={`flex items-center justify-center gap-2 p-2 px-6 bg-violet-300 transition-colors duration-200 hover:bg-violet-200 text-black/80 font-semibold rounded-lg relative ${jakarta.className}`}
+                          className={`flex items-center justify-center gap-2 p-2 px-4 bg-violet-300 transition-colors duration-200 hover:bg-violet-200 text-black/80 font-semibold rounded-lg relative ${jakarta.className}`}
                           onClick={onSubmit}
                           disabled={loading || !address}
                         >
