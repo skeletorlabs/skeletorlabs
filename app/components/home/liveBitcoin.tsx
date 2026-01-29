@@ -8,6 +8,7 @@ import {
 import { useCountUp } from "@/app/hooks/useCountUp";
 import { useEffect, useState } from "react";
 import { AnimatedMetric } from "../metrics/AnimatedMetric";
+import Loading from "../loading";
 
 export default function LiveBitcoin() {
   const [data, setData] = useState<BitcoinNetworkResponse | null>(null);
@@ -110,50 +111,54 @@ export default function LiveBitcoin() {
                 Metrics grid 
                 Animates only when data is fresh (non-cached)
               */}
-              {data && (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                  <AnimatedMetric
-                    label="Block Height"
-                    value={data.blockHeight}
-                    format={(v) => v.toLocaleString()}
-                    animate={!data.cached}
-                  />
+              <div className="min-h-[120px] flex items-center justify-center">
+                {!data ? (
+                  <Loading />
+                ) : (
+                  <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center md:justify-items-start">
+                    <AnimatedMetric
+                      label="Block Height"
+                      value={data.blockHeight}
+                      format={(v) => v.toLocaleString()}
+                      animate={!data.cached}
+                    />
 
-                  <AnimatedMetric
-                    label="Hashrate"
-                    value={data.hashrateTHs}
-                    format={formatHashrateTHs}
-                    animate={!data.cached}
-                  />
+                    <AnimatedMetric
+                      label="Hashrate"
+                      value={data.hashrateTHs}
+                      format={formatHashrateTHs}
+                      animate={!data.cached}
+                    />
 
-                  <AnimatedMetric
-                    label="Difficulty"
-                    value={data.difficulty}
-                    format={formatDifficulty}
-                    animate={!data.cached}
-                  />
+                    <AnimatedMetric
+                      label="Difficulty"
+                      value={data.difficulty}
+                      format={formatDifficulty}
+                      animate={!data.cached}
+                    />
 
-                  <AnimatedMetric
-                    label="Avg Block Time"
-                    value={data.avgBlockTimeSeconds}
-                    format={formatBlockTime}
-                    animate={!data.cached}
-                  />
+                    <AnimatedMetric
+                      label="Avg Block Time"
+                      value={data.avgBlockTimeSeconds}
+                      format={formatBlockTime}
+                      animate={!data.cached}
+                    />
 
-                  {networkStatus && (
-                    <div className="flex flex-col">
-                      <span className="text-white/60 text-sm">
-                        Network Status
-                      </span>
-                      <span
-                        className={`${networkStatus.color} text-lg font-semibold`}
-                      >
-                        {networkStatus.label}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              )}
+                    {networkStatus && (
+                      <div className="flex flex-col items-center md:items-start col-span-2 md:col-span-1">
+                        <span className="text-white/60 text-sm">
+                          Network Status
+                        </span>
+                        <span
+                          className={`${networkStatus.color} text-lg font-semibold`}
+                        >
+                          {networkStatus.label}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
 
               <p className="mt-10 text-white/50 text-sm">
                 <span>

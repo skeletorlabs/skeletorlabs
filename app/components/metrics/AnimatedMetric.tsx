@@ -20,7 +20,7 @@ export function AnimatedMetric({
   const animatedValue = useCountUp(animate ? value : value, duration);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col items-center md:items-start">
       <span className="text-white/60 text-sm">{label}</span>
       <span className="text-white text-lg font-semibold">
         {format(animate ? animatedValue : value)}
