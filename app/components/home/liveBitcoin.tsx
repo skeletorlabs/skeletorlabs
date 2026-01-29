@@ -166,7 +166,7 @@ export default function LiveBitcoin() {
                   Live data · Cached automatically · Internal Go service
                 </span>
 
-                <span className="hidden sm:inline px-2">·</span>
+                <span className="inline px-2">·</span>
 
                 <a
                   href="https://github.com/skeletorlabs/crypto-api"
