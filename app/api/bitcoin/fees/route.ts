@@ -2,16 +2,13 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const res = await fetch(
-      `${process.env.CRYPTO_API_URL}/v1/bitcoin/network`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-        // cache no edge / server
-        next: { revalidate: 60 },
+    const res = await fetch(`${process.env.CRYPTO_API_URL}/v1/bitcoin/fees`, {
+      headers: {
+        Accept: "application/json",
       },
-    );
+      // cache no edge / server
+      next: { revalidate: 60 },
+    });
 
     if (!res.ok) {
       return NextResponse.json({ error: "Upstream error" }, { status: 502 });

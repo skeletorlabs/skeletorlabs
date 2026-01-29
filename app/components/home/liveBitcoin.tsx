@@ -3,38 +3,34 @@ import Image from "next/image";
 import Subtitle from "../subtitle";
 import {
   BitcoinNetworkResponse,
+  BitcoinFeesResponse,
   getBitcoinNetwork,
+  getBitcoinFees,
 } from "@/app/lib/api/bitcoin";
-import { useCountUp } from "@/app/hooks/useCountUp";
 import { useEffect, useState } from "react";
 import { AnimatedMetric } from "../metrics/AnimatedMetric";
 import Loading from "../loading";
 
 export default function LiveBitcoin() {
-  const [data, setData] = useState<BitcoinNetworkResponse | null>(null);
+  const [network, setNetwork] = useState<BitcoinNetworkResponse | null>(null);
+  const [fees, setFees] = useState<BitcoinFeesResponse | null>(null);
 
   useEffect(() => {
-    getBitcoinNetwork().then(setData).catch(console.error);
+    getBitcoinNetwork().then(setNetwork).catch(console.error);
+    getBitcoinFees().then(setFees).catch(console.error);
   }, []);
 
   function formatHashrateTHs(ths: number): string {
     const ehs = ths / 1_000_000;
-
     if (ehs >= 1000) {
-      const zhs = ehs / 1000;
-      return `${zhs.toFixed(2)} ZH/s`;
+      return `${(ehs / 1000).toFixed(2)} ZH/s`;
     }
-
     return `${ehs.toFixed(1)} EH/s`;
   }
 
   function formatBlockTime(seconds: number): string {
     const minutes = seconds / 60;
-
-    if (minutes < 1.5) {
-      return `${Math.round(seconds)} sec`;
-    }
-
+    if (minutes < 1.5) return `${Math.round(seconds)} sec`;
     return Number.isInteger(minutes)
       ? `${minutes} min`
       : `${minutes.toFixed(1)} min`;
@@ -42,11 +38,9 @@ export default function LiveBitcoin() {
 
   function formatDifficulty(diff: number): string {
     const trillion = diff / 1e12;
-
     if (trillion >= 1000) {
       return `${(trillion / 1000).toFixed(2)} Q`;
     }
-
     return `${trillion.toFixed(1)} T`;
   }
 
@@ -54,17 +48,22 @@ export default function LiveBitcoin() {
     if (avgBlockTimeSeconds <= 12 * 60) {
       return { label: "Normal", color: "text-emerald-400" };
     }
-
     if (avgBlockTimeSeconds <= 18 * 60) {
       return { label: "Slow", color: "text-yellow-400" };
     }
-
     return { label: "Congested", color: "text-red-400" };
   }
 
-  const networkStatus = data
-    ? getNetworkStatus(data.avgBlockTimeSeconds)
+  const networkStatus = network
+    ? getNetworkStatus(network.avgBlockTimeSeconds)
     : null;
+
+  const feeLevel =
+    fees && networkStatus
+      ? networkStatus.label === "Congested"
+        ? fees.high
+        : fees.medium
+      : null;
 
   return (
     <div
@@ -73,7 +72,6 @@ export default function LiveBitcoin() {
     >
       <div className="absolute top-0 left-0 w-full h-full bg-space opacity-20" />
 
-      {/* Decorative floating particles */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-30 animate-pulse-slow">
         <div className="absolute w-[600px] h-[600px] bg-purple-500/20 rounded-full blur-3xl top-[-100px] left-[-200px]" />
         <div className="absolute w-[400px] h-[400px] bg-indigo-400/30 rounded-full blur-2xl bottom-[-120px] right-[-150px]" />
@@ -85,13 +83,10 @@ export default function LiveBitcoin() {
       />
 
       <div className="relative z-10 flex justify-center">
-        {/* BIG CARD */}
         <div className="relative w-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-10 md:p-14 shadow-2xl">
-          {/* Glow */}
           <div className="absolute inset-0 rounded-2xl bg-indigo-500/10 blur-3xl pointer-events-none" />
 
           <div className="relative flex flex-col lg:flex-row items-center gap-14">
-            {/* Text + metrics */}
             <div className="w-full text-center lg:text-start">
               <p className="mb-6 text-white/90 text-xl md:text-2xl font-semibold">
                 <span className="text-violet-400 font-bold">
@@ -103,67 +98,67 @@ export default function LiveBitcoin() {
               <p className="mb-10 text-white/80 max-w-3xl">
                 This block showcases live Bitcoin network intelligence
                 aggregated from multiple mempool endpoints and normalized by our
-                internal API. It reflects the same data streams used in
-                production systems.
+                internal API.
               </p>
 
-              {/* 
-                Metrics grid 
-                Animates only when data is fresh (non-cached)
-              */}
               <div className="min-h-[120px] flex items-center justify-center">
-                {!data ? (
-                  <Loading />
-                ) : (
+                {network && networkStatus && fees && feeLevel ? (
                   <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center md:justify-items-start">
                     <AnimatedMetric
                       label="Block Height"
-                      value={data.blockHeight}
+                      value={network.blockHeight}
                       format={(v) => v.toLocaleString()}
-                      animate={!data.cached}
+                      animate={!network.cached}
                     />
 
                     <AnimatedMetric
                       label="Hashrate"
-                      value={data.hashrateTHs}
+                      value={network.hashrateTHs}
                       format={formatHashrateTHs}
-                      animate={!data.cached}
+                      animate={!network.cached}
                     />
 
                     <AnimatedMetric
                       label="Difficulty"
-                      value={data.difficulty}
+                      value={network.difficulty}
                       format={formatDifficulty}
-                      animate={!data.cached}
+                      animate={!network.cached}
                     />
 
                     <AnimatedMetric
                       label="Avg Block Time"
-                      value={data.avgBlockTimeSeconds}
+                      value={network.avgBlockTimeSeconds}
                       format={formatBlockTime}
-                      animate={!data.cached}
+                      animate={!network.cached}
                     />
 
-                    {networkStatus && (
-                      <div className="flex flex-col items-center md:items-start col-span-2 md:col-span-1">
-                        <span className="text-white/60 text-sm">
-                          Network Status
-                        </span>
-                        <span
-                          className={`${networkStatus.color} text-lg font-semibold`}
-                        >
-                          {networkStatus.label}
-                        </span>
-                      </div>
-                    )}
+                    <div className="flex flex-col items-center md:items-start">
+                      <span className="text-white/60 text-sm">
+                        Network Status
+                      </span>
+                      <span
+                        className={`${networkStatus.color} text-lg font-semibold`}
+                      >
+                        {networkStatus.label}
+                      </span>
+                    </div>
+
+                    <AnimatedMetric
+                      label="Fees (sat/vB)"
+                      value={feeLevel}
+                      format={(v) => `~${v} sat/vB`}
+                      animate={!fees.cached && feeLevel >= 5}
+                    />
                   </div>
+                ) : (
+                  <Loading />
                 )}
               </div>
 
               <p className="mt-10 text-white/50 text-sm">
                 <span>
                   <span className="animate-pulse text-green-300 pr-2">●</span>
-                  Live data · Cached automatically · Internal Go service
+                  Live data · Cache-aware · Powered by internal Go services
                 </span>
 
                 <span className="inline px-2">·</span>
@@ -179,7 +174,6 @@ export default function LiveBitcoin() {
               </p>
             </div>
 
-            {/* Logo */}
             <div className="relative flex-shrink-0">
               <div className="absolute inset-0 w-full h-full rounded-full bg-indigo-500/30 blur-3xl animate-pulse-slow" />
               <Image
