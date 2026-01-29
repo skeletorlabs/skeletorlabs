@@ -6,6 +6,13 @@ export type BitcoinNetworkResponse = {
   cached: boolean;
 };
 
+export type BitcoinFeesResponse = {
+  low: number;
+  medium: number;
+  high: number;
+  cached: boolean;
+};
+
 export async function getBitcoinNetwork() {
   const res = await fetch("/api/bitcoin/network");
 
@@ -16,19 +23,9 @@ export async function getBitcoinNetwork() {
   return res.json() as Promise<BitcoinNetworkResponse>;
 }
 
-export type BitcoinFeesResponse = {
-  low: number;
-  medium: number;
-  high: number;
-  cached: boolean;
-};
-
 export async function getBitcoinFees() {
   const res = await fetch("/api/bitcoin/fees");
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch Bitcoin fees");
-  }
-
+  if (!res.ok) throw new Error("Failed to fetch Bitcoin fees");
   return res.json() as Promise<BitcoinFeesResponse>;
 }

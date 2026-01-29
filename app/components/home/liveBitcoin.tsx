@@ -14,10 +14,41 @@ import Loading from "../loading";
 export default function LiveBitcoin() {
   const [network, setNetwork] = useState<BitcoinNetworkResponse | null>(null);
   const [fees, setFees] = useState<BitcoinFeesResponse | null>(null);
+  const [latency, setLatency] = useState<number>(0);
 
   useEffect(() => {
-    getBitcoinNetwork().then(setNetwork).catch(console.error);
-    getBitcoinFees().then(setFees).catch(console.error);
+    let alive = true;
+
+    async function fetchData() {
+      try {
+        const start = performance.now();
+
+        const [networkRes, feesRes] = await Promise.all([
+          getBitcoinNetwork(),
+          getBitcoinFees(),
+        ]);
+
+        const end = performance.now();
+
+        if (alive) {
+          setNetwork(networkRes);
+          setFees(feesRes);
+          setLatency(end - start);
+        }
+      } catch (err) {
+        console.error("Fetch error:", err);
+        if (alive) setLatency(0);
+      }
+    }
+
+    fetchData();
+
+    const interval = setInterval(fetchData, 15_000);
+
+    return () => {
+      alive = false;
+      clearInterval(interval);
+    };
   }, []);
 
   function formatHashrateTHs(ths: number): string {
@@ -54,6 +85,17 @@ export default function LiveBitcoin() {
     return { label: "Congested", color: "text-red-400" };
   }
 
+  function formatFeeLabel(status: string) {
+    switch (status) {
+      case "Congested":
+        return "High priority";
+      case "Slow":
+        return "Medium priority";
+      default:
+        return "Normal priority";
+    }
+  }
+
   const networkStatus = network
     ? getNetworkStatus(network.avgBlockTimeSeconds)
     : null;
@@ -62,7 +104,9 @@ export default function LiveBitcoin() {
     fees && networkStatus
       ? networkStatus.label === "Congested"
         ? fees.high
-        : fees.medium
+        : networkStatus.label === "Slow"
+          ? fees.medium
+          : fees.low
       : null;
 
   return (
@@ -143,12 +187,16 @@ export default function LiveBitcoin() {
                       </span>
                     </div>
 
-                    <AnimatedMetric
-                      label="Fees (sat/vB)"
-                      value={feeLevel}
-                      format={(v) => `~${v} sat/vB`}
-                      animate={!fees.cached && feeLevel >= 5}
-                    />
+                    <div className="col-span-1 md:col-span-2">
+                      <AnimatedMetric
+                        label="Tx Fee (recommended)"
+                        value={feeLevel}
+                        format={(v) =>
+                          `~${v} sat/vB · ${formatFeeLabel(networkStatus.label)}`
+                        }
+                        animate={!fees.cached}
+                      />
+                    </div>
                   </div>
                 ) : (
                   <Loading />
@@ -156,21 +204,38 @@ export default function LiveBitcoin() {
               </div>
 
               <p className="mt-10 text-white/50 text-sm">
-                <span>
-                  <span className="animate-pulse text-green-300 pr-2">●</span>
-                  Live data · Cache-aware · Powered by internal Go services
+                <span className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                  <span
+                    className={`animate-pulse ${
+                      network?.cached ? "text-amber-400" : "text-green-300"
+                    }`}
+                  >
+                    ●
+                  </span>
+
+                  <span>
+                    {network?.cached
+                      ? "Go Internal Cache"
+                      : "Fresh Engine Data"}
+                    {" · "}
+                    <span className="text-violet-300 font-mono">
+                      {latency > 0 ? `${latency.toFixed(0)}ms` : "--"}
+                    </span>
+                    {" · "}
+                    Internal Go Service
+                  </span>
+
+                  <span className="hidden sm:inline">·</span>
+
+                  <a
+                    href="https://github.com/skeletorlabs/crypto-api"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-violet-400 hover:text-violet-300 transition text-xs"
+                  >
+                    View source (Go)
+                  </a>
                 </span>
-
-                <span className="inline px-2">·</span>
-
-                <a
-                  href="https://github.com/skeletorlabs/crypto-api"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-violet-400 hover:text-violet-300 transition text-xs"
-                >
-                  View source (Go)
-                </a>
               </p>
             </div>
 
