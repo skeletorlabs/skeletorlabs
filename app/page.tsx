@@ -16,6 +16,7 @@ import Services from "./components/home/services";
 import About from "./components/home/about";
 import FAB from "./components/fab";
 import SelectedEngineeringWork from "./components/home/selected";
+import LiveBitcoin from "./components/home/liveBitcoin";
 
 export default function Home() {
   const Terminal = dynamic(
@@ -23,7 +24,7 @@ export default function Home() {
     {
       ssr: false,
       loading: () => <Loading css="min-h-[1200px] md:min-h-[688px]" />,
-    }
+    },
   );
 
   return (
@@ -31,6 +32,7 @@ export default function Home() {
       <main className="flex flex-col justify-center items-center w-full xl:w-[1280px] text-white">
         <Header Terminal={Terminal} />
         <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat relative">
+          <LiveBitcoin />
           <About />
           <SelectedEngineeringWork />
           <Code />
