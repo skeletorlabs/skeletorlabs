@@ -192,7 +192,7 @@ export default function LiveBitcoin() {
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-center md:items-start col-span-2 lg:col-span-1">
+                  <div className="flex flex-col items-center md:items-start">
                     <span className="text-white/60 text-xs md:text-sm">
                       Network Confidence
                     </span>

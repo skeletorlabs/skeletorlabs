@@ -8,36 +8,37 @@ import { useEffect, useState } from "react";
 
 const list = [
   {
+    title: "Crypto API",
+    description:
+      "A production-grade Go API powering real-time crypto network intelligence and on-chain signals.",
+    src: "/labs/crypto-api.svg",
+    badges: ["Bitcoin", "Infra", "Golang"],
+    link: "https://github.com/skeletorlabs/crypto-api",
+  },
+  {
     title: "Card Preview",
     description:
-      "A Metamask card transaction preview in different tokens and fiats",
+      "Preview Metamask card transactions across tokens and fiat currencies before execution.",
     src: "/labs/card-preview.svg",
-    chains: ["Linea"],
+    badges: ["Linea"],
     link: "https://previewer.skeletorlabs.xyz",
   },
   {
     title: "StableZ",
     description:
-      "The leading yield booster for stable and LSDFI assets built exclusively for Base.",
+      "A Base-native yield optimization protocol for stable and LSDfi assets.",
     src: "/labs/stablez.svg",
-    chains: ["Base"],
+    badges: ["Base"],
     link: "#",
   },
   {
     title: "Juggernauts",
-    description: "Bringing the Sports World into Web3 through kickass dApps.",
+    description:
+      "A Web3 sports platform combining fantasy mechanics, NFTs, and on-chain competition.",
     src: "/labs/juggernauts.svg",
-    chains: ["Base"],
+    badges: ["Base"],
     link: "https://www.juggernauts.io/",
   },
-  // {
-  //   title: "Fullset Sports",
-  //   description:
-  //     "A SportFi decentralized application that introduces player rarity into fantasy sports for the first time",
-  //   src: "/labs/fss.svg",
-  //   chains: ["Base"],
-  //   link: "https://www.fullsetsports.com/",
-  // },
 ];
 
 export default function Labs() {
@@ -52,12 +53,12 @@ export default function Labs() {
         target="blank"
         className="flex flex-col items-center justify-center w-full gap-1 odd:bg-[#2F2F55]/30 even:bg-skeletor-gray/60 backdrop-blur-md border border-neutral-800 p-6 rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg"
       >
-        <div className="flex items-center justify-center  backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
+        <div className="flex items-center justify-center backdrop-blur-sm border border-neutral-900 w-[160px] h-[160px] rounded-full">
           <Image src={item.src} width={130} height={130} alt={"#"} />
         </div>
         <p className="text-xl text-violet-300">{item.title}</p>
         <div className="flex items-center gap-2 text-xs text-violet-200">
-          {item.chains.map((chain, chainIndex) => (
+          {item.badges.map((chain, chainIndex) => (
             <Badge key={chainIndex} text={chain} />
           ))}
         </div>
@@ -78,7 +79,7 @@ export default function Labs() {
     >
       <Subtitle
         text="In the Lab"
-        description="Prototypes and alpha-stage tools in development"
+        description="Products, infrastructure and experimental tools"
       />
 
       {/* MOBILE */}
@@ -113,7 +114,7 @@ export default function Labs() {
             </div>
             <p className="text-xl text-violet-300">{item.title}</p>
             <div className="flex items-center gap-2 text-xs text-violet-200">
-              {item.chains.map((chain, chainIndex) => (
+              {item.badges.map((chain, chainIndex) => (
                 <Badge key={chainIndex} text={chain} />
               ))}
             </div>
