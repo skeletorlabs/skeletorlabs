@@ -1,0 +1,2 @@
+export const HIGH_PRESSURE_VSIZE = 30_000_000;
+export const MODERATE_PRESSURE_VSIZE = 15_000_000;

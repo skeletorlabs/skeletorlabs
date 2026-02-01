@@ -17,12 +17,12 @@ export function AnimatedMetric({
   animate = true,
   duration = 800,
 }: AnimatedMetricProps) {
-  const animatedValue = useCountUp(animate ? value : value, duration);
+  const animatedValue = useCountUp(value, duration);
 
   return (
     <div className="flex flex-col items-center md:items-start">
-      <span className="text-white/60 text-sm">{label}</span>
-      <span className="text-white text-lg font-semibold">
+      <span className="text-white/60 text-xs md:text-sm">{label}</span>
+      <span className="text-white text-2xl md:text-lg font-semibold">
         {format(animate ? animatedValue : value)}
       </span>
     </div>
