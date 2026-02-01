@@ -1,24 +1,30 @@
-# Skeletor Labs
-
-**Dedicated to building the Future of Web3.**
-
-<p>
-  <img src="https://www.skeletorlabs.xyz/logo-v4.svg" alt="Purchase Preview Logo" width="120" style="border-radius: 50%;" />
+<p align="center">
+  <img
+    src="https://www.skeletorlabs.xyz/logo-v4.svg"
+    alt="Skeletor Labs Logo"
+    width="120"
+    height="120"
+    style="border-radius: 50%; background-color: black; border: 10px solid black;"
+  />
 </p>
-
-[](https://www.google.com/search?q=%7Byour_website_link_here%7D)
+<h2 align="center" style="font-size: 2.5rem; font-weight: 800; margin-top: -20px; border:none;">
+  Skeletor Labs
+</h2>
+<p align="center" style="margin-top: -24px;">
+  <a href="https://skeletorlabs.xyz">skeletorlabs.xyz</a>
+</p>
 
 ## Table of Contents
 
-- [About Skeletor Labs](https://www.google.com/search?q=%23about-skeletor-labs)
-- [Our Mission](https://www.google.com/search?q=%23our-mission)
-- [Our Services](https://www.google.com/search?q=%23our-services)
-- [Our Expertise & Technologies](https://www.google.com/search?q=%23our-expertise--technologies)
-- [Why Choose Skeletor Labs?](https://www.google.com/search?q=%23why-choose-skeletor-labs)
-- [How We Work](https://www.google.com/search?q=%23how-we-work)
-- [Get in Touch](https://www.google.com/search?q=%23get-in-touch)
-- [Follow Us](https://www.google.com/search?q=%23follow-us)
-- [License](https://www.google.com/search?q=%23license)
+- [About Skeletor Labs](#about-skeletor-labs)
+- [Our Mission](#our-mission)
+- [Our Services](#our-services)
+- [Our Expertise & Technologies](#our-expertise--technologies)
+- [Why Choose Skeletor Labs?](#why-choose-skeletor-labs)
+- [How We Work](#how-we-work)
+- [Get in Touch](#get-in-touch)
+- [Follow Us](#follow-us)
+- [License](#license)
 
 ## About Skeletor Labs
 
@@ -26,11 +32,11 @@ Skeletor Labs is a cutting-edge Web3 development studio specializing in building
 
 ## Our Mission
 
-Our mission is to accelerate the adoption and evolution of Web3 by providing unparalleled development services. We are **dedicated to building the future of Web3**, driving innovation through secure, efficient, and user-centric decentralized technologies that empower a more open and connected world.
+Our mission is to accelerate the adoption and evolution of Web3 by providing unparalleled development services. We are a **senior Web3 engineering studio building production-grade blockchain systems**, driving innovation through secure, efficient, and user-centric decentralized technologies that empower a more open and connected world.
 
 ## Our Services
 
-Skeletor Labs offers a comprehensive suite of development services tailored to the unique demands of the blockchain space:
+Skeletor Labs delivers end-to-end Web3 engineering, from protocol-level smart contracts to production-ready decentralized applications.
 
 - **Smart Contract Development & Auditing:**
   - Design, development, and deployment of secure and gas-efficient smart contracts on EVM-compatible networks (Ethereum, Base, Arbitrum, Optimism, Fantom, BSC, Sonic).
@@ -66,7 +72,15 @@ Our core strength lies in our proficiency across a diverse range of cutting-edge
 - **Data & APIs:** GraphQL, Subgraphs
 - **Styling:** Tailwind CSS
 - **Version Control:** Git
-- **Project Management Methodologies:** Scrum (Certified)
+- **Project Management Methodologies:** Agile / Scrum
+
+## Selected Work
+
+A snapshot of production systems and internal tooling built and maintained by Skeletor Labs:
+
+- **Crypto API** – Production-grade Go API for crypto network intelligence
+- **Purchase Preview** – Web3 cost estimation tool for international crypto payments
+- **Custom DeFi Protocols** – Token vesting, staking, and LP-backed systems
 
 ## Why Choose Skeletor Labs?
 
@@ -91,7 +105,7 @@ Ready to build the next generation of Web3 applications? Let's talk\!
 
 Stay updated on our latest projects and insights:
 
-- **Skeletor Labs Twitter/X:** [https://x.com/skeletorlabs]
+- **Twitter / X:** https://x.com/skeletorlabs
 
 ## License
 

@@ -1,9 +1,13 @@
+export type NetworkTrend = "Improving" | "Stable" | "Worsening";
+
 export type BitcoinNetwork = {
+  updatedAt: string;
+  cached: boolean;
   blockHeight: number;
   hashrateTHs: number;
   difficulty: number;
   avgBlockTimeSeconds: number;
-  cached: boolean;
+  trend: NetworkTrend;
 };
 
 export type BitcoinFees = {

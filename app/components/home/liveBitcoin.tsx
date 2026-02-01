@@ -25,6 +25,8 @@ import {
   computeMempoolPressure,
   computeNetworkConfidence,
 } from "@/app/lib/bitcoin/signals";
+import { BitcoinTrend } from "../bitcoin/BitcoinTrend";
+import { formatRelativeTime } from "@/app/lib/time/relative";
 
 export default function LiveBitcoin() {
   const [network, setNetwork] = useState<BitcoinNetwork | null>(null);
@@ -201,6 +203,9 @@ export default function LiveBitcoin() {
                     </span>
                   </div>
 
+                  {/* TREND */}
+                  <BitcoinTrend trend={network.trend} />
+
                   {/* FEE */}
                   <div className="col-span-2 md:col-span-2 pt-2">
                     <AnimatedMetric
@@ -225,11 +230,23 @@ export default function LiveBitcoin() {
                       ●
                     </span>
                     {network.cached ? "Go Internal Cache" : "Fresh Engine Data"}
-                    ·{" "}
+
+                    <span className="text-white/60">·</span>
+                    <span
+                      className={`
+                            transition-colors duration-500
+                            ${network.cached ? "text-white/60" : "text-green-300"}
+                          `}
+                    >
+                      Updated {formatRelativeTime(network.updatedAt)}
+                    </span>
+
+                    <span className="text-white/60">·</span>
                     <span className="text-violet-300 font-mono">
                       ~{latency.toFixed(0)}ms API Latency
                     </span>
-                    · Internal Go Service ·{" "}
+                    <span className="text-white/60">·</span>
+
                     <a
                       href="https://github.com/skeletorlabs/crypto-api"
                       target="_blank"
@@ -242,7 +259,7 @@ export default function LiveBitcoin() {
               </div>
 
               {/* RIGHT IMAGE */}
-              <div className="relative flex-shrink-0 hidden lg:block">
+              <div className="relative flex-shrink-0 hidden lg:flex">
                 <div className="absolute inset-0 bg-indigo-500/30 blur-3xl rounded-full" />
                 <Image
                   src="/logo2.svg"
