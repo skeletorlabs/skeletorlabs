@@ -1,3 +1,5 @@
+"use client";
+
 import Subtitle from "../subtitle";
 import Image from "next/image";
 import classNames from "classnames";
@@ -58,33 +60,37 @@ export default function Team() {
         items={members.map((item, index) => (
           <div
             key={index}
-            className={classNames({
-              "flex flex-col items-center justify-center w-[350px] gap-1 backdrop-blur-md border border-white/10 pt-6 rounded-xl transition-transform duration-200 hover:opacity-90 shadow-lg": true,
-              [item.color]: true,
-            })}
+            className={classNames(
+              "flex flex-col items-center w-[350px] min-h-[520px] backdrop-blur-md border border-white/10 pt-8 rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-2xl group",
+              item.color,
+            )}
           >
-            <div className="flex items-center justify-center bg-black/30  backdrop-blur-sm border border-white/10 w-[160px] h-[160px] rounded-full mix-blend-luminosity">
+            <div className="flex items-center justify-center bg-black/30 backdrop-blur-sm border border-white/10 w-[160px] h-[160px] rounded-full mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500">
               <Image
                 src={item.src}
                 width={130}
                 height={130}
                 alt={item.nickname}
-                className="rounded-full"
+                className="rounded-full object-contain"
               />
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <p className={`text-xl text-violet-300 ${jakarta.className}`}>
+            <div className="flex flex-col items-center justify-center mt-4">
+              <p
+                className={`text-2xl text-violet-300 font-bold ${jakarta.className}`}
+              >
                 {item.nickname}
               </p>
-              <p className="text-sm text-white mt-[-3px]">{item.name}</p>
+              <p className="text-sm text-white/60 uppercase tracking-tighter">
+                {item.name}
+              </p>
             </div>
-            <div className="flex flex-col items-center justify-center mt-1 gap-2">
+            <div className="flex flex-col items-center justify-center mt-4 gap-4 flex-1">
               <p
-                className={`text-sm font-semibold p-1 px-4 bg-black/50 text-white/70 border border-white/10 backdrop-blur-sm rounded-full ${jakarta.className}`}
+                className={`text-[11px] uppercase tracking-widest font-bold p-1 px-4 bg-black/50 text-violet-200 border border-white/10 backdrop-blur-sm rounded-full ${jakarta.className}`}
               >
                 {item.role}
               </p>
-              <p className="text-sm text-center text-white/80 px-4 py-6 rounded-b-xl w-full h-full bg-black/70 font-sans">
+              <p className="text-sm text-center text-white/80 px-6 py-8 rounded-b-xl w-full h-full bg-black/60 font-sans leading-relaxed flex items-center">
                 {item.description}
               </p>
             </div>

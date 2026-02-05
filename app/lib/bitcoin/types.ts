@@ -1,5 +1,14 @@
 export type NetworkTrend = "Improving" | "Stable" | "Worsening";
 
+export type BitcoinHalving = {
+  currentBlock: number;
+  nextHalvingBlock: number;
+  blocksRemaining: number;
+  progressPercent: number;
+  estimatedDate: string;
+  cached: boolean;
+};
+
 export type BitcoinNetwork = {
   updatedAt: string;
   cached: boolean;
@@ -8,6 +17,7 @@ export type BitcoinNetwork = {
   difficulty: number;
   avgBlockTimeSeconds: number;
   trend: NetworkTrend;
+  halving: BitcoinHalving;
 };
 
 export type BitcoinFees = {

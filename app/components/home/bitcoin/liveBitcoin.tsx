@@ -1,14 +1,14 @@
 "use client";
 import Image from "next/image";
-import Subtitle from "../subtitle";
+import Subtitle from "../../subtitle";
 import {
   getBitcoinNetwork,
   getBitcoinFees,
   getBitcoinMempool,
 } from "@/app/lib/api/bitcoin";
 import { useEffect, useMemo, useState } from "react";
-import { AnimatedMetric } from "../metrics/AnimatedMetric";
-import Loading from "../loading";
+import { AnimatedMetric } from "../../metrics/AnimatedMetric";
+import Loading from "../../loading";
 import {
   formatBlockTime,
   formatDifficulty,
@@ -25,8 +25,9 @@ import {
   computeMempoolPressure,
   computeNetworkConfidence,
 } from "@/app/lib/bitcoin/signals";
-import { BitcoinTrend } from "../bitcoin/BitcoinTrend";
+import { BitcoinTrend } from "../../bitcoin/BitcoinTrend";
 import { formatRelativeTime } from "@/app/lib/time/relative";
+import { HalvingMetric } from "./halvingMetric";
 
 export default function LiveBitcoin() {
   const [network, setNetwork] = useState<BitcoinNetwork | null>(null);
@@ -114,7 +115,7 @@ export default function LiveBitcoin() {
         description="Real-time Bitcoin network signals, streamed from our internal infrastructure layer."
       />
 
-      <div className="relative z-10 flex justify-center">
+      <div className="flex flex-col relative z-10 justify-center">
         <div className="relative w-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-14 shadow-2xl">
           <div className="absolute inset-0 rounded-2xl bg-indigo-500/10 blur-3xl pointer-events-none" />
 
@@ -272,6 +273,8 @@ export default function LiveBitcoin() {
             </div>
           )}
         </div>
+
+        {network && <HalvingMetric data={network.halving} />}
       </div>
     </div>
   );

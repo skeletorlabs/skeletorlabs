@@ -16,7 +16,7 @@ import Services from "./components/home/services";
 import About from "./components/home/about";
 import FAB from "./components/fab";
 import SelectedEngineeringWork from "./components/home/selected";
-import LiveBitcoin from "./components/home/liveBitcoin";
+import LiveBitcoin from "./components/home/bitcoin/liveBitcoin";
 
 export default function Home() {
   const Terminal = dynamic(

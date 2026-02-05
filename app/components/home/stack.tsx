@@ -15,49 +15,57 @@ const stack = [
     src: "/stack/ETHERS.svg",
   },
   {
-    name: "Figma",
-    href: "https://figma.com/",
-    src: "/stack/FIGMA.svg",
-  },
-  {
     name: "Foundry",
     href: "https://book.getfoundry.sh/",
     src: "/stack/FOUNDRY.svg",
   },
-
-  { name: "Hardhat", href: "https://hardhat.org/", src: "/stack/HARDHAT.svg" },
   {
-    name: "JavaScript",
-    href: "https://javascript.com/",
-    src: "/stack/JAVASCRIPT.svg",
+    name: "Go",
+    href: "https://go.dev/",
+    src: "/stack/GO.svg",
+  },
+  {
+    name: "Hardhat",
+    href: "https://hardhat.org/",
+    src: "/stack/HARDHAT.svg",
   },
   {
     name: "Metamask",
     href: "https://metamask.io/",
     src: "/stack/METAMASK.svg",
   },
-  { name: "NextJs", href: "https://nextjs.org/", src: "/stack/NEXT.svg" },
-  { name: "Node.Js", href: "https://nodejs.org/", src: "/stack/NODE.svg" },
-
+  {
+    name: "NextJs",
+    href: "https://nextjs.org/",
+    src: "/stack/NEXT.svg",
+  },
+  {
+    name: "Node.Js",
+    href: "https://nodejs.org/",
+    src: "/stack/NODE.svg",
+  },
   {
     name: "Open Zeppelin",
     href: "https://www.openzeppelin.com/",
     src: "/stack/OZ.svg",
   },
-  { name: "Rabby", href: "https://rabby.io/", src: "/stack/RABBY.svg" },
-  { name: "ReactJs", href: "https://react.dev/", src: "/stack/REACT.svg" },
+  {
+    name: "Rabby",
+    href: "https://rabby.io/",
+    src: "/stack/RABBY.svg",
+  },
   {
     name: "React Native",
     href: "https://reactnative.dev/",
     src: "/stack/REACT-NATIVE.svg",
   },
   {
-    name: "Remix",
-    href: "https://remix.ethereum.org/",
-    src: "/stack/REMIX.svg",
+    name: "ReactJs",
+    href: "https://react.dev/",
+    src: "/stack/REACT.svg",
   },
   {
-    name: "Rown Toolkits",
+    name: "Reown Toolkits",
     href: "https://reown.com/",
     src: "/stack/REOWN.svg",
   },
@@ -71,8 +79,11 @@ const stack = [
     href: "https://tailwindcss.com/",
     src: "/stack/TAILWIND.svg",
   },
-  { name: "The Graph", href: "https://thegraph.com/", src: "/stack/GRAPH.svg" },
-  { name: "Vercel", href: "https://vercel.com/", src: "/stack/VERCEL.svg" },
+  {
+    name: "The Graph",
+    href: "https://thegraph.com/",
+    src: "/stack/GRAPH.svg",
+  },
   {
     name: "TypeScript",
     href: "https://typescriptlang.org/",
