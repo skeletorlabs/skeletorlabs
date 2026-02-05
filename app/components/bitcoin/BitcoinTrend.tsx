@@ -1,5 +1,6 @@
 import { getNetworkTrendConfig } from "@/app/lib/bitcoin/trend";
 import { NetworkTrend } from "@/app/lib/bitcoin/types";
+import LabelWithTooltip from "../ui/labelWithTooltip";
 
 type Props = {
   trend?: NetworkTrend;
@@ -10,7 +11,9 @@ export function BitcoinTrend({ trend }: Props) {
 
   return (
     <div className="flex flex-col items-center md:items-start">
-      <span className="text-white/60 text-xs md:text-sm">Network Trend</span>
+      <LabelWithTooltip tooltip="A combined momentum indicator showing if the network security and activity are improving or worsening.">
+        Network Trend
+      </LabelWithTooltip>
 
       <div className="flex items-center gap-2">
         <span className={`${cfg.color} text-lg`} aria-hidden>

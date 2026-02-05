@@ -28,6 +28,7 @@ import {
 import { BitcoinTrend } from "../../bitcoin/BitcoinTrend";
 import { formatRelativeTime } from "@/app/lib/time/relative";
 import { HalvingMetric } from "./halvingMetric";
+import LabelWithTooltip from "../../ui/labelWithTooltip";
 
 export default function LiveBitcoin() {
   const [network, setNetwork] = useState<BitcoinNetwork | null>(null);
@@ -124,7 +125,7 @@ export default function LiveBitcoin() {
               <Loading />
             </div>
           ) : (
-            <div className="relative flex flex-col lg:flex-row gap-14">
+            <div className="relative flex flex-col lg:flex-row gap-10">
               {/* LEFT */}
               <div className="w-full text-center lg:text-start">
                 <p className="mb-6 text-white/90 text-xl md:text-2xl font-semibold">
@@ -147,6 +148,7 @@ export default function LiveBitcoin() {
                     value={network.blockHeight}
                     format={(v) => v.toLocaleString()}
                     animate={!network.cached}
+                    tooltip="The total number of blocks connected in the Bitcoin blockchain since the genesis block."
                   />
 
                   <AnimatedMetric
@@ -154,6 +156,7 @@ export default function LiveBitcoin() {
                     value={network.hashrateTHs}
                     format={formatHashrateTHs}
                     animate={!network.cached}
+                    tooltip="The estimated total computational power being used to mine and secure the network."
                   />
 
                   <AnimatedMetric
@@ -161,6 +164,7 @@ export default function LiveBitcoin() {
                     value={network.difficulty}
                     format={formatDifficulty}
                     animate={!network.cached}
+                    tooltip="A relative measure of how difficult it is to find a new block compared to the easiest it can ever be."
                   />
 
                   <AnimatedMetric
@@ -168,13 +172,14 @@ export default function LiveBitcoin() {
                     value={network.avgBlockTimeSeconds}
                     format={formatBlockTime}
                     animate={!network.cached}
+                    tooltip="The average time between blocks. The network targets 10 minutes through difficulty adjustments."
                   />
 
                   {/* STATUS ROWS */}
                   <div className="flex flex-col items-center md:items-start">
-                    <span className="text-white/60 text-xs md:text-sm">
+                    <LabelWithTooltip tooltip="Current operational state of the Bitcoin network based on block production and node connectivity.">
                       Network Status
-                    </span>
+                    </LabelWithTooltip>
                     <span
                       className={`${networkStatus.color} text-2xl md:text-lg font-semibold`}
                     >
@@ -183,9 +188,9 @@ export default function LiveBitcoin() {
                   </div>
 
                   <div className="flex flex-col items-center md:items-start">
-                    <span className="text-white/60 text-xs md:text-sm">
+                    <LabelWithTooltip tooltip="The level of congestion in the mempool. High pressure means more pending transactions and higher fees.">
                       Mempool Pressure
-                    </span>
+                    </LabelWithTooltip>
                     <span
                       className={`${mempoolPressure.color} text-2xl md:text-lg font-semibold`}
                     >
@@ -194,9 +199,9 @@ export default function LiveBitcoin() {
                   </div>
 
                   <div className="flex flex-col items-center md:items-start">
-                    <span className="text-white/60 text-xs md:text-sm">
+                    <LabelWithTooltip tooltip="A metric representing the reliability and synchronization health of nodes across the globe.">
                       Network Confidence
-                    </span>
+                    </LabelWithTooltip>
                     <span
                       className={`${networkConfidence.color} text-2xl md:text-lg font-semibold`}
                     >
@@ -216,6 +221,7 @@ export default function LiveBitcoin() {
                         `~${v} sat/vB · ${formatFeeLabel(networkStatus.label)}`
                       }
                       animate={!fees.cached}
+                      tooltip="The estimated fee rate in satoshis per virtual byte (sat/vB) for a timely transaction confirmation."
                     />
                   </div>
                 </div>
