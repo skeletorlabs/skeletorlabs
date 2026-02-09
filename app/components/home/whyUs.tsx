@@ -61,9 +61,8 @@ export default function WhyUs() {
           onClick={() => setTalkIsOpen(true)}
           className="transition-all duration-200 hover:scale-[1.02] hover:text-violet-200 tracking-wider"
         >
-          <div className="flex items-center relative">
-            <span className="z-20">LET'S TALK!</span>
-            <span className="absolute bottom-[-2px] left-[2px] w-max flex items-center text-pink-400">
+          <div className="flex items-center">
+            <span className="z-20 font-bold text-white [text-shadow:2px_2px_0px_#f472b6]">
               LET'S TALK!
             </span>
           </div>

@@ -13,6 +13,7 @@ export default function FAB() {
         hidden sm:flex flex-col items-end 
         fixed bottom-10 right-[-28px] 
         gap-2 scale-75 w-full max-w-[220px] overflow-hidden
+        z-50
       "
     >
       <button

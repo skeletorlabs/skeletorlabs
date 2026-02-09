@@ -7,15 +7,8 @@ interface HalvingProps {
 }
 
 export function Halving({ data }: HalvingProps) {
-  // Current block height dividido por 210.000 (num of blocks per halving)
-  const era = Math.floor(data.currentBlock / 210000);
-  // Subsidy calculation: 50 BTC initial subsidy divided by 2 raised to the era
-  const currentSubsidy = 50 / Math.pow(2, era);
-  // Next subsidy is simply the current subsidy halved
-  const nextSubsidy = currentSubsidy / 2;
-
   return (
-    <div className="w-full mt-6 relative group bg-skeletor-dark-violet ">
+    <div className="w-full mt-6 relative group bg-skeletor-dark-violet">
       <div className="absolute -inset-1 bg-gradient-to-r blur-2xl opacity-50" />
 
       <div className="relative flex flex-col md:flex-row items-center justify-between px-8 py-6 backdrop-blur-xl shadow-2xl overflow-hidden">
@@ -33,7 +26,7 @@ export function Halving({ data }: HalvingProps) {
           <span className="text-orange-500/80 text-[10px] font-mono uppercase tracking-[0.3em] mb-2">
             Next Halving Countdown
           </span>
-          <div className="flex items-baseline gap-3">
+          <div className="flex flex-col md:flex-row items-baseline gap-3">
             <AnimatePresence mode="wait">
               <motion.span
                 key={data.blocksRemaining}
@@ -46,7 +39,7 @@ export function Halving({ data }: HalvingProps) {
                 {data.blocksRemaining.toLocaleString()}
               </motion.span>
             </AnimatePresence>
-            <span className="text-white/30 text-sm font-mono uppercase tracking-widest">
+            <span className="text-white/30 text-sm font-mono uppercase tracking-widest text-center w-full md:w-max">
               Blocks Left
             </span>
           </div>
@@ -54,7 +47,7 @@ export function Halving({ data }: HalvingProps) {
 
         {/* RIGHT: Stats Grid */}
         <div className="flex gap-12 mt-6 md:mt-0 z-10">
-          <div className="text-right">
+          <div className="text-center md:text-right">
             <span className="text-white/40 text-[9px] font-mono uppercase tracking-widest block mb-1">
               Cycle Progress
             </span>
@@ -70,17 +63,17 @@ export function Halving({ data }: HalvingProps) {
             </AnimatePresence>
           </div>
 
-          <div className="text-right">
+          <div className="text-center md:text-right">
             <span className="text-white/40 text-[9px] font-mono uppercase tracking-widest block mb-1">
               Block Subsidy
             </span>
             <div className="flex items-center gap-2 font-mono text-lg">
               <span className="text-white/60 text-sm">
-                {currentSubsidy.toFixed(3)}
+                {data.currentSubsidy.toFixed(3)}
               </span>
               <span className="text-orange-500">→</span>
               <span className="text-white font-bold tracking-tight">
-                {nextSubsidy.toFixed(3)}
+                {data.nextSubsidy.toFixed(3)}
               </span>
             </div>
           </div>

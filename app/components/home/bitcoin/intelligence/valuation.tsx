@@ -28,7 +28,7 @@ export const ValuationCard = ({ data }: { data: BitcoinValuation }) => {
         </span>
       </div>
 
-      <div className="flex items-end gap-4 mb-4">
+      <div className="flex flex-col lg:flex-row lg:items-end gap-4 mb-4">
         <h3 className="text-5xl font-bold text-white tracking-tight">
           {data.ratio.toFixed(2)}x
         </h3>

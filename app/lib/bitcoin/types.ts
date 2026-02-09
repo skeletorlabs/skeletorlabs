@@ -11,6 +11,8 @@ export type BitcoinHalving = {
   blocksRemaining: number;
   progressPercent: number;
   estimatedDate: string;
+  currentSubsidy: number;
+  nextSubsidy: number;
 };
 
 export type BitcoinNetwork = {

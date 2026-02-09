@@ -245,12 +245,10 @@ export default function BitcoinMetrics() {
               {/* RIGHT IMAGE */}
               <div className="relative flex-shrink-0 hidden lg:flex">
                 <div className="absolute inset-0 bg-indigo-500/30 blur-3xl rounded-full" />
-                <Image
+                <img
                   src="/logo2.svg"
-                  width={260}
-                  height={260}
                   alt="Skeletor Labs Logo"
-                  className="relative z-10 drop-shadow-2xl"
+                  className="relative z-10 drop-shadow-2xl w-[260px] h-auto"
                 />
               </div>
             </div>

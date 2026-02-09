@@ -34,7 +34,7 @@ export const CorrelationCard = ({ data }: { data: BitcoinCorrelation }) => {
           </div>
         </div>
 
-        <div className="absolute top-0 right-0">
+        <div className="hidden lg:block absolute top-0 right-0">
           <div className="relative flex flex-col items-center">
             <div className="w-4 h-16 bg-gray-800/80 rounded-t-full border-x border-t border-white/10 relative overflow-hidden">
               <div
