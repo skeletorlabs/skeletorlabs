@@ -1,3 +1,8 @@
+export type Meta = {
+  updatedAt: string;
+  cached: boolean;
+};
+
 export type NetworkTrend = "Improving" | "Stable" | "Worsening";
 
 export type BitcoinHalving = {
@@ -6,12 +11,10 @@ export type BitcoinHalving = {
   blocksRemaining: number;
   progressPercent: number;
   estimatedDate: string;
-  cached: boolean;
 };
 
 export type BitcoinNetwork = {
-  updatedAt: string;
-  cached: boolean;
+  meta: Meta;
   blockHeight: number;
   hashrateTHs: number;
   difficulty: number;
@@ -21,18 +24,45 @@ export type BitcoinNetwork = {
 };
 
 export type BitcoinFees = {
+  meta: Meta;
   low: number;
   medium: number;
   high: number;
-  cached: boolean;
 };
 
 export type BitcoinMempool = {
+  meta: Meta;
   count: number;
   vsize: number;
   totalFee: number;
-  cached: boolean;
 };
+
+export type BitcoinValuation = {
+  meta: Meta;
+  btcPrice: number;
+  m2SupplyBillions: number;
+  ratio: number;
+  description: string;
+};
+
+export type BitcoinCorrelation = {
+  meta: Meta;
+  coefficient: number;
+  sample_count: number;
+  start_date: string;
+  end_date: string;
+};
+
+export type ValuationStatus = {
+  label: "UNDERVALUED" | "FAIR VALUE" | "OVERVALUED";
+  color: string;
+  bar: string;
+};
+
+export type CorrelationStrength =
+  | "STRONG CORRELATION"
+  | "MODERATE CORRELATION"
+  | "WEAK CORRELATION";
 
 export type PressureLevel = "Low" | "Moderate" | "High";
 

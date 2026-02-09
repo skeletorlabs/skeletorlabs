@@ -5,6 +5,8 @@ import {
   getBitcoinNetwork,
   getBitcoinFees,
   getBitcoinMempool,
+  getBitcoinValuation,
+  getBitcoinCorrelation,
 } from "@/app/lib/api/bitcoin";
 import { useEffect, useMemo, useState } from "react";
 import { AnimatedMetric } from "../../metrics/AnimatedMetric";
@@ -17,9 +19,11 @@ import {
   formatNetworkStatus,
 } from "@/app/lib/bitcoin/formatters";
 import {
+  BitcoinCorrelation,
   BitcoinFees,
   BitcoinMempool,
   BitcoinNetwork,
+  BitcoinValuation,
 } from "@/app/lib/bitcoin/types";
 import {
   computeMempoolPressure,
@@ -27,14 +31,20 @@ import {
 } from "@/app/lib/bitcoin/signals";
 import { BitcoinTrend } from "../../bitcoin/BitcoinTrend";
 import { formatRelativeTime } from "@/app/lib/time/relative";
-import { HalvingMetric } from "./halvingMetric";
+import { Halving } from "./intelligence/halving";
 import LabelWithTooltip from "../../ui/labelWithTooltip";
+import { ValuationCard } from "./intelligence/valuation";
+import { CorrelationCard } from "./intelligence/correlation";
 
-export default function LiveBitcoin() {
+export default function BitcoinMetrics() {
   const [network, setNetwork] = useState<BitcoinNetwork | null>(null);
   const [fees, setFees] = useState<BitcoinFees | null>(null);
   const [latency, setLatency] = useState<number>(0);
   const [mempool, setMempool] = useState<BitcoinMempool | null>(null);
+  const [valuation, setValuation] = useState<BitcoinValuation | null>(null);
+  const [correlation, setCorrelation] = useState<BitcoinCorrelation | null>(
+    null,
+  );
 
   useEffect(() => {
     let alive = true;
@@ -43,11 +53,14 @@ export default function LiveBitcoin() {
       try {
         const start = performance.now();
 
-        const [networkRes, feesRes, mempoolRes] = await Promise.all([
-          getBitcoinNetwork(),
-          getBitcoinFees(),
-          getBitcoinMempool(),
-        ]);
+        const [networkRes, feesRes, mempoolRes, valuationRes, correlationRes] =
+          await Promise.all([
+            getBitcoinNetwork(),
+            getBitcoinFees(),
+            getBitcoinMempool(),
+            getBitcoinValuation(),
+            getBitcoinCorrelation(),
+          ]);
 
         const end = performance.now();
 
@@ -56,6 +69,8 @@ export default function LiveBitcoin() {
           setFees(feesRes);
           setLatency(end - start);
           setMempool(mempoolRes);
+          setValuation(valuationRes);
+          setCorrelation(correlationRes);
         }
       } catch (err) {
         console.error("Fetch error:", err);
@@ -107,7 +122,7 @@ export default function LiveBitcoin() {
   return (
     <div
       id="live-bitcoin"
-      className="relative flex flex-col px-4 xl:px-14 py-24 gap-10 overflow-hidden"
+      className="relative flex flex-col px-4 xl:px-14 pt-24 gap-10 overflow-hidden"
     >
       <div className="absolute inset-0 bg-space opacity-20" />
 
@@ -116,8 +131,8 @@ export default function LiveBitcoin() {
         description="Real-time Bitcoin network signals, streamed from our internal infrastructure layer."
       />
 
-      <div className="flex flex-col relative z-10 justify-center">
-        <div className="relative w-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-14 shadow-2xl">
+      <div className="flex flex-col relative z-10 justify-center gap-8">
+        <div className="relative w-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-6 md:py-8 shadow-2xl">
           <div className="absolute inset-0 rounded-2xl bg-indigo-500/10 blur-3xl pointer-events-none" />
 
           {!canRenderCard ? (
@@ -128,14 +143,14 @@ export default function LiveBitcoin() {
             <div className="relative flex flex-col lg:flex-row gap-10">
               {/* LEFT */}
               <div className="w-full text-center lg:text-start">
-                <p className="mb-6 text-white/90 text-xl md:text-2xl font-semibold">
+                <p className="mb-3 text-white/90 text-xl md:text-2xl font-semibold">
                   <span className="text-violet-400 font-bold">
                     Live Bitcoin Network
                   </span>{" "}
                   snapshot powered by Skeletor Labs.
                 </p>
 
-                <p className="mb-10 text-white/80 max-w-3xl mx-auto lg:mx-0">
+                <p className="mb-14 text-white/70 max-w-3xl mx-auto lg:mx-0 text-base">
                   This block showcases live Bitcoin network intelligence
                   aggregated from multiple mempool endpoints and normalized by
                   our internal API.
@@ -147,7 +162,7 @@ export default function LiveBitcoin() {
                     label="Block Height"
                     value={network.blockHeight}
                     format={(v) => v.toLocaleString()}
-                    animate={!network.cached}
+                    animate={!network.meta.cached}
                     tooltip="The total number of blocks connected in the Bitcoin blockchain since the genesis block."
                   />
 
@@ -155,7 +170,7 @@ export default function LiveBitcoin() {
                     label="Hashrate"
                     value={network.hashrateTHs}
                     format={formatHashrateTHs}
-                    animate={!network.cached}
+                    animate={!network.meta.cached}
                     tooltip="The estimated total computational power being used to mine and secure the network."
                   />
 
@@ -163,7 +178,7 @@ export default function LiveBitcoin() {
                     label="Difficulty"
                     value={network.difficulty}
                     format={formatDifficulty}
-                    animate={!network.cached}
+                    animate={!network.meta.cached}
                     tooltip="A relative measure of how difficult it is to find a new block compared to the easiest it can ever be."
                   />
 
@@ -171,7 +186,7 @@ export default function LiveBitcoin() {
                     label="Avg Block Time"
                     value={network.avgBlockTimeSeconds}
                     format={formatBlockTime}
-                    animate={!network.cached}
+                    animate={!network.meta.cached}
                     tooltip="The average time between blocks. The network targets 10 minutes through difficulty adjustments."
                   />
 
@@ -213,56 +228,18 @@ export default function LiveBitcoin() {
                   <BitcoinTrend trend={network.trend} />
 
                   {/* FEE */}
-                  <div className="col-span-2 md:col-span-2 pt-2">
+                  <div className="col-span-2 md:col-span-3 pt-8 border-t border-white/5">
                     <AnimatedMetric
                       label="Recommended Tx Fee"
                       value={feeLevel}
                       format={(v) =>
                         `~${v} sat/vB · ${formatFeeLabel(networkStatus.label)}`
                       }
-                      animate={!fees.cached}
+                      animate={!fees.meta.cached}
                       tooltip="The estimated fee rate in satoshis per virtual byte (sat/vB) for a timely transaction confirmation."
                     />
                   </div>
                 </div>
-
-                {/* FOOTER */}
-                <p className="mt-10 text-white/50 text-sm">
-                  <span className="flex flex-wrap justify-center lg:justify-start gap-2">
-                    <span
-                      className={`animate-pulse ${
-                        network.cached ? "text-amber-400" : "text-green-300"
-                      }`}
-                    >
-                      ●
-                    </span>
-                    {network.cached ? "Go Internal Cache" : "Fresh Engine Data"}
-
-                    <span className="text-white/60">·</span>
-                    <span
-                      className={`
-                            transition-colors duration-500
-                            ${network.cached ? "text-white/60" : "text-green-300"}
-                          `}
-                    >
-                      Updated {formatRelativeTime(network.updatedAt)}
-                    </span>
-
-                    <span className="text-white/60">·</span>
-                    <span className="text-violet-300 font-mono">
-                      ~{latency.toFixed(0)}ms API Latency
-                    </span>
-                    <span className="text-white/60">·</span>
-
-                    <a
-                      href="https://github.com/skeletorlabs/crypto-api"
-                      target="_blank"
-                      className="text-violet-400 hover:text-violet-300"
-                    >
-                      View source (Go)
-                    </a>
-                  </span>
-                </p>
               </div>
 
               {/* RIGHT IMAGE */}
@@ -280,7 +257,53 @@ export default function LiveBitcoin() {
           )}
         </div>
 
-        {network && <HalvingMetric data={network.halving} />}
+        {valuation && correlation && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <ValuationCard data={valuation} />
+            <CorrelationCard data={correlation} />
+          </div>
+        )}
+
+        {network && <Halving data={network.halving} />}
+
+        {network && (
+          <div className="text-white/50 text-xs px-4">
+            <span className="flex flex-wrap justify-center lg:justify-start gap-2">
+              <span
+                className={`animate-pulse ${
+                  network.meta.cached ? "text-amber-400" : "text-green-300"
+                }`}
+              >
+                ●
+              </span>
+              {network.meta.cached ? "Go Internal Cache" : "Fresh Engine Data"}
+
+              <span className="text-white/60">·</span>
+              <span
+                className={`
+                  transition-colors duration-500
+                  ${network.meta.cached ? "text-white/60" : "text-green-300"}
+                `}
+              >
+                Updated {formatRelativeTime(network.meta.updatedAt)}
+              </span>
+
+              <span className="text-white/60">·</span>
+              <span className="text-violet-300 font-mono">
+                ~{latency.toFixed(0)}ms API Latency
+              </span>
+              <span className="text-white/60">·</span>
+
+              <a
+                href="https://github.com/skeletorlabs/crypto-api"
+                target="_blank"
+                className="text-violet-400 hover:text-violet-300"
+              >
+                View source (Go)
+              </a>
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

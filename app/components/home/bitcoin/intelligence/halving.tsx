@@ -6,13 +6,20 @@ interface HalvingProps {
   data: BitcoinHalving;
 }
 
-export function HalvingMetric({ data }: HalvingProps) {
+export function Halving({ data }: HalvingProps) {
+  // Current block height dividido por 210.000 (num of blocks per halving)
+  const era = Math.floor(data.currentBlock / 210000);
+  // Subsidy calculation: 50 BTC initial subsidy divided by 2 raised to the era
+  const currentSubsidy = 50 / Math.pow(2, era);
+  // Next subsidy is simply the current subsidy halved
+  const nextSubsidy = currentSubsidy / 2;
+
   return (
-    <div className="w-full mt-6 relative group">
+    <div className="w-full mt-6 relative group bg-skeletor-dark-violet ">
       <div className="absolute -inset-1 bg-gradient-to-r blur-2xl opacity-50" />
 
       <div className="relative flex flex-col md:flex-row items-center justify-between px-8 py-6 backdrop-blur-xl shadow-2xl overflow-hidden">
-        {/* PROGRESS BAR ANIMADA */}
+        {/* LEFT: Progress Bar & Countdown */}
         <div className="absolute top-0 left-0 w-full h-[2px] bg-white/5">
           <motion.div
             initial={{ width: 0 }}
@@ -22,7 +29,6 @@ export function HalvingMetric({ data }: HalvingProps) {
           />
         </div>
 
-        {/* LEFT: Countdown com AnimatePresence para o número */}
         <div className="flex flex-col items-center md:items-start z-10">
           <span className="text-orange-500/80 text-[10px] font-mono uppercase tracking-[0.3em] mb-2">
             Next Halving Countdown
@@ -69,9 +75,13 @@ export function HalvingMetric({ data }: HalvingProps) {
               Block Subsidy
             </span>
             <div className="flex items-center gap-2 font-mono text-lg">
-              <span className="text-white/60 text-sm">3.125</span>
+              <span className="text-white/60 text-sm">
+                {currentSubsidy.toFixed(3)}
+              </span>
               <span className="text-orange-500">→</span>
-              <span className="text-white font-bold tracking-tight">1.562</span>
+              <span className="text-white font-bold tracking-tight">
+                {nextSubsidy.toFixed(3)}
+              </span>
             </div>
           </div>
         </div>

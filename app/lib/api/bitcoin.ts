@@ -1,4 +1,10 @@
-import { BitcoinFees, BitcoinMempool, BitcoinNetwork } from "../bitcoin/types";
+import {
+  BitcoinCorrelation,
+  BitcoinFees,
+  BitcoinMempool,
+  BitcoinNetwork,
+  BitcoinValuation,
+} from "../bitcoin/types";
 
 export async function getBitcoinNetwork() {
   const res = await fetch("/api/bitcoin/network");
@@ -22,4 +28,18 @@ export async function getBitcoinMempool() {
 
   if (!res.ok) throw new Error("Failed to fetch Bitcoin mempool");
   return res.json() as Promise<BitcoinMempool>;
+}
+
+export async function getBitcoinValuation() {
+  const res = await fetch("/api/bitcoin/valuation");
+
+  if (!res.ok) throw new Error("Failed to fetch Bitcoin valuation");
+  return res.json() as Promise<BitcoinValuation>;
+}
+
+export async function getBitcoinCorrelation() {
+  const res = await fetch("/api/bitcoin/correlation");
+
+  if (!res.ok) throw new Error("Failed to fetch Bitcoin correlation");
+  return res.json() as Promise<BitcoinCorrelation>;
 }
