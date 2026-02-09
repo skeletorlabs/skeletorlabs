@@ -15,7 +15,10 @@ const metadata = {
   name: "Skeletor Labs",
   description:
     "Skeletor Labs - A Blockchain Dev Studio Building the Future of Web3, De-Fi, and NFTs Collections",
-  url: "https://www.skeletorlabs.xyz",
+  url:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://www.skeletorlabs.xyz",
   icons: ["https://skeletorlabs.xyz/logo-v4.svg"],
 };
 
@@ -45,11 +48,9 @@ createAppKit({
   metadata,
   networks: allowedNetworks,
   projectId,
-  features: {
-    analytics: true, // Optional - defaults to your Cloud configuration
-  },
   themeVariables: {
     "--w3m-accent": "#C0B7F8",
+    "--w3m-font-family": "inherit",
   },
 });
 

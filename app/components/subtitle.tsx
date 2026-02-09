@@ -7,19 +7,27 @@ interface Subtitle {
   text: string;
   description: string;
   padding?: boolean;
+  hideIcon?: boolean;
 }
 
-export default function Subtitle({ text, description, padding }: Subtitle) {
+export default function Subtitle({
+  text,
+  description,
+  padding,
+  hideIcon,
+}: Subtitle) {
   return (
     <Fragment>
       {/* MOBILE */}
       <div className="flex xl:hidden flex-col items-center text-center gap-1 z-30">
         <div className="flex items-center gap-2">
-          <ArrowRightCircleIcon
-            width={32}
-            height={32}
-            className="text-violet-300"
-          />
+          {!hideIcon && (
+            <ArrowRightCircleIcon
+              width={32}
+              height={32}
+              className="text-violet-300"
+            />
+          )}
           <span
             className={`text-2xl font-bold text-violet-200 ${jakarta.className}`}
           >
@@ -36,11 +44,13 @@ export default function Subtitle({ text, description, padding }: Subtitle) {
       <div
         className={`hidden xl:flex items-center gap-4 z-30 ${padding && "px-14"}`}
       >
-        <ArrowRightCircleIcon
-          width={64}
-          height={64}
-          className="text-violet-300 min-w-[64px] min-h-[64px] w-[64px] h-[64px]"
-        />
+        {!hideIcon && (
+          <ArrowRightCircleIcon
+            width={64}
+            height={64}
+            className="text-violet-300 min-w-[64px] min-h-[64px] w-[64px] h-[64px]"
+          />
+        )}
         <div className="flex flex-col">
           <span
             className={`text-3xl font-bold text-violet-200 ${jakarta.className}`}

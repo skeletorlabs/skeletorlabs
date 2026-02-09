@@ -1,25 +1,32 @@
-import { BitcoinFees, BitcoinMempool, BitcoinNetwork } from "../bitcoin/types";
+import {
+  BitcoinCorrelation,
+  BitcoinFees,
+  BitcoinMempool,
+  BitcoinNetwork,
+  BitcoinValuation,
+} from "../bitcoin/types";
 
-export async function getBitcoinNetwork() {
-  const res = await fetch("/api/bitcoin/network");
+/**
+ * Internal generic fetcher for Bitcoin local API routes
+ * @param endpoint The local route path (e.g., 'network', 'fees')
+ */
+async function fetchBitcoinData<T>(endpoint: string): Promise<T> {
+  const res = await fetch(`/api/bitcoin/${endpoint}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch Bitcoin network");
+    throw new Error(`Failed to fetch Bitcoin ${endpoint}`);
   }
 
-  return res.json() as Promise<BitcoinNetwork>;
+  return res.json() as Promise<T>;
 }
 
-export async function getBitcoinFees() {
-  const res = await fetch("/api/bitcoin/fees");
-
-  if (!res.ok) throw new Error("Failed to fetch Bitcoin fees");
-  return res.json() as Promise<BitcoinFees>;
-}
-
-export async function getBitcoinMempool() {
-  const res = await fetch("/api/bitcoin/mempool");
-
-  if (!res.ok) throw new Error("Failed to fetch Bitcoin mempool");
-  return res.json() as Promise<BitcoinMempool>;
-}
+// Public API functions using the generic fetcher
+export const getBitcoinNetwork = () =>
+  fetchBitcoinData<BitcoinNetwork>("network");
+export const getBitcoinFees = () => fetchBitcoinData<BitcoinFees>("fees");
+export const getBitcoinMempool = () =>
+  fetchBitcoinData<BitcoinMempool>("mempool");
+export const getBitcoinValuation = () =>
+  fetchBitcoinData<BitcoinValuation>("valuation");
+export const getBitcoinCorrelation = () =>
+  fetchBitcoinData<BitcoinCorrelation>("correlation");
