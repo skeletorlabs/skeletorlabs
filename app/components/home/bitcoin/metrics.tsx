@@ -122,7 +122,7 @@ export default function BitcoinMetrics() {
   return (
     <div
       id="live-bitcoin"
-      className="relative flex flex-col px-4 xl:px-14 pt-24 gap-10 overflow-hidden"
+      className="relative flex flex-col  xl:px-14 pt-24 gap-10 overflow-hidden"
     >
       <div className="absolute inset-0 bg-space opacity-20" />
 
@@ -132,7 +132,7 @@ export default function BitcoinMetrics() {
       />
 
       <div className="flex flex-col relative z-10 justify-center gap-8">
-        <div className="relative w-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-6 md:py-8 shadow-2xl">
+        <div className="relative w-full lg:rounded-2xl lg:border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-6 md:py-8 shadow-2xl">
           <div className="absolute inset-0 rounded-2xl bg-indigo-500/10 blur-3xl pointer-events-none" />
 
           {!canRenderCard ? (
@@ -265,7 +265,7 @@ export default function BitcoinMetrics() {
         {network && <Halving data={network.halving} />}
 
         {network && (
-          <div className="text-white/50 text-xs px-4">
+          <div className="text-white/50 text-xs px-4 pb-10 lg:pb-0 max-w-sm lg:max-w-auto mx-auto lg:mx-0 text-center lg:text-left">
             <span className="flex flex-wrap justify-center lg:justify-start gap-2">
               <span
                 className={`animate-pulse ${

@@ -46,7 +46,7 @@ export function Halving({ data }: HalvingProps) {
         </div>
 
         {/* RIGHT: Stats Grid */}
-        <div className="flex gap-12 mt-6 md:mt-0 z-10">
+        <div className="flex gap-12 mt-6 md:mt-0 z-10 border-t border-white/10 pt-6 md:border-t-0 md:pt-0">
           <div className="text-center md:text-right">
             <span className="text-white/40 text-[9px] font-mono uppercase tracking-widest block mb-1">
               Cycle Progress

@@ -86,11 +86,11 @@ function EngineeringBlock({
         {title}
       </p>
 
-      <ul className="flex flex-col gap-2 text-sm text-white/70">
+      <ul className="flex flex-col gap-1 lg:gap-2 text-sm text-white/70">
         {items.map((item, i) => (
           <li
             key={i}
-            className="flex gap-2 bg-white/5 rounded-md px-3 py-4 md:py-2 items-center"
+            className="flex gap-2 bg-purple-400/5 lg:bg-white/5 lg:rounded-md px-3 py-4 md:py-2 items-center"
           >
             <span className="text-violet-400 mt-[2px] hidden md:block">▹</span>
             {item}
@@ -114,7 +114,7 @@ export default function SelectedEngineeringWork() {
   }, []);
 
   return (
-    <section className="flex flex-col bg-black/10 px-4 xl:px-14 py-4 border-t border-white/5 gap-10 mt-10 text-center sm:text-left">
+    <section className="flex flex-col bg-gradient-to-b from-transparent to-black/10 px-4 xl:px-14 py-4 gap-10 mt-10 text-center sm:text-left">
       <Subtitle
         text="Selected Engineering"
         description="Complex infrastructure and wallet integrations delivered under NDA"
@@ -144,7 +144,7 @@ export default function SelectedEngineeringWork() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="grid grid-cols-1 xl:grid-cols-2 gap-10 bg-skeletor-gray/40 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-6 transition-all hover:bg-skeletor-gray/50"
+                className="grid grid-cols-1 xl:grid-cols-2 gap-10 bg-skeletor-gray/40 backdrop-blur-sm border border-white/10 rounded-2xl px-8 py-6 transition-all hover:bg-skeletor-gray/50"
               >
                 {/* LEFT COLUMN */}
                 <div className="flex flex-col gap-6">

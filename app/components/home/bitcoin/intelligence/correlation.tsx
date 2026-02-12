@@ -13,7 +13,7 @@ export const CorrelationCard = ({ data }: { data: BitcoinCorrelation }) => {
   }, [data.coefficient]);
 
   return (
-    <div className="bg-skeletor-dark-violet/60 border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative overflow-hidden group flex flex-col h-full">
+    <div className="bg-skeletor-dark-violet/60 lg:border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative overflow-hidden group flex flex-col h-full items-center lg:items-start">
       <div className="flex items-center gap-2 mb-6 text-gray-400">
         <Brain size={18} className="text-purple-400" />
         <span className="text-xs font-bold tracking-widest uppercase text-gray-400">
@@ -21,7 +21,7 @@ export const CorrelationCard = ({ data }: { data: BitcoinCorrelation }) => {
         </span>
       </div>
 
-      <div className="flex justify-between items-end mb-4 relative">
+      <div className="flex justify-center lg:justify-between mb-4 relative w-full">
         <div className="flex items-end gap-5">
           <h3 className="text-5xl font-bold text-white tracking-tighter leading-none">
             {data.coefficient.toFixed(2)}
@@ -50,7 +50,7 @@ export const CorrelationCard = ({ data }: { data: BitcoinCorrelation }) => {
         </div>
       </div>
 
-      <p className="text-gray-400 text-sm leading-relaxed mb-6">
+      <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs text-center lg:max-w-auto lg:text-left">
         Correlation calculated based on {data.sample_count} samples from{" "}
         {new Date(data.start_date).getFullYear()} to{" "}
         {new Date(data.end_date).getFullYear()}.

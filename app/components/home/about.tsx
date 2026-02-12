@@ -51,7 +51,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="relative flex flex-col px-4 xl:px-14 py-24 gap-10 overflow-hidden"
+      className="relative flex flex-col xl:px-14 py-12 lg:py-24 gap-10 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-space opacity-20" />
 
@@ -78,11 +78,11 @@ export default function About() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-10 md:p-16 shadow-2xl"
+          className="relative overflow-hidden lg:rounded-3xl lg:border border-white/10 bg-black/40 backdrop-blur-xl p-10 md:p-16 shadow-2xl"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-indigo-500/10 pointer-events-none" />
 
-          <div className="relative z-10 grid md:grid-cols-2 gap-16 items-start">
+          <div className="relative z-10 grid md:grid-cols-2 gap-6 lg:gap-16 items-start">
             <motion.div
               variants={itemVariants}
               className="text-center md:text-left max-w-3xl"
@@ -105,7 +105,7 @@ export default function About() {
 
             <motion.div
               variants={containerVariants}
-              className="space-y-10 text-center md:text-left"
+              className="space-y-10 text-center md:text-left border-t border-white/10 pt-10 md:border-t-0 md:pt-0"
             >
               {right.map((item) => (
                 <motion.div

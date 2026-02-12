@@ -20,7 +20,7 @@ export const ValuationCard = ({ data }: { data: BitcoinValuation }) => {
   }, [data.ratio]);
 
   return (
-    <div className="bg-skeletor-dark-violet/60 border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative overflow-hidden group flex flex-col h-full">
+    <div className="bg-skeletor-dark-violet/60 lg:border border-white/10 lg:rounded-2xl p-6 backdrop-blur-sm relative overflow-hidden group flex flex-col h-full items-center lg:items-start">
       <div className="flex items-center gap-2 mb-6 text-gray-400">
         <Brain size={18} className="text-purple-400" />
         <span className="text-xs font-bold tracking-widest uppercase text-gray-400">
@@ -28,12 +28,12 @@ export const ValuationCard = ({ data }: { data: BitcoinValuation }) => {
         </span>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:items-end gap-4 mb-4">
+      <div className="flex flex-col lg:flex-row items-center lg:items-end gap-4 mb-4 w-full">
         <h3 className="text-5xl font-bold text-white tracking-tight">
           {data.ratio.toFixed(2)}x
         </h3>
 
-        <div className="flex flex-col gap-[4px] flex-1">
+        <div className="flex flex-col gap-[4px] flex-1 w-[300px] lg:w-full">
           <div className="flex justify-between items-center px-1">
             <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">
               Valuation Gauge
@@ -56,7 +56,7 @@ export const ValuationCard = ({ data }: { data: BitcoinValuation }) => {
         </div>
       </div>
 
-      <p className="text-gray-400 text-sm leading-relaxed mb-6">
+      <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-xs text-center lg:max-w-auto lg:text-left">
         {data.description}
       </p>
 

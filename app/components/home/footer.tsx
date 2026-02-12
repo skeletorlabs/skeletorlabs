@@ -72,7 +72,7 @@ export default function Footer() {
             </button>
           </div>
           <span className="text-white/80">
-            Ⓒ Copyright 2025 - All rights reserved by Skeletor Labs
+            Ⓒ Copyright 2026 - All rights reserved by Skeletor Labs
           </span>
         </div>
       </footer>
@@ -137,7 +137,7 @@ export default function Footer() {
             </button>
           </div>
           <span className="text-white/80">
-            Ⓒ Copyright 2025 - All rights reserved by Skeletor Labs
+            Ⓒ Copyright 2026 - All rights reserved by Skeletor Labs
           </span>
         </div>
       </footer>
