@@ -3,11 +3,11 @@ import { NextRequest, NextResponse } from "next/server";
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Applies only to API routes
   if (pathname.startsWith("/api")) {
     const origin = request.headers.get("origin") || "";
     const referer = request.headers.get("referer") || "";
-    const isCron = request.headers.get("x-vercel-cron");
+    const isCronHeader = request.headers.get("x-vercel-cron");
+    const userAgent = request.headers.get("user-agent") || "";
 
     const isDev = process.env.NODE_ENV === "development";
 
@@ -17,12 +17,10 @@ export function proxy(request: NextRequest) {
       "https://test.skeletorlabs.xyz",
     ];
 
-    // 🔓 Permits Vercel Cron (official header)
-    if (isCron) {
+    if (isCronHeader || userAgent.includes("vercel-cron")) {
       return NextResponse.next();
     }
 
-    // 🔓 Permite localhost em dev
     if (
       isDev &&
       (origin.startsWith("http://localhost") ||
@@ -31,7 +29,6 @@ export function proxy(request: NextRequest) {
       return NextResponse.next();
     }
 
-    // Domain validation for production
     const isAllowed = allowedDomains.some(
       (domain) => origin.startsWith(domain) || referer.startsWith(domain),
     );
