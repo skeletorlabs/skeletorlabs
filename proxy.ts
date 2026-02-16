@@ -1,13 +1,13 @@
-// proxy.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export function proxy(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  const { pathname } = request.nextUrl;
 
-  // Aplica apenas para rotas de API
+  // Applies only to API routes
   if (pathname.startsWith("/api")) {
     const origin = request.headers.get("origin") || "";
     const referer = request.headers.get("referer") || "";
+    const isCron = request.headers.get("x-vercel-cron");
 
     const isDev = process.env.NODE_ENV === "development";
 
@@ -17,17 +17,27 @@ export function proxy(request: NextRequest) {
       "https://test.skeletorlabs.xyz",
     ];
 
-    // Validação de origem/referer
-    const isAllowed = isDev
-      ? origin.startsWith("http://localhost") ||
-        referer.startsWith("http://localhost")
-      : allowedDomains.some(
-          (domain) => origin.startsWith(domain) || referer.startsWith(domain)
-        );
+    // 🔓 Permits Vercel Cron (official header)
+    if (isCron) {
+      return NextResponse.next();
+    }
+
+    // 🔓 Permite localhost em dev
+    if (
+      isDev &&
+      (origin.startsWith("http://localhost") ||
+        referer.startsWith("http://localhost"))
+    ) {
+      return NextResponse.next();
+    }
+
+    // Domain validation for production
+    const isAllowed = allowedDomains.some(
+      (domain) => origin.startsWith(domain) || referer.startsWith(domain),
+    );
 
     if (!isAllowed) {
-      // Log discreto para debug em produção, se necessário
-      console.warn(`[Proxy] Acesso bloqueado: ${origin || referer}`);
+      console.warn(`[Proxy] Access Blocked: ${origin || referer || "unknown"}`);
       return new NextResponse("Forbidden", { status: 403 });
     }
   }
@@ -35,7 +45,6 @@ export function proxy(request: NextRequest) {
   return NextResponse.next();
 }
 
-// O matcher continua funcionando da mesma forma no proxy.ts
 export const config = {
   matcher: ["/api/:path*"],
 };
