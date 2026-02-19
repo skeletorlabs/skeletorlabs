@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import Subtitle from "../../subtitle";
 import {
   getBitcoinNetwork,
@@ -19,11 +19,11 @@ import {
   formatNetworkStatus,
 } from "@/app/lib/bitcoin/formatters";
 import {
-  BitcoinCorrelation,
+  // BitcoinCorrelation,
   BitcoinFees,
   BitcoinMempool,
   BitcoinNetwork,
-  BitcoinValuation,
+  // BitcoinValuation,
 } from "@/app/lib/bitcoin/types";
 import {
   computeMempoolPressure,
@@ -33,18 +33,18 @@ import { BitcoinTrend } from "../../bitcoin/BitcoinTrend";
 import { formatRelativeTime } from "@/app/lib/time/relative";
 import { Halving } from "./intelligence/halving";
 import LabelWithTooltip from "../../ui/labelWithTooltip";
-import { ValuationCard } from "./intelligence/valuation";
-import { CorrelationCard } from "./intelligence/correlation";
+// import { ValuationCard } from "./intelligence/valuation";
+// import { CorrelationCard } from "./intelligence/correlation";
 
 export default function BitcoinMetrics() {
   const [network, setNetwork] = useState<BitcoinNetwork | null>(null);
   const [fees, setFees] = useState<BitcoinFees | null>(null);
   const [latency, setLatency] = useState<number>(0);
   const [mempool, setMempool] = useState<BitcoinMempool | null>(null);
-  const [valuation, setValuation] = useState<BitcoinValuation | null>(null);
-  const [correlation, setCorrelation] = useState<BitcoinCorrelation | null>(
-    null,
-  );
+  // const [valuation, setValuation] = useState<BitcoinValuation | null>(null);
+  // const [correlation, setCorrelation] = useState<BitcoinCorrelation | null>(
+  //   null,
+  // );
 
   useEffect(() => {
     let alive = true;
@@ -69,8 +69,8 @@ export default function BitcoinMetrics() {
           setFees(feesRes);
           setLatency(end - start);
           setMempool(mempoolRes);
-          setValuation(valuationRes);
-          setCorrelation(correlationRes);
+          // setValuation(valuationRes);
+          // setCorrelation(correlationRes);
         }
       } catch (err) {
         console.error("Fetch error:", err);
@@ -255,12 +255,12 @@ export default function BitcoinMetrics() {
           )}
         </div>
 
-        {valuation && correlation && (
+        {/* {valuation && correlation && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <ValuationCard data={valuation} />
             <CorrelationCard data={correlation} />
           </div>
-        )}
+        )} */}
 
         {network && <Halving data={network.halving} />}
 
