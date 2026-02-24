@@ -53,14 +53,13 @@ export default function BitcoinMetrics() {
       try {
         const start = performance.now();
 
-        const [networkRes, feesRes, mempoolRes, valuationRes, correlationRes] =
-          await Promise.all([
-            getBitcoinNetwork(),
-            getBitcoinFees(),
-            getBitcoinMempool(),
-            getBitcoinValuation(),
-            getBitcoinCorrelation(),
-          ]);
+        const [networkRes, feesRes, mempoolRes] = await Promise.all([
+          getBitcoinNetwork(),
+          getBitcoinFees(),
+          getBitcoinMempool(),
+          // getBitcoinValuation(),
+          // getBitcoinCorrelation(),
+        ]);
 
         const end = performance.now();
 
