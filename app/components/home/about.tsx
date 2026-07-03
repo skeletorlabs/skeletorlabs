@@ -51,7 +51,7 @@ export default function About() {
   return (
     <div
       id="about"
-      className="relative flex flex-col xl:px-14 py-12 lg:py-24 gap-10 overflow-hidden"
+      className="relative flex flex-col xl:px-14 py-12 lg:py-24 gap-10 overflow-hidden mt-10"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-space opacity-20" />
 

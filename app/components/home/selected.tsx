@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import Image from "next/image";
 import Subtitle from "../subtitle";
 import Badge from "../badge";
 import Loading from "../loading";
@@ -11,6 +12,45 @@ import Loading from "../loading";
  * =======================================================*/
 
 const selectedEngineeringWork = [
+  {
+    name: "Phase Model",
+    usecase: "Structural market-regime classification engine",
+    summary:
+      "A composite regime-classification system that reads crypto and traditional markets (BTC, ETH, SOL, S&P 500, Gold, Silver, Oil, NYSE, Shanghai SE, STOXX, B3) through five signal pillars — macro, momentum, liquidity, volatility, and flow & network — and outputs a daily structural read: expansion, transition, or contraction. Rather than reacting to price, it separates genuine structural shifts from short-term noise, giving long-term investors, active allocators and crypto traders a stable context layer to sit on top of. Each read ships with a 0–100 confidence score describing how aligned the underlying pillars are, so users can tell a clean regime apart from a mixed one. The same data is exposed through a public REST API and an MCP server, so it can drive a dashboard directly or feed AI-native research and trading workflows without any manual interpretation step.",
+    stacks: [
+      "Composite Regime Model",
+      "REST API",
+      "MCP / JSON-RPC 2.0",
+      "On-Chain & Macro Data",
+      "Z-Score Normalization",
+    ],
+    engineeringFocus: {
+      problemSpace: [
+        "Classifying structure consistently across asset classes with fundamentally different data (crypto on-chain flows vs. equity/commodity macro data)",
+        "Aggregating asynchronous, heterogeneous sources — on-chain, derivatives, macro aggregators, traditional market data — into one comparable signal space",
+        "Preventing false regime flips triggered by short-term volatility or a single noisy signal",
+        "Serving the same regime output to both human dashboards and machine consumers (LLMs via MCP)",
+      ],
+      execution: [
+        "Five-pillar architecture (Macro, Momentum, Liquidity, Volatility, Flow & Network) with an on-chain/derivatives pillar exclusive to BTC, ETH and SOL",
+        "Z-score + Tanh normalization bounding every signal before cross-asset aggregation",
+        "Conditional pillar weighting — Macro and Momentum shift weight with prevailing macro-risk and liquidity conditions, remaining pillars stay fixed",
+        "Daily batch pipeline (fetch → compute → publish) intentionally decoupled from intraday price action, published before market open",
+        "Public REST API plus an MCP server over SSE (JSON-RPC 2.0) with header- and URL-based auth for different client integrations (Cursor vs. claude.ai/ChatGPT)",
+      ],
+      guarantees: [
+        "No single data point or metric drives a regime output — classification requires alignment across independent pillars",
+        "0-100 confidence score separates structural certainty from directional bias",
+        "One deterministic structural snapshot per day, not reactive to intraday noise",
+        "11 tracked assets across crypto, equities and commodities behind one unified schema and API",
+      ],
+    },
+    note: "Built and operated by Skeletor Labs — live in production, free access.",
+    link: "https://www.phasemodel.xyz/",
+    visual: "logo" as const,
+    logoSrc: "/labs/phasemodel.svg",
+    layout: "stacked" as const,
+  },
   {
     name: "Bitcoin Ledger Integration",
     usecase: "Hardware wallet support for Bitcoin transactions",
@@ -45,6 +85,7 @@ const selectedEngineeringWork = [
       ],
     },
     note: "Delivered under NDA for a production mobile wallet. Client details and source code cannot be disclosed.",
+    visual: "ledger" as const,
   },
 ];
 
@@ -117,7 +158,7 @@ export default function SelectedEngineeringWork() {
     <section className="flex flex-col bg-gradient-to-b from-transparent to-black/10 px-4 xl:px-14 py-4 gap-10 mt-10 text-center sm:text-left">
       <Subtitle
         text="Selected Engineering"
-        description="Complex infrastructure and wallet integrations delivered under NDA"
+        description="A closer look at the problems we solve and how we solve them"
       />
 
       <AnimatePresence mode="wait">
@@ -144,29 +185,82 @@ export default function SelectedEngineeringWork() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="grid grid-cols-1 xl:grid-cols-2 gap-10 bg-skeletor-gray/40 backdrop-blur-sm border border-white/10 rounded-2xl px-8 py-6 transition-all hover:bg-skeletor-gray/50"
+                className={`grid gap-10 bg-skeletor-gray/40 backdrop-blur-sm border border-white/10 rounded-2xl px-8 py-6 transition-all hover:bg-skeletor-gray/50 ${
+                  "layout" in item && item.layout === "stacked"
+                    ? "grid-cols-1"
+                    : "grid-cols-1 xl:grid-cols-2"
+                }`}
               >
                 {/* LEFT COLUMN */}
                 <div className="flex flex-col gap-6">
-                  <div className="flex flex-col gap-2">
-                    <h3 className="text-2xl font-semibold text-violet-300">
-                      {item.name}
-                    </h3>
+                  {item.visual === "logo" && "logoSrc" in item ? (
+                    <div className="relative flex flex-col gap-6">
+                      {/* LOGO */}
+                      <div className="absolute top-0 right-0 hidden sm:block">
+                        <Image
+                          src={item.logoSrc}
+                          width={140}
+                          height={140}
+                          alt={item.name}
+                          className="bg-black rounded-full p-3"
+                        />
+                      </div>
 
-                    <p className="text-sm text-white/60 max-w-[90%]">
-                      {item.usecase}
-                    </p>
-                  </div>
+                      <div className="flex flex-col gap-2 sm:max-w-[60%]">
+                        <h3 className="text-2xl font-semibold text-violet-300">
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:underline"
+                          >
+                            {item.name}
+                          </a>
+                        </h3>
 
-                  {/* STACK TAGS */}
-                  <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-                    {item.stacks.map((stack, i) => (
-                      <Badge key={i} text={stack} big />
-                    ))}
-                  </div>
+                        <p className="text-sm text-white/60 max-w-[90%]">
+                          {item.usecase}
+                        </p>
+                      </div>
 
-                  {/* LEDGER VISUAL MARK */}
-                  <div className="pt-6 sm:pt-10 text-violet-300/70 flex justify-center sm:justify-start">
+                      {/* STACK TAGS */}
+                      <div className="flex flex-wrap gap-2 justify-center sm:justify-start sm:max-w-[60%]">
+                        {item.stacks.map((stack, i) => (
+                          <Badge key={i} text={stack} big />
+                        ))}
+                      </div>
+
+                      {/* LOGO (mobile, inline) */}
+                      <div className="flex sm:hidden justify-center">
+                        <Image
+                          src={item.logoSrc}
+                          width={220}
+                          height={220}
+                          alt={item.name}
+                        />
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flex flex-col gap-2">
+                        <h3 className="text-2xl font-semibold text-violet-300">
+                          {item.name}
+                        </h3>
+
+                        <p className="text-sm text-white/60 max-w-[90%]">
+                          {item.usecase}
+                        </p>
+                      </div>
+
+                      {/* STACK TAGS */}
+                      <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                        {item.stacks.map((stack, i) => (
+                          <Badge key={i} text={stack} big />
+                        ))}
+                      </div>
+
+                      {/* VISUAL MARK */}
+                      <div className="pt-6 sm:pt-10 text-violet-300/70 flex justify-center sm:justify-start">
                     <svg
                       viewBox="0 0 66 29"
                       fill="none"
@@ -244,21 +338,29 @@ export default function SelectedEngineeringWork() {
                           preserveAspectRatio="none"
                           xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABQKADAAQAAAABAAABQAAAAABiXyf0AAANP0lEQVR4Ae3cwapkVxXH4bTdUUgTJ4qPkBcQB2YgzhwJgiLiKG8igg59B8GJBAeKI2fiIIgOHDnJI4gONCSgbXe7j6Qh5NxO6u6qe3/Zdb6CTXfOrX3W2t/q+lflDuqVVzwIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAtcm8OACB/r3Be7hFncvsM362VhvjfXLsTz2Aj8Yl34+1ufGej6Wx2df4AvntPjonM0f7v38Be7hFvcjsAXg9uL2uFlgs3l1LEY3+1zdVYO+upE6EAECpwoIwFOlPI8AgasTEIBXN1IHIkDgVAEBeKqU5xEgcHUCAvDqRupABAicKiAAT5XyPAIErk5AAF7dSB2IAIFTBQTgqVKeR4DA1QkIwKsbqQMRIHCqgAA8VcrzCBC4OgEBeHUjdSACBE4VEICnSnkeAQJXJyAAr26kDkSAwKkCl/g2mFNr3fS898bFd8d6etMPXbu4wPYVT/+4+F2v54abzZ/HusTXxF2Pyt2d5OG49RtjvX53JT75zpcY9Dnfm/bOaO97Y70/1iV6+eTT+ukm8MFYT1DcKLB9FdZrN/7ExUsLbLnxeKxfjfXmGTc/KzfqT4D/HQf/11hbAHoQqAW2N4Z/1k0cqP72f35bBmQPvwPM6BUmQKAWEID1BNQnQCATEIAZvcIECNQCArCegPoECGQCAjCjV5gAgVpAANYTUJ8AgUxAAGb0ChMgUAsIwHoC6hMgkAkIwIxeYQIEagEBWE9AfQIEMgEBmNErTIBALSAA6wmoT4BAJiAAM3qFCRCoBQRgPQH1CRDIBARgRq8wAQK1gACsJ6A+AQKZgADM6BUmQKAWEID1BNQnQCATEIAZvcIECNQCArCegPoECGQCAjCjV5gAgVpAANYTUJ8AgUxAAGb0ChMgUAsIwHoC6hMgkAkIwIxeYQIEagEBWE9AfQIEMgEBmNErTIBALSAA6wmoT4BAJiAAM3qFCRCoBQRgPQH1CRDIBARgRq8wAQK1gACsJ6A+AQKZgADM6BUmQKAWEID1BNQnQCATEIAZvcIECNQCArCegPoECGQCAjCjV5gAgVpAANYTUJ8AgUxAAGb0ChMgUAsIwHoC6hMgkAkIwIxeYQIEagEBWE9AfQIEMgEBmNErTIBALSAA6wmoT4BAJiAAM3qFCRCoBQRgPQH1CRDIBARgRq8wAQK1gACsJ6A+AQKZgADM6BUmQKAWEID1BNQnQCATEIAZvcIECNQCArCegPoECGQCjy5Q+enkPR6Ofc8m99o2L7C96T2Y3/7/mT0/Y7+tBD4q8CIDZnPko/e69d/PeSG8KPb9F3+55Z9b7b+N9YexksPfst9refoPx0G2mb34h3ebc21z+tlYf7zNJs8l8BKB7UPQN8b6ylizb6pvv+TeLhO4UeCn4+r2j21mPRn7vnvjXV0ksKCA3wEuOLQzW559p31R9tz9L+7jTwK5gADMR6ABAgQqAQFYyatLgEAuIADzEWiAAIFKQABW8uoSIJALCMB8BBogQKASEICVvLoECOQCAjAfgQYIEKgEBGAlry4BArmAAMxHoAECBCoBAVjJq0uAQC4gAPMRaIAAgUpAAFby6hIgkAsIwHwEGiBAoBIQgJW8ugQI5AICMB+BBggQqAQEYCWvLgECuYAAzEegAQIEKgEBWMmrS4BALiAA8xFogACBSkAAVvLqEiCQCwjAfAQaIECgEhCAlby6BAjkAgIwH4EGCBCoBARgJa8uAQK5gADMR6ABAgQqAQFYyatLgEAuIADzEWiAAIFKQABW8uoSIJALCMB8BBogQKASEICVvLoECOQCAjAfgQYIEKgEBGAlry4BArmAAMxHoAECBCoBAVjJq0uAQC4gAPMRaIAAgUpAAFby6hIgkAsIwHwEGiBAoBIQgJW8ugQI5AICMB+BBggQqAQEYCWvLgECuYAAzEegAQIEKgEBWMmrS4BALiAA8xFogACBSkAAVvLqEiCQCwjAfAQaIECgEhCAlby6BAjkAgIwH4EGCBCoBARgJa8uAQK5gADMR6ABAgQqAQFYyatLgEAuIADzEWiAAIFKQABW8uoSIJALCMB8BBogQKASEICVvLoECOQCAjAfgQYIEKgEBGAlry4BArmAAMxHoAECBCoBAVjJq0uAQC4gAPMRaIAAgUpAAFby6hIgkAsIwHwEGiBAoBIQgJW8ugQI5AICMB+BBggQqAQEYCWvLgECuYAAzEegAQIEKgEBWMmrS4BALiAA8xFogACBSkAAVvLqEiCQCwjAfAQaIECgEhCAlby6BAjkAgIwH4EGCBCoBARgJa8uAQK5gADMR6ABAgQqAQFYyatLgEAuIADzEWiAAIFKQABW8uoSIJALCMB8BBogQKASEICVvLoECOQCAjAfgQYIEKgEBGAlry4BArmAAMxHoAECBCoBAVjJq0uAQC4gAPMRaIAAgUpAAFby6hIgkAsIwHwEGiBAoBIQgJW8ugQI5AICMB+BBggQqAQEYCWvLgECuYAAzEegAQIEKgEBWMmrS4BALiAA8xFogACBSuBRVVjdJQW2N8y3xvr6WNf25rmd5y9j/WKs52N5ECBwhQI/GWfaXuDW3uDt4fLwCmfuSC8RuLZ38Zcc02UCBAjsBQTg3sQVAgQOIiAADzJoxyRAYC8gAPcmrhAgcBABAXiQQTsmAQJ7AQG4N3GFAIGDCAjAgwzaMQkQ2AsIwL2JKwQIHERAAB5k0I5JgMBeQADuTVwhQOAgAgLwIIN2TAIE9gICcG9y7VceXPsBnY/AqQKX+DaY75xa7GPP216Ifx/rnbGefuxn/vPuBP46bv2bsZ7dXYkl77x9CcKfxvJNMPc3vs38zbG+fIb7r89p9xKfBp5MNrAd/vdjfXus98fyuB+B7VP/JeZ+P93eb5Ut/Lwx3J/541Hqt2N9c6zZD0Gvjr3Tj0t8AjznHr56aHp00xu9wKfpbLwDgS0Dtjfkc3Jkui2/A5yms5EAgdUFBODqE9Q/AQLTAgJwms5GAgRWFxCAq09Q/wQITAsIwGk6GwkQWF1AAK4+Qf0TIDAtIACn6WwkQGB1AQG4+gT1T4DAtIAAnKazkQCB1QUE4OoT1D8BAtMCAnCazkYCBFYXEICrT1D/BAhMCwjAaTobCRBYXUAArj5B/RMgMC0gAKfpbCRAYHUBAbj6BPVPgMC0gACcprORAIHVBQTg6hPUPwEC0wICcJrORgIEVhcQgKtPUP8ECEwLCMBpOhsJEFhdQACuPkH9EyAwLSAAp+lsJEBgdQEBuPoE9U+AwLSAAJyms5EAgdUFBODqE9Q/AQLTAgJwms5GAgRWFxCAq09Q/wQITAsIwGk6GwkQWF1AAK4+Qf0TIDAtIACn6WwkQGB1AQG4+gT1T4DAtIAAnKazkQCB1QUE4OoT1D8BAtMCAnCazkYCBFYXEICrT1D/BAhMCwjAaTobCRBYXUAArj5B/RMgMC0gAKfpbCRAYHUBAbj6BPVPgMC0gACcprORAIHVBQTg6hPUPwEC0wICcJrORgIEVhcQgKtPUP8ECEwLCMBpOhsJEFhdQACuPkH9EyAwLSAAp+lsJEBgdQEBuPoE9U+AwLSAAJyms5EAgdUFBODqE9Q/AQLTAgJwms5GAgRWFxCAq09Q/wQITAs8mt55mY1b/S+O9XCsB5e5pbt8isAH4+dPPuU5R/3xq+Pgrx318Pd87uej3uOx0gy6ROhsB5l9vDc2vjvW09kb2HcrgW1WPxrrd7fadZwnf2sc9cdjXeJ1cRy1+ZNuH3zeGOv1+VucN6s0fT88+FfPOLyttxN4Np7+pdttOdSzN5uvjeVXQwcZu0EfZNCOSYDAXkAA7k1cIUDgIAIC8CCDdkwCBPYCAnBv4goBAgcREIAHGbRjEiCwFxCAexNXCBA4iIAAPMigHZMAgb2AANybuEKAwEEEBOBBBu2YBAjsBQTg3sQVAgQOIiAADzJoxyRAYC8gAPcmrhAgcBABAXiQQTsmAQJ7gUt8G8x/9rd15TMosH3F0/ZtMNvyuFlgs9m+K3H7YHDO17zdfHdXCRAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAAQIECBAgQIAAgbsS+B8psapDbbTjhAAAAABJRU5ErkJggg=="
                         />
-                      </defs>
-                    </svg>
-                  </div>
+                        </defs>
+                      </svg>
+                      </div>
+                    </>
+                  )}
 
-                  <p className="text-[15px] text-white/70 leading-[28px] max-w-[95%]">
+                  <p
+                    className={`text-[15px] text-white/70 leading-[28px] max-w-[95%] ${
+                      item.visual === "logo" ? "mt-2" : ""
+                    }`}
+                  >
                     {item.summary}
                   </p>
 
                   <div className="pt-4 border-t border-white/10">
                     <p className="text-xs text-white/40 italic">{item.note}</p>
 
-                    <p className="text-[11px] text-white/30 mt-2">
-                      Ledger is a registered trademark. Used solely to indicate
-                      technical compatibility.
-                    </p>
+                    {item.visual === "ledger" && (
+                      <p className="text-[11px] text-white/30 mt-2">
+                        Ledger is a registered trademark. Used solely to
+                        indicate technical compatibility.
+                      </p>
+                    )}
                   </div>
                 </div>
 

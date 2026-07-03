@@ -19,7 +19,7 @@ const members = [
     color: "bg-skeletor-dark-violet",
   },
   {
-    name: "Anonymous",
+    name: "Paul",
     nickname: "Trap Jaw",
     role: "Token Engineer - Protocol Strategist",
     description:
@@ -28,7 +28,7 @@ const members = [
     color: "bg-red-950",
   },
   {
-    name: "Anonymous",
+    name: "Carlos",
     nickname: "Mer-Man",
     role: "DeFi Ops & Liquidity Specialist",
     description:
@@ -37,7 +37,7 @@ const members = [
     color: "bg-skeletor-green-merman",
   },
   {
-    name: "Anonymous",
+    name: "Ericka",
     nickname: "Evil-Lyn",
     role: "Creative Director - Visuals & Narrative",
     description:

@@ -10,6 +10,14 @@ import { useEffect, useState, useMemo } from "react";
 
 const list = [
   {
+    title: "Phase Model",
+    description:
+      "Phase Model is a structural regime model. It does not predict price. It identifies context.",
+    src: "/labs/phasemodel.svg",
+    badges: ["Bitcoin", "Ethereum", "Solana"],
+    link: "https://www.phasemodel.xyz/",
+  },
+  {
     title: "Crypto API",
     description:
       "A production-grade Go API powering real-time crypto network intelligence and on-chain signals.",
