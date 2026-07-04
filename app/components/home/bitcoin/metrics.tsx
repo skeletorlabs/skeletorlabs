@@ -126,9 +126,14 @@ export default function BitcoinMetrics() {
       <div className="absolute inset-0 bg-space opacity-20" />
 
       <Subtitle
+        text="Key Deliveries"
+        description="A closer look at the problems we solve and how we solve them"
+      />
+{/* 
+      <Subtitle
         text="Live Network Intelligence"
         description="Real-time Bitcoin network signals, streamed from our internal infrastructure layer."
-      />
+      /> */}
 
       <div className="flex flex-col relative z-10 justify-center gap-8">
         <div className="relative w-full lg:rounded-2xl lg:border border-white/10 bg-black/40 backdrop-blur-xl p-8 md:p-6 md:py-8 shadow-2xl">
@@ -143,17 +148,34 @@ export default function BitcoinMetrics() {
               {/* LEFT */}
               <div className="w-full text-center lg:text-start">
                 <p className="mb-3 text-white/90 text-xl md:text-2xl font-semibold">
-                  <span className="text-violet-400 font-bold">
+                  <a
+                    href="https://github.com/skeletorlabs/crypto-api"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-violet-400 font-bold hover:underline"
+                  >
                     Live Bitcoin Network
-                  </span>{" "}
+                  </a>{" "}
                   snapshot powered by Skeletor Labs.
                 </p>
 
-                <p className="mb-14 text-white/70 max-w-3xl mx-auto lg:mx-0 text-base">
+                <p className="mb-6 text-white/70 max-w-3xl mx-auto lg:mx-0 text-base">
                   This block showcases live Bitcoin network intelligence
                   aggregated from multiple mempool endpoints and normalized by
                   our internal API.
                 </p>
+
+                <a
+                  href="https://github.com/skeletorlabs/crypto-api"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 mb-14 text-sm font-semibold text-violet-300 hover:text-violet-200 transition-colors"
+                >
+                  Visit the product
+                  <span className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
 
                 {/* METRICS */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">

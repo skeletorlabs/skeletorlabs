@@ -23,7 +23,7 @@ const STRINGS = [
 export default function Header({
   Terminal,
 }: {
-  Terminal: React.ComponentType;
+  Terminal?: React.ComponentType;
 }) {
   const { setTalkIsOpen } = useContext(StateContext);
   const [index, setIndex] = useState(0);
@@ -122,7 +122,7 @@ export default function Header({
             </div>
           </div>
         </div>
-        <Terminal />
+        {Terminal && <Terminal />}
       </div>
     </div>
   );

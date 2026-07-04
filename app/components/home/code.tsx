@@ -123,8 +123,8 @@ export default function Code() {
   return (
     <div className="flex flex-col bg-black/10 px-4 xl:px-14 py-10 border-t border-white/5 gap-10 mt-10">
       <Subtitle
-        text="What We've Deployed"
-        description="From design to deployment — key smart contracts shipped to mainnet"
+        text="Smart Contracts Deployed"
+        description="From design to deployment, key smart contracts shipped to mainnet"
       />
       <div className="flex flex-col xl:flex-row items-center flex-wrap">
         {loading ? (

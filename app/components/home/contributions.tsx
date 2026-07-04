@@ -15,20 +15,20 @@ const contributions = [
     chains: ["Base"],
   },
   {
-    title: "Anonymous",
+    title: "Under NDA",
     description:
       "Custom token and lottery mechanics, subgraph infra, and frontend integration on Arbitrum",
     src: "anonymous-v3.svg",
     chains: ["Arbitrum One"],
   },
   {
-    title: "Anonymous",
+    title: "Under NDA",
     description: "Meme token, staking & airdrop contracts + dapp",
     src: "anonymous-v3.svg",
     chains: ["Optimism"],
   },
   {
-    title: "Anonymous",
+    title: "Under NDA",
     description:
       "Token deployment and airdrop infrastructure delivered for Sonic ecosystem",
     src: "anonymous-v3.svg",

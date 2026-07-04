@@ -67,7 +67,7 @@ export default function About() {
         transition={{ duration: 0.8 }}
       >
         <Subtitle
-          text="About Skeletor Labs"
+          text="Skeletor Labs"
           description="Meet the sorcery — we build the unbuildable."
         />
       </motion.div>

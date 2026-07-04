@@ -33,7 +33,6 @@ export default function Home() {
         <Header Terminal={Terminal} />
         <div className="flex flex-col w-full xl:min-h-[1200px] z-20 bg-black bg-eth2 bg-bottom bg-contain bg-no-repeat relative">
           <BitcoinMetrics />
-          <About />
           <SelectedEngineeringWork />
           <Code />
           <Services />
@@ -44,6 +43,7 @@ export default function Home() {
           <Chains />
           <Stack />
           <Team />
+          <About />
           <WhyUs />
           <FAB />
         </div>

@@ -16,7 +16,7 @@ const selectedEngineeringWork = [
     name: "Phase Model",
     usecase: "Structural market-regime classification engine",
     summary:
-      "A composite regime-classification system that reads crypto and traditional markets (BTC, ETH, SOL, S&P 500, Gold, Silver, Oil, NYSE, Shanghai SE, STOXX, B3) through five signal pillars — macro, momentum, liquidity, volatility, and flow & network — and outputs a daily structural read: expansion, transition, or contraction. Rather than reacting to price, it separates genuine structural shifts from short-term noise, giving long-term investors, active allocators and crypto traders a stable context layer to sit on top of. Each read ships with a 0–100 confidence score describing how aligned the underlying pillars are, so users can tell a clean regime apart from a mixed one. The same data is exposed through a public REST API and an MCP server, so it can drive a dashboard directly or feed AI-native research and trading workflows without any manual interpretation step.",
+      "A composite regime-classification system that reads 11 crypto and traditional markets (BTC, ETH, SOL, S&P 500, Gold, Silver, Oil, NYSE, Shanghai SE, STOXX, B3) through five signal pillars — macro, momentum, liquidity, volatility, and flow & network — and outputs a daily structural read (expansion, transition, or contraction) with a 0–100 confidence score. Rather than reacting to price, it separates genuine structural shifts from short-term noise, giving investors and crypto traders a stable context layer. The same data is exposed through a public REST API and an MCP server, feeding dashboards or AI-native research and trading workflows directly.",
     stacks: [
       "Composite Regime Model",
       "REST API",
@@ -27,20 +27,20 @@ const selectedEngineeringWork = [
     engineeringFocus: {
       problemSpace: [
         "Classifying structure consistently across asset classes with fundamentally different data (crypto on-chain flows vs. equity/commodity macro data)",
-        "Aggregating asynchronous, heterogeneous sources — on-chain, derivatives, macro aggregators, traditional market data — into one comparable signal space",
+        "Aggregating asynchronous, heterogeneous sources into one comparable signal space",
         "Preventing false regime flips triggered by short-term volatility or a single noisy signal",
-        "Serving the same regime output to both human dashboards and machine consumers (LLMs via MCP)",
+        "Serving the same regime output to both human dashboards and machine consumers via MCP",
       ],
       execution: [
-        "Five-pillar architecture (Macro, Momentum, Liquidity, Volatility, Flow & Network) with an on-chain/derivatives pillar exclusive to BTC, ETH and SOL",
+        "Five-pillar architecture (Macro, Momentum, Liquidity, Volatility, Flow & Network), with an on-chain/derivatives pillar exclusive to BTC, ETH and SOL",
         "Z-score + Tanh normalization bounding every signal before cross-asset aggregation",
-        "Conditional pillar weighting — Macro and Momentum shift weight with prevailing macro-risk and liquidity conditions, remaining pillars stay fixed",
-        "Daily batch pipeline (fetch → compute → publish) intentionally decoupled from intraday price action, published before market open",
-        "Public REST API plus an MCP server over SSE (JSON-RPC 2.0) with header- and URL-based auth for different client integrations (Cursor vs. claude.ai/ChatGPT)",
+        "Conditional pillar weighting — Macro and Momentum shift with prevailing risk/liquidity conditions, remaining pillars stay fixed",
+        "Daily batch pipeline (fetch → compute → publish), decoupled from intraday price action and published before market open",
+        "Public REST API plus an MCP server (SSE, JSON-RPC 2.0) with auth for different client integrations (Cursor, claude.ai, ChatGPT)",
       ],
       guarantees: [
-        "No single data point or metric drives a regime output — classification requires alignment across independent pillars",
-        "0-100 confidence score separates structural certainty from directional bias",
+        "No single metric drives a regime output — classification requires alignment across independent pillars",
+        "0–100 confidence score separates structural certainty from directional bias",
         "One deterministic structural snapshot per day, not reactive to intraday noise",
         "11 tracked assets across crypto, equities and commodities behind one unified schema and API",
       ],
@@ -156,10 +156,10 @@ export default function SelectedEngineeringWork() {
 
   return (
     <section className="flex flex-col bg-gradient-to-b from-transparent to-black/10 px-4 xl:px-14 py-4 gap-10 mt-10 text-center sm:text-left">
-      <Subtitle
-        text="Selected Engineering"
+      {/* <Subtitle
+        text="Key Deliveries"
         description="A closer look at the problems we solve and how we solve them"
-      />
+      /> */}
 
       <AnimatePresence mode="wait">
         {loading ? (
@@ -360,6 +360,20 @@ export default function SelectedEngineeringWork() {
                         Ledger is a registered trademark. Used solely to
                         indicate technical compatibility.
                       </p>
+                    )}
+
+                    {"link" in item && item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 mt-4 text-sm font-semibold text-violet-300 hover:text-violet-200 transition-colors"
+                      >
+                        Visit the product
+                        <span className="transition-transform group-hover:translate-x-1">
+                          →
+                        </span>
+                      </a>
                     )}
                   </div>
                 </div>
