@@ -237,6 +237,7 @@ export default function SelectedEngineeringWork() {
                           width={220}
                           height={220}
                           alt={item.name}
+                          className="w-[100px] 2xl:w-[140px]"
                         />
                       </div>
                     </div>
