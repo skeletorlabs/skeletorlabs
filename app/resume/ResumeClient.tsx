@@ -19,7 +19,10 @@ export default function Resume() {
 
             <p className="text-slate-600 mt-1">Blockchain Engineer</p>
 
-            <p className="text-slate-500 text-sm">Founder · Skeletor Labs</p>
+            <p className="text-slate-500 text-sm">
+              Wallet & Protocol Engineer · Trac Systems — Founder · Skeletor
+              Labs
+            </p>
           </header>
 
           {/* Summary */}
@@ -29,14 +32,19 @@ export default function Resume() {
             </h2>
             <p className="leading-relaxed text-slate-700">
               I'm a blockchain engineer and founder with 15+ years of software
-              development experience, currently leading Skeletor Labs — a Web3
-              engineering studio building production-grade smart contracts and
-              infrastructure across EVM and Base.
+              development experience. I currently work as a Wallet & Protocol
+              Engineer at Trac Systems, building core wallet features, Ledger
+              hardware integration, and Bitcoin PSBT transaction flows across
+              mobile and browser platforms, while also leading Skeletor Labs —
+              a Web3 engineering studio building production-grade smart
+              contracts and infrastructure across EVM and Base.
             </p>
             <p className="leading-relaxed text-slate-700 mt-3">
               I specialize in designing, shipping, and maintaining secure
-              on-chain systems, often working closely with founders and product
-              teams to turn early-stage ideas into reliable production systems.
+              on-chain systems, spanning everything from low-level wallet and
+              protocol engineering to smart contract architecture, often
+              working closely with founders and product teams to turn
+              early-stage ideas into reliable production systems.
             </p>
           </section>
 
@@ -261,7 +269,6 @@ export default function Resume() {
 
           {/* Footer / Contact */}
           <footer className="pt-8 border-t text-sm text-slate-600 space-y-1">
-            <p>Email: lucas.fernandes.silveira@gmail.com</p>
             <p>Location: São Paulo, Brazil</p>
             <p>LinkedIn: https://www.linkedin.com/in/lfsilveira</p>
             <p>GitHub: https://github.com/skeletorlabs</p>

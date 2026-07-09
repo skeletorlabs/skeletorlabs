@@ -20,7 +20,10 @@ export default function CoverLetter() {
             </h1>
 
             <p className="text-slate-600 mt-1">Blockchain Engineer</p>
-            <p className="text-slate-500 text-sm">Founder · Skeletor Labs</p>
+            <p className="text-slate-500 text-sm">
+              Wallet & Protocol Engineer · Trac Systems — Founder · Skeletor
+              Labs
+            </p>
 
             <p className="text-sm text-slate-500 mt-4">
               {new Date().toLocaleDateString("en-GB")}
@@ -46,25 +49,27 @@ export default function CoverLetter() {
             </p>
 
             <p>
-              I'm currently leading Skeletor Labs, a Web3 engineering studio
-              where I work closely with startups and protocols to design, build,
-              and ship secure on-chain systems. Prior to that, I worked as a
-              Blockchain Developer and CTO at Samurai Starter, where I designed
-              and implemented Solidity smart contracts for vesting, token
-              locking, staking, and reward distribution, primarily on Base.
-              Through this work, I gained practical experience with multi-chain
-              architectures, interoperability, and ERC standards.
+              I'm currently working as a Wallet & Protocol Engineer at Trac
+              Systems, while also leading Skeletor Labs, a Web3 engineering
+              studio where I work closely with startups and protocols to
+              design, build, and ship secure on-chain systems. Prior to that, I
+              worked as a Blockchain Developer and CTO at Samurai Starter,
+              where I designed and implemented Solidity smart contracts for
+              vesting, token locking, staking, and reward distribution,
+              primarily on Base. Through this work, I gained practical
+              experience with multi-chain architectures, interoperability, and
+              ERC standards.
             </p>
 
             <p>
-              A significant part of my recent work has focused on wallet and
-              protocol engineering. I've worked on mobile and browser wallets,
-              Ledger hardware wallet integration, and Bitcoin transaction flows,
-              including PSBT construction, UTXO selection, fee calculation, and
-              address types such as Taproot and SegWit. This work required
-              careful handling of edge cases, security considerations, and close
-              alignment between protocol, hardware, and user experience
-              constraints.
+              A significant part of my recent work at Trac Systems has focused
+              on wallet and protocol engineering. I've worked on mobile and
+              browser wallets, Ledger hardware wallet integration, and Bitcoin
+              transaction flows, including PSBT construction, UTXO selection,
+              fee calculation, and address types such as Taproot and SegWit.
+              This work required careful handling of edge cases, security
+              considerations, and close alignment between protocol, hardware,
+              and user experience constraints.
             </p>
 
             <p>
@@ -95,7 +100,6 @@ export default function CoverLetter() {
 
           {/* Footer */}
           <footer className="pt-10 border-t text-sm text-slate-600 space-y-1 mt-12">
-            <p>Email: lucas.fernandes.silveira@gmail.com</p>
             <p>Location: São Paulo, Brazil</p>
             <p>LinkedIn: https://www.linkedin.com/in/lfsilveira</p>
             <p>GitHub: https://github.com/skeletorlabs</p>
