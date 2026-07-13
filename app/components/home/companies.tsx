@@ -54,6 +54,7 @@ const companies: Company[] = [
     ],
     src: "/onering.svg",
     chains: ["Fantom", "Optimism", "Solana"],
+    link: "https://onering.tools"
   },
 ];
 
