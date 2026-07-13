@@ -9,7 +9,18 @@ import AliceCarousel from "react-alice-carousel";
 import Loading from "../loading";
 import { GlobeAltIcon, PhotoIcon } from "@heroicons/react/24/solid";
 
-const companies = [
+type Company = {
+  title: string;
+  description: string;
+  services: string;
+  bullets: string[];
+  src: string;
+  chains: string[];
+  link?: string;
+  link2?: string;
+}
+
+const companies: Company[] = [
   {
     title: "SAMURAI STARTER",
     description: "Leading early-stage crowdfunding platform.",
@@ -43,7 +54,6 @@ const companies = [
     ],
     src: "/onering.svg",
     chains: ["Fantom", "Optimism", "Solana"],
-    link: "http://onering.tools",
   },
 ];
 
@@ -72,13 +82,13 @@ export default function Companies() {
                 {item.chains.map((chain, chainIndex) => (
                   <Badge key={chainIndex} text={chain} invert />
                 ))}
-                <Link
+                {item.link && (<Link
                   href={item.link}
                   target="blank"
                   className="hover:opacity-75"
                 >
                   <GlobeAltIcon width={22} height={22} />
-                </Link>
+                </Link>)}
                 {item.link2 && (
                   <Link
                     href={item.link2}
@@ -181,13 +191,13 @@ export default function Companies() {
                     <Badge key={chainIndex} text={chain} big invert />
                   ))}
 
-                  <Link
+                  {item.link && (<Link
                     href={item.link}
                     target="blank"
                     className="transition-opacity duration-200 hover:opacity-75"
                   >
                     <GlobeAltIcon width={32} height={32} />
-                  </Link>
+                  </Link>)}
 
                   {item.link2 && (
                     <Link
