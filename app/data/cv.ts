@@ -44,16 +44,20 @@ export const cv: CV = {
   about: {
     paragraphs: [
       {
-        en: "I'm a software engineer with {years} years of experience across web, mobile and backend, including the last {web3YearsWord} building crypto products. I've worked with Ruby, JavaScript and TypeScript, native iOS and React Native, and more recently Node.js, NestJS, Next.js and PostgreSQL.",
-        pt: "Sou engenheiro de software com {years} anos de experiência em web, mobile e backend, sendo os últimos {web3YearsWord} construindo produtos cripto. Trabalhei com Ruby, JavaScript e TypeScript, iOS nativo e React Native e, mais recentemente, com Node.js, NestJS, Next.js e PostgreSQL.",
+        en: "I'm a software engineer with {years} years of experience across web, mobile and backend, including the last {web3YearsWord} building crypto products. I've worked with Ruby, JavaScript and TypeScript, native iOS and React Native, and more recently Node.js, NestJS, Next.js, PostgreSQL and Go.",
+        pt: "Sou engenheiro de software com {years} anos de experiência em web, mobile e backend, sendo os últimos {web3YearsWord} construindo produtos cripto. Trabalhei com Ruby, JavaScript e TypeScript, iOS nativo e React Native e, mais recentemente, com Node.js, NestJS, Next.js, PostgreSQL e Go.",
       },
       {
         en: "Along the way I've also led teams. As CTO at Samurai Starter I owned the technical roadmap and the engineers delivering it, and earlier I worked as a Scrum Master and Tech Lead on mobile and web squads. That mix means I'm comfortable owning delivery as well as code.",
         pt: "Ao longo do caminho também liderei times. Como CTO na Samurai Starter, fui responsável pelo roadmap técnico e pelos engenheiros que o executavam e, antes disso, atuei como Scrum Master e Tech Lead em squads mobile e web. Essa combinação faz com que eu me sinta à vontade sendo responsável tanto pela entrega quanto pelo código.",
       },
       {
-        en: "On the crypto side, at TRAC Systems I worked on a self-custodial wallet ecosystem (Ledger integration, Bitcoin transaction flows, a crypto primitives library, mobile and browser wallets), and at Samurai Starter I designed and shipped Solidity contracts tested with Foundry. I'm currently looking for software engineering roles on teams building products where reliability and attention to detail matter.",
-        pt: "No lado cripto, na TRAC Systems trabalhei em um ecossistema de carteira self-custodial (integração com Ledger, fluxos de transação Bitcoin, uma biblioteca de primitivas criptográficas, carteiras mobile e de navegador) e, na Samurai Starter, projetei e entreguei contratos em Solidity testados com Foundry. Hoje estou buscando vagas de engenharia de software em times que constroem produtos onde confiabilidade e atenção aos detalhes fazem diferença.",
+        en: "On the crypto side, at TRAC Systems I worked on a self-custodial wallet ecosystem (Ledger integration, Bitcoin transaction flows, a crypto primitives library, mobile and browser wallets), and at Samurai Starter I designed and shipped Solidity contracts tested with Foundry.",
+        pt: "No lado cripto, na TRAC Systems trabalhei em um ecossistema de carteira self-custodial (integração com Ledger, fluxos de transação Bitcoin, uma biblioteca de primitivas criptográficas, carteiras mobile e de navegador) e, na Samurai Starter, projetei e entreguei contratos em Solidity testados com Foundry.",
+      },
+      {
+        en: "On my own time I designed and shipped Phase Model in 2026, a market regime model served through a Go API and an MCP server for AI agents, with a Next.js front end, built with Claude. I use Claude and Codex daily in my development workflow. I'm currently looking for software engineering roles on teams building products where reliability and attention to detail matter.",
+        pt: "Por conta própria, projetei e entreguei em 2026 o Phase Model, um modelo de regime de mercado servido por uma API em Go e um servidor MCP para agentes de IA, com front end em Next.js, construído com o Claude. Uso Claude e Codex diariamente no meu fluxo de desenvolvimento. Hoje estou buscando vagas de engenharia de software em times que constroem produtos onde confiabilidade e atenção aos detalhes fazem diferença.",
       },
     ],
   },
@@ -116,7 +120,7 @@ export const cv: CV = {
         "NestJS",
         "TypeScript",
         "PostgreSQL",
-        { en: "Go (basic)", pt: "Go (básico)" },
+        "Go",
         "Ruby",
       ],
     },
@@ -440,8 +444,8 @@ export const cv: CV = {
       company: "Diginova Sites e Sistemas",
       title: { en: "JavaScript Developer", pt: "Desenvolvedor JavaScript" },
       location: {
-        en: "São José do Rio Preto, SP, Brazil (Remote)",
-        pt: "São José do Rio Preto, SP, Brasil (Remoto)",
+        en: "São José do Rio Preto, SP, Brazil",
+        pt: "São José do Rio Preto, SP, Brasil",
       },
       start: "2005-08",
       end: "2006-09",
@@ -451,6 +455,18 @@ export const cv: CV = {
   ],
 
   projects: {
+    featured: [
+      {
+        name: "Phase Model",
+        year: 2026,
+        description: {
+          en: "Market regime model for BTC, ETH, SOL and traditional assets. Designed and shipped in about three months, built with Claude: a Go REST API, an MCP server exposing four tools to AI agents over SSE, API-key auth with public and institutional tiers, and a Next.js front end.",
+          pt: "Modelo de regime de mercado para BTC, ETH, SOL e ativos tradicionais. Projetado e entregue em cerca de três meses, construído com o Claude: uma API REST em Go, um servidor MCP que expõe quatro ferramentas para agentes de IA via SSE, autenticação por API key com planos público e institucional, e um front end em Next.js.",
+        },
+        url: "https://www.phasemodel.xyz/",
+        tags: ["Go", "MCP", "SSE", "Next.js", "Claude"],
+      },
+    ],
     owner: "skeletorlabs",
     includeAllPublic: true,
     // Only repos with at least one topic on GitHub are shown.

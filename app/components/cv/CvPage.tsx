@@ -52,7 +52,7 @@ export default async function CvPage({ locale }: { locale: Locale }) {
         <div className="absolute left-1/3 top-[620px] h-[380px] w-[380px] rounded-full bg-violet-700/20 blur-3xl" />
       </div>
 
-      <div className="sticky top-0 z-40 border-b border-white/5 bg-skeletor-dark-violet/70 backdrop-blur-md print:hidden">
+      <div className="sticky top-0 z-40 border-b border-white/5 bg-skeletor-dark-violet print:hidden">
         <div className={`${CONTAINER} flex h-16 items-center gap-6`}>
           <a
             href="#top"
@@ -104,7 +104,13 @@ export default async function CvPage({ locale }: { locale: Locale }) {
           <About cv={cv} locale={locale} ui={ui} index={1} />
           <Stack cv={cv} locale={locale} ui={ui} index={2} />
           <Experience cv={cv} locale={locale} ui={ui} index={3} />
-          <Projects projects={projects} locale={locale} ui={ui} index={4} />
+          <Projects
+            featured={cv.projects.featured ?? []}
+            projects={projects}
+            locale={locale}
+            ui={ui}
+            index={4}
+          />
           <Contact cv={cv} locale={locale} ui={ui} index={5} />
         </div>
       </main>

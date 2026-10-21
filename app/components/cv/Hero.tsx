@@ -139,7 +139,7 @@ export default function Hero({
               <span
                 key={chip}
                 aria-hidden="true"
-                className={`absolute hidden items-center gap-2 rounded-full border border-white/10 bg-skeletor-gray/90 px-3 py-1.5 text-xs text-violet-200 shadow-lg backdrop-blur sm:inline-flex ${CHIP_POSITIONS[i]} ${mono.className}`}
+                className={`absolute hidden items-center gap-2 rounded-full border border-white/10 bg-skeletor-gray/90 px-3 py-1.5 text-xs text-violet-200 shadow-lg sm:inline-flex ${CHIP_POSITIONS[i]} ${mono.className}`}
               >
                 <span className={`h-1.5 w-1.5 rounded-full ${CHIP_COLORS[i]}`} />
                 {chip}
@@ -147,7 +147,7 @@ export default function Hero({
             ))}
           </div>
 
-          <dl className="grid w-full grid-cols-3 gap-4 rounded-2xl border border-white/10 bg-skeletor-dark-violet/80 px-4 py-5 text-center backdrop-blur">
+          <dl className="grid w-full grid-cols-3 gap-4 rounded-2xl border border-white/10 bg-skeletor-dark-violet/80 px-4 py-5 text-center">
             {counters.map((c) => (
               <div key={c.label} className="flex flex-col-reverse justify-end">
                 <dt

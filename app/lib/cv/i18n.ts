@@ -21,7 +21,7 @@ export const ui = {
     languageLabel: "Language",
     languageNames: { en: "English", pt: "Portuguese" },
     projectsIntro:
-      "Personal projects published on GitHub under Skeletor Labs.",
+      "Personal projects under Skeletor Labs, including public repositories on GitHub.",
     projectsMore: "More about Skeletor Labs",
     stars: "stars",
     updated: "Updated",
@@ -32,7 +32,8 @@ export const ui = {
     viewProjects: "View projects",
     getInTouch: "Get in touch",
     scroll: "Scroll",
-    viewOnGithub: "View on GitHub",
+    viewOnGithub: "GitHub",
+    visitSite: "Visit site",
     location: "Location",
   },
   pt: {
@@ -54,7 +55,7 @@ export const ui = {
     languageLabel: "Idioma",
     languageNames: { en: "Inglês", pt: "Português" },
     projectsIntro:
-      "Projetos pessoais publicados no GitHub sob a Skeletor Labs.",
+      "Projetos pessoais sob a Skeletor Labs, incluindo repositórios públicos no GitHub.",
     projectsMore: "Mais sobre a Skeletor Labs",
     stars: "estrelas",
     updated: "Atualizado em",
@@ -65,7 +66,8 @@ export const ui = {
     viewProjects: "Ver projetos",
     getInTouch: "Entrar em contato",
     scroll: "Rolar",
-    viewOnGithub: "Ver no GitHub",
+    viewOnGithub: "GitHub",
+    visitSite: "Ver site",
     location: "Local",
   },
 } satisfies Record<Locale, unknown>;

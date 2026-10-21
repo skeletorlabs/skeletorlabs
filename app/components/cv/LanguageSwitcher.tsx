@@ -43,7 +43,7 @@ export default function LanguageSwitcher({
 
       <MenuItems
         anchor="bottom end"
-        className="z-50 mt-2 min-w-[11rem] rounded-xl border border-white/10 bg-skeletor-dark-violet/95 p-1 shadow-2xl shadow-black/50 backdrop-blur-md focus:outline-none"
+        className="z-50 mt-2 min-w-[11rem] rounded-xl border border-white/10 bg-skeletor-dark-violet/95 p-1 shadow-2xl shadow-black/50 focus:outline-none"
       >
         {locales.map((l) => (
           <MenuItem key={l}>

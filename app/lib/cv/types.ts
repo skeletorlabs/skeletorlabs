@@ -62,7 +62,18 @@ export interface ProjectEntry {
   description?: Text;
 }
 
+/** A project added by hand (not from GitHub). Shown before the repos. */
+export interface FeaturedProject {
+  name: string;
+  year?: number;
+  description: Text;
+  url: string;
+  tags?: Text[];
+}
+
 export interface ProjectsConfig {
+  /** Hand-written project cards, shown first. */
+  featured?: FeaturedProject[];
   /** GitHub account whose public repos are listed. */
   owner: string;
   /** Also show public repos of `owner` that are not in `items`. */

@@ -1,4 +1,4 @@
-import type { Locale, YearMonth } from "@/app/lib/cv/types";
+import type { FeaturedProject, Locale, YearMonth } from "@/app/lib/cv/types";
 import type { UI } from "@/app/lib/cv/i18n";
 import type { Project } from "@/app/lib/cv/github";
 import { formatYearMonth, t } from "@/app/lib/cv/derive";
@@ -6,11 +6,13 @@ import { display, mono } from "@/app/lib/cv/fonts";
 import Section from "./Section";
 
 export default function Projects({
+  featured,
   projects,
   locale,
   ui,
   index,
 }: {
+  featured: FeaturedProject[];
   projects: Project[];
   locale: Locale;
   ui: UI;
@@ -29,6 +31,53 @@ export default function Projects({
       </p>
 
       <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-3 print:grid-cols-2">
+        {featured.map((p) => (
+          <li
+            key={p.url}
+            className="flex flex-col rounded-2xl border border-violet-300/30 bg-gradient-to-br from-violet-500/[0.08] to-white/[0.02] p-6 transition hover:-translate-y-0.5 hover:border-violet-300/60 md:col-span-2 print:col-span-2 print:break-inside-avoid print:p-3"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <h3 className={`text-xl font-bold text-white ${display.className}`}>
+                {p.name}
+              </h3>
+              {p.year && (
+                <span
+                  className={`shrink-0 rounded-full border border-violet-300/30 px-2.5 py-0.5 text-[11px] text-violet-200 ${mono.className}`}
+                >
+                  {p.year}
+                </span>
+              )}
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-white/70">
+              {t(p.description, locale)}
+            </p>
+            {p.tags && p.tags.length > 0 && (
+              <ul className="mt-4 flex flex-wrap gap-1.5 print:hidden">
+                {p.tags.map((tag, i) => (
+                  <li
+                    key={i}
+                    className={`rounded bg-violet-500/10 px-2 py-0.5 text-[11px] text-violet-200 ${mono.className}`}
+                  >
+                    {t(tag, locale)}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div
+              className={`mt-auto flex items-center gap-x-4 pt-6 text-xs text-white/50 ${mono.className}`}
+            >
+              <span className="hidden print:inline">{p.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}</span>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ml-auto text-violet-300 hover:text-violet-200"
+              >
+                {ui.visitSite} <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </li>
+        ))}
         {projects.map((p) => (
           <li
             key={p.repo}
