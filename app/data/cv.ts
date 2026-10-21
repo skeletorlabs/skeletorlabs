@@ -13,8 +13,8 @@ export const cv: CV = {
   photo: { src: "/cv/profile-v8.png", alt: "Lucas Silveira" },
   heroChips: ["React", "Node.js", "Solidity", "React Native"],
   headline: {
-    en: "Software Engineer | Crypto Infrastructure, Wallets & Distributed Systems",
-    pt: "Engenheiro de Software | Infraestrutura Cripto, Carteiras e Sistemas Distribuídos",
+    en: "Software Engineer | Full-Stack, Mobile & Web3",
+    pt: "Engenheiro de Software | Full-Stack, Mobile e Web3",
   },
   location: { en: "São Paulo, Brazil", pt: "São Paulo, Brasil" },
   availability: {
@@ -193,7 +193,7 @@ export const cv: CV = {
           pt: "Trabalhei próximo do time principal no produto central, sendo responsável de forma independente pelo app mobile e pelas bibliotecas criptográficas. Responsável por garantir correção e confiabilidade em fluxos críticos para o usuário, envolvendo fundos e interação com dispositivos.",
         },
       ],
-      tags: ["React.js", "Node.js", "TypeScript", "Crypto", "Blockchain"],
+      tags: ["React.js", "Node.js", "TypeScript", "Crypto", "Blockchain", "Next.js", "Figma"],
     },
     {
       company: "Samurai Starter",
@@ -243,6 +243,7 @@ export const cv: CV = {
         "Ethereum",
         "EVM",
         "Firebase",
+        "Figma",
       ],
     },
     {
@@ -276,6 +277,7 @@ export const cv: CV = {
         "Ethereum",
         "ethers.js",
         "Firebase",
+        "Figma",
       ],
     },
     {
@@ -310,6 +312,7 @@ export const cv: CV = {
         "React Native",
         { en: "Lead Management", pt: "Gestão de liderança" },
         "Scrum Master",
+        "Figma",
       ],
     },
     {
@@ -339,6 +342,7 @@ export const cv: CV = {
         "SwiftUI",
         { en: "Lead Management", pt: "Gestão de liderança" },
         "Scrum Master",
+        "Figma",
       ],
     },
     {

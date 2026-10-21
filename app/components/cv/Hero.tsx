@@ -62,7 +62,7 @@ export default function Hero({
             <span className="h-px w-8 bg-violet-300/60" aria-hidden="true" />
             <span>{t(cv.location, locale)}</span>
             <span aria-hidden="true">·</span>
-            <span className="inline-flex items-center gap-2 text-emerald-300 print:text-emerald-800">
+            <span className="inline-flex items-center gap-2 whitespace-nowrap text-[10px] tracking-normal text-emerald-300 sm:text-xs sm:tracking-[0.25em] print:text-emerald-800">
               <span
                 className="h-1.5 w-1.5 rounded-full bg-emerald-400 print:hidden"
                 aria-hidden="true"

@@ -22,7 +22,7 @@ export default function Contact({
       <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <p
-            className={`inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs uppercase tracking-[0.15em] text-emerald-300 print:border-0 print:p-0 ${mono.className}`}
+            className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-2 text-[10px] uppercase tracking-normal text-emerald-300 sm:px-4 sm:text-xs sm:tracking-[0.15em] print:border-0 print:p-0 ${mono.className}`}
           >
             <span
               className="h-1.5 w-1.5 rounded-full bg-emerald-400 print:hidden"
