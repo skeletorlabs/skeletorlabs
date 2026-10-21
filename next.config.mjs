@@ -4,7 +4,12 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['@heroicons/react', 'lucide-react', 'ethers'],
   },
+  async redirects() {
+    return [{ source: "/cv", destination: "/", permanent: true }];
+  },
   images: {
+    // 75 is the Next default; 90 is used by the CV profile photo.
+    qualities: [75, 90],
     remotePatterns: [
       {
         protocol: "https",

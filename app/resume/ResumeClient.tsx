@@ -17,11 +17,9 @@ export default function Resume() {
               Lucas Silveira <span className="text-slate-400">CV</span>
             </h1>
 
-            <p className="text-slate-600 mt-1">Blockchain Engineer</p>
-
-            <p className="text-slate-500 text-sm">
-              Wallet & Protocol Engineer · Trac Systems — Founder · Skeletor
-              Labs
+            <p className="text-slate-600 mt-1">
+              Software Engineer & Scrum Master | Technical Leadership, Agile
+              Delivery & Crypto Infrastructure
             </p>
           </header>
 
@@ -31,20 +29,67 @@ export default function Resume() {
               Summary
             </h2>
             <p className="leading-relaxed text-slate-700">
-              I'm a blockchain engineer and founder with 15+ years of software
-              development experience. I currently work as a Wallet & Protocol
-              Engineer at Trac Systems, building core wallet features, Ledger
-              hardware integration, and Bitcoin PSBT transaction flows across
-              mobile and browser platforms, while also leading Skeletor Labs —
-              a Web3 engineering studio building production-grade smart
-              contracts and infrastructure across EVM and Base.
+              I'm a hybrid people/process leader and engineer. I've run teams
+              as a Scrum Master, Tech Lead, and CTO, planning sprints,
+              coordinating cross-functional squads, and owning delivery
+              outcomes, and I also build security-critical crypto systems
+              hands-on.
             </p>
             <p className="leading-relaxed text-slate-700 mt-3">
-              I specialize in designing, shipping, and maintaining secure
-              on-chain systems, spanning everything from low-level wallet and
-              protocol engineering to smart contract architecture, often
-              working closely with founders and product teams to turn
-              early-stage ideas into reliable production systems.
+              As CTO at Samurai Starter, I've owned both the technical
+              roadmap and the team managing it: hiring and directing
+              engineers, setting architecture and security standards, and
+              being accountable for delivery to founders and stakeholders.
+              Earlier in my career, at Ília, Blu,
+              and ADTsys, I formally served as Scrum Master across mobile and
+              web squads, running sprint planning, daily stand-ups, and
+              retrospectives while simultaneously acting as technical lead.
+            </p>
+            <p className="leading-relaxed text-slate-700 mt-3">
+              On the engineering side, at TRAC Systems I worked across the
+              full stack of a self-custodial crypto ecosystem: the Main
+              Settlement Bus (a peer-to-peer validator network for verifying
+              and appending transactions), the crypto primitives library
+              (Ed25519 signing, BIP-39 mnemonics, bech32m address encoding,
+              blake3 hashing, transaction assembly), the mobile wallet (React
+              Native), and the browser extension wallet (Next.js).
+            </p>
+            <p className="leading-relaxed text-slate-700 mt-3">
+              I have experience working with:
+            </p>
+            <ul className="list-disc pl-5 space-y-1 text-slate-700 mt-2">
+              <li>
+                Team leadership: sprint planning, stand-ups, retrospectives,
+                delivery ownership, and stakeholder communication
+              </li>
+              <li>Hardware wallet integrations (Ledger)</li>
+              <li>
+                Bitcoin transaction flows (PSBT, Taproot, SegWit, address
+                derivation)
+              </li>
+              <li>EVM smart contracts and protocol integrations</li>
+              <li>
+                P2P/distributed validator networks and self-custodial
+                architectures
+              </li>
+              <li>Mobile and browser wallet clients (React Native, Next.js)</li>
+              <li>Complex signing flows and custody-related systems</li>
+            </ul>
+            <p className="leading-relaxed text-slate-700 mt-3">
+              I typically get involved when things are difficult, whether
+              that's a team that's lost delivery predictability or a system
+              with edge cases, protocol limitations, or inconsistent states
+              that must remain reliable under strict guarantees.
+            </p>
+            <p className="leading-relaxed text-slate-700 mt-3">
+              Stack: Solidity, TypeScript, Node.js, EVM, Bitcoin, React
+              Native, Next.js, ethers.js
+            </p>
+            <p className="leading-relaxed text-slate-700 mt-3">
+              Open to roles that combine engineering and people/delivery
+              management, whether that's Engineering Manager, Scrum Master,
+              or Tech Lead positions where correctness and security are
+              non-negotiable.
             </p>
           </section>
 
@@ -60,10 +105,15 @@ export default function Resume() {
                 <h3 className="font-semibold">Trac Systems</h3>
                 <p className="text-sm text-slate-500 mb-4">
                   Blockchain Engineer / Wallet & Protocol Engineer · Aug 2025 –
-                  Present
+                  Sep 2026
                 </p>
 
                 <ul className="list-disc pl-5 space-y-1 text-slate-700">
+                  <li>
+                    Coordinated closely with leadership and cross-functional
+                    stakeholders to align mobile, browser, and protocol
+                    workstreams on shared timelines.
+                  </li>
                   <li>
                     Developed core wallet features for React Native mobile and
                     browser extension, ensuring consistent behavior and secure
@@ -101,34 +151,19 @@ export default function Resume() {
                 </ul>
               </div>
 
-              {/* Skeletor Labs */}
-              <div>
-                <h3 className="font-semibold">Skeletor Labs</h3>
-                <p className="text-sm text-slate-500 mb-4">
-                  Founder & Lead Blockchain Engineer · Jul 2025 – Present
-                </p>
-
-                <ul className="list-disc pl-5 space-y-1 text-slate-700">
-                  <li>
-                    Leading a Web3 engineering studio partnering with startups
-                    and protocols to design, build, and ship secure smart
-                    contracts and blockchain infrastructure.
-                  </li>
-                  <li>
-                    Defined smart contract architecture and security patterns
-                    for production deployments.
-                  </li>
-                </ul>
-              </div>
-
               {/* Samurai Starter */}
               <div>
                 <h3 className="font-semibold">Samurai Starter</h3>
                 <p className="text-sm text-slate-500 mb-4">
-                  Blockchain Developer / CTO · Mar 2023 – Jul 2025
+                  CTO / Blockchain Developer · Mar 2023 – Jul 2025
                 </p>
 
                 <ul className="list-disc pl-5 space-y-1 text-slate-700">
+                  <li>
+                    As CTO, owned the technical roadmap and delivery plan,
+                    directing engineering priorities and reporting progress
+                    and risk directly to founders.
+                  </li>
                   <li>
                     Designed and implemented Solidity smart contracts for token
                     locking, vesting, staking, and reward distribution.
@@ -189,22 +224,93 @@ export default function Resume() {
               </div>
 
               {/* Earlier Experience */}
+                  {/* Earlier Experience */}
               <div>
                 <h3 className="font-semibold">Earlier Experience</h3>
 
-                <ul className="list-disc pl-5 space-y-1 text-slate-700 mt-3">
-                  <li>
-                    Ília — iOS Developer / Tech Lead · Jan 2021 – Dec 2021
-                  </li>
-                  <li>Blu — iOS Developer / Tech Lead · Mar 2018 – Dec 2020</li>
-                  <li>
-                    ADTsys Cloud Computing — Mobile & Ruby Developer / Tech Lead
-                    · Feb 2015 – Mar 2018
-                  </li>
-                  <li>
-                    IMA — Ruby Developer / Process Manager · Jul 2014 – Jan 2015
-                  </li>
-                </ul>
+                <div className="mt-3 space-y-6">
+                  <div>
+                    <p className="text-slate-700 font-medium">
+                      Ília — Scrum Master / Tech Lead / iOS Developer · Jan
+                      2021 – Dec 2021
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1 text-slate-700 mt-1">
+                      <li>
+                        Acted as Scrum Master for the mobile team, facilitating
+                        sprint planning, daily stand-ups, and retrospectives to
+                        improve delivery predictability across teams.
+                      </li>
+                      <li>
+                        Responsible for coordinating development efforts,
+                        supporting technical decisions, and ensuring delivery
+                        consistency across different products and stacks.
+                      </li>
+                      <li>
+                        Acted as both hands-on developer and technical lead
+                        across multiple teams, including one mobile team and
+                        three web teams.
+                      </li>
+                      <li>
+                        Led mobile development while contributing to broader
+                        system architecture and cross-team integration.
+                      </li>
+                      <li>
+                        Focused on building reliable applications with strong
+                        emphasis on performance, usability, and
+                        maintainability.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-700 font-medium">
+                      Blu — Scrum Master / Tech Lead / iOS Developer · Mar
+                      2018 – Dec 2020
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1 text-slate-700 mt-1">
+                      <li>
+                        Served as Scrum Master for the mobile squad, running
+                        Agile ceremonies and removing delivery blockers
+                        alongside technical leadership duties.
+                      </li>
+                      <li>
+                        Led development of mobile applications with focus on
+                        performance, reliability, and user experience.
+                      </li>
+                      <li>
+                        This experience later supported work on mobile crypto
+                        wallets and complex signing flows.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <p className="text-slate-700 font-medium">
+                      ADTsys Cloud Computing — Scrum Master / Tech Lead /
+                      Mobile & Ruby Developer · Feb 2015 – Mar 2018
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1 text-slate-700 mt-1">
+                      <li>
+                        Facilitated Scrum ceremonies (sprint planning,
+                        stand-ups, retrospectives) as Scrum Master for mobile
+                        and Ruby squads while also leading technical
+                        execution.
+                      </li>
+                      <li>
+                        Led mobile and Ruby development squads, balancing
+                        hands-on engineering with technical leadership
+                        responsibilities.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <ul className="list-disc pl-5 space-y-1 text-slate-700">
+                    <li>
+                      IMA — Ruby Developer / Process Manager · Jul 2014 – Jan
+                      2015
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
@@ -234,10 +340,13 @@ export default function Resume() {
             </h2>
 
             <p className="text-slate-700 leading-relaxed">
-              Blockchain Consulting · Smart Contracts · Full-Stack Development ·
-              Solidity · EVM · Foundry · Base · React · Next.js · Web3
-              Infrastructure · DeFi · Tokenomics · IPFS · NestJS · dApps ·
-              Multichain Deployment · Gas Optimization · UI/UX for Web3
+              Scrum Master · Agile Coaching · Team Leadership · Delivery
+              Management · Stakeholder Communication · Blockchain Consulting ·
+              Smart Contracts · Full-Stack Development · Solidity · EVM (Base) ·
+              Foundry · React · React Native · Next.js · Bitcoin · Wallet
+              Infrastructure · Ledger Integration · Web3 Infrastructure · DeFi ·
+              Tokenomics · IPFS · NestJS · dApps · Multichain Deployment · Gas
+              Optimization · UI/UX for Web3
             </p>
           </section>
 
@@ -260,16 +369,16 @@ export default function Resume() {
             </h2>
 
             <ul className="list-disc pl-5 space-y-1 text-slate-700">
-              <li>Mastering React Native — GoNative</li>
-              <li>Scrum Fundamentals Certified (SFC)</li>
               <li>International Scrum Master Foundation</li>
+              <li>Scrum Fundamentals Certified (SFC)</li>
               <li>MBA Project Management — FGV</li>
+              <li>Mastering React Native — GoNative</li>
             </ul>
           </section>
 
           {/* Footer / Contact */}
           <footer className="pt-8 border-t text-sm text-slate-600 space-y-1">
-            <p>Location: São Paulo, Brazil</p>
+            <p>Location: São José do Rio Preto - SP, Brazil</p>
             <p>LinkedIn: https://www.linkedin.com/in/lfsilveira</p>
             <p>GitHub: https://github.com/skeletorlabs</p>
             <p>Website: https://www.skeletorlabs.xyz</p>

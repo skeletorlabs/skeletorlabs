@@ -107,6 +107,25 @@ Stay updated on our latest projects and insights:
 
 - **Twitter / X:** https://x.com/skeletorlabs
 
+## Online CV
+
+The site root is Lucas Silveira's CV (`/` in English, `/pt` in Brazilian Portuguese). The Skeletor Labs page lives at `/labs`, and `/cv` redirects to `/`.
+
+- **Content:** edit `app/data/cv.ts` only. Components in `app/components/cv/` just render it.
+- **Counters** (years of experience, years in Web3, roles) are derived from the dates in `cv.ts`.
+- **Projects** list the public, non-fork, non-archived repos of `projects.owner` that have GitHub topics (`requireTopics`), read from the GitHub REST API with a 1 hour revalidate. A `description` in `cv.ts` overrides GitHub's. If the API fails, the repos listed in `cv.ts` render without GitHub data.
+- **Print:** browser print (Ctrl/Cmd+P) uses Tailwind `print:` variants and hides the navigation bar.
+
+### Environment
+
+`GITHUB_TOKEN` is optional and server only (see `.env.example`). Without it the API allows 60 requests/hour per IP, which is enough for one request per page per hour.
+
+### Deploy (Vercel)
+
+1. In the Vercel project, add `GITHUB_TOKEN` under Settings → Environment Variables (Production and Preview). A fine-grained token with no extra permissions is enough.
+2. Push to `main`. Vercel runs `next build`; `/` and `/pt` are prerendered and revalidated every hour.
+3. To refresh content immediately after editing `cv.ts`, push again.
+
 ## License
 
 All original code and content within this repository are licensed under the MIT License, unless otherwise specified within individual project directories.

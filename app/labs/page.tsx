@@ -1,26 +1,26 @@
 "use client";
 import dynamic from "next/dynamic";
-import Header from "./components/home/header";
-import Footer from "./components/home/footer";
-import Code from "./components/home/code";
-import Companies from "./components/home/companies";
-import Contributions from "./components/home/contributions";
-import Stack from "./components/home/stack";
-import Testimonials from "./components/home/testimonials";
-import Loading from "./components/loading";
-import Chains from "./components/home/chains";
-import Labs from "./components/home/labs";
-import WhyUs from "./components/home/whyUs";
-import Team from "./components/home/team";
-import Services from "./components/home/services";
-import About from "./components/home/about";
-import FAB from "./components/fab";
-import SelectedEngineeringWork from "./components/home/selected";
-import BitcoinMetrics from "./components/home/bitcoin/metrics";
+import Header from "@/app/components/home/header";
+import Footer from "@/app/components/home/footer";
+import Code from "@/app/components/home/code";
+import Companies from "@/app/components/home/companies";
+import Contributions from "@/app/components/home/contributions";
+import Stack from "@/app/components/home/stack";
+import Testimonials from "@/app/components/home/testimonials";
+import Loading from "@/app/components/loading";
+import Chains from "@/app/components/home/chains";
+import Labs from "@/app/components/home/labs";
+import WhyUs from "@/app/components/home/whyUs";
+import Team from "@/app/components/home/team";
+import Services from "@/app/components/home/services";
+import About from "@/app/components/home/about";
+import FAB from "@/app/components/fab";
+import SelectedEngineeringWork from "@/app/components/home/selected";
+import BitcoinMetrics from "@/app/components/home/bitcoin/metrics";
 
 export default function Home() {
   const Terminal = dynamic(
-    () => import("./components/terminal").then((m) => m.default),
+    () => import("@/app/components/terminal").then((m) => m.default),
     {
       ssr: false,
       loading: () => <Loading css="min-h-[1200px] md:min-h-[688px]" />,

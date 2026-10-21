@@ -1,0 +1,73 @@
+import type { Locale } from "./types";
+
+/** Interface labels. CV content lives in app/data/cv.ts. */
+export const ui = {
+  en: {
+    htmlLang: "en",
+    sections: {
+      about: "About",
+      stack: "Stack",
+      experience: "Experience",
+      projects: "Projects",
+      contact: "Contact",
+    },
+    education: "Education",
+    certifications: "Certifications",
+    languages: "Languages",
+    yearsExperience: "experience",
+    yearsWeb3: "in web3",
+    roles: "roles",
+    yearsUnit: "y",
+    languageLabel: "Language",
+    languageNames: { en: "English", pt: "Portuguese" },
+    projectsIntro:
+      "Personal projects published on GitHub under Skeletor Labs.",
+    projectsMore: "More about Skeletor Labs",
+    stars: "stars",
+    updated: "Updated",
+    skipToContent: "Skip to content",
+    navLabel: "Sections",
+    showMore: "Show more",
+    showLess: "Show less",
+    viewProjects: "View projects",
+    getInTouch: "Get in touch",
+    scroll: "Scroll",
+    viewOnGithub: "View on GitHub",
+    location: "Location",
+  },
+  pt: {
+    htmlLang: "pt-BR",
+    sections: {
+      about: "Sobre",
+      stack: "Stack",
+      experience: "Experiência",
+      projects: "Projetos",
+      contact: "Contato",
+    },
+    education: "Formação",
+    certifications: "Certificações",
+    languages: "Idiomas",
+    yearsExperience: "experiência",
+    yearsWeb3: "em web3",
+    roles: "cargos",
+    yearsUnit: "a",
+    languageLabel: "Idioma",
+    languageNames: { en: "Inglês", pt: "Português" },
+    projectsIntro:
+      "Projetos pessoais publicados no GitHub sob a Skeletor Labs.",
+    projectsMore: "Mais sobre a Skeletor Labs",
+    stars: "estrelas",
+    updated: "Atualizado em",
+    skipToContent: "Pular para o conteúdo",
+    navLabel: "Seções",
+    showMore: "Ver mais",
+    showLess: "Ver menos",
+    viewProjects: "Ver projetos",
+    getInTouch: "Entrar em contato",
+    scroll: "Rolar",
+    viewOnGithub: "Ver no GitHub",
+    location: "Local",
+  },
+} satisfies Record<Locale, unknown>;
+
+export type UI = (typeof ui)["en"];

@@ -1,14 +1,15 @@
-"use client";
 import "./globals.css";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { TerminalContextProvider } from "react-terminal";
-import { AppKit } from "@/app/context/web3modal";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import StateProvider from "./context/state";
-import "react-alice-carousel/lib/alice-carousel.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.skeletorlabs.xyz"),
+  title: "Lucas Silveira",
+  // Skeletor Labs icon for /labs and the older routes; the CV pages override it.
+  icons: { icon: "/favicon.ico" },
+};
 
 export default function RootLayout({
   children,
@@ -16,36 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <TerminalContextProvider>
-      <html lang="en">
-        <head>
-          <title>Skeletor Labs</title>
-          <meta
-            name="description"
-            key="desc"
-            content="Dedicated to building the Future of the Web3 Techs Blockchain De-Fi Space, NFTs Collections"
-          />
-        </head>
-        <body className={`starfield ${inter.className}`}>
-          <StateProvider>
-            <ToastContainer
-              position="top-right"
-              autoClose={6000}
-              hideProgressBar={false}
-              newestOnTop
-              closeOnClick={false}
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-            />
-            <div className="flex flex-col justify-center items-center">
-              <AppKit>{children}</AppKit>
-            </div>
-          </StateProvider>
-        </body>
-      </html>
-    </TerminalContextProvider>
+    <html lang="en">
+      <body className={`starfield ${inter.className}`}>{children}</body>
+    </html>
   );
 }

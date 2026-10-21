@@ -85,4 +85,16 @@ html, body {
   article {
     background: white !important;
   }
+
+  /* CV at / and /pt: dark theme on screen, ink on paper when printed */
+  .cv,
+  .cv * {
+    color: #0f172a !important;
+    -webkit-text-fill-color: #0f172a !important;
+    border-color: #e2e8f0 !important;
+  }
+  .cv a {
+    color: #5b21b6 !important;
+    -webkit-text-fill-color: #5b21b6 !important;
+  }
 }
