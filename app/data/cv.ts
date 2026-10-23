@@ -52,12 +52,16 @@ export const cv: CV = {
         pt: "Ao longo do caminho também liderei times. Como CTO na Samurai Starter, fui responsável pelo roadmap técnico e pelos engenheiros que o executavam e, antes disso, atuei como Scrum Master e Tech Lead em squads mobile e web. Essa combinação faz com que eu me sinta à vontade sendo responsável tanto pela entrega quanto pelo código.",
       },
       {
+        en: "On my own time I designed and built Phase Model in 2026, a market regime intelligence platform deployed on its own domain. It is not publicly launched yet. It has three Go services (a regime engine with data ingestion and workers, an identity service with JWT auth, API keys and Stripe billing in sandbox mode, and a gateway with an MCP server for AI agents) and a Next.js front end. I built it with Claude, and I reviewed and tested what it produced. I use Claude and Codex daily in my development workflow.",
+        pt: "Por conta própria, projetei e construí em 2026 o Phase Model, uma plataforma de inteligência de regime de mercado implantada no seu próprio domínio. Ela ainda não foi lançada publicamente. Tem três serviços em Go (um motor de regime com ingestão de dados e workers, um serviço de identidade com autenticação JWT, API keys e cobrança via Stripe em modo sandbox, e um gateway com um servidor MCP para agentes de IA) e um front end em Next.js. Construí com o Claude, e revisei e testei o que ele produziu. Uso Claude e Codex diariamente no meu fluxo de desenvolvimento.",
+      },
+      {
         en: "On the crypto side, at TRAC Systems I worked on a self-custodial wallet ecosystem (Ledger integration, Bitcoin transaction flows, a crypto primitives library, mobile and browser wallets), and at Samurai Starter I designed and shipped Solidity contracts tested with Foundry.",
         pt: "No lado cripto, na TRAC Systems trabalhei em um ecossistema de carteira self-custodial (integração com Ledger, fluxos de transação Bitcoin, uma biblioteca de primitivas criptográficas, carteiras mobile e de navegador) e, na Samurai Starter, projetei e entreguei contratos em Solidity testados com Foundry.",
       },
       {
-        en: "On my own time I designed and shipped Phase Model in 2026, a market regime model served through a Go API and an MCP server for AI agents, with a Next.js front end, built with Claude. I use Claude and Codex daily in my development workflow. I'm currently looking for software engineering roles on teams building products where reliability and attention to detail matter.",
-        pt: "Por conta própria, projetei e entreguei em 2026 o Phase Model, um modelo de regime de mercado servido por uma API em Go e um servidor MCP para agentes de IA, com front end em Next.js, construído com o Claude. Uso Claude e Codex diariamente no meu fluxo de desenvolvimento. Hoje estou buscando vagas de engenharia de software em times que constroem produtos onde confiabilidade e atenção aos detalhes fazem diferença.",
+        en: "I'm currently looking for software engineering roles on teams building products where reliability and attention to detail matter.",
+        pt: "Hoje estou buscando vagas de engenharia de software em times que constroem produtos onde confiabilidade e atenção aos detalhes fazem diferença.",
       },
     ],
   },
@@ -460,11 +464,11 @@ export const cv: CV = {
         name: "Phase Model",
         year: 2026,
         description: {
-          en: "Market regime model for BTC, ETH, SOL and traditional assets. Designed and shipped in about three months, built with Claude: a Go REST API, an MCP server exposing four tools to AI agents over SSE, API-key auth with public and institutional tiers, and a Next.js front end.",
-          pt: "Modelo de regime de mercado para BTC, ETH, SOL e ativos tradicionais. Projetado e entregue em cerca de três meses, construído com o Claude: uma API REST em Go, um servidor MCP que expõe quatro ferramentas para agentes de IA via SSE, autenticação por API key com planos público e institucional, e um front end em Next.js.",
+          en: "Market regime model for BTC, ETH, SOL and traditional assets. Three Go services (core, identity, gateway), an MCP server for AI agents, JWT and API-key auth, Stripe billing (sandbox) and a Next.js front end. Deployed, not yet publicly launched. Built with Claude, reviewed and tested by me.",
+          pt: "Modelo de regime de mercado para BTC, ETH, SOL e ativos tradicionais. Três serviços em Go (core, identity, gateway), um servidor MCP para agentes de IA, autenticação JWT e por API key, cobrança via Stripe (sandbox) e um front end em Next.js. Em produção, ainda sem lançamento público. Construído com o Claude, revisado e testado por mim.",
         },
         url: "https://www.phasemodel.xyz/",
-        tags: ["Go", "MCP", "SSE", "Next.js", "Claude"],
+        tags: ["Go", "MCP", "Next.js", "Stripe", "Claude"],
       },
     ],
     owner: "skeletorlabs",
