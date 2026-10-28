@@ -34,7 +34,7 @@ export interface Role {
   tags?: Text[];
 }
 
-export type StackIcon = "frontend" | "backend" | "web3" | "management";
+export type StackIcon = "frontend" | "backend" | "web3" | "ai" | "management";
 
 export interface StackGroup {
   title: Text;
@@ -95,6 +95,8 @@ export interface CV {
   headline: Text;
   location: Text;
   availability: Text;
+  /** Remote setup, timezone and start date, shown as a row in Contact. */
+  workMode?: Text;
   siteUrl: string;
   links: ContactLink[];
   about: {

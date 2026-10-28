@@ -1,4 +1,4 @@
-import { Blocks, MonitorSmartphone, Server, Users } from "lucide-react";
+import { Blocks, MonitorSmartphone, Server, Sparkles, Users } from "lucide-react";
 import type { CV, Locale, StackIcon } from "@/app/lib/cv/types";
 import type { UI } from "@/app/lib/cv/i18n";
 import { t } from "@/app/lib/cv/derive";
@@ -34,6 +34,14 @@ const ACCENTS: Record<
     border: "hover:border-violet-400/40",
     dot: "bg-violet-400",
   },
+  ai: {
+    Icon: Sparkles,
+    icon: "bg-fuchsia-400/10 text-fuchsia-300 ring-fuchsia-400/30",
+    line: "via-fuchsia-400/70",
+    glow: "bg-fuchsia-500/20",
+    border: "hover:border-fuchsia-400/40",
+    dot: "bg-fuchsia-400",
+  },
   management: {
     Icon: Users,
     icon: "bg-amber-400/10 text-amber-300 ring-amber-400/30",
@@ -57,7 +65,7 @@ export default function Stack({
 }) {
   return (
     <Section id="stack" index={index} title={ui.sections.stack}>
-      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4 print:grid-cols-4">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 print:grid-cols-3">
         {cv.stack.map((group, i) => {
           const accent = ACCENTS[group.icon ?? "web3"];
           const { Icon } = accent;

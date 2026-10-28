@@ -6,7 +6,7 @@ import Section from "./Section";
 import ShowMore from "./ShowMore";
 
 /** Roles shown before "Show more". */
-const VISIBLE = 4;
+const VISIBLE = 5;
 const LIST =
   "divide-y divide-white/10 border-t border-white/10 print:border-0 print:divide-y-0";
 

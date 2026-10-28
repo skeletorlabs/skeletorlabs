@@ -35,6 +35,7 @@ export const ui = {
     viewOnGithub: "GitHub",
     visitSite: "Visit site",
     location: "Location",
+    workMode: "Availability",
   },
   pt: {
     htmlLang: "pt-BR",
@@ -69,6 +70,7 @@ export const ui = {
     viewOnGithub: "GitHub",
     visitSite: "Ver site",
     location: "Local",
+    workMode: "Disponibilidade",
   },
 } satisfies Record<Locale, unknown>;
 

@@ -64,6 +64,16 @@ export default function Contact({
             </dt>
             <dd className="text-lg text-white">{t(cv.location, locale)}</dd>
           </div>
+          {cv.workMode && (
+            <div className="flex flex-col gap-1 py-5 sm:flex-row sm:items-center sm:justify-between">
+              <dt
+                className={`text-xs uppercase tracking-[0.2em] text-white/50 ${mono.className}`}
+              >
+                {ui.workMode}
+              </dt>
+              <dd className="text-lg text-white">{t(cv.workMode, locale)}</dd>
+            </div>
+          )}
         </dl>
       </div>
     </Section>

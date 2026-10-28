@@ -21,6 +21,10 @@ export const cv: CV = {
     en: "Open to software engineering roles",
     pt: "Disponível para vagas de engenharia de software",
   },
+  workMode: {
+    en: "Remote, UTC-3, available immediately",
+    pt: "Remoto, UTC-3, disponível imediatamente",
+  },
   siteUrl: "https://www.skeletorlabs.xyz",
 
   links: [
@@ -126,7 +130,13 @@ export const cv: CV = {
         "PostgreSQL",
         "Go",
         "Ruby",
+        "Firebase (Firestore)",
       ],
+    },
+    {
+      title: "AI / MCP",
+      icon: "ai",
+      items: ["Claude", "Codex", "MCP"],
     },
     {
       title: "Blockchain & Web3",
@@ -326,8 +336,8 @@ export const cv: CV = {
     {
       company: "Blu",
       title: {
-        en: "iOS Developer / Tech Lead",
-        pt: "Desenvolvedor iOS / Tech Lead",
+        en: "React Native and iOS Developer / Tech Lead",
+        pt: "Desenvolvedor React Native e iOS / Tech Lead",
       },
       location: { en: "Rio de Janeiro, Brazil (Remote)", pt: "Rio de Janeiro, Brasil (Remoto)" },
       start: "2018-03",
@@ -346,6 +356,7 @@ export const cv: CV = {
         "React.js",
         "Ruby on Rails",
         "GraphQL",
+        "React Native",
         "Swift",
         "SwiftUI",
         { en: "Lead Management", pt: "Gestão de liderança" },
@@ -475,7 +486,7 @@ export const cv: CV = {
     includeAllPublic: true,
     // Only repos with at least one topic on GitHub are shown.
     requireTopics: true,
-    exclude: ["skeletorlabs/.github"],
+    exclude: ["skeletorlabs/.github", "skeletorlabs/chainlink-ccip-poc"],
     // Personal projects under Skeletor Labs. Descriptions come from GitHub
     // unless set here. These are also what renders if the GitHub API fails,
     // so keep this list to repos that have topics.
@@ -485,7 +496,6 @@ export const cv: CV = {
       { repo: "skeletorlabs/samurai" },
       { repo: "skeletorlabs/l2ve" },
       { repo: "skeletorlabs/skeletorlabs-contracts" },
-      { repo: "skeletorlabs/chainlink-ccip-poc" },
     ],
   },
 };
